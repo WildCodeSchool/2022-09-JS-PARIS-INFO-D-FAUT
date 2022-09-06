@@ -1,6 +1,12 @@
 import React, { useRef, useContext } from "react";
 import "./Ter.css";
-import { Footer, Header, Input, Button } from "../../components/index";
+import {
+  Footer,
+  Header,
+  Input,
+  Button,
+  Textarea,
+} from "../../components/index";
 import { Geolocalisation } from "../../utils/Geolocalisation/Geolocalisation";
 import { LongitudeContext } from "../../context/LongitudeContext";
 import { LatitudeContext } from "../../context/LatitudeContext";
@@ -45,7 +51,7 @@ const Ter = () => {
           maxlength={8}
         />
         <Input forId="ter" type="text" champ="Numéro de Ter" />
-        <Input forId="anomalie" type="text" champ="Description de l'anomalie" />
+        <Textarea className="textarea" forId="field" />
         <Input forId="file" type="file" champ="Joindre une photographie" />
         <Input
           forId="file"

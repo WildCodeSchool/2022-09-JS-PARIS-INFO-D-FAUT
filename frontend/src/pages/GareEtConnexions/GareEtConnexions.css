@@ -33,6 +33,15 @@ h1 {
   color: rgb(213, 43, 30);
 }
 
+.inputCss {
+  color: rgb(213, 43, 30);
+}
+
+.inputAnomalie {
+  height: 40px;
+  width: 70%;
+}
+
 h2 {
   color: rgb(255, 255, 255);
   font-weight: bold;

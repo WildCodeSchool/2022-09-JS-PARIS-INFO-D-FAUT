@@ -12,6 +12,7 @@ export const Input = ({
   placeholder,
   minlength,
   maxlength,
+  className,
 }) => {
   return (
     <div className="input-container">
@@ -19,7 +20,7 @@ export const Input = ({
         {champ}
       </label>
       <input
-        className="input-text"
+        className={className}
         type={type}
         id={forId}
         name={champ}
