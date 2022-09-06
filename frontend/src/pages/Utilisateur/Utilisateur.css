@@ -1,51 +1,51 @@
 .utilisateur-container {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  
-  .backProfile {
-    display: none;
-  }
-  
-  .profileProfile {
-    display: none;
-  }
-  
-  .champ-container {
-    padding-top: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    height: 100%;
-    background-color: rgb(0, 17, 43);
-  }
-  
-  .form-container {
-    height: 60%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-  }
-  
-  .trait {
-    border-top: 3px solid rgb(213, 43, 30);
-    border-radius: 15px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 60%;
-  }
-  
-  .link {
-    margin-top: 10px;
-    height: 120px;
-  }
-  .inscription {
-    width: 135px;
-    height: 35px;
-    color: rgb(213, 43, 30);
-    border-radius: 20px;
-    font-weight: bold;
-  }
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.backProfile {
+  display: none;
+}
+
+.profileProfile {
+  display: none;
+}
+
+.champ-container {
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
+  background-color: rgb(0, 17, 43);
+}
+
+.form-container {
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.trait {
+  border-top: 3px solid rgb(213, 43, 30);
+  border-radius: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+}
+
+.link {
+  margin-top: 10px;
+  height: 120px;
+}
+.inscription {
+  width: 135px;
+  height: 35px;
+  color: rgb(213, 43, 30);
+  border-radius: 20px;
+  font-weight: bold;
+}
