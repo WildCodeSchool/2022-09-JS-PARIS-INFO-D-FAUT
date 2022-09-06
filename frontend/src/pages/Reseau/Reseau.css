@@ -1,0 +1,47 @@
+.reseau-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.backReseau {
+  margin-top: 5px;
+  margin-left: 5px;
+  width: 35px;
+  height: 35px;
+}
+
+.profileReseau {
+  display: none;
+}
+
+.reseau_champ-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
+  background-color: rgb(0, 17, 43);
+}
+
+h1 {
+  margin-top: 5px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 25px;
+  color: rgb(213, 43, 30);
+}
+
+h2 {
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  font-size: 18px;
+  text-align: center;
+}
+
+.envoyer {
+  color: rgb(213, 43, 30);
+  font-weight: bold;
+  border-radius: 20px;
+}
