@@ -21,3 +21,7 @@
 .profileProfile {
   display: none;
 }
+
+.inputProfil {
+  border-radius: 20px;
+}

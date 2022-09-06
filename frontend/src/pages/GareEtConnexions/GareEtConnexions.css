@@ -33,8 +33,13 @@ h1 {
   color: rgb(213, 43, 30);
 }
 
-.inputCss {
+.inputGare {
   color: rgb(213, 43, 30);
+  border-radius: 20px;
+}
+
+.textGare {
+  border-radius: 20px;
 }
 
 .inputAnomalie {

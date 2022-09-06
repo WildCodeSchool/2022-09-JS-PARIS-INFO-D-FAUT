@@ -44,16 +44,28 @@ const Voyageurs = () => {
       >
         <h1>GARE & CONNEXIONS</h1>
         <Input
+          className="inputVoyageurs"
           forId="cp"
           type="text"
           champ="Numéro de CP"
           minlength={8}
           maxlength={8}
         />
-        <Input forId="tgv" type="text" champ="Numéro du train" />
-        <Textarea className="textarea" forId="field" />
-        <Input forId="file" type="file" champ="Joindre une photographie" />
         <Input
+          className="inputVoyageurs"
+          forId="tgv"
+          type="text"
+          champ="Numéro du train"
+        />
+        <Textarea className="textVoyageurs" forId="field" />
+        <Input
+          className="inputVoyageurs"
+          forId="file"
+          type="file"
+          champ="Joindre une photographie"
+        />
+        <Input
+          className="inputReseau"
           forId="file"
           onChange={Geolocalisation()}
           type="text"

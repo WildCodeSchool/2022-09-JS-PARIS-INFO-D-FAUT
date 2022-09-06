@@ -31,16 +31,33 @@ const Profile = () => {
       >
         <h1>PROFIL</h1>
         <Input
+          className="inputProfil"
           forId="cp"
           type="text"
           champ="Numéro de CP"
           // minlength="8"
           // maxlength="8"
         />
-        <Input forId="mail" type="email" champ="Adresse mail" />
-        <Input forId="telephone" type="tel" champ="Téléphone" />
-        <Input forId="mot" type="password" champ="Mot de passe" />
         <Input
+          className="inputProfil"
+          forId="mail"
+          type="email"
+          champ="Adresse mail"
+        />
+        <Input
+          className="inputProfil"
+          forId="telephone"
+          type="tel"
+          champ="Téléphone"
+        />
+        <Input
+          className="inputProfil"
+          forId="mot"
+          type="password"
+          champ="Mot de passe"
+        />
+        <Input
+          className="inputProfil"
           forId="confirmation"
           type="password"
           champ="Confirmation du mot de passe"

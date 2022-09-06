@@ -33,11 +33,13 @@ h1 {
   color: rgb(213, 43, 30);
 }
 
-h2 {
-  color: rgb(255, 255, 255);
-  font-weight: bold;
-  font-size: 18px;
-  text-align: center;
+.inputReseau {
+  border-radius: 20px;
+  color: rgb(213, 43, 30);
+}
+
+.textReseau {
+  border-radius: 20px;
 }
 
 .envoyer {

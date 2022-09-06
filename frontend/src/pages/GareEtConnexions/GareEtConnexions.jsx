@@ -44,7 +44,7 @@ const GareEtConnexions = () => {
       >
         <h1>GARE & CONNEXIONS</h1>
         <Input
-          className="inputCss"
+          className="inputGare"
           forId="cp"
           type="text"
           champ="Numéro de CP"
@@ -52,21 +52,21 @@ const GareEtConnexions = () => {
           maxlength={8}
         />
         <Input
-          className="inputCss"
+          className="inputGare"
           forId="gare"
           type="text"
           champ="Gare concernée"
         />
         {/* <Input className="inputAnomalie" forId="anomalie" type="text" champ="Description de l'anomalie" /> */}
-        <Textarea className="textarea" forId="field" />
+        <Textarea className="textGare" forId="field" />
         <Input
-          className="inputCss"
+          className="inputGare"
           forId="file"
           type="file"
           champ="Joindre une photographie"
         />
         <Input
-          className="inputCss"
+          className="inputGare"
           forId="file"
           onChange={Geolocalisation()}
           type="text"
