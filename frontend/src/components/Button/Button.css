@@ -1,0 +1,16 @@
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  button {
+    width: 135px;
+    height: 35px;
+  }
+  
+  .label-text {
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    font-size: 18px;
+  }
