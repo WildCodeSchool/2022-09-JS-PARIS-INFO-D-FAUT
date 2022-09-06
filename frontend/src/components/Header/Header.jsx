@@ -5,7 +5,7 @@ import logo from "../../assets/logo-remove.png";
 import profile from "../../assets/logo-profil.jpg";
 import back from "../../assets/logo-back.jpg";
 
-export default function Header({ backCss, profileCss }) {
+export const Header = ({ backCss, profileCss }) => {
   return (
     <div className="header-container">
       <Link to="/">
@@ -17,4 +17,4 @@ export default function Header({ backCss, profileCss }) {
       </Link>
     </div>
   );
-}
+};
