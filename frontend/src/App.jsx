@@ -21,11 +21,14 @@ function App() {
           <div className="App">
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/gare-et-connexions" element={<GareEtConnexions />} />
-              <Route path="/ter" element={<Ter />} /> 
-              <Route path="/reseau" element={<Reseau />} /> 
-              < Route path="/voyageurs" element={<Voyageurs />} /> 
-              <Route path="/profile" element={<Profile />} /> 
+              <Route
+                path="/gare-et-connexions"
+                element={<GareEtConnexions />}
+              />
+              <Route path="/ter" element={<Ter />} />
+              <Route path="/reseau" element={<Reseau />} />
+              <Route path="/voyageurs" element={<Voyageurs />} />
+              <Route path="/profile" element={<Profile />} />
               <Route path="/utilisateur" element={<Utilisateur />} />
             </Routes>
           </div>

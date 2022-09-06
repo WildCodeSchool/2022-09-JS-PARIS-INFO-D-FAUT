@@ -1,6 +1,6 @@
-import { Header, Footer, Input, Button } from "../../components/index";
 import React, { useRef } from "react";
 import { Link } from "react-router-dom";
+import { Header, Footer, Input, Button } from "../../components/index";
 import "./Utilisateur.css";
 
 export const Utilisateur = () => {
@@ -46,7 +46,7 @@ export const Utilisateur = () => {
             type="submit"
           />
         </form>
-        <div className="trait"></div>
+        <div className="trait" />
         <Link className="link" to="/profile">
           <Button
             classButton="inscription"

@@ -17,6 +17,7 @@
   },
   "plugins": ["react", "import"],
   "rules": {
+    "react/jsx-no-constructed-context-values": 0,
     "react/button-has-type": [0],
     "import/prefer-default-export": 0,
     "react/function-component-definition": [0],
