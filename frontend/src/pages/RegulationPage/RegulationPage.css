@@ -1,0 +1,116 @@
+.legal-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  height: 400%;
+}
+
+.identite-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 85%;
+}
+
+.identite-container h2 {
+  color: black;
+}
+
+.conditions-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 85%;
+}
+
+.conditions-container h2 {
+  color: black;
+}
+
+.informations-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 85%;
+}
+
+.informations-container h2 {
+  color: black;
+}
+
+.interactivite-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 85%;
+}
+
+.interactivite-container h2 {
+  color: black;
+}
+
+.propriete-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 85%;
+}
+
+.propriete-container h2 {
+  color: black;
+}
+
+.liens-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 85%;
+}
+
+.liens-container h2 {
+  color: black;
+}
+
+.liens-container h3 {
+  color: black;
+}
+
+.confidentialite-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 85%;
+}
+
+.confidentialite-container h2 {
+  color: black;
+}
+
+.credits-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 85%;
+}
+
+.credits-container h2 {
+  color: black;
+}
+
+.mentions-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 85%;
+}
