@@ -1,11 +1,11 @@
 import React, { useRef, useContext } from "react";
-import "./Ter.css";
+import "./Voyageurs.css";
 import { Footer, Header, Input, Button } from "../../components/index";
 import { Geolocalisation } from "../../utils/Geolocalisation/Geolocalisation";
 import { LongitudeContext } from "../../context/LongitudeContext";
 import { LatitudeContext } from "../../context/LatitudeContext";
 
-const Ter = () => {
+const Voyageurs = () => {
   const formRef = useRef(null);
 
   const { latitude } = useContext(LatitudeContext);
@@ -26,17 +26,17 @@ const Ter = () => {
   //   console.log(formRef);
 
   return (
-    <div className="ter-container">
-      <Header backCss="backTer" profileCss="profileTer" />
+    <div className="voyageurs-container">
+      <Header backCss="backVoyageurs" profileCss="profileVoyageurs" />
 
       <form
-        className="ter_champ-container"
+        className="voyageurs_champ-container"
         ref={formRef}
-        action="/upload-ter"
+        action="/upload-voyageurs"
         method="POST"
         onSubmit={onSubmit}
       >
-        <h1> TER </h1>
+        <h1>GARE & CONNEXIONS</h1>
         <Input
           forId="cp"
           type="text"
@@ -44,7 +44,7 @@ const Ter = () => {
           minlength={8}
           maxlength={8}
         />
-        <Input forId="ter" type="text" champ="Numéro de Ter" />
+        <Input forId="tgv" type="text" champ="Numéro du train" />
         <Input forId="anomalie" type="text" champ="Description de l'anomalie" />
         <Input forId="file" type="file" champ="Joindre une photographie" />
         <Input
@@ -70,4 +70,4 @@ const Ter = () => {
   );
 };
 
-export default Ter;
+export default Voyageurs;

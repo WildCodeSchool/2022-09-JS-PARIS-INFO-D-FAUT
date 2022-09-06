@@ -1,4 +1,4 @@
-.ter-container {
+.voyageurs-container {
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -6,18 +6,18 @@
   justify-content: space-between;
 }
 
-.backTer {
+.backVoyageurs {
   margin-top: 5px;
   margin-left: 5px;
   width: 35px;
   height: 35px;
 }
 
-.profileTer {
+.profileVoyageurs {
   display: none;
 }
 
-.ter_champ-container {
+.voyageurs_champ-container {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
