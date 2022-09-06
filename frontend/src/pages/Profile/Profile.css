@@ -1,23 +1,23 @@
 .profile-container {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  
-  .profile_champ-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    height: 100%;
-    background-color: rgb(0, 17, 43);
-  }
-  
-  .backProfile {
-    display: none;
-  }
-  
-  .profileProfile {
-    display: none;
-  }
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.profile_champ-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
+  background-color: rgb(0, 17, 43);
+}
+
+.backProfile {
+  display: none;
+}
+
+.profileProfile {
+  display: none;
+}
