@@ -15,7 +15,10 @@
 }
 
 .backProfile {
-  display: none;
+  margin-top: 5px;
+  margin-left: 5px;
+  width: 35px;
+  height: 35px;
 }
 
 .profileProfile {
