@@ -6,11 +6,14 @@
   justify-content: space-between;
 }
 
-.backProfile {
-  display: none;
+.backUtilisateur {
+  margin-top: 5px;
+  margin-left: 5px;
+  width: 35px;
+  height: 35px;
 }
 
-.profileProfile {
+.profileUtilisateur {
   display: none;
 }
 

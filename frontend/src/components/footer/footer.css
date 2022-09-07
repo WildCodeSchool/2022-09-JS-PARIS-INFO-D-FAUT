@@ -2,18 +2,22 @@
   height: 70px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+
   background-color: rgb(161, 0, 107);
 }
 
 .emergency {
-  margin-top: 7px;
   margin-left: 5px;
   width: 35px;
   height: 35px;
 }
 
+.legal {
+  width: 275px;
+}
+
 .connect {
-  margin-top: 7px;
   margin-right: 5px;
   width: 55px;
   height: 35px;
