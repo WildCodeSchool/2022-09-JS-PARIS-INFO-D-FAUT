@@ -1,7 +1,7 @@
 import React from "react";
 import "./Footer.css";
 import { useNavigate } from "react-router-dom";
-import emergency from "../../assets/logo-emergency.jpg";
+import emergency from "../../assets/logo-emergency.png";
 import connect from "../../assets/logo-connect.png";
 import legal from "../../assets/logo-legal.png";
 

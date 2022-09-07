@@ -23,8 +23,24 @@
 }
 
 .legal:hover {
-  animation: shadow-inset-center 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation: blink-2 0.9s both;
+} 
+
+
+
+@keyframes blink-2 {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 1;
+  }
 }
+
+
 
 .connect {
   margin-right: 5px;

@@ -2,8 +2,8 @@ import React from "react";
 import "./Header.css";
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo-remove.png";
-import profile from "../../assets/logo-profil.jpg";
-import back from "../../assets/logo-back.jpg";
+import profile from "../../assets/logo-profil.png";
+import back from "../../assets/logo-back.png";
 
 export const Header = ({ backCss, profileCss }) => {
   return (
