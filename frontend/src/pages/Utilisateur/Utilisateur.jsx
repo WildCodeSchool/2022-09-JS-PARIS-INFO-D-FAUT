@@ -32,13 +32,19 @@ export const Utilisateur = () => {
         >
           <h1>UTILISATEUR</h1>
           <Input
+            className="inputUtilisateur"
             forId="cp"
             type="text"
             champ="Numéro de CP"
             // minlength="8"
             // maxlength="8"
           />
-          <Input forId="mot" type="password" champ="Mot de passe" />
+          <Input
+            className="inputUtilisateur"
+            forId="mot"
+            type="password"
+            champ="Mot de passe"
+          />
           <Button
             classButton="envoyer"
             // onClick={(e) => e}

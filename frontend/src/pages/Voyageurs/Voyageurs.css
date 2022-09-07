@@ -33,11 +33,13 @@ h1 {
   color: rgb(213, 43, 30);
 }
 
-h2 {
-  color: rgb(255, 255, 255);
-  font-weight: bold;
-  font-size: 18px;
-  text-align: center;
+.inputVoyageurs {
+  color: rgb(213, 43, 30);
+  border-radius: 20px;
+}
+
+.textVoyageurs {
+  border-radius: 20px;
 }
 
 .envoyer {

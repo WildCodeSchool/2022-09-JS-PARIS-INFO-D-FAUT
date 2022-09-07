@@ -44,16 +44,28 @@ const Ter = () => {
       >
         <h1> TER </h1>
         <Input
+          className="inputTer"
           forId="cp"
           type="text"
           champ="Numéro de CP"
           minlength={8}
           maxlength={8}
         />
-        <Input forId="ter" type="text" champ="Numéro de Ter" />
-        <Textarea className="textarea" forId="field" />
-        <Input forId="file" type="file" champ="Joindre une photographie" />
         <Input
+          className="inputTer"
+          forId="ter"
+          type="text"
+          champ="Numéro de Ter"
+        />
+        <Textarea className="textTer" forId="field" />
+        <Input
+          className="inputTer"
+          forId="file"
+          type="file"
+          champ="Joindre une photographie"
+        />
+        <Input
+          className="inputTer"
           forId="file"
           onChange={Geolocalisation()}
           type="text"

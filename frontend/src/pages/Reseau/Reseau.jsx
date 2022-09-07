@@ -44,16 +44,28 @@ const Reseau = () => {
       >
         <h1>RESEAU</h1>
         <Input
+          className="inputReseau"
           forId="cp"
           type="text"
           champ="Numéro de CP"
           minlength={8}
           maxlength={8}
         />
-        <Input forId="ligne" type="text" champ="Numéro de ligne / Emprise" />
-        <Textarea className="textarea" forId="field" />
-        <Input forId="file" type="file" champ="Joindre une photographie" />
         <Input
+          className="inputReseau"
+          forId="ligne"
+          type="text"
+          champ="Numéro de ligne / Emprise"
+        />
+        <Textarea className="textReseau" forId="field" />
+        <Input
+          className="inputReseau"
+          forId="file"
+          type="file"
+          champ="Joindre une photographie"
+        />
+        <Input
+          className="inputReseau"
           forId="file"
           onChange={Geolocalisation()}
           type="text"
