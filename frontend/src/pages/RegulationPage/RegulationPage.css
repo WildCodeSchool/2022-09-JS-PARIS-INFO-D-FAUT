@@ -1,4 +1,6 @@
 .legal-container {
+  background-color: #00112b;
+  color: #ffff;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -7,16 +9,22 @@
   height: 400%;
 }
 
+.legal-container h1 {
+  color: #ffb612;
+  font-style: italic;
+}
+
 .identite-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 85%;
+  color: #ffff;
 }
 
 .identite-container h2 {
-  color: black;
+  color: #cd0037;
 }
 
 .conditions-container {
@@ -28,7 +36,10 @@
 }
 
 .conditions-container h2 {
-  color: black;
+  color: #cd0037;
+}
+.conditions-container p {
+  color: #ffff;
 }
 
 .informations-container {
@@ -40,7 +51,15 @@
 }
 
 .informations-container h2 {
-  color: black;
+  color: #cd0037;
+}
+
+.informations-container p {
+  color: #ffff;
+}
+
+.identite-container p {
+  color: #ffff;
 }
 
 .interactivite-container {
@@ -52,7 +71,11 @@
 }
 
 .interactivite-container h2 {
-  color: black;
+  color: #cd0037;
+}
+
+.interactivite-container p {
+  color: #ffff;
 }
 
 .propriete-container {
@@ -64,7 +87,7 @@
 }
 
 .propriete-container h2 {
-  color: black;
+  color: #cd0037;
 }
 
 .liens-container {
@@ -75,12 +98,24 @@
   width: 85%;
 }
 
+.propriete-container p {
+  color: #ffff;
+}
+
 .liens-container h2 {
-  color: black;
+  color: #cd0037;
 }
 
 .liens-container h3 {
-  color: black;
+  color: #cd0037;
+}
+
+.liens-container p {
+  color: #ffff;
+}
+
+.liens-container span {
+  color: #ffb612;
 }
 
 .confidentialite-container {
@@ -92,7 +127,11 @@
 }
 
 .confidentialite-container h2 {
-  color: black;
+  color: #cd0037;
+}
+
+.confidentialite-container p {
+  color: #ffff;
 }
 
 .credits-container {
@@ -104,7 +143,11 @@
 }
 
 .credits-container h2 {
-  color: black;
+  color: #cd0037;
+}
+
+.credits-container p {
+  color: #ffff;
 }
 
 .mentions-container {
@@ -113,4 +156,5 @@
   align-items: center;
   justify-content: center;
   width: 85%;
+  color: #ffff;
 }

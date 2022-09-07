@@ -18,7 +18,8 @@
 }
 
 .legal {
-  width: 275px;
+  width: 75px;
+  cursor: pointer;
 }
 
 .legal:hover {

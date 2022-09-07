@@ -1,11 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Header, Footer } from "../../components/index";
 import "./RegulationPage.css";
 
 const RegulationPage = () => {
   return (
     <Link to="/">
+      <Header backCss="backReseau" profileCss="profileReseau" />
       <div className="legal-container">
+        <h1>MENTIONS LEGALES</h1>
         <div className="identite-container">
           <h2 className="identify">IDENTITÉ</h2>
           <br />
@@ -98,7 +101,9 @@ const RegulationPage = () => {
             tierces présentes sur le réseau Internet, tant en ce qui concerne
             leur contenu que leur pertinence.
           </p>
+          <br />
           <h3>Liens entrants</h3>
+          <br />
           <p>
             Le propriétaire du site autorise les liens hypertextes vers l’une
             des pages de ce site, à condition que ceux-ci ouvrent une nouvelle
@@ -183,6 +188,7 @@ const RegulationPage = () => {
           </ol>
         </div>
       </div>
+      <Footer />
     </Link>
   );
 };
