@@ -1,11 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { Header, Footer } from "../../components/index";
 import "./RegulationPage.css";
 
 const RegulationPage = () => {
   return (
-    <Link to="/">
+    <div>
       <Header backCss="backReseau" profileCss="profileReseau" />
       <div className="legal-container">
         <h1>MENTIONS LEGALES</h1>
@@ -189,7 +188,7 @@ const RegulationPage = () => {
         </div>
       </div>
       <Footer />
-    </Link>
+    </div>
   );
 };
 
