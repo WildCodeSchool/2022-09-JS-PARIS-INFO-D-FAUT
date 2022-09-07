@@ -9,11 +9,11 @@
   height: 150px;
 }
 
-.profileCss{
+.profileCss {
   transition-duration: 0.5s;
 }
 
-.profileCss:hover{
+.profileCss:hover {
   width: 40px;
   height: 40px;
 }
