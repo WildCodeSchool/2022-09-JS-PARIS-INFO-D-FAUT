@@ -21,7 +21,7 @@ export const Utilisateur = () => {
 
   return (
     <div className="utilisateur-container">
-      <Header backCss="backProfile" profileCss="profileProfile" />
+      <Header backCss="backUtilisateur" profileCss="profileUtilisateur" />
       <div className="champ-container">
         <form
           className="form-container"
