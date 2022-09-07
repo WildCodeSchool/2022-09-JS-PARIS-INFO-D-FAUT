@@ -35,12 +35,12 @@ p {
   transition-duration: 0.5s;
 }
 
-.profile:hover{
+.profile:hover {
   width: 40px;
   height: 40px;
 }
 
 .Typewriter {
   margin-left: 5%;
-  color: #D52B1E;
+  color: #d52b1e;
 }
