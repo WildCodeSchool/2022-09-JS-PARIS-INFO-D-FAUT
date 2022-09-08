@@ -8,13 +8,19 @@ import back from "../../assets/logo-back.png";
 export const Header = ({ backCss, profileCss }) => {
   return (
     <div className="header-container">
-      <Link to="/">
-        <img className={backCss} src={back} alt="logo utilisateur" />
-      </Link>
-      <img className="logo" src={logo} alt="Logo" />
-      <Link to="/utilisateur">
-        <img className={profileCss} src={profile} alt="logo utilisateur" />
-      </Link>
+      <div className="header-back">
+        <Link to="/">
+          <img className={backCss} src={back} alt="logo utilisateur" />
+        </Link>
+      </div>
+      <div className="header-logo">
+        <img className="logo" src={logo} alt="Logo" />
+      </div>
+      <div className="header-utilisateur">
+        <Link to="/utilisateur">
+          <img className={profileCss} src={profile} alt="logo utilisateur" />
+        </Link>
+      </div>
     </div>
   );
 };

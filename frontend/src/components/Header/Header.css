@@ -4,6 +4,23 @@
   background-color: rgb(110, 30, 120);
 }
 
+.header-back {
+  width: 20%;
+}
+
+.header-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60%;
+}
+
+.header-utilisateur {
+  display: flex;
+  justify-content: right;
+  width: 20%;
+}
+
 .logo {
   width: 125px;
   height: 125px;
