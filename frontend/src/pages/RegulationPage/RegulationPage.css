@@ -158,9 +158,9 @@
   width: 85%;
   color: #ffff;
 }
-.backReseau{
+.backReseau {
   transition-duration: 0.5s;
 }
-.backReseau:hover{
-  transform: rotate(-15deg)
+.backReseau:hover {
+  transform: rotate(-15deg);
 }

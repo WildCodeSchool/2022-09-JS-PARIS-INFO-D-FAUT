@@ -13,10 +13,9 @@
   height: 35px;
   transition-duration: 0.5s;
 }
-.backUtilisateur:hover{
-  transform: rotate(-15deg)
+.backUtilisateur:hover {
+  transform: rotate(-15deg);
 }
-
 
 .profileUtilisateur {
   display: none;

@@ -12,12 +12,11 @@
   width: 35px;
   height: 35px;
   transition-duration: 0.5s;
-  }
-  
-  .backReseau:hover{
-    transform: rotate(-15deg)
-  }
+}
 
+.backReseau:hover {
+  transform: rotate(-15deg);
+}
 
 .profileReseau {
   display: none;

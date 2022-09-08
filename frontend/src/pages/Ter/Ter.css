@@ -12,11 +12,10 @@
   width: 35px;
   height: 35px;
   transition-duration: 0.5s;
-  }
-  .backTer:hover{
-    transform: rotate(-15deg)
-  }
-
+}
+.backTer:hover {
+  transform: rotate(-15deg);
+}
 
 .profileTer {
   display: none;

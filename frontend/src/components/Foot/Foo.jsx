@@ -1,5 +1,5 @@
 import React from "react";
-import "./Footer.css";
+import "./Foo.css";
 import { useNavigate } from "react-router-dom";
 import emergency from "../../assets/logo-emergency.png";
 import connect from "../../assets/logo-connect.png";

@@ -24,9 +24,7 @@
 
 .legal:hover {
   animation: blink-2 0.9s both;
-} 
-
-
+}
 
 @keyframes blink-2 {
   0% {
@@ -39,8 +37,6 @@
     opacity: 1;
   }
 }
-
-
 
 .connect {
   margin-right: 5px;

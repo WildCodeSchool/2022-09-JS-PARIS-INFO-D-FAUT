@@ -13,11 +13,9 @@
   height: 35px;
   transition-duration: 0.5s;
 }
-.backVoyageurs:hover{
-  transform: rotate(-15deg)
+.backVoyageurs:hover {
+  transform: rotate(-15deg);
 }
-
-
 
 .profileVoyageurs {
   display: none;
