@@ -11,10 +11,11 @@ router.post("/items", itemControllers.add);
 router.delete("/items/:id", itemControllers.destroy);
 
 const usersControllers = require("./controllers/usersControllers");
+const { hashPassword } = require("./middleware/auth");
 
 router.get("/users", usersControllers.getUsers);
 router.get("/users/:id", usersControllers.getUsersById);
-router.post("/users", usersControllers.postUsers);
+router.post("/users", hashPassword, usersControllers.postUsers);
 router.put("/users/:id", usersControllers.updateUsers);
 router.delete("/users/:id", usersControllers.deleteUsers);
 
