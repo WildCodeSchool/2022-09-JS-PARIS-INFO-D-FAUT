@@ -18,4 +18,12 @@ router.post("/users", usersControllers.postUsers);
 router.put("/users/:id", usersControllers.updateUsers);
 router.delete("/users/:id", usersControllers.deleteUsers);
 
+const defaultsControllers = require("./controllers/defaultsControllers");
+
+router.get("/defaults", defaultsControllers.getDefaults);
+router.get("/defaults/:id", defaultsControllers.getDefaultsById);
+router.post("/defaults", defaultsControllers.postDefaults);
+// router.put("/defaults/:id", defaultsControllers.updateDefaults);
+// router.delete("/defaults/:id", defaultsControllers.deleteDefaults);
+
 module.exports = router;

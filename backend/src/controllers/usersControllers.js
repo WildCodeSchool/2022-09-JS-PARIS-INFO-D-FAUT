@@ -74,14 +74,16 @@ const deleteUsers = (req, res) => {
     .query("delete from users where id_user=?", [id])
     .then(([result]) => {
       if (result.affectedRows === 0) {
-        res.status(404).json({ message: `task was not found in db` });
+        res.status(404).json({ message: `user was not found in db` });
       } else {
-        res.status(200).json({ message: `task ${id} has been deleted` });
+        res
+          .status(200)
+          .json({ message: `user number: ${id} has been deleted` });
       }
     })
     .catch((err) => {
       res.status(500).json({
-        message: `task ${id} was not deleted because of error, ${err}`,
+        message: `user number: ${id} was not deleted because of error, ${err}`,
       });
     });
 };
