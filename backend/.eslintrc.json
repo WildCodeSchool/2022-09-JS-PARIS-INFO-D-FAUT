@@ -9,7 +9,9 @@
     "sourceType": "module"
   },
   "rules": {
+    "radix": "off",
     "no-console": "off",
+    "camelcase": "off",
     "no-restricted-syntax": [
       "error",
       {
