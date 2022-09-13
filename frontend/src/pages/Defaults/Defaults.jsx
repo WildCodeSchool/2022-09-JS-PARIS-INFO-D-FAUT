@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import "./Defaults.css";
 import axios from "axios";
+import { DefaultsContext } from "../../context/DefaultsContext";
 import { Footer, Header } from "../../components/index";
 import { DefaultCard } from "../../components/DefaultCard/DefaultCard";
 
 const Defaults = () => {
-  const [problem, setProblem] = useState([]);
+  const { problem, setProblem } = useContext(DefaultsContext);
 
   useEffect(() => {
     axios

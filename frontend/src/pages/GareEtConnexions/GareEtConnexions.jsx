@@ -1,5 +1,6 @@
-import React, { useRef, useContext } from "react";
+import React, { useContext, useState } from "react";
 import "./GareEtConnexions.css";
+import axios from "axios";
 import {
   Footer,
   Header,
@@ -10,38 +11,29 @@ import {
 import { Geolocalisation } from "../../utils/Geolocalisation/Geolocalisation";
 import { LongitudeContext } from "../../context/LongitudeContext";
 import { LatitudeContext } from "../../context/LatitudeContext";
+import { DefaultsContext } from "../../context/DefaultsContext";
 
 const GareEtConnexions = () => {
-  const formRef = useRef(null);
-
   const { latitude } = useContext(LatitudeContext);
   const { longitude } = useContext(LongitudeContext);
+  const { setProblem } = useContext(DefaultsContext);
 
-  const onSubmit = (evt) => {
-    evt.preventDefault();
+  const [description, setDescription] = useState("");
 
-    if (!formRef) {
-      return;
+  const postDefaults = async () => {
+    const data = { description };
+
+    const response = await axios.post("http://localhost:5000/defaults", data);
+    if (response.data.problem) {
+      setProblem();
     }
-
-    fetch(formRef.current.action, {
-      method: formRef.current.method,
-      body: new FormData(formRef.current),
-    });
   };
-  //   console.log(formRef);
 
   return (
     <div className="gare-container">
       <Header backCss="backGare" profileCss="profileGare" />
 
-      <form
-        className="gare_champ-container"
-        ref={formRef}
-        action="/upload-gareEtConnexions"
-        method="POST"
-        onSubmit={onSubmit}
-      >
+      <form className="gare_champ-container">
         <h1>GARE & CONNEXIONS</h1>
         <Input
           className="inputGare"
@@ -58,7 +50,13 @@ const GareEtConnexions = () => {
           champ="Gare concernée"
         />
         {/* <Input className="inputAnomalie" forId="anomalie" type="text" champ="Description de l'anomalie" /> */}
-        <Textarea className="textGare" forId="field" />
+        <Textarea
+          className="textGare"
+          onChange={(e) => setDescription(e.target.value)}
+          value={description}
+          forId="field"
+          type="text"
+        />
         <Input
           className="inputGare"
           forId="file"
@@ -81,7 +79,12 @@ const GareEtConnexions = () => {
           <h3>{Geolocalisation()}</h3>
         </div> */}
 
-        <Button classButton="envoyer" champButton="ENVOYER" type="submit" />
+        <Button
+          classButton="envoyer"
+          onClick={postDefaults}
+          champButton="ENVOYER"
+          type="button"
+        />
       </form>
 
       <Footer />
