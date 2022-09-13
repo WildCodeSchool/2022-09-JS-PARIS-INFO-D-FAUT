@@ -7,8 +7,9 @@ import Ter from "./pages/Ter/Ter";
 import Reseau from "./pages/Reseau/Reseau";
 import Voyageurs from "./pages/Voyageurs/Voyageurs";
 import Profile from "./pages/Profile/Profile";
-import Page404 from "./pages/Page404/Page404";
 import RegulationPage from "./pages/RegulationPage/RegulationPage";
+import Defaults from "./pages/Defaults/Defaults";
+import Page404 from "./pages/Page404/Page404";
 import { LatitudeContext } from "./context/LatitudeContext";
 import { LongitudeContext } from "./context/LongitudeContext";
 import { Utilisateur } from "./pages/Utilisateur/Utilisateur";
@@ -33,6 +34,7 @@ function App() {
               <Route path="/profile" element={<Profile />} />
               <Route path="/utilisateur" element={<Utilisateur />} />
               <Route path="/legal" element={<RegulationPage />} />
+              <Route path="/defaults" element={<Defaults />} />
               <Route path="*" element={<Page404 />} />
             </Routes>
           </div>

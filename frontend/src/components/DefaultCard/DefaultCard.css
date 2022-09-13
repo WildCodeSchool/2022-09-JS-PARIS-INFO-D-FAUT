@@ -1,0 +1,39 @@
+.defaultCard-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.defaultCard-container ul {
+  width: 30%;
+  height: 100%;
+  border: 2px solid white;
+  border-radius: 15px;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.defaultCard-container ul li {
+  text-align: center;
+  width: 100%;
+  color: white;
+}
+
+.button-container {
+  width: 30%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.delete-button,
+.update-button {
+  font-size: 10px;
+  width: 90%;
+  border-radius: 10px;
+}
