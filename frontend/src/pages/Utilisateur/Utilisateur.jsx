@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Header, Footer, Input, Button } from "../../components/index";
 import "./Utilisateur.css";
 
-export const Utilisateur = () => {
+const Utilisateur = () => {
   const formRef = useRef(null);
 
   const onSubmit = (evt) => {
@@ -65,3 +65,5 @@ export const Utilisateur = () => {
     </div>
   );
 };
+
+export default Utilisateur;

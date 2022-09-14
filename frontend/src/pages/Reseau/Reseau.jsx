@@ -1,5 +1,6 @@
-import React, { useRef, useContext } from "react";
+import React, { useContext } from "react";
 import "./Reseau.css";
+import axios from "axios";
 import {
   Footer,
   Header,
@@ -8,79 +9,102 @@ import {
   Textarea,
 } from "../../components/index";
 import { Geolocalisation } from "../../utils/Geolocalisation/Geolocalisation";
-import { LongitudeContext } from "../../context/LongitudeContext";
-import { LatitudeContext } from "../../context/LatitudeContext";
+import {
+  DefaultsContext,
+  RailwayTrackNumberContext,
+  DescriptionContext,
+  PictureContext,
+  LongitudeContext,
+  LatitudeContext,
+} from "../../context/index";
 
 const Reseau = () => {
-  const formRef = useRef(null);
+  const { setProblem } = useContext(DefaultsContext);
+  const { railwayNumber, setRailwayNumber } = useContext(
+    RailwayTrackNumberContext
+  );
+  const { description, setDescription } = useContext(DescriptionContext);
+  const { picture, setPicture } = useContext(PictureContext);
+  const { latitude, setLatitude } = useContext(LatitudeContext);
+  const { longitude, setLongitude } = useContext(LongitudeContext);
 
-  const { latitude } = useContext(LatitudeContext);
-  const { longitude } = useContext(LongitudeContext);
+  const postDefaults = async () => {
+    const id_user = 1;
+    const data = {
+      id_user,
+      railwayNumber,
+      description,
+      picture,
+      longitude,
+      latitude,
+    };
 
-  const onSubmit = (evt) => {
-    evt.preventDefault();
-
-    if (!formRef) {
-      return;
+    const response = await axios.post("http://localhost:5000/defaults", data);
+    if (response.data.problem) {
+      setProblem();
     }
-
-    fetch(formRef.current.action, {
-      method: formRef.current.method,
-      body: new FormData(formRef.current),
-    });
   };
-  //   console.log(formRef);
 
   return (
     <div className="reseau-container">
+      {Geolocalisation()}
       <Header backCss="backReseau" profileCss="profileReseau" />
 
-      <form
-        className="reseau_champ-container"
-        ref={formRef}
-        action="/upload-reseau"
-        method="POST"
-        onSubmit={onSubmit}
-      >
+      <form className="reseau_champ-container">
         <h1>RESEAU</h1>
-        <Input
+        {/* <Input
           className="inputReseau"
           forId="cp"
           type="text"
           champ="Numéro de CP"
           minlength={8}
           maxlength={8}
-        />
+        /> */}
         <Input
           className="inputReseau"
+          onChange={(e) => setRailwayNumber(e.target.value)}
+          value={railwayNumber}
           forId="ligne"
           type="text"
           champ="Numéro de ligne / Emprise"
         />
-        <Textarea className="textReseau" forId="field" />
+        <Textarea
+          className="textReseau"
+          onChange={(e) => setDescription(e.target.value)}
+          value={description}
+          forId="field"
+          type="text"
+        />
         <Input
           className="inputReseau"
+          onChange={(e) => setPicture(e.target.value)}
+          value={picture}
           forId="file"
           type="file"
           champ="Joindre une photographie"
         />
         <Input
-          className="inputReseau"
+          className="inputGare"
           forId="file"
-          onChange={Geolocalisation()}
+          onChange={(e) => setLatitude(e.target.value)}
           type="text"
-          // placeholder={`  ${latitude},  ${longitude}`}
-          // defaultValue={`  ${latitude},  ${longitude}`}
-          value={`  ${latitude},  ${longitude}`}
-          champ="Coordonnées GPS"
+          value={latitude}
+          champ="Latitude"
         />
-
-        {/* <div>
-          <h2>Coordonnées GPS</h2>
-          <h3>{Geolocalisation()}</h3>
-        </div> */}
-
-        <Button classButton="envoyer" champButton="ENVOYER" type="submit" />
+        <Input
+          className="inputGare"
+          forId="file2"
+          onChange={(e) => setLongitude(e.target.value)}
+          type="text"
+          value={longitude}
+          champ="Longitude"
+        />
+        <Button
+          classButton="envoyer"
+          onClick={postDefaults}
+          champButton="ENVOYER"
+          type="button"
+        />{" "}
       </form>
 
       <Footer />

@@ -11,7 +11,7 @@ const DefaultsUser = () => {
     // const id_user = 2;
     // const dataUser = { id_user };
     axios
-      .get(`http://localhost:5000/defaultsUser/4`)
+      .get(`http://localhost:5000/defaultsUser/1`)
       .then((response) => response.data)
 
       .then((data) => {
@@ -63,7 +63,6 @@ const DefaultsUser = () => {
             ))}
           </>
         )}
-        ;
       </div>
       <Footer />
     </div>

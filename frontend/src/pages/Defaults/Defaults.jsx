@@ -1,14 +1,15 @@
 import React, { useContext, useEffect } from "react";
 import "./Defaults.css";
 import axios from "axios";
-import { DefaultsContext } from "../../context/DefaultsContext";
-import { Footer, Header, Button } from "../../components/index";
-import { DefaultCard } from "../../components/DefaultCard/DefaultCard";
-import { PictureContext } from "../../context/PictureContext";
-import { StationContext } from "../../context/StationContext";
-import { DescriptionContext } from "../../context/DescriptionContext";
-import { LatitudeContext } from "../../context/LatitudeContext";
-import { LongitudeContext } from "../../context/LongitudeContext";
+import {
+  DefaultsContext,
+  PictureContext,
+  StationContext,
+  DescriptionContext,
+  LatitudeContext,
+  LongitudeContext,
+} from "../../context/index";
+import { Footer, Header, Button, DefaultCard } from "../../components/index";
 
 const Defaults = () => {
   const { problem, setProblem } = useContext(DefaultsContext);
