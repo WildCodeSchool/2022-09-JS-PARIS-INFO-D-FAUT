@@ -23,17 +23,3 @@
   width: 100%;
   color: white;
 }
-
-.button-container {
-  width: 30%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-}
-
-.delete-button,
-.update-button {
-  font-size: 10px;
-  width: 90%;
-  border-radius: 10px;
-}

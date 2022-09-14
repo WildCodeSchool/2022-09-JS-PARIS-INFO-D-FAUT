@@ -1,5 +1,4 @@
 import React from "react";
-import { Button } from "..";
 import "./DefaultCard.css";
 
 export const DefaultCard = ({
@@ -10,7 +9,8 @@ export const DefaultCard = ({
   description,
   image,
   imgAlt,
-  geoloc,
+  latitude,
+  longitude,
 }) => {
   return (
     <div className="defaultCard-container">
@@ -23,24 +23,10 @@ export const DefaultCard = ({
         <li>
           <img src={image} alt={imgAlt} />
         </li>
-        <li> {geoloc} </li>
+        <li>
+          {latitude} {longitude}
+        </li>
       </ul>
-      <div className="button-container">
-        <Button
-          name="delete"
-          classButton="delete-button"
-          champButton="Supprimer"
-          type="button"
-          // onClick=
-        />
-        <Button
-          name="update"
-          classButton="update-button"
-          champButton="modifier"
-          type="button"
-          // onClick=
-        />
-      </div>
     </div>
   );
 };

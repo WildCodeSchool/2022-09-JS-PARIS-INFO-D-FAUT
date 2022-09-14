@@ -37,13 +37,14 @@ const postDefaults = (req, res) => {
     railway_track_number,
     description,
     picture,
-    geolocation,
+    latitude,
+    longitude,
     id_user,
   } = req.body;
 
   sqlDb
     .query(
-      "INSERT INTO defaults( station, tgv_number, ter_number, railway_track_number, description, picture, geolocation, id_user) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+      "INSERT INTO defaults( station, tgv_number, ter_number, railway_track_number, description, picture, longitude, latitude, id_user) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
       [
         station,
         tgv_number,
@@ -51,7 +52,8 @@ const postDefaults = (req, res) => {
         railway_track_number,
         description,
         picture,
-        geolocation,
+        latitude,
+        longitude,
         id_user,
       ]
     )
@@ -63,51 +65,72 @@ const postDefaults = (req, res) => {
     });
 };
 
-//   const updateDefaults = (req, res) => {
-//     const id = parseInt(req.params.id);
-//     const { station, tgv_number, ter_number, railway_track_number, description, picture, geolocation } = req.body;
+const updateDefaults = (req, res) => {
+  const id = parseInt(req.params.id);
+  const {
+    station,
+    tgv_number,
+    ter_number,
+    railway_track_number,
+    description,
+    picture,
+    longitude,
+    latitude,
+  } = req.body;
 
-//     sqlDb
-//       .query(
-//         "update defaults set station = ?, tgv_number = ?, ter_number = ?, railway_track_number = ?, description = ?, picture = ?, geolocation = ? where id_default = ?",
-//         [station, tgv_number, ter_number, railway_track_number, description, picture, geolocation, id]
-//       )
-//       .then(([result]) => {
-//         if (result.affectedRows === 0) {
-//           res.status(404).send("Not Found");
-//         } else {
-//           res.sendStatus(204);
-//         }
-//       })
-//       .catch((err) => {
-//         console.error(err);
-//         res.status(500).send("Error editing the default");
-//       });
-//   };
+  sqlDb
+    .query(
+      "update defaults set station = ?, tgv_number = ?, ter_number = ?, railway_track_number = ?, description = ?, picture = ?, longitude = ?, latitude = ? where id_default = ?",
+      [
+        station,
+        tgv_number,
+        ter_number,
+        railway_track_number,
+        description,
+        picture,
+        longitude,
+        latitude,
+        id,
+      ]
+    )
+    .then(([result]) => {
+      if (result.affectedRows === 0) {
+        res.status(404).send("Not Found");
+      } else {
+        res.sendStatus(204);
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).send("Error editing the default");
+    });
+};
 
-// const deleteDefaults = (req, res) => {
-//     let { id } = req.body;
-//     id = parseInt(req.params.id);
-//     sqlDb
-//       .query("delete from defaults where id_default=?", [id])
-//       .then(([result]) => {
-//         if (result.affectedRows === 0) {
-//           res.status(404).json({ message: `default was not found in db` });
-//         } else {
-//           res.status(200).json({ message: `default number: ${id} has been deleted` });
-//         }
-//       })
-//       .catch((err) => {
-//         res.status(500).json({
-//           message: `default number: ${id} was not deleted because of error, ${err}`,
-//         });
-//       });
-//   };
+const deleteDefaults = (req, res) => {
+  let { id } = req.body;
+  id = parseInt(req.params.id);
+  sqlDb
+    .query("delete from defaults where id_default=?", [id])
+    .then(([result]) => {
+      if (result.affectedRows === 0) {
+        res.status(404).json({ message: `default was not found in db` });
+      } else {
+        res
+          .status(200)
+          .json({ message: `default number: ${id} has been deleted` });
+      }
+    })
+    .catch((err) => {
+      res.status(500).json({
+        message: `default number: ${id} was not deleted because of error, ${err}`,
+      });
+    });
+};
 
 module.exports = {
   getDefaults,
   getDefaultsById,
   postDefaults,
-  // updateDefaults,
-  // deleteDefaults,
+  updateDefaults,
+  deleteDefaults,
 };
