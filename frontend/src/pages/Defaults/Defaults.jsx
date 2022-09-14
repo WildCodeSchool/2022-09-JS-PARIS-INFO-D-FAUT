@@ -4,9 +4,19 @@ import axios from "axios";
 import { DefaultsContext } from "../../context/DefaultsContext";
 import { Footer, Header, Button } from "../../components/index";
 import { DefaultCard } from "../../components/DefaultCard/DefaultCard";
+import { PictureContext } from "../../context/PictureContext";
+import { StationContext } from "../../context/StationContext";
+import { DescriptionContext } from "../../context/DescriptionContext";
+import { LatitudeContext } from "../../context/LatitudeContext";
+import { LongitudeContext } from "../../context/LongitudeContext";
 
 const Defaults = () => {
   const { problem, setProblem } = useContext(DefaultsContext);
+  const { latitude } = useContext(LatitudeContext);
+  const { longitude } = useContext(LongitudeContext);
+  const { station } = useContext(StationContext);
+  const { description } = useContext(DescriptionContext);
+  const { picture } = useContext(PictureContext);
 
   const getDefaults = () => {
     axios
@@ -31,14 +41,16 @@ const Defaults = () => {
     }
   };
 
-  // const updateDefaults = async (id_default) => {
-  //   const response = await axios.update(
-  //     `http://localhost:5000/defaults/${id_default}`
-  //   );
-  //   if (response.data.problem) {
-  //     setProblem(response.data.problem);
-  //   }
-  // };
+  const updateDefaults = async (id_default) => {
+    const data = { station, description, picture, longitude, latitude };
+    const response = await axios.put(
+      `http://localhost:5000/defaults/${id_default}`,
+      data
+    );
+    if (response.data.problem) {
+      setProblem();
+    }
+  };
 
   return (
     <div className="defaults-container">
@@ -69,13 +81,13 @@ const Defaults = () => {
                   onClick={() => deleteDefaults(problems.id_default)}
                 />
 
-                {/* <Button
+                <Button
                   name="update"
                   classButton="update-button"
                   champButton="Mettre à jour"
                   type="button"
                   onClick={() => updateDefaults(problems.id_default)}
-                /> */}
+                />
               </div>
             ))}
           </>

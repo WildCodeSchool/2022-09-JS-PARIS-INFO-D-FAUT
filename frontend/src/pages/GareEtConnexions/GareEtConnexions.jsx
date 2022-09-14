@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import "./GareEtConnexions.css";
 import axios from "axios";
 import {
@@ -12,21 +12,24 @@ import { Geolocalisation } from "../../utils/Geolocalisation/Geolocalisation";
 import { LongitudeContext } from "../../context/LongitudeContext";
 import { LatitudeContext } from "../../context/LatitudeContext";
 import { DefaultsContext } from "../../context/DefaultsContext";
+import { PictureContext } from "../../context/PictureContext";
+import { StationContext } from "../../context/StationContext";
+import { DescriptionContext } from "../../context/DescriptionContext";
 
 const GareEtConnexions = () => {
   const { latitude, setLatitude } = useContext(LatitudeContext);
   const { longitude, setLongitude } = useContext(LongitudeContext);
   const { setProblem } = useContext(DefaultsContext);
+  const { station, setStation } = useContext(StationContext);
+  const { description, setDescription } = useContext(DescriptionContext);
+  const { picture, setPicture } = useContext(PictureContext);
 
-  const [station, setStation] = useState("");
   // const [tgv_number, setTgv_number] = useState("");
   // const [ter_number, setTer_number] = useState("");
   // const [railway_track_number, setRailway_track_number] = useState("");
-  const [description, setDescription] = useState("");
-  const [picture, setPicture] = useState("");
 
   const postDefaults = async () => {
-    const id_user = 3;
+    const id_user = 1;
     const data = {
       id_user,
       station,

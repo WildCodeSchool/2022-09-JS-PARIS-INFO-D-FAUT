@@ -27,4 +27,8 @@ router.post("/defaults", defaultsControllers.postDefaults);
 router.put("/defaults/:id", defaultsControllers.updateDefaults);
 router.delete("/defaults/:id", defaultsControllers.deleteDefaults);
 
+const defaultsUserControllers = require("./controllers/defaultsUserControllers");
+
+router.get("/defaultsUser/:id", defaultsUserControllers.getDefaultsUserById);
+
 module.exports = router;
