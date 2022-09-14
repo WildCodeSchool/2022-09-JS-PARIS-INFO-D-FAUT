@@ -21,7 +21,8 @@ const GareEtConnexions = () => {
   const [description, setDescription] = useState("");
 
   const postDefaults = async () => {
-    const data = { description };
+    const id_user = 1;
+    const data = { id_user, description };
 
     const response = await axios.post("http://localhost:5000/defaults", data);
     if (response.data.problem) {
