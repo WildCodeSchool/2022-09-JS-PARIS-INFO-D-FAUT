@@ -24,10 +24,9 @@ const GareEtConnexions = () => {
   const { station, setStation } = useContext(StationContext);
   const { description, setDescription } = useContext(DescriptionContext);
   const { picture, setPicture } = useContext(PictureContext);
+  const { latitude, setLatitude } = useContext(LatitudeContext);
+  const { longitude, setLongitude } = useContext(LongitudeContext);
   const { id } = useParams();
-  // const [tgv_number, setTgv_number] = useState("");
-  // const [ter_number, setTer_number] = useState("");
-  // const [railway_track_number, setRailway_track_number] = useState("");
 
   const postDefaults = async () => {
     const id_user = id;
