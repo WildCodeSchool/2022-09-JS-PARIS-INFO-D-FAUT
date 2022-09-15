@@ -10,16 +10,16 @@ import {
   Textarea,
 } from "../../components/index";
 import { Geolocalisation } from "../../utils/Geolocalisation/Geolocalisation";
-import { LongitudeContext } from "../../context/LongitudeContext";
-import { LatitudeContext } from "../../context/LatitudeContext";
-import { DefaultsContext } from "../../context/DefaultsContext";
-import { PictureContext } from "../../context/PictureContext";
-import { StationContext } from "../../context/StationContext";
-import { DescriptionContext } from "../../context/DescriptionContext";
+import {
+  DefaultsContext,
+  StationContext,
+  DescriptionContext,
+  PictureContext,
+  LongitudeContext,
+  LatitudeContext,
+} from "../../context/index";
 
 const GareEtConnexions = () => {
-  const { latitude, setLatitude } = useContext(LatitudeContext);
-  const { longitude, setLongitude } = useContext(LongitudeContext);
   const { setProblem } = useContext(DefaultsContext);
   const { station, setStation } = useContext(StationContext);
   const { description, setDescription } = useContext(DescriptionContext);
@@ -34,9 +34,6 @@ const GareEtConnexions = () => {
     const data = {
       id_user,
       station,
-      // tgv_number,
-      // ter_number,
-      // railway_track_number,
       description,
       picture,
       longitude,
