@@ -30,5 +30,9 @@ router.delete("/defaults/:id", defaultsControllers.deleteDefaults);
 const defaultsUserControllers = require("./controllers/defaultsUserControllers");
 
 router.get("/defaultsUser/:id", defaultsUserControllers.getDefaultsUserById);
+router.delete(
+  "/defaultsUser/:id/:id",
+  defaultsUserControllers.deleteDefaultsUserById
+);
 
 module.exports = router;

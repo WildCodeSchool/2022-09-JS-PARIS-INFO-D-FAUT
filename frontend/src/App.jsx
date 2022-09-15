@@ -39,7 +39,7 @@ function App() {
                     <Routes>
                       <Route path="/" element={<Home />} />
                       <Route
-                        path="/gare-et-connexions"
+                        path="/gare-et-connexions/:id"
                         element={<GareEtConnexions />}
                       />
                       <Route path="/ter" element={<Ter />} />

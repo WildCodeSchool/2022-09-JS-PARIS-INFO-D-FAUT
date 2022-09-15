@@ -1,17 +1,16 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Footer, Header, DefaultCard } from "../../components/index";
+import { useParams } from "react-router-dom";
+import { Footer, Header, DefaultCard, Button } from "../../components/index";
 import "./DefaultsUser.css";
-// import { DefaultsContext } from "../../context/DefaultsContext";
 
 const DefaultsUser = () => {
-  // const { problem, setProblem } = useContext(DefaultsContext);
   const [problemUser, setProblemUser] = useState([]);
+  const { id } = useParams();
+
   const getDefaultsUserById = () => {
-    // const id_user = 2;
-    // const dataUser = { id_user };
     axios
-      .get(`http://localhost:5000/defaultsUser/4`)
+      .get(`http://localhost:5000/defaultsUser/${id}`)
       .then((response) => response.data)
 
       .then((data) => {
@@ -22,6 +21,15 @@ const DefaultsUser = () => {
   useEffect(() => {
     getDefaultsUserById();
   }, []);
+
+  const deleteDefaults = async (id_default) => {
+    const response = await axios.delete(
+      `http://localhost:5000/defaultsUser/${id}/${id_default}`
+    );
+    if (response.data.problem) {
+      setProblemUser(response.data.problem);
+    }
+  };
 
   return (
     <div className="defaultsUser-container">
@@ -44,15 +52,15 @@ const DefaultsUser = () => {
                   id_default={problemes.id_default}
                 />
 
-                {/* <Button
-              name="delete"
-              classButton="delete-button"
-              champButton="Supprimer"
-              type="button"
-              onClick={() => deleteDefaults(problems.id_default)}
-            />
+                <Button
+                  name="delete"
+                  classButton="delete-button"
+                  champButton="Supprimer"
+                  type="button"
+                  onClick={() => deleteDefaults(problemes.id_default)}
+                />
 
-            <Button
+                {/* <Button
               name="update"
               classButton="update-button"
               champButton="Mettre à jour"
@@ -63,7 +71,6 @@ const DefaultsUser = () => {
             ))}
           </>
         )}
-        ;
       </div>
       <Footer />
     </div>
