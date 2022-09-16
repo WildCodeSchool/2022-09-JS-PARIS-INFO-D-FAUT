@@ -14,10 +14,10 @@ const Home = () => {
       <Header backCss="back" profileCss="profile" />
       <div className="item-container">
         <div className="item-flex">
-          <Link to="/gare-et-connexions">
+          <Link to="/gare-et-connexions/:id">
             <Item src={gare} alt="gare et connexions" />
           </Link>
-          <Link to="/ter">
+          <Link to="/ter/:id">
             <Item src={ter} alt="ter" />
           </Link>
         </div>
@@ -30,10 +30,10 @@ const Home = () => {
           }}
         />
         <div className="item-flex">
-          <Link to="/reseau">
+          <Link to="/reseau/:id">
             <Item src={reseau} alt="reseau" />
           </Link>
-          <Link to="/voyageurs">
+          <Link to="/voyageurs/:id">
             <Item src={voyageurs} alt="voyageurs" />
           </Link>
         </div>

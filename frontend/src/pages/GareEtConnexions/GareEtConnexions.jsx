@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import "./GareEtConnexions.css";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+// import { useParams } from "react-router-dom";
 import {
   Footer,
   Header,
@@ -26,10 +26,10 @@ const GareEtConnexions = () => {
   const { picture, setPicture } = useContext(PictureContext);
   const { latitude, setLatitude } = useContext(LatitudeContext);
   const { longitude, setLongitude } = useContext(LongitudeContext);
-  const { id } = useParams();
+  // const { id } = useParams();
 
   const postDefaults = async () => {
-    const id_user = id;
+    const id_user = 1;
     const data = {
       id_user,
       station,
@@ -39,7 +39,7 @@ const GareEtConnexions = () => {
       latitude,
     };
 
-    const response = await axios.post("http://localhost:5000/defaults", data);
+    const response = await axios.post(`http://localhost:5000/defaults`, data);
     if (response.data.problem) {
       setProblem();
     }

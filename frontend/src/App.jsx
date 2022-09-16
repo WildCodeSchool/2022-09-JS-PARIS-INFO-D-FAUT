@@ -58,12 +58,15 @@ function App() {
                           <Routes>
                             <Route path="/" element={<Home />} />
                             <Route
-                              path="/gare-et-connexions"
+                              path="/gare-et-connexions/:id"
                               element={<GareEtConnexions />}
                             />
-                            <Route path="/ter" element={<Ter />} />
-                            <Route path="/reseau" element={<Reseau />} />
-                            <Route path="/voyageurs" element={<Voyageurs />} />
+                            <Route path="/ter/:id" element={<Ter />} />
+                            <Route path="/reseau/:id" element={<Reseau />} />
+                            <Route
+                              path="/voyageurs/:id"
+                              element={<Voyageurs />}
+                            />
                             <Route path="/profile" element={<Profile />} />
                             <Route
                               path="/utilisateur"
