@@ -1,14 +1,14 @@
 const { sqlDb } = require("../../db");
 
 const getDefaultsUserById = (req, res) => {
-  const id = parseInt(req.params.id);
+  const id_user = parseInt(req.params.id_user);
   sqlDb
-    .query(`select * from defaults where id_user= ?`, [id])
+    .query(`select * from defaults where id_user= ?`, [id_user])
     .then(([d_faultUser]) => {
       if (d_faultUser[0] != null) {
         res.json(d_faultUser);
       } else {
-        res.status(404).send(`defaults User at id ${id} not Found`);
+        res.status(404).send(`defaults User at id ${id_user} not Found`);
       }
       res.status(201);
     })
@@ -19,22 +19,22 @@ const getDefaultsUserById = (req, res) => {
 };
 
 const deleteDefaultsUserById = (req, res) => {
-  let { id } = req.body;
-  id = parseInt(req.params.id);
+  let { id_user } = req.body;
+  id_user = parseInt(req.params.id_user);
   sqlDb
-    .query(`delete from defaults where id_default=?`, [id])
+    .query(`delete from defaults where id_default=?`, [id_user])
     .then(([result]) => {
       if (result.affectedRows === 0) {
         res.status(404).json({ message: `default was not found in db` });
       } else {
         res
           .status(200)
-          .json({ message: `default number: ${id} has been deleted` });
+          .json({ message: `default number: ${id_user} has been deleted` });
       }
     })
     .catch((err) => {
       res.status(500).json({
-        message: `default number: ${id} was not deleted because of error, ${err}`,
+        message: `default number: ${id_user} was not deleted because of error, ${err}`,
       });
     });
 };

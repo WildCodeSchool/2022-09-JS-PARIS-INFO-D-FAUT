@@ -1,41 +1,43 @@
-import React, { useRef } from "react";
+import React, { useState, useContext } from "react";
+import axios from "axios";
 import { Link } from "react-router-dom";
+import { ProfileContext } from "../../context/index";
 import { Header, Footer, Input, Button } from "../../components/index";
-import "./Utilisateur.css";
+import "./Login.css";
 
-const Utilisateur = () => {
-  const formRef = useRef(null);
+const Login = () => {
+  const { setProfile } = useContext(ProfileContext);
+  const [cp, setCp] = useState("");
+  const [password, setPassword] = useState("");
 
-  const onSubmit = (evt) => {
-    evt.preventDefault();
+  const postUser = async () => {
+    const data = {
+      cp,
+      password,
+    };
 
-    if (!formRef) {
-      return;
+    const response = await axios.post(
+      `http://localhost:5000/profile/login`,
+      data
+    );
+    if (response.data.problem) {
+      setProfile();
     }
-
-    fetch(formRef.current.action, {
-      method: formRef.current.method,
-      body: new FormData(formRef.current),
-    });
   };
 
   return (
     <div className="utilisateur-container">
       <Header backCss="backUtilisateur" profileCss="profileUtilisateur" />
       <div className="champ-container">
-        <form
-          className="form-container"
-          ref={formRef}
-          action="/upload-utilisateur"
-          method="POST"
-          onSubmit={onSubmit}
-        >
+        <form className="form-container">
           <h1>UTILISATEUR</h1>
           <Input
             className="inputUtilisateur"
             forId="cp"
             type="text"
             champ="Numéro de CP"
+            onChange={(e) => setCp(e.target.value)}
+            value={cp}
             // minlength="8"
             // maxlength="8"
           />
@@ -44,10 +46,12 @@ const Utilisateur = () => {
             forId="mot"
             type="password"
             champ="Mot de passe"
+            onChange={(e) => setPassword(e.target.value)}
+            value={password}
           />
           <Button
             classButton="envoyer"
-            // onClick={(e) => e}
+            onClick={postUser}
             champButton="CONNEXION"
             type="submit"
           />
@@ -66,4 +70,4 @@ const Utilisateur = () => {
   );
 };
 
-export default Utilisateur;
+export default Login;

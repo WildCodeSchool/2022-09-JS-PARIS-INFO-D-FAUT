@@ -17,7 +17,7 @@ export const Header = ({ backCss, profileCss }) => {
         <img className="logo" src={logo} alt="Logo" />
       </div>
       <div className="header-utilisateur">
-        <Link to="/utilisateur">
+        <Link to="/">
           <img className={profileCss} src={profile} alt="logo utilisateur" />
         </Link>
       </div>

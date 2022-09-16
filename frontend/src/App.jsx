@@ -11,6 +11,7 @@ import RegulationPage from "./pages/RegulationPage/RegulationPage";
 import Defaults from "./pages/Defaults/Defaults";
 import Page404 from "./pages/Page404/Page404";
 import {
+  ProfileContext,
   DefaultsContext,
   StationContext,
   TerNumberContext,
@@ -22,11 +23,12 @@ import {
   LongitudeContext,
 } from "./context/index";
 
-import Utilisateur from "./pages/Utilisateur/Utilisateur";
+import Login from "./pages/Login/Login";
 
 import DefaultsUser from "./pages/DefaultsUser/DefaultsUser";
 
 function App() {
+  const [profile, setProfile] = useState([]);
   const [problem, setProblem] = useState([]);
   const [station, setStation] = useState("");
   const [terNumber, setTerNumber] = useState("");
@@ -38,59 +40,62 @@ function App() {
   const [longitude, setLongitude] = useState("");
 
   return (
-    <DefaultsContext.Provider value={{ problem, setProblem }}>
-      <StationContext.Provider value={{ station, setStation }}>
-        <TerNumberContext.Provider value={{ terNumber, setTerNumber }}>
-          <TgvNumberContext.Provider value={{ tgvNumber, setTgvNumber }}>
-            <RailwayTrackNumberContext.Provider
-              value={{ railwayNumber, setRailwayNumber }}
-            >
-              <DescriptionContext.Provider
-                value={{ description, setDescription }}
+    <ProfileContext.Provider value={{ profile, setProfile }}>
+      <DefaultsContext.Provider value={{ problem, setProblem }}>
+        <StationContext.Provider value={{ station, setStation }}>
+          <TerNumberContext.Provider value={{ terNumber, setTerNumber }}>
+            <TgvNumberContext.Provider value={{ tgvNumber, setTgvNumber }}>
+              <RailwayTrackNumberContext.Provider
+                value={{ railwayNumber, setRailwayNumber }}
               >
-                <PictureContext.Provider value={{ picture, setPicture }}>
-                  <LatitudeContext.Provider value={{ latitude, setLatitude }}>
-                    <LongitudeContext.Provider
-                      value={{ longitude, setLongitude }}
-                    >
-                      <Router>
-                        <div className="App">
-                          <Routes>
-                            <Route path="/" element={<Home />} />
-                            <Route
-                              path="/gare-et-connexions/:id"
-                              element={<GareEtConnexions />}
-                            />
-                            <Route path="/ter/:id" element={<Ter />} />
-                            <Route path="/reseau/:id" element={<Reseau />} />
-                            <Route
-                              path="/voyageurs/:id"
-                              element={<Voyageurs />}
-                            />
-                            <Route path="/profile" element={<Profile />} />
-                            <Route
-                              path="/utilisateur"
-                              element={<Utilisateur />}
-                            />
-                            <Route path="/legal" element={<RegulationPage />} />
-                            <Route path="/defaults" element={<Defaults />} />
-                            <Route
-                              path="/defaultsUser/:id"
-                              element={<DefaultsUser />}
-                            />
-                            <Route path="*" element={<Page404 />} />
-                          </Routes>
-                        </div>
-                      </Router>
-                    </LongitudeContext.Provider>
-                  </LatitudeContext.Provider>
-                </PictureContext.Provider>
-              </DescriptionContext.Provider>
-            </RailwayTrackNumberContext.Provider>
-          </TgvNumberContext.Provider>
-        </TerNumberContext.Provider>
-      </StationContext.Provider>
-    </DefaultsContext.Provider>
+                <DescriptionContext.Provider
+                  value={{ description, setDescription }}
+                >
+                  <PictureContext.Provider value={{ picture, setPicture }}>
+                    <LatitudeContext.Provider value={{ latitude, setLatitude }}>
+                      <LongitudeContext.Provider
+                        value={{ longitude, setLongitude }}
+                      >
+                        <Router>
+                          <div className="App">
+                            <Routes>
+                              <Route path="/" element={<Login />} />
+                              <Route path="/items" element={<Home />} />
+                              <Route
+                                path="/gare-et-connexions/:id"
+                                element={<GareEtConnexions />}
+                              />
+                              <Route path="/ter/:id" element={<Ter />} />
+                              <Route path="/reseau/:id" element={<Reseau />} />
+                              <Route
+                                path="/voyageurs/:id"
+                                element={<Voyageurs />}
+                              />
+                              <Route path="/profile" element={<Profile />} />
+
+                              <Route
+                                path="/legal"
+                                element={<RegulationPage />}
+                              />
+                              <Route path="/defaults" element={<Defaults />} />
+                              <Route
+                                path="/defaultsUser/:id"
+                                element={<DefaultsUser />}
+                              />
+                              <Route path="*" element={<Page404 />} />
+                            </Routes>
+                          </div>
+                        </Router>
+                      </LongitudeContext.Provider>
+                    </LatitudeContext.Provider>
+                  </PictureContext.Provider>
+                </DescriptionContext.Provider>
+              </RailwayTrackNumberContext.Provider>
+            </TgvNumberContext.Provider>
+          </TerNumberContext.Provider>
+        </StationContext.Provider>
+      </DefaultsContext.Provider>
+    </ProfileContext.Provider>
   );
 }
 
