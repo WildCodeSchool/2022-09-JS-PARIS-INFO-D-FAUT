@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import "./Ter.css";
 import axios from "axios";
+import { useParams } from "react-router-dom";
 import {
   Footer,
   Header,
@@ -25,9 +26,10 @@ const Ter = () => {
   const { picture, setPicture } = useContext(PictureContext);
   const { latitude, setLatitude } = useContext(LatitudeContext);
   const { longitude, setLongitude } = useContext(LongitudeContext);
+  const { id } = useParams();
 
   const postDefaults = async () => {
-    const id_user = 1;
+    const id_user = id;
     const data = {
       id_user,
       terNumber,

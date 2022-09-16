@@ -1,35 +1,16 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import { useParams } from "react-router-dom";
 import { Footer, Header, DefaultCard, Button } from "../../components/index";
 import "./DefaultsUser.css";
+import { deleteDefaults, getDefaultsUserById } from "../../utils/axios/axios";
 
 const DefaultsUser = () => {
   const [problemUser, setProblemUser] = useState([]);
   const { id } = useParams();
 
-  const getDefaultsUserById = () => {
-    axios
-      .get(`http://localhost:5000/defaultsUser/${id}`)
-      .then((response) => response.data)
-
-      .then((data) => {
-        setProblemUser(data);
-      });
-  };
-
   useEffect(() => {
-    getDefaultsUserById();
+    getDefaultsUserById(id, setProblemUser);
   }, []);
-
-  const deleteDefaults = async (id_default) => {
-    const response = await axios.delete(
-      `http://localhost:5000/defaultsUser/${id}/${id_default}`
-    );
-    if (response.data.problem) {
-      setProblemUser(response.data.problem);
-    }
-  };
 
   return (
     <div className="defaultsUser-container">
@@ -57,7 +38,9 @@ const DefaultsUser = () => {
                   classButton="delete-button"
                   champButton="Supprimer"
                   type="button"
-                  onClick={() => deleteDefaults(problemes.id_default)}
+                  onClick={() =>
+                    deleteDefaults(id, problemes.id_default, setProblemUser)
+                  }
                 />
 
                 {/* <Button
