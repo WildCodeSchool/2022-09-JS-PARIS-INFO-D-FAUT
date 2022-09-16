@@ -12,14 +12,14 @@ const getUsers = (req, res) => {
 };
 
 const getUsersById = (req, res) => {
-  const id = parseInt(req.params.id);
+  const id_user = parseInt(req.params.id_user);
   sqlDb
-    .query(`select * from users where id_user= ?`, [id])
+    .query(`select * from users where id_user= ?`, [id_user])
     .then(([user]) => {
       if (user[0] != null) {
         res.json(user[0]);
       } else {
-        res.status(404).send(`user at id ${id} not Found`);
+        res.status(404).send(`user at id ${id_user} not Found`);
       }
       res.status(201);
     })
@@ -46,13 +46,13 @@ const postUsers = (req, res) => {
 };
 
 const updateUsers = (req, res) => {
-  const id = parseInt(req.params.id);
+  const id_user = parseInt(req.params.id_user);
   const { cp, mail, phone_number, hashedPassword } = req.body;
 
   sqlDb
     .query(
       "update users set cp = ?, mail = ?, phone_number = ?, hashedPassword = ? where id_user = ?",
-      [cp, mail, phone_number, hashedPassword, id]
+      [cp, mail, phone_number, hashedPassword, id_user]
     )
     .then(([result]) => {
       if (result.affectedRows === 0) {
@@ -68,23 +68,43 @@ const updateUsers = (req, res) => {
 };
 
 const deleteUsers = (req, res) => {
-  let { id } = req.body;
-  id = parseInt(req.params.id);
+  let { id_user } = req.body;
+  id_user = parseInt(req.params.id_user);
   sqlDb
-    .query("delete from users where id_user=?", [id])
+    .query("delete from users where id_user=?", [id_user])
     .then(([result]) => {
       if (result.affectedRows === 0) {
         res.status(404).json({ message: `user was not found in db` });
       } else {
         res
           .status(200)
-          .json({ message: `user number: ${id} has been deleted` });
+          .json({ message: `user number: ${id_user} has been deleted` });
       }
     })
     .catch((err) => {
       res.status(500).json({
-        message: `user number: ${id} was not deleted because of error, ${err}`,
+        message: `user number: ${id_user} was not deleted because of error, ${err}`,
       });
+    });
+};
+
+const getUserByCpWithPasswordAndPassToNext = (req, res, next) => {
+  const { cp } = req.body;
+
+  sqlDb
+    .query("select * from users where cp = ?", [cp])
+    .then(([users]) => {
+      if (users[0] != null) {
+        req.user = users[0];
+
+        next();
+      } else {
+        res.sendStatus(401);
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).send("Error retrieving data from database");
     });
 };
 
@@ -94,4 +114,5 @@ module.exports = {
   postUsers,
   updateUsers,
   deleteUsers,
+  getUserByCpWithPasswordAndPassToNext,
 };

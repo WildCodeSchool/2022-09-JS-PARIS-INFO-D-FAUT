@@ -9,6 +9,7 @@
     "sourceType": "module"
   },
   "rules": {
+    "prefer-destructuring": [0],
     "import/no-unresolved": [0],
     "radix": "off",
     "no-console": "off",

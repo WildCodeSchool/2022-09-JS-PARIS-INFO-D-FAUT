@@ -12,14 +12,14 @@ const getDefaults = (req, res) => {
 };
 
 const getDefaultsById = (req, res) => {
-  const id = parseInt(req.params.id);
+  const id_default = parseInt(req.params.id_default);
   sqlDb
-    .query(`select * from defaults where id_default= ?`, [id])
+    .query(`select * from defaults where id_default= ?`, [id_default])
     .then(([d_fault]) => {
       if (d_fault[0] != null) {
         res.json(d_fault[0]);
       } else {
-        res.status(404).send(`default at id ${id} not Found`);
+        res.status(404).send(`default at id ${id_default} not Found`);
       }
       res.status(201);
     })
@@ -66,7 +66,7 @@ const postDefaults = (req, res) => {
 };
 
 const updateDefaults = (req, res) => {
-  const id = parseInt(req.params.id);
+  const id_default = parseInt(req.params.id_default);
   const {
     station,
     tgv_number,
@@ -90,7 +90,7 @@ const updateDefaults = (req, res) => {
         picture,
         longitude,
         latitude,
-        id,
+        id_default,
       ]
     )
     .then(([result]) => {
@@ -107,22 +107,22 @@ const updateDefaults = (req, res) => {
 };
 
 const deleteDefaults = (req, res) => {
-  let { id } = req.body;
-  id = parseInt(req.params.id);
+  let { id_default } = req.body;
+  id_default = parseInt(req.params.id_default);
   sqlDb
-    .query("delete from defaults where id_default=?", [id])
+    .query("delete from defaults where id_default=?", [id_default])
     .then(([result]) => {
       if (result.affectedRows === 0) {
         res.status(404).json({ message: `default was not found in db` });
       } else {
         res
           .status(200)
-          .json({ message: `default number: ${id} has been deleted` });
+          .json({ message: `default number: ${id_default} has been deleted` });
       }
     })
     .catch((err) => {
       res.status(500).json({
-        message: `default number: ${id} was not deleted because of error, ${err}`,
+        message: `default number: ${id_default} was not deleted because of error, ${err}`,
       });
     });
 };

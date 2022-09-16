@@ -2,37 +2,46 @@ const express = require("express");
 
 const router = express.Router();
 
-const itemControllers = require("./controllers/itemControllers");
-
-router.get("/items", itemControllers.browse);
-router.get("/items/:id", itemControllers.read);
-router.put("/items/:id", itemControllers.edit);
-router.post("/items", itemControllers.add);
-router.delete("/items/:id", itemControllers.destroy);
-
-const usersControllers = require("./controllers/usersControllers");
-const { hashPassword } = require("./middleware/auth");
-
-router.get("/users", usersControllers.getUsers);
-router.get("/users/:id", usersControllers.getUsersById);
-router.post("/users", hashPassword, usersControllers.postUsers);
-router.put("/users/:id", usersControllers.updateUsers);
-router.delete("/users/:id", usersControllers.deleteUsers);
-
 const defaultsControllers = require("./controllers/defaultsControllers");
-
-router.get("/defaults", defaultsControllers.getDefaults);
-router.get("/defaults/:id", defaultsControllers.getDefaultsById);
-router.post("/defaults", defaultsControllers.postDefaults);
-router.put("/defaults/:id", defaultsControllers.updateDefaults);
-router.delete("/defaults/:id", defaultsControllers.deleteDefaults);
-
 const defaultsUserControllers = require("./controllers/defaultsUserControllers");
+const usersControllers = require("./controllers/usersControllers");
+const {
+  hashPassword,
+  verifyPassword,
+  verifyToken,
+} = require("./middleware/auth");
 
-router.get("/defaultsUser/:id", defaultsUserControllers.getDefaultsUserById);
-router.delete(
-  "/defaultsUser/:id/:id",
-  defaultsUserControllers.deleteDefaultsUserById
+// const { application } = require("express");
+
+// public route
+router.post("/users", hashPassword, usersControllers.postUsers);
+
+router.post(
+  "/profile/login",
+  usersControllers.getUserByCpWithPasswordAndPassToNext,
+  verifyPassword
 );
 
+// routes to protect
+router.use(verifyToken); /* authentication wall */
+
+router.get("/users", usersControllers.getUsers);
+router.get("/users/:id_user", usersControllers.getUsersById);
+router.put("/users/:id_user", usersControllers.updateUsers);
+router.delete("/users/:id_user", usersControllers.deleteUsers);
+
+router.get("/defaults", defaultsControllers.getDefaults);
+router.get("/defaults/:id_default", defaultsControllers.getDefaultsById);
+router.post("/defaults", defaultsControllers.postDefaults);
+router.put("/defaults/:id_default", defaultsControllers.updateDefaults);
+router.delete("/defaults/:id_default", defaultsControllers.deleteDefaults);
+
+router.get(
+  "/defaultsUser/:id_user",
+  defaultsUserControllers.getDefaultsUserById
+);
+router.delete(
+  "/defaultsUser/:id_user/:id_default",
+  defaultsUserControllers.deleteDefaultsUserById
+);
 module.exports = router;
