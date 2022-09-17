@@ -1,6 +1,11 @@
 import React, { useContext, useEffect } from "react";
 import "./Defaults.css";
-import axios from "axios";
+// import { useParams } from "react-router-dom";
+import {
+  getDefaults,
+  deleteDefaults,
+  updateDefaults,
+} from "../../services/axios/AxiosDefaults";
 import {
   DefaultsContext,
   PictureContext,
@@ -18,40 +23,44 @@ const Defaults = () => {
   const { station } = useContext(StationContext);
   const { description } = useContext(DescriptionContext);
   const { picture } = useContext(PictureContext);
+  // const { id } = useParams();
 
-  const getDefaults = () => {
-    axios
-      .get("http://localhost:5000/defaults")
-      .then((response) => response.data)
+  // const id = 1;
+  const data = { station, description, picture, longitude, latitude };
 
-      .then((data) => {
-        setProblem(data.result);
-      });
-  };
+  // const getDefaults = () => {
+  //   axios
+  //     .get("http://localhost:5000/defaults")
+  //     .then((response) => response.data)
+
+  //     .then((data) => {
+  //       setProblem(data.result);
+  //     });
+  // };
 
   useEffect(() => {
-    getDefaults();
+    getDefaults(setProblem);
   }, []);
 
-  const deleteDefaults = async (id_default) => {
-    const response = await axios.delete(
-      `http://localhost:5000/defaults/${id_default}`
-    );
-    if (response.data.problem) {
-      setProblem(response.data.problem);
-    }
-  };
+  // const deleteDefaults = async (id_default) => {
+  //   const response = await axios.delete(
+  //     `http://localhost:5000/defaults/${id_default}`
+  //   );
+  //   if (response.data.problem) {
+  //     setProblem(response.data.problem);
+  //   }
+  // };
 
-  const updateDefaults = async (id_default) => {
-    const data = { station, description, picture, longitude, latitude };
-    const response = await axios.put(
-      `http://localhost:5000/defaults/${id_default}`,
-      data
-    );
-    if (response.data.problem) {
-      setProblem();
-    }
-  };
+  // const updateDefaults = async (id_default, data) => {
+  //   const data = { station, description, picture, longitude, latitude };
+  //   const response = await axios.put(
+  //     `http://localhost:5000/defaults/${id_default}`,
+  //     data
+  //   );
+  //   if (response.data.problem) {
+  //     setProblem();
+  //   }
+  // };
 
   return (
     <div className="defaults-container">
@@ -79,7 +88,9 @@ const Defaults = () => {
                   classButton="delete-button"
                   champButton="Supprimer"
                   type="button"
-                  onClick={() => deleteDefaults(problems.id_default)}
+                  onClick={(e) =>
+                    deleteDefaults(problems.id_default, setProblem, e)
+                  }
                 />
 
                 <Button
@@ -87,7 +98,9 @@ const Defaults = () => {
                   classButton="update-button"
                   champButton="Mettre à jour"
                   type="button"
-                  onClick={() => updateDefaults(problems.id_default)}
+                  onClick={(e) =>
+                    updateDefaults(problems.id_default, data, setProblem, e)
+                  }
                 />
               </div>
             ))}

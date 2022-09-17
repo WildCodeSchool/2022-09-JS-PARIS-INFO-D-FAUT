@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
 import "./GareEtConnexions.css";
-import axios from "axios";
 // import { useParams } from "react-router-dom";
+// import { Link } from "react-router-dom";
+
 import {
   Footer,
   Header,
@@ -9,7 +10,8 @@ import {
   Button,
   Textarea,
 } from "../../components/index";
-import { Geolocalisation } from "../../utils/Geolocalisation/Geolocalisation";
+import { Geolocalisation } from "../../services/Geolocalisation/Geolocalisation";
+import { postDefaults } from "../../services/axios/AxiosDefaults";
 import {
   DefaultsContext,
   StationContext,
@@ -27,23 +29,38 @@ const GareEtConnexions = () => {
   const { latitude, setLatitude } = useContext(LatitudeContext);
   const { longitude, setLongitude } = useContext(LongitudeContext);
   // const { id } = useParams();
+  // const navigate = useNavigate();
 
-  const postDefaults = async () => {
-    const id_user = 1;
-    const data = {
-      id_user,
-      station,
-      description,
-      picture,
-      longitude,
-      latitude,
-    };
-
-    const response = await axios.post(`http://localhost:5000/defaults`, data);
-    if (response.data.problem) {
-      setProblem();
-    }
+  const id_user = 10;
+  const data = {
+    id_user,
+    station,
+    description,
+    picture,
+    longitude,
+    latitude,
   };
+
+  // const postDefaults = async () => {
+  //   const id_user = 1;
+  //   const data = {
+  //     id_user,
+  //     station,
+  //     description,
+  //     picture,
+  //     longitude,
+  //     latitude,
+  //   };
+
+  //   const response = await axios.post(`http://localhost:5000/defaults`, data);
+  //   if (response.data.problem) {
+  //     setProblem();
+  //   }
+  // };
+
+  // const handleClick = () => {
+  //   navigate("/defaultsUser");
+  // };
 
   return (
     <div className="gare-container">
@@ -102,11 +119,19 @@ const GareEtConnexions = () => {
         />
         <Button
           classButton="envoyer"
-          onClick={postDefaults}
+          onClick={(e) => postDefaults(data, setProblem, e)}
           champButton="ENVOYER"
           type="button"
         />
       </form>
+      {/* <Link to="/defaultsUser/">
+        <Button
+          classButton="envoyer"
+          // onClick={handleClick}
+          champButton="defaut envoyé"
+          type="bouton"
+        />
+      </Link> */}
 
       <Footer />
     </div>

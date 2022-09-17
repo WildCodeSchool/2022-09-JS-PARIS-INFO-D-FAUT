@@ -1,29 +1,37 @@
 import React, { useState, useContext } from "react";
-import axios from "axios";
 import "./Profile.css";
 import { Footer, Header, Input, Button } from "../../components/index";
 import { ProfileContext } from "../../context/index";
+import { postProfile } from "../../services/axios/AxiosUsers";
 
 const Profile = () => {
   const { setProfile } = useContext(ProfileContext);
+
   const [cp, setCp] = useState("");
   const [mail, setMail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [password, setPassword] = useState("");
 
-  const postProfile = async () => {
-    const data = {
-      cp,
-      mail,
-      phoneNumber,
-      password,
-    };
-
-    const response = await axios.post(`http://localhost:5000/users`, data);
-    if (response.data.problem) {
-      setProfile();
-    }
+  const data = {
+    cp,
+    mail,
+    phoneNumber,
+    password,
   };
+
+  // const postProfile = async () => {
+  //   const data = {
+  //     cp,
+  //     mail,
+  //     phoneNumber,
+  //     password,
+  //   };
+
+  //   const response = await axios.post(`http://localhost:5000/users`, data);
+  //   if (response.data.profile) {
+  //     setProfile();
+  //   }
+  // };
 
   return (
     <div className="profile-container">
@@ -73,7 +81,7 @@ const Profile = () => {
         />
         <Button
           classButton="envoyer"
-          onClick={postProfile}
+          onClick={postProfile(data, setProfile)}
           champButton="ENVOYER"
           type="submit"
         />

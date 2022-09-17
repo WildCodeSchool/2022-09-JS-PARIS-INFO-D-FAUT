@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+// import { useParams } from "react-router-dom";
 import { Footer, Header, DefaultCard, Button } from "../../components/index";
 import "./DefaultsUser.css";
-import { deleteDefaults, getDefaultsUserById } from "../../utils/axios/axios";
+import {
+  deleteDefaultsUsers,
+  getDefaultsUserById,
+} from "../../services/axios/AxiosDefaults";
 
 const DefaultsUser = () => {
   const [problemUser, setProblemUser] = useState([]);
-  const { id } = useParams();
+  // const { id } = useParams();
+  const id = 10;
 
   useEffect(() => {
     getDefaultsUserById(id, setProblemUser);
@@ -39,7 +43,11 @@ const DefaultsUser = () => {
                   champButton="Supprimer"
                   type="button"
                   onClick={() =>
-                    deleteDefaults(id, problemes.id_default, setProblemUser)
+                    deleteDefaultsUsers(
+                      id,
+                      problemes.id_default,
+                      setProblemUser
+                    )
                   }
                 />
 

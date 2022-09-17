@@ -15,6 +15,15 @@ const {
 
 // public route
 router.post("/users", hashPassword, usersControllers.postUsers);
+router.get("/defaults", defaultsControllers.getDefaults);
+router.delete("/defaults/:id_default", defaultsControllers.deleteDefaults);
+router.put("/defaults/:id_default", defaultsControllers.updateDefaults);
+router.get("/defaults/:id_default", defaultsControllers.getDefaultsById);
+router.get(
+  "/defaultsUser/:id_user",
+  defaultsUserControllers.getDefaultsUserById
+);
+router.post("/defaults", defaultsControllers.postDefaults);
 
 router.post(
   "/profile/login",
@@ -30,16 +39,6 @@ router.get("/users/:id_user", usersControllers.getUsersById);
 router.put("/users/:id_user", usersControllers.updateUsers);
 router.delete("/users/:id_user", usersControllers.deleteUsers);
 
-router.get("/defaults", defaultsControllers.getDefaults);
-router.get("/defaults/:id_default", defaultsControllers.getDefaultsById);
-router.post("/defaults", defaultsControllers.postDefaults);
-router.put("/defaults/:id_default", defaultsControllers.updateDefaults);
-router.delete("/defaults/:id_default", defaultsControllers.deleteDefaults);
-
-router.get(
-  "/defaultsUser/:id_user",
-  defaultsUserControllers.getDefaultsUserById
-);
 router.delete(
   "/defaultsUser/:id_user/:id_default",
   defaultsUserControllers.deleteDefaultsUserById

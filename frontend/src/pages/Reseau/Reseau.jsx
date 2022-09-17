@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import "./Reseau.css";
-import axios from "axios";
 import { useParams } from "react-router-dom";
+import { postDefaults } from "../../services/axios/AxiosDefaults";
 import {
   Footer,
   Header,
@@ -9,7 +9,7 @@ import {
   Button,
   Textarea,
 } from "../../components/index";
-import { Geolocalisation } from "../../utils/Geolocalisation/Geolocalisation";
+import { Geolocalisation } from "../../services/Geolocalisation/Geolocalisation";
 import {
   DefaultsContext,
   RailwayTrackNumberContext,
@@ -30,22 +30,32 @@ const Reseau = () => {
   const { longitude, setLongitude } = useContext(LongitudeContext);
   const { id } = useParams();
 
-  const postDefaults = async () => {
-    const id_user = id;
-    const data = {
-      id_user,
-      railwayNumber,
-      description,
-      picture,
-      longitude,
-      latitude,
-    };
-
-    const response = await axios.post("http://localhost:5000/defaults", data);
-    if (response.data.problem) {
-      setProblem();
-    }
+  const id_user = id;
+  const data = {
+    id_user,
+    railwayNumber,
+    description,
+    picture,
+    longitude,
+    latitude,
   };
+
+  // const postDefaults = async () => {
+  //   const id_user = id;
+  //   const data = {
+  //     id_user,
+  //     railwayNumber,
+  //     description,
+  //     picture,
+  //     longitude,
+  //     latitude,
+  //   };
+
+  //   const response = await axios.post("http://localhost:5000/defaults", data);
+  //   if (response.data.problem) {
+  //     setProblem();
+  //   }
+  // };
 
   return (
     <div className="reseau-container">
@@ -103,7 +113,7 @@ const Reseau = () => {
         />
         <Button
           classButton="envoyer"
-          onClick={postDefaults}
+          onClick={postDefaults(data, setProblem)}
           champButton="ENVOYER"
           type="button"
         />{" "}

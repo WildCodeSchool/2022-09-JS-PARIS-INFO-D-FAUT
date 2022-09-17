@@ -14,7 +14,7 @@ const Home = () => {
       <Header backCss="back" profileCss="profile" />
       <div className="item-container">
         <div className="item-flex">
-          <Link to="/gare-et-connexions/:id">
+          <Link to="/gare-et-connexions">
             <Item src={gare} alt="gare et connexions" />
           </Link>
           <Link to="/ter/:id">

@@ -28,7 +28,7 @@ import Login from "./pages/Login/Login";
 import DefaultsUser from "./pages/DefaultsUser/DefaultsUser";
 
 function App() {
-  const [profile, setProfile] = useState([]);
+  const [profile, setProfile] = useState({});
   const [problem, setProblem] = useState([]);
   const [station, setStation] = useState("");
   const [terNumber, setTerNumber] = useState("");
@@ -62,7 +62,7 @@ function App() {
                               <Route path="/" element={<Login />} />
                               <Route path="/items" element={<Home />} />
                               <Route
-                                path="/gare-et-connexions/:id"
+                                path="/gare-et-connexions"
                                 element={<GareEtConnexions />}
                               />
                               <Route path="/ter/:id" element={<Ter />} />
@@ -79,7 +79,7 @@ function App() {
                               />
                               <Route path="/defaults" element={<Defaults />} />
                               <Route
-                                path="/defaultsUser/:id"
+                                path="/defaultsUser/:id_user"
                                 element={<DefaultsUser />}
                               />
                               <Route path="*" element={<Page404 />} />
