@@ -19,22 +19,24 @@ const getDefaultsUserById = (req, res) => {
 };
 
 const deleteDefaultsUserById = (req, res) => {
-  let { id_user } = req.body;
-  id_user = parseInt(req.params.id_user);
+  // let { id_user } = req.body;
+  let { id_default } = req.body;
+  // id_user = parseInt(req.params.id_user);
+  id_default = parseInt(req.params.id_default);
   sqlDb
-    .query(`delete from defaults where id_default=?`, [id_user])
+    .query(`delete from defaults where id_default=?`, [id_default])
     .then(([result]) => {
       if (result.affectedRows === 0) {
         res.status(404).json({ message: `default was not found in db` });
       } else {
         res
           .status(200)
-          .json({ message: `default number: ${id_user} has been deleted` });
+          .json({ message: `default number: ${id_default} has been deleted` });
       }
     })
     .catch((err) => {
       res.status(500).json({
-        message: `default number: ${id_user} was not deleted because of error, ${err}`,
+        message: `default number: ${id_default} was not deleted because of error, ${err}`,
       });
     });
 };

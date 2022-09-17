@@ -1,7 +1,9 @@
-import React, { useContext } from "react";
+import React, { useState, useContext } from "react";
 import "./Reseau.css";
-import { useParams } from "react-router-dom";
+// import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { postDefaults } from "../../services/axios/AxiosDefaults";
+import { Geolocalisation } from "../../services/Geolocalisation/Geolocalisation";
 import {
   Footer,
   Header,
@@ -9,28 +11,37 @@ import {
   Button,
   Textarea,
 } from "../../components/index";
-import { Geolocalisation } from "../../services/Geolocalisation/Geolocalisation";
 import {
-  DefaultsContext,
-  RailwayTrackNumberContext,
-  DescriptionContext,
-  PictureContext,
+  ProfileContext,
+  //   DefaultsContext,
+  //   RailwayTrackNumberContext,
+  //   DescriptionContext,
+  //   PictureContext,
   LongitudeContext,
   LatitudeContext,
 } from "../../context/index";
 
 const Reseau = () => {
-  const { setProblem } = useContext(DefaultsContext);
-  const { railwayNumber, setRailwayNumber } = useContext(
-    RailwayTrackNumberContext
-  );
-  const { description, setDescription } = useContext(DescriptionContext);
-  const { picture, setPicture } = useContext(PictureContext);
+  const { id_user } = useContext(ProfileContext);
+
+  // const { setProblem } = useContext(DefaultsContext);
+
+  // const { railwayNumber, setRailwayNumber } = useContext(
+  //   RailwayTrackNumberContext
+  // );
+  // const { description, setDescription } = useContext(DescriptionContext);
+  // const { picture, setPicture } = useContext(PictureContext);
+  // const { latitude, setLatitude } = useContext(LatitudeContext);
+  // const { longitude, setLongitude } = useContext(LongitudeContext);
+  // const { id } = useParams();
+
+  const [problem, setProblem] = useState("");
+  const [railwayNumber, setRailwayNumber] = useState("");
+  const [description, setDescription] = useState("");
+  const [picture, setPicture] = useState("");
   const { latitude, setLatitude } = useContext(LatitudeContext);
   const { longitude, setLongitude } = useContext(LongitudeContext);
-  const { id } = useParams();
 
-  const id_user = id;
   const data = {
     id_user,
     railwayNumber,
@@ -113,11 +124,28 @@ const Reseau = () => {
         />
         <Button
           classButton="envoyer"
-          onClick={postDefaults(data, setProblem)}
+          onClick={(e) =>
+            postDefaults(
+              data,
+              setProblem,
+              setRailwayNumber,
+              setDescription,
+              setPicture,
+              e
+            )
+          }
           champButton="ENVOYER"
           type="button"
-        />{" "}
+        />
       </form>
+      <Link to={`/defaultsUser/${id_user}`}>
+        <Button
+          classButton="envoyer"
+          // onClick={handleClick}
+          champButton="defaut envoyé"
+          type="bouton"
+        />
+      </Link>
 
       <Footer />
     </div>

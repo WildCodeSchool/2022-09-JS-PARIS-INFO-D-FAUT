@@ -9,6 +9,9 @@ import Voyageurs from "./pages/Voyageurs/Voyageurs";
 import Profile from "./pages/Profile/Profile";
 import RegulationPage from "./pages/RegulationPage/RegulationPage";
 import Defaults from "./pages/Defaults/Defaults";
+import Login from "./pages/Login/Login";
+import DefaultsUser from "./pages/DefaultsUser/DefaultsUser";
+import UpdateDefaultsUser from "./pages/UpdateDefaultsUser/UpdateDefaultsUser";
 import Page404 from "./pages/Page404/Page404";
 import {
   ProfileContext,
@@ -23,12 +26,8 @@ import {
   LongitudeContext,
 } from "./context/index";
 
-import Login from "./pages/Login/Login";
-
-import DefaultsUser from "./pages/DefaultsUser/DefaultsUser";
-
 function App() {
-  const [profile, setProfile] = useState({});
+  const [id_user, setId_user] = useState([]);
   const [problem, setProblem] = useState([]);
   const [station, setStation] = useState("");
   const [terNumber, setTerNumber] = useState("");
@@ -40,7 +39,7 @@ function App() {
   const [longitude, setLongitude] = useState("");
 
   return (
-    <ProfileContext.Provider value={{ profile, setProfile }}>
+    <ProfileContext.Provider value={{ id_user, setId_user }}>
       <DefaultsContext.Provider value={{ problem, setProblem }}>
         <StationContext.Provider value={{ station, setStation }}>
           <TerNumberContext.Provider value={{ terNumber, setTerNumber }}>
@@ -62,7 +61,7 @@ function App() {
                               <Route path="/" element={<Login />} />
                               <Route path="/items" element={<Home />} />
                               <Route
-                                path="/gare-et-connexions"
+                                path="/gare-et-connexions/:id_user"
                                 element={<GareEtConnexions />}
                               />
                               <Route path="/ter/:id" element={<Ter />} />
@@ -81,6 +80,10 @@ function App() {
                               <Route
                                 path="/defaultsUser/:id_user"
                                 element={<DefaultsUser />}
+                              />
+                              <Route
+                                path="/updateDefaultsUser/:id_user/:id_default"
+                                element={<UpdateDefaultsUser />}
                               />
                               <Route path="*" element={<Page404 />} />
                             </Routes>

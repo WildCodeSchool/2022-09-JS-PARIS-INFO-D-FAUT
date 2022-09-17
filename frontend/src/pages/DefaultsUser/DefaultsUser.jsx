@@ -1,19 +1,21 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 // import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Footer, Header, DefaultCard, Button } from "../../components/index";
 import "./DefaultsUser.css";
 import {
   deleteDefaultsUsers,
   getDefaultsUserById,
 } from "../../services/axios/AxiosDefaults";
+import { ProfileContext } from "../../context/index";
 
 const DefaultsUser = () => {
+  const { id_user } = useContext(ProfileContext);
+
   const [problemUser, setProblemUser] = useState([]);
-  // const { id } = useParams();
-  const id = 10;
 
   useEffect(() => {
-    getDefaultsUserById(id, setProblemUser);
+    getDefaultsUserById(id_user, setProblemUser);
   }, []);
 
   return (
@@ -34,7 +36,6 @@ const DefaultsUser = () => {
                   imgAlt="image du defaut"
                   latitude={problemes.latitude}
                   longitude={problemes.longitude}
-                  id_default={problemes.id_default}
                 />
 
                 <Button
@@ -42,22 +43,21 @@ const DefaultsUser = () => {
                   classButton="delete-button"
                   champButton="Supprimer"
                   type="button"
-                  onClick={() =>
-                    deleteDefaultsUsers(
-                      id,
-                      problemes.id_default,
-                      setProblemUser
-                    )
+                  onClick={(e) =>
+                    deleteDefaultsUsers(problemes.id_default, setProblemUser, e)
                   }
                 />
-
-                {/* <Button
-              name="update"
-              classButton="update-button"
-              champButton="Mettre à jour"
-              type="button"
-              onClick={() => updateDefaults(problems.id_default)}
-            /> */}
+                <Link
+                  to={`/updateDefaultsUser/${id_user}/${problemes.id_default}`}
+                >
+                  <Button
+                    name="update"
+                    classButton="update-button"
+                    champButton="Mettre à jour"
+                    type="button"
+                    // onClick={() => updateDefaults(problems.id_default)}
+                  />
+                </Link>
               </div>
             ))}
           </>

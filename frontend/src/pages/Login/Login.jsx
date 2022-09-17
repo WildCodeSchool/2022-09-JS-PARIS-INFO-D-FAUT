@@ -7,7 +7,7 @@ import "./Login.css";
 import Home from "../Home/Home";
 
 const Login = () => {
-  const { setProfile } = useContext(ProfileContext);
+  const { setId_user } = useContext(ProfileContext);
 
   const [cp, setCp] = useState("");
   const [password, setPassword] = useState("");
@@ -40,11 +40,11 @@ const Login = () => {
       `http://localhost:5000/profile/login`,
       data
     );
-    if (response.data.profile) {
-      setProfile();
+    if (response.data.user.id_user) {
+      setId_user(response.data.user.id_user);
     }
-    setCp("");
-    setPassword("");
+    // setCp("");
+    // setPassword("");
     setSucess(true);
   };
 

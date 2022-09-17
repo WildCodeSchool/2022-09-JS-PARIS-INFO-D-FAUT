@@ -25,6 +25,11 @@ router.get(
 );
 router.post("/defaults", defaultsControllers.postDefaults);
 
+router.delete(
+  "/defaultsUser/:id_default",
+  defaultsUserControllers.deleteDefaultsUserById
+);
+
 router.post(
   "/profile/login",
   usersControllers.getUserByCpWithPasswordAndPassToNext,
@@ -39,8 +44,4 @@ router.get("/users/:id_user", usersControllers.getUsersById);
 router.put("/users/:id_user", usersControllers.updateUsers);
 router.delete("/users/:id_user", usersControllers.deleteUsers);
 
-router.delete(
-  "/defaultsUser/:id_user/:id_default",
-  defaultsUserControllers.deleteDefaultsUserById
-);
 module.exports = router;

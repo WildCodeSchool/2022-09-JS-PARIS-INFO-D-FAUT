@@ -10,9 +10,9 @@ export const getDefaults = (setState) => {
     });
 };
 
-export const getDefaultsUserById = (id, setState) => {
+export const getDefaultsUserById = (id_user, setState) => {
   axios
-    .get(`http://localhost:5000/defaultsUser/${id}`)
+    .get(`http://localhost:5000/defaultsUser/${id_user}`)
     .then((response) => response.data)
 
     .then((data) => {
@@ -20,11 +20,20 @@ export const getDefaultsUserById = (id, setState) => {
     });
 };
 
-export const postDefaults = async (data, setState) => {
+export const postDefaults = async (
+  data,
+  setState,
+  setState2,
+  setState3,
+  setState4
+) => {
   const response = await axios.post(`http://localhost:5000/defaults`, data);
-  if (response.data.problem) {
+  if (response.data.result) {
     setState();
   }
+  setState2("");
+  setState3("");
+  setState4("");
 };
 
 export const deleteDefaults = async (id_default, setState) => {
@@ -32,16 +41,16 @@ export const deleteDefaults = async (id_default, setState) => {
     `http://localhost:5000/defaults/${id_default}`
   );
   if (response.data.problem) {
-    setState(response.data.problem);
+    setState();
   }
 };
 
-export const deleteDefaultsUsers = async (id, id_default, setState) => {
+export const deleteDefaultsUsers = async (id_default, setState) => {
   const response = await axios.delete(
-    `http://localhost:5000/defaultsUser/${id}/${id_default}`
+    `http://localhost:5000/defaultsUser/${id_default}`
   );
-  if (response.data.problem) {
-    setState(response.data.problem);
+  if (response.data.problemUser) {
+    setState();
   }
 };
 
