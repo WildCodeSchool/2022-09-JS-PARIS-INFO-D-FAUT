@@ -9,8 +9,12 @@ export const Header = ({ backCss, profileCss }) => {
   return (
     <div className="header-container">
       <div className="header-back">
-        <Link to="/">
-          <img className={backCss} src={back} alt="logo utilisateur" />
+        <Link to="/items">
+          <img
+            className={`back ${backCss}`}
+            src={back}
+            alt="logo utilisateur"
+          />
         </Link>
       </div>
       <div className="header-logo">
@@ -18,7 +22,11 @@ export const Header = ({ backCss, profileCss }) => {
       </div>
       <div className="header-utilisateur">
         <Link to="/">
-          <img className={profileCss} src={profile} alt="logo utilisateur" />
+          <img
+            className={`profile ${profileCss}`}
+            src={profile}
+            alt="logo utilisateur"
+          />
         </Link>
       </div>
     </div>

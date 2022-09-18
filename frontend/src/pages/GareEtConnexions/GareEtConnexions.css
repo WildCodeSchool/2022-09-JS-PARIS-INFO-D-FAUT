@@ -7,17 +7,6 @@
   background-color: rgb(0, 17, 43);
 }
 
-.backGare {
-  margin-top: 5px;
-  margin-left: 5px;
-  width: 35px;
-  height: 35px;
-  transition-duration: 0.5s;
-}
-.backGare:hover {
-  transform: rotate(-15deg);
-}
-
 .profileGare {
   display: none;
 }

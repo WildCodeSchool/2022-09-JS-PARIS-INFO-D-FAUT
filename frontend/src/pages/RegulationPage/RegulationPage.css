@@ -9,6 +9,10 @@
   height: 400%;
 }
 
+.profileRegulation {
+  display: none;
+}
+
 .legal-container h1 {
   color: #ffb612;
   font-style: italic;
@@ -157,10 +161,4 @@
   justify-content: center;
   width: 85%;
   color: #ffff;
-}
-.backReseau {
-  transition-duration: 0.5s;
-}
-.backReseau:hover {
-  transform: rotate(-15deg);
 }

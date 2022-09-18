@@ -45,7 +45,7 @@ const UpdateDefaultsUser = () => {
   return (
     <div className="update-container">
       {Geolocalisation()}
-      <Header backCss="backGare" profileCss="profileGare" />
+      <Header backCss="backUpdate" profileCss="profileUpdate" />
 
       <form className="gare_champ-container">
         <h1>MODIFICATION</h1>

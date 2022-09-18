@@ -6,6 +6,11 @@
   justify-content: space-between;
 }
 
+.backLogin,
+.profileLogin {
+  display: none;
+}
+
 .backUtilisateur {
   margin-top: 5px;
   margin-left: 5px;

@@ -14,7 +14,7 @@ const Home = () => {
 
   return (
     <div className="home-container">
-      <Header backCss="back" profileCss="profile" />
+      <Header backCss="backHome" profileCss="profileHome" />
       <div className="item-container">
         <div className="item-flex">
           <Link to={`/gare-et-connexions/${id_user}`}>
