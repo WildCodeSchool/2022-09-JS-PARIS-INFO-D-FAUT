@@ -90,7 +90,18 @@ const Profile = () => {
             />
             <Button
               classButton="envoyer"
-              onClick={(e) => postProfile(data, setProfile, setSucess, e)}
+              onClick={(e) =>
+                postProfile(
+                  data,
+                  setProfile,
+                  setCp,
+                  setMail,
+                  setPhoneNumber,
+                  setPassword,
+                  setSucess,
+                  e
+                )
+              }
               champButton="ENVOYER"
               type="submit"
             />
