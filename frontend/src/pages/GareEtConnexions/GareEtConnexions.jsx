@@ -72,6 +72,8 @@ const GareEtConnexions = () => {
           forId="file"
           type="file"
           champ="Joindre une photographie"
+          // accept="image/png, image/jpeg"
+          // capture="environnement"
         />
         <Input
           className="inputGare"

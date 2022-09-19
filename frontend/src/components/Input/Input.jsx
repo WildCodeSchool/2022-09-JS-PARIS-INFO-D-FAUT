@@ -13,6 +13,7 @@ export const Input = ({
   minlength,
   maxlength,
   className,
+  accept,
 }) => {
   return (
     <div className="input-container">
@@ -31,6 +32,8 @@ export const Input = ({
         placeholder={placeholder}
         minLength={minlength}
         maxLength={maxlength}
+        // accept={accept}
+        // capture={capture}
       />
     </div>
   );
