@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 import "./Profile.css";
 import { Footer, Header, Input, Button } from "../../components/index";
-// import { ProfileContext } from "../../context/index";
 import { postProfile } from "../../services/axios/AxiosUsers";
 import Login from "../Login/Login";
 
 const Profile = () => {
-  // const { setIdUser } = useContext(ProfileContext);
   const [profile, setProfile] = useState([]);
   const [sucess, setSucess] = useState(false);
 
@@ -21,20 +19,6 @@ const Profile = () => {
     phoneNumber,
     password,
   };
-
-  // const postProfile = async () => {
-  //   const data = {
-  //     cp,
-  //     mail,
-  //     phoneNumber,
-  //     password,
-  //   };
-
-  //   const response = await axios.post(`http://localhost:5000/users`, data);
-  //   if (response.data.profile) {
-  //     setProfile();
-  //   }
-  // };
 
   return (
     <div>

@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useContext } from "react";
-// import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { Footer, Header, DefaultCard, Button } from "../../components/index";
 import "./DefaultsUser.css";
@@ -55,7 +54,6 @@ const DefaultsUser = () => {
                     classButton="update-button"
                     champButton="Mettre à jour"
                     type="button"
-                    // onClick={() => updateDefaults(problems.id_default)}
                   />
                 </Link>
               </div>

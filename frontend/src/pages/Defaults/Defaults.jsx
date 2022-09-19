@@ -1,6 +1,5 @@
 import React, { useContext, useEffect } from "react";
 import "./Defaults.css";
-// import { useParams } from "react-router-dom";
 import {
   getDefaults,
   deleteDefaults,
@@ -23,44 +22,12 @@ const Defaults = () => {
   const { station } = useContext(StationContext);
   const { description } = useContext(DescriptionContext);
   const { picture } = useContext(PictureContext);
-  // const { id } = useParams();
 
-  // const id = 1;
   const data = { station, description, picture, longitude, latitude };
-
-  // const getDefaults = () => {
-  //   axios
-  //     .get("http://localhost:5000/defaults")
-  //     .then((response) => response.data)
-
-  //     .then((data) => {
-  //       setProblem(data.result);
-  //     });
-  // };
 
   useEffect(() => {
     getDefaults(setProblem);
   }, []);
-
-  // const deleteDefaults = async (id_default) => {
-  //   const response = await axios.delete(
-  //     `http://localhost:5000/defaults/${id_default}`
-  //   );
-  //   if (response.data.problem) {
-  //     setProblem(response.data.problem);
-  //   }
-  // };
-
-  // const updateDefaults = async (id_default, data) => {
-  //   const data = { station, description, picture, longitude, latitude };
-  //   const response = await axios.put(
-  //     `http://localhost:5000/defaults/${id_default}`,
-  //     data
-  //   );
-  //   if (response.data.problem) {
-  //     setProblem();
-  //   }
-  // };
 
   return (
     <div className="defaults-container">

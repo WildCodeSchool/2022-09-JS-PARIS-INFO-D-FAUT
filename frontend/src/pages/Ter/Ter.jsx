@@ -1,6 +1,5 @@
 import React, { useContext, useState } from "react";
 import "./Ter.css";
-// import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { postDefaults } from "../../services/axios/AxiosDefaults";
 import { Geolocalisation } from "../../services/Geolocalisation/Geolocalisation";
@@ -13,10 +12,6 @@ import {
 } from "../../components/index";
 import {
   ProfileContext,
-  // DefaultsContext,
-  // DescriptionContext,
-  // TerNumberContext,
-  // PictureContext,
   LongitudeContext,
   LatitudeContext,
 } from "../../context/index";
@@ -31,7 +26,6 @@ const Ter = () => {
   const [picture, setPicture] = useState("");
   const { latitude, setLatitude } = useContext(LatitudeContext);
   const { longitude, setLongitude } = useContext(LongitudeContext);
-  // const { id } = useParams();
 
   const data = {
     id_user,
@@ -41,23 +35,6 @@ const Ter = () => {
     longitude,
     latitude,
   };
-
-  // const postDefaults = async () => {
-  //   const id_user = id;
-  //   const data = {
-  //     id_user,
-  //     terNumber,
-  //     description,
-  //     picture,
-  //     longitude,
-  //     latitude,
-  //   };
-
-  //   const response = await axios.post("http://localhost:5000/defaults", data);
-  //   if (response.data.problem) {
-  //     setProblem();
-  //   }
-  // };
 
   return (
     <div className="ter-container">
@@ -133,7 +110,6 @@ const Ter = () => {
       <Link to={`/defaultsUser/${id_user}`}>
         <Button
           classButton="envoyer"
-          // onClick={handleClick}
           champButton="defaut envoyé"
           type="bouton"
         />

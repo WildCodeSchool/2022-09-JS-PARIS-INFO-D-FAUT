@@ -13,21 +13,6 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [sucess, setSucess] = useState(false);
 
-  // const postUser = async () => {
-  //   const data = {
-  //     cp,
-  //     password,
-  //   };
-
-  //   const response = await axios.post(
-  //     `http://localhost:5000/profile/login`,
-  //     data
-  //   );
-  //   if (response.data.profile) {
-  //     setProfile();
-  //   }
-  // };
-
   const postUser = async (e) => {
     e.preventDefault();
 

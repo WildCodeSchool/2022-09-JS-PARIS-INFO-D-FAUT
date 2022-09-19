@@ -1,6 +1,5 @@
 import React, { useContext, useState } from "react";
 import "./Voyageurs.css";
-// import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { postDefaults } from "../../services/axios/AxiosDefaults";
 import { Geolocalisation } from "../../services/Geolocalisation/Geolocalisation";
@@ -13,10 +12,6 @@ import {
 } from "../../components/index";
 import {
   ProfileContext,
-  // DefaultsContext,
-  // TgvNumberContext,
-  // DescriptionContext,
-  // PictureContext,
   LongitudeContext,
   LatitudeContext,
 } from "../../context/index";
@@ -31,7 +26,6 @@ const Voyageurs = () => {
   const [picture, setPicture] = useState("");
   const { latitude, setLatitude } = useContext(LatitudeContext);
   const { longitude, setLongitude } = useContext(LongitudeContext);
-  // const { id } = useParams();
 
   const data = {
     id_user,
@@ -41,23 +35,6 @@ const Voyageurs = () => {
     longitude,
     latitude,
   };
-
-  // const postDefaults = async () => {
-  //   const id_user = id;
-  //   const data = {
-  //     id_user,
-  //     tgvNumber,
-  //     description,
-  //     picture,
-  //     longitude,
-  //     latitude,
-  //   };
-
-  //   const response = await axios.post("http://localhost:5000/defaults", data);
-  //   if (response.data.problem) {
-  //     setProblem();
-  //   }
-  // };
 
   return (
     <div className="voyageurs-container">
@@ -133,7 +110,6 @@ const Voyageurs = () => {
       <Link to={`/defaultsUser/${id_user}`}>
         <Button
           classButton="envoyer"
-          // onClick={handleClick}
           champButton="defaut envoyé"
           type="bouton"
         />

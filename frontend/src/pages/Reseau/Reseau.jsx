@@ -1,6 +1,5 @@
 import React, { useState, useContext } from "react";
 import "./Reseau.css";
-// import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { postDefaults } from "../../services/axios/AxiosDefaults";
 import { Geolocalisation } from "../../services/Geolocalisation/Geolocalisation";
@@ -13,27 +12,12 @@ import {
 } from "../../components/index";
 import {
   ProfileContext,
-  //   DefaultsContext,
-  //   RailwayTrackNumberContext,
-  //   DescriptionContext,
-  //   PictureContext,
   LongitudeContext,
   LatitudeContext,
 } from "../../context/index";
 
 const Reseau = () => {
   const { id_user } = useContext(ProfileContext);
-
-  // const { setProblem } = useContext(DefaultsContext);
-
-  // const { railwayNumber, setRailwayNumber } = useContext(
-  //   RailwayTrackNumberContext
-  // );
-  // const { description, setDescription } = useContext(DescriptionContext);
-  // const { picture, setPicture } = useContext(PictureContext);
-  // const { latitude, setLatitude } = useContext(LatitudeContext);
-  // const { longitude, setLongitude } = useContext(LongitudeContext);
-  // const { id } = useParams();
 
   const [problem, setProblem] = useState("");
   const [railwayNumber, setRailwayNumber] = useState("");
@@ -50,23 +34,6 @@ const Reseau = () => {
     longitude,
     latitude,
   };
-
-  // const postDefaults = async () => {
-  //   const id_user = id;
-  //   const data = {
-  //     id_user,
-  //     railwayNumber,
-  //     description,
-  //     picture,
-  //     longitude,
-  //     latitude,
-  //   };
-
-  //   const response = await axios.post("http://localhost:5000/defaults", data);
-  //   if (response.data.problem) {
-  //     setProblem();
-  //   }
-  // };
 
   return (
     <div className="reseau-container">
@@ -141,7 +108,6 @@ const Reseau = () => {
       <Link to={`/defaultsUser/${id_user}`}>
         <Button
           classButton="envoyer"
-          // onClick={handleClick}
           champButton="defaut envoyé"
           type="bouton"
         />
