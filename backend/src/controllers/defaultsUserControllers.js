@@ -19,9 +19,7 @@ const getDefaultsUserById = (req, res) => {
 };
 
 const deleteDefaultsUserById = (req, res) => {
-  // let { id_user } = req.body;
   let { id_default } = req.body;
-  // id_user = parseInt(req.params.id_user);
   id_default = parseInt(req.params.id_default);
   sqlDb
     .query(`delete from defaults where id_default=?`, [id_default])
