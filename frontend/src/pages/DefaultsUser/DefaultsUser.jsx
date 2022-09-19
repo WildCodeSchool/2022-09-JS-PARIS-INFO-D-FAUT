@@ -15,7 +15,7 @@ const DefaultsUser = () => {
 
   useEffect(() => {
     getDefaultsUserById(id_user, setProblemUser);
-  }, []);
+  }, [problemUser]);
 
   return (
     <div className="defaultsUser-container">
