@@ -4,6 +4,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  background-color: rgb(0, 17, 43);
 }
 
 .profileTer {
@@ -15,7 +16,6 @@
   flex-direction: column;
   justify-content: space-around;
   height: 100%;
-  background-color: rgb(0, 17, 43);
 }
 
 h1 {
