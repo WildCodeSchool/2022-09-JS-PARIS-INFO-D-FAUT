@@ -15,6 +15,10 @@
 //       "state_changed",
 //       (snapshot) => {
 //         //
+//         const progress = Math.round(
+//           (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+//         );
+//         setProgress(progress);
 //       },
 //       (err) => console.warn(err),
 //       () => {
@@ -35,6 +39,7 @@
 //         <input type="file" className="input" />
 //         <button type="submit">Télécharger</button>
 //       </form>
+//       <h2>Chargement {progress}%</h2>
 //     </div>
 //   );
 // };
