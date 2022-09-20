@@ -15,6 +15,7 @@ import {
   LongitudeContext,
   LatitudeContext,
 } from "../../context/index";
+// import { PictureForm } from "../../components/PictureForm/PictureForm";
 
 const GareEtConnexions = () => {
   const { id_user } = useContext(ProfileContext);
@@ -114,7 +115,6 @@ const GareEtConnexions = () => {
           type="bouton"
         />
       </Link>
-
       <Footer />
     </div>
   );
