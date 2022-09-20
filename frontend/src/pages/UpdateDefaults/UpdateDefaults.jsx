@@ -1,18 +1,18 @@
 import React from "react";
-import "./UpdateDefaultsUser.css";
+import "./UpdateDefaults.css";
 
 import { Geolocalisation } from "../../services/Geolocalisation/Geolocalisation";
 import { Footer, Header, Update } from "../../components/index";
 
-const UpdateDefaultsUser = () => {
+const UpdateDefaults = () => {
   return (
-    <div className="updateUser-container">
+    <div className="updateDefaults-container">
       {Geolocalisation()}
-      <Header backCss="backUpdateUser" profileCss="profileUpdateUser" />
+      <Header backCss="backUpdateDefaults" profileCss="profileUpdateDefaults" />
       <Update />
       <Footer />
     </div>
   );
 };
 
-export default UpdateDefaultsUser;
+export default UpdateDefaults;

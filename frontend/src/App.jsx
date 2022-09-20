@@ -12,92 +12,57 @@ import Defaults from "./pages/Defaults/Defaults";
 import Login from "./pages/Login/Login";
 import DefaultsUser from "./pages/DefaultsUser/DefaultsUser";
 import UpdateDefaultsUser from "./pages/UpdateDefaultsUser/UpdateDefaultsUser";
+import UpdateDefaults from "./pages/UpdateDefaults/UpdateDefaults";
 import Page404 from "./pages/Page404/Page404";
 import {
   ProfileContext,
-  DefaultsContext,
-  StationContext,
-  TerNumberContext,
-  TgvNumberContext,
-  RailwayTrackNumberContext,
-  PictureContext,
-  DescriptionContext,
   LatitudeContext,
   LongitudeContext,
 } from "./context/index";
 
 function App() {
   const [id_user, setId_user] = useState([]);
-  const [problem, setProblem] = useState([]);
-  const [station, setStation] = useState("");
-  const [terNumber, setTerNumber] = useState("");
-  const [tgvNumber, setTgvNumber] = useState("");
-  const [railwayNumber, setRailwayNumber] = useState("");
-  const [description, setDescription] = useState("");
-  const [picture, setPicture] = useState("");
   const [latitude, setLatitude] = useState("");
   const [longitude, setLongitude] = useState("");
 
   return (
     <ProfileContext.Provider value={{ id_user, setId_user }}>
-      <DefaultsContext.Provider value={{ problem, setProblem }}>
-        <StationContext.Provider value={{ station, setStation }}>
-          <TerNumberContext.Provider value={{ terNumber, setTerNumber }}>
-            <TgvNumberContext.Provider value={{ tgvNumber, setTgvNumber }}>
-              <RailwayTrackNumberContext.Provider
-                value={{ railwayNumber, setRailwayNumber }}
-              >
-                <DescriptionContext.Provider
-                  value={{ description, setDescription }}
-                >
-                  <PictureContext.Provider value={{ picture, setPicture }}>
-                    <LatitudeContext.Provider value={{ latitude, setLatitude }}>
-                      <LongitudeContext.Provider
-                        value={{ longitude, setLongitude }}
-                      >
-                        <Router>
-                          <div className="App">
-                            <Routes>
-                              <Route path="/" element={<Login />} />
-                              <Route path="/items" element={<Home />} />
-                              <Route
-                                path="/gare-et-connexions/:id_user"
-                                element={<GareEtConnexions />}
-                              />
-                              <Route path="/ter/:id" element={<Ter />} />
-                              <Route path="/reseau/:id" element={<Reseau />} />
-                              <Route
-                                path="/voyageurs/:id"
-                                element={<Voyageurs />}
-                              />
-                              <Route path="/profile" element={<Profile />} />
+      <LatitudeContext.Provider value={{ latitude, setLatitude }}>
+        <LongitudeContext.Provider value={{ longitude, setLongitude }}>
+          <Router>
+            <div className="App">
+              <Routes>
+                <Route path="/" element={<Login />} />
+                <Route path="/items/:id_user" element={<Home />} />
+                <Route
+                  path="/gare-et-connexions/:id_user"
+                  element={<GareEtConnexions />}
+                />
+                <Route path="/ter/:id" element={<Ter />} />
+                <Route path="/reseau/:id" element={<Reseau />} />
+                <Route path="/voyageurs/:id" element={<Voyageurs />} />
+                <Route path="/profile" element={<Profile />} />
 
-                              <Route
-                                path="/legal"
-                                element={<RegulationPage />}
-                              />
-                              <Route path="/defaults" element={<Defaults />} />
-                              <Route
-                                path="/defaultsUser/:id_user"
-                                element={<DefaultsUser />}
-                              />
-                              <Route
-                                path="/updateDefaultsUser/:id_user/:id_default"
-                                element={<UpdateDefaultsUser />}
-                              />
-                              <Route path="*" element={<Page404 />} />
-                            </Routes>
-                          </div>
-                        </Router>
-                      </LongitudeContext.Provider>
-                    </LatitudeContext.Provider>
-                  </PictureContext.Provider>
-                </DescriptionContext.Provider>
-              </RailwayTrackNumberContext.Provider>
-            </TgvNumberContext.Provider>
-          </TerNumberContext.Provider>
-        </StationContext.Provider>
-      </DefaultsContext.Provider>
+                <Route path="/legal" element={<RegulationPage />} />
+                <Route path="/defaults" element={<Defaults />} />
+                <Route
+                  path="/defaultsUser/:id_user"
+                  element={<DefaultsUser />}
+                />
+                <Route
+                  path="/updateDefaultsUser/:id_user/:id_default"
+                  element={<UpdateDefaultsUser />}
+                />
+                <Route
+                  path="/updateDefaults/:id_default"
+                  element={<UpdateDefaults />}
+                />
+                <Route path="*" element={<Page404 />} />
+              </Routes>
+            </div>
+          </Router>
+        </LongitudeContext.Provider>
+      </LatitudeContext.Provider>
     </ProfileContext.Provider>
   );
 }

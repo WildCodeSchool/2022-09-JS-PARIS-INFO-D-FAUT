@@ -17,6 +17,7 @@
   },
   "plugins": ["react", "import"],
   "rules": {
+    "import/no-cycle": [0],
     "no-unused-vars": [0],
     "camelcase": "off",
     "jsx-a11y/no-static-element-interactions": [

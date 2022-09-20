@@ -19,7 +19,6 @@ import {
 const Reseau = () => {
   const { id_user } = useContext(ProfileContext);
 
-  const [problem, setProblem] = useState([]);
   const [railway_track_number, setRailwayNumber] = useState(0);
   const [description, setDescription] = useState("");
   const [picture, setPicture] = useState("");
@@ -92,14 +91,7 @@ const Reseau = () => {
         <Button
           classButton="envoyer"
           onClick={(e) =>
-            postDefaults(
-              data,
-              setProblem,
-              setRailwayNumber,
-              setDescription,
-              setPicture,
-              e
-            )
+            postDefaults(data, setRailwayNumber(0), setDescription(""), e)
           }
           champButton="ENVOYER"
           type="button"

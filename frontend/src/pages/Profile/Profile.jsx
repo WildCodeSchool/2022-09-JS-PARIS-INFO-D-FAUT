@@ -5,9 +5,6 @@ import { postProfile } from "../../services/axios/AxiosUsers";
 import Login from "../Login/Login";
 
 const Profile = () => {
-  const [profile, setProfile] = useState([]);
-  const [sucess, setSucess] = useState(false);
-
   const [cp, setCp] = useState("");
   const [mail, setMail] = useState("");
   const [phone_number, setPhoneNumber] = useState(0);
@@ -70,15 +67,7 @@ const Profile = () => {
           <Button
             classButton="envoyer"
             onClick={(e) =>
-              postProfile(
-                data,
-                setProfile,
-                setCp,
-                setMail,
-                setPhoneNumber,
-                setPassword,
-                e
-              )
+              postProfile(data, setCp, setMail, setPhoneNumber, setPassword, e)
             }
             champButton="ENVOYER"
             type="submit"

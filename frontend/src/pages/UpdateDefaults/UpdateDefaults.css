@@ -1,4 +1,4 @@
-.updateUser-container {
+.updateDefaults-container {
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -6,6 +6,6 @@
   justify-content: space-between;
 }
 
-.profileUpdateUser {
+.profileUpdateDefaults {
   display: none;
 }

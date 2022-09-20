@@ -11,9 +11,6 @@ import {
   Textarea,
 } from "../../components/index";
 import {
-  StationContext,
-  DescriptionContext,
-  PictureContext,
   ProfileContext,
   LongitudeContext,
   LatitudeContext,
@@ -22,10 +19,9 @@ import {
 const GareEtConnexions = () => {
   const { id_user } = useContext(ProfileContext);
 
-  const [problem, setProblem] = useState([]);
-  const { station, setStation } = useContext(StationContext);
-  const { description, setDescription } = useContext(DescriptionContext);
-  const { picture, setPicture } = useContext(PictureContext);
+  const [station, setStation] = useState("");
+  const [description, setDescription] = useState("");
+  const [picture, setPicture] = useState("");
   const { latitude, setLatitude } = useContext(LatitudeContext);
   const { longitude, setLongitude } = useContext(LongitudeContext);
 
@@ -96,14 +92,7 @@ const GareEtConnexions = () => {
         <Button
           classButton="envoyer"
           onClick={(e) =>
-            postDefaults(
-              data,
-              setProblem,
-              setStation,
-              setDescription,
-              setPicture,
-              e
-            )
+            postDefaults(data, setStation(""), setDescription(""), e)
           }
           champButton="ENVOYER"
           type="button"

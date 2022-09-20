@@ -19,8 +19,6 @@ import {
 const Ter = () => {
   const { id_user } = useContext(ProfileContext);
 
-  const [problem, setProblem] = useState([]);
-
   const [ter_number, setTerNumber] = useState(0);
   const [description, setDescription] = useState("");
   const [picture, setPicture] = useState("");
@@ -94,14 +92,7 @@ const Ter = () => {
         <Button
           classButton="envoyer"
           onClick={(e) =>
-            postDefaults(
-              data,
-              setProblem,
-              setTerNumber,
-              setDescription,
-              setPicture,
-              e
-            )
+            postDefaults(data, setTerNumber(0), setDescription(""), e)
           }
           champButton="ENVOYER"
           type="button"

@@ -44,27 +44,19 @@ export const getUserDefaultById = (
     });
 };
 
-export const postDefaults = async (
-  data,
-  setState,
-  setState2,
-  setState3,
-  setState4
-) => {
+export const postDefaults = async (data, setState2, setState3) => {
   const response = await axios.post(`http://localhost:5000/defaults`, data);
   if (response.data.result) {
-    setState();
+    setState2();
+    setState3();
   }
-  setState2("");
-  setState3("");
-  setState4("");
 };
 
 export const deleteDefaults = async (id_default, setState) => {
   const response = await axios.delete(
     `http://localhost:5000/defaults/${id_default}`
   );
-  if (response.data) {
+  if (response.data.problem) {
     setState();
   }
 };

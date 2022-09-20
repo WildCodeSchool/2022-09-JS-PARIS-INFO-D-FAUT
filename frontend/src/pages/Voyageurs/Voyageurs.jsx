@@ -19,8 +19,6 @@ import {
 const Voyageurs = () => {
   const { id_user } = useContext(ProfileContext);
 
-  const [problem, setProblem] = useState([]);
-
   const [tgv_number, setTgvNumber] = useState(0);
   const [description, setDescription] = useState("");
   const [picture, setPicture] = useState("");
@@ -94,14 +92,7 @@ const Voyageurs = () => {
         <Button
           classButton="envoyer"
           onClick={(e) =>
-            postDefaults(
-              data,
-              setProblem,
-              setTgvNumber,
-              setDescription,
-              setPicture,
-              e
-            )
+            postDefaults(data, setTgvNumber(0), setDescription(""), e)
           }
           champButton="ENVOYER"
           type="button"

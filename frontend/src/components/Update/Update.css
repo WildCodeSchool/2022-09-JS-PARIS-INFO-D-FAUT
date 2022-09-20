@@ -1,11 +1,8 @@
-.updateUser-container {
+.update-container {
   width: 100vw;
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-}
-
-.profileUpdateUser {
-  display: none;
+  background-color: rgb(0, 17, 43);
 }
