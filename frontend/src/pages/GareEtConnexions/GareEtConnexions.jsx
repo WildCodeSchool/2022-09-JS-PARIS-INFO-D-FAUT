@@ -15,7 +15,7 @@ import {
   LongitudeContext,
   LatitudeContext,
 } from "../../context/index";
-// import { PictureForm } from "../../components/PictureForm/PictureForm";
+import { PictureImport } from "../../components/PictureImport/PictureImport";
 
 const GareEtConnexions = () => {
   const { id_user } = useContext(ProfileContext);
@@ -66,16 +66,15 @@ const GareEtConnexions = () => {
           forId="field"
           type="text"
         />
-        <Input
+        <PictureImport />
+        {/* <Input
           className="inputGare"
           onChange={(e) => setPicture(e.target.value)}
           value={picture}
           forId="file"
           type="file"
           champ="Joindre une photographie"
-          // accept="image/png, image/jpeg"
-          // capture="environnement"
-        />
+        /> */}
         <Input
           className="inputGare"
           forId="file"
