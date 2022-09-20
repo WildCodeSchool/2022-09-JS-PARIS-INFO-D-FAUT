@@ -9,3 +9,12 @@
   font-weight: bold;
   font-size: 18px;
 }
+
+input{
+  padding: 3px;
+  transition-duration: 0.1s;
+}
+
+input:hover{
+  outline: 3px solid  rgb(205, 0, 55);
+}

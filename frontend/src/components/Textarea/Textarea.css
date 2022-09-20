@@ -9,3 +9,11 @@
   font-weight: bold;
   font-size: 18px;
 }
+
+textarea{
+  transition-duration: 0.1s;
+}
+
+textarea:hover{
+  outline: 3px solid  rgb(205, 0, 55);
+}
