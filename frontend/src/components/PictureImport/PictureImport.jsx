@@ -1,7 +1,7 @@
 import { React, useState, Alert } from "react";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { storage } from "../../services/Firebase/firebase";
-// import "./PictureImport.css"
+import "./PictureImport.css";
 
 export const PictureImport = () => {
   // state du téléchargement
