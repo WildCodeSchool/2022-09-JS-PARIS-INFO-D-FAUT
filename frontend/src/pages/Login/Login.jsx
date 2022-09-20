@@ -28,8 +28,8 @@ const Login = () => {
     if (response.data.user.id_user) {
       setId_user(response.data.user.id_user);
     }
-    setCp(" ");
-    setPassword(" ");
+    setCp("");
+    setPassword("");
     setSucess(true);
   };
 
@@ -60,6 +60,7 @@ const Login = () => {
                 forId="mot"
                 type="password"
                 champ="Mot de passe"
+                autoComplete="on"
                 onChange={(e) => setPassword(e.target.value)}
                 value={password}
               />

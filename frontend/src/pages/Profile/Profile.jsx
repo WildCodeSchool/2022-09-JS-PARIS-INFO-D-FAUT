@@ -9,6 +9,7 @@ const Profile = () => {
   const [mail, setMail] = useState("");
   const [phone_number, setPhoneNumber] = useState(0);
   const [password, setPassword] = useState("");
+  const [secondPassword, setSecondPassword] = useState("");
 
   const data = {
     cp,
@@ -16,6 +17,8 @@ const Profile = () => {
     phone_number,
     password,
   };
+
+  const verifPasswords = password !== secondPassword;
 
   return (
     <div>
@@ -56,6 +59,7 @@ const Profile = () => {
             type="password"
             champ="Mot de passe"
             onChange={(e) => setPassword(e.target.value)}
+            autoComplete="on"
             value={password}
           />
           <Input
@@ -63,9 +67,13 @@ const Profile = () => {
             forId="confirmation"
             type="password"
             champ="Confirmation du mot de passe"
+            onChange={(e) => setSecondPassword(e.target.value)}
+            autoComplete="on"
+            value={secondPassword}
           />
           <Button
             classButton="envoyer"
+            disabled={verifPasswords}
             onClick={(e) =>
               postProfile(data, setCp, setMail, setPhoneNumber, setPassword, e)
             }
