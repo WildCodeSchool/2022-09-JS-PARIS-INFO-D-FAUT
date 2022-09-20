@@ -19,8 +19,8 @@ import {
 const Reseau = () => {
   const { id_user } = useContext(ProfileContext);
 
-  const [problem, setProblem] = useState("");
-  const [railwayNumber, setRailwayNumber] = useState("");
+  const [problem, setProblem] = useState([]);
+  const [railway_track_number, setRailwayNumber] = useState(0);
   const [description, setDescription] = useState("");
   const [picture, setPicture] = useState("");
   const { latitude, setLatitude } = useContext(LatitudeContext);
@@ -28,7 +28,7 @@ const Reseau = () => {
 
   const data = {
     id_user,
-    railwayNumber,
+    railway_track_number,
     description,
     picture,
     longitude,
@@ -53,9 +53,9 @@ const Reseau = () => {
         <Input
           className="inputReseau"
           onChange={(e) => setRailwayNumber(e.target.value)}
-          value={railwayNumber}
+          value={railway_track_number}
           forId="ligne"
-          type="text"
+          type="number"
           champ="Numéro de ligne / Emprise"
         />
         <Textarea

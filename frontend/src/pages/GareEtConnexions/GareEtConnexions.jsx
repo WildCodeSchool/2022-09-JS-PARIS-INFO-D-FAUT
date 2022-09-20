@@ -11,6 +11,9 @@ import {
   Textarea,
 } from "../../components/index";
 import {
+  StationContext,
+  DescriptionContext,
+  PictureContext,
   ProfileContext,
   LongitudeContext,
   LatitudeContext,
@@ -19,10 +22,10 @@ import {
 const GareEtConnexions = () => {
   const { id_user } = useContext(ProfileContext);
 
-  const [problem, setProblem] = useState("");
-  const [station, setStation] = useState("");
-  const [description, setDescription] = useState("");
-  const [picture, setPicture] = useState("");
+  const [problem, setProblem] = useState([]);
+  const { station, setStation } = useContext(StationContext);
+  const { description, setDescription } = useContext(DescriptionContext);
+  const { picture, setPicture } = useContext(PictureContext);
   const { latitude, setLatitude } = useContext(LatitudeContext);
   const { longitude, setLongitude } = useContext(LongitudeContext);
 
@@ -58,6 +61,7 @@ const GareEtConnexions = () => {
           type="text"
           champ="Gare concernée"
         />
+
         <Textarea
           className="textGare"
           onChange={(e) => setDescription(e.target.value)}
@@ -105,6 +109,7 @@ const GareEtConnexions = () => {
           type="button"
         />
       </form>
+
       <Link to={`/defaultsUser/${id_user}`}>
         <Button
           classButton="envoyer"

@@ -19,9 +19,9 @@ import {
 const Voyageurs = () => {
   const { id_user } = useContext(ProfileContext);
 
-  const [problem, setProblem] = useState("");
+  const [problem, setProblem] = useState([]);
 
-  const [tgvNumber, setTgvNumber] = useState("");
+  const [tgv_number, setTgvNumber] = useState(0);
   const [description, setDescription] = useState("");
   const [picture, setPicture] = useState("");
   const { latitude, setLatitude } = useContext(LatitudeContext);
@@ -29,7 +29,7 @@ const Voyageurs = () => {
 
   const data = {
     id_user,
-    tgvNumber,
+    tgv_number,
     description,
     picture,
     longitude,
@@ -54,9 +54,9 @@ const Voyageurs = () => {
         <Input
           className="inputVoyageurs"
           onChange={(e) => setTgvNumber(e.target.value)}
-          value={tgvNumber}
+          value={tgv_number}
           forId="tgv"
-          type="text"
+          type="number"
           champ="Numéro du train"
         />
         <Textarea

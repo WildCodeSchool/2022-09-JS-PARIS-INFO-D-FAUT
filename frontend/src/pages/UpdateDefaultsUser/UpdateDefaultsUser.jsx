@@ -1,7 +1,10 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import "./UpdateDefaultsUser.css";
 import { useParams } from "react-router-dom";
-import { updateDefaults } from "../../services/axios/AxiosDefaults";
+import {
+  updateDefaults,
+  getUserDefaultById,
+} from "../../services/axios/AxiosDefaults";
 import { Geolocalisation } from "../../services/Geolocalisation/Geolocalisation";
 import {
   Footer,
@@ -20,22 +23,37 @@ const UpdateDefaultsUser = () => {
   const { id_default } = useParams();
   const { id_user } = useContext(ProfileContext);
 
-  const [problem, setProblem] = useState("");
-  const [station, setStation] = useState("");
-  const [railwayNumber, setRailwayNumber] = useState("");
-  const [terNumber, setTerNumber] = useState("");
-  const [tgvNumber, setTgvNumber] = useState("");
-  const [description, setDescription] = useState("");
+  const [problem, setProblem] = useState([]);
+
+  const [station, setStation] = useState("gare:");
+
+  const [railway_track_number, setRailwayNumber] = useState(0);
+  const [ter_number, setTerNumber] = useState(0);
+  const [tgv_number, setTgvNumber] = useState(0);
+  const [description, setDescription] = useState("description");
   const [picture, setPicture] = useState("");
   const { latitude, setLatitude } = useContext(LatitudeContext);
   const { longitude, setLongitude } = useContext(LongitudeContext);
 
+  useEffect(() => {
+    getUserDefaultById(
+      id_default,
+      setProblem,
+      setStation,
+      setRailwayNumber,
+      setTerNumber,
+      setTgvNumber,
+      setDescription
+      // setPicture
+    );
+  }, []);
+
   const data = {
     id_user,
     station,
-    railwayNumber,
-    terNumber,
-    tgvNumber,
+    railway_track_number,
+    ter_number,
+    tgv_number,
     description,
     picture,
     longitude,
@@ -68,25 +86,25 @@ const UpdateDefaultsUser = () => {
         <Input
           className="inputReseau"
           onChange={(e) => setRailwayNumber(e.target.value)}
-          value={railwayNumber}
+          value={railway_track_number}
           forId="ligne"
-          type="text"
+          type="number"
           champ="Numéro de ligne / Emprise"
         />
         <Input
           className="inputTer"
           onChange={(e) => setTerNumber(e.target.value)}
-          value={terNumber}
+          value={ter_number}
           forId="ter"
-          type="text"
+          type="number"
           champ="Numéro de Ter"
         />
         <Input
           className="inputVoyageurs"
           onChange={(e) => setTgvNumber(e.target.value)}
-          value={tgvNumber}
+          value={tgv_number}
           forId="tgv"
-          type="text"
+          type="number"
           champ="Numéro du train"
         />
         <Textarea
@@ -122,7 +140,19 @@ const UpdateDefaultsUser = () => {
         />
         <Button
           classButton="envoyer"
-          onClick={(e) => updateDefaults(id_default, data, setProblem, e)}
+          onClick={(e) =>
+            updateDefaults(
+              id_default,
+              data,
+              setProblem,
+              setStation,
+              setRailwayNumber,
+              setTerNumber,
+              setTgvNumber,
+              setDescription,
+              e
+            )
+          }
           champButton="ENVOYER"
           type="button"
         />

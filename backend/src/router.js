@@ -30,6 +30,11 @@ router.delete(
   defaultsUserControllers.deleteDefaultsUserById
 );
 
+router.get(
+  "/updateDefaultsUser/:id_default",
+  defaultsUserControllers.getUserDefaultById
+);
+
 router.post(
   "/profile/login",
   usersControllers.getUserByCpWithPasswordAndPassToNext,

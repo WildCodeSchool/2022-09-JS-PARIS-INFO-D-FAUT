@@ -19,9 +19,9 @@ import {
 const Ter = () => {
   const { id_user } = useContext(ProfileContext);
 
-  const [problem, setProblem] = useState("");
+  const [problem, setProblem] = useState([]);
 
-  const [terNumber, setTerNumber] = useState("");
+  const [ter_number, setTerNumber] = useState(0);
   const [description, setDescription] = useState("");
   const [picture, setPicture] = useState("");
   const { latitude, setLatitude } = useContext(LatitudeContext);
@@ -29,7 +29,7 @@ const Ter = () => {
 
   const data = {
     id_user,
-    terNumber,
+    ter_number,
     description,
     picture,
     longitude,
@@ -54,9 +54,9 @@ const Ter = () => {
         <Input
           className="inputTer"
           onChange={(e) => setTerNumber(e.target.value)}
-          value={terNumber}
+          value={ter_number}
           forId="ter"
-          type="text"
+          type="number"
           champ="Numéro de Ter"
         />
         <Textarea
