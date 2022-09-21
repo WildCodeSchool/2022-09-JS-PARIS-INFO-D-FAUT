@@ -11,13 +11,15 @@ import {
   Textarea,
 } from "../../components/index";
 import {
-  ProfileContext,
+  IdUserContext,
+  CpUserContext,
   LongitudeContext,
   LatitudeContext,
 } from "../../context/index";
 
 const Voyageurs = () => {
-  const { id_user } = useContext(ProfileContext);
+  const { id_user } = useContext(IdUserContext);
+  const { cp_user } = useContext(CpUserContext);
 
   const [tgv_number, setTgvNumber] = useState(0);
   const [description, setDescription] = useState("");
@@ -98,7 +100,7 @@ const Voyageurs = () => {
           type="button"
         />
       </form>
-      <Link to={`/defaultsUser/${id_user}`}>
+      <Link to={`/defaultsUser/${cp_user}`}>
         <Button
           classButton="envoyer"
           champButton="defaut envoyé"

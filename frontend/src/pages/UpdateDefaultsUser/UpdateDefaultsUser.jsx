@@ -6,9 +6,12 @@ import { Footer, Header, Update } from "../../components/index";
 
 const UpdateDefaultsUser = () => {
   return (
-    <div className="updateUser-container">
+    <div className="updateDefaultsUser-container">
       {Geolocalisation()}
-      <Header backCss="backUpdateUser" profileCss="profileUpdateUser" />
+      <Header
+        backCss="backUpdateDefaultsUser"
+        profileCss="profileUpdateDefaultsUser"
+      />
       <Update />
       <Footer />
     </div>

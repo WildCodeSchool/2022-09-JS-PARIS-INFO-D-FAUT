@@ -4,15 +4,15 @@ import { Link } from "react-router-dom";
 import logo from "../../assets/logo-essai1.png";
 import profile from "../../assets/logo-profil.png";
 import back from "../../assets/logo-back.png";
-import { ProfileContext } from "../../context/index";
+import { CpUserContext } from "../../context/index";
 
 export const Header = ({ backCss, profileCss }) => {
-  const { id_user } = useContext(ProfileContext);
+  const { cp_user } = useContext(CpUserContext);
 
   return (
     <div className="header-container">
       <div className="header-back">
-        <Link to={`/items/${id_user}`}>
+        <Link to={`/items/${cp_user}`}>
           <img
             className={`back ${backCss}`}
             src={back}

@@ -1,14 +1,15 @@
 import React, { useState, useContext } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { ProfileContext } from "../../context/index";
+import { IdUserContext, CpUserContext } from "../../context/index";
 import { Header, Footer, Input, Button } from "../../components/index";
 import { InputPassword } from "../../components/Input/InputPassword";
 import "./Login.css";
 import Home from "../Home/Home";
 
 const Login = () => {
-  const { setId_user } = useContext(ProfileContext);
+  const { setId_user } = useContext(IdUserContext);
+  const { setCp_user } = useContext(CpUserContext);
 
   const [cp, setCp] = useState("");
   const [password, setPassword] = useState("");
@@ -28,6 +29,7 @@ const Login = () => {
     );
     if (response.data.user.id_user) {
       setId_user(response.data.user.id_user);
+      setCp_user(response.data.user.cp);
     }
     setCp("");
     setPassword("");

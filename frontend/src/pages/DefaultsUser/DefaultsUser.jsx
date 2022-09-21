@@ -6,10 +6,11 @@ import {
   deleteDefaultsUsers,
   getDefaultsUserById,
 } from "../../services/axios/AxiosDefaults";
-import { ProfileContext } from "../../context/index";
+import { IdUserContext, CpUserContext } from "../../context/index";
 
 const DefaultsUser = () => {
-  const { id_user } = useContext(ProfileContext);
+  const { id_user } = useContext(IdUserContext);
+  const { cp_user } = useContext(CpUserContext);
 
   const [problemUser, setProblemUser] = useState([]);
 
@@ -47,7 +48,7 @@ const DefaultsUser = () => {
                   }
                 />
                 <Link
-                  to={`/updateDefaultsUser/${id_user}/${problemes.id_default}`}
+                  to={`/updateDefaultsUser/${cp_user}/${problemes.id_default}`}
                 >
                   <Button
                     name="update"

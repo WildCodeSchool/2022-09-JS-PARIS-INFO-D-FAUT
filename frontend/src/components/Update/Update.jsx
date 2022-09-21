@@ -9,14 +9,14 @@ import {
 import { Input, Button, Textarea } from "../index";
 
 import {
-  ProfileContext,
+  IdUserContext,
   LongitudeContext,
   LatitudeContext,
 } from "../../context/index";
 
 export const Update = () => {
   const { id_default } = useParams();
-  const { id_user } = useContext(ProfileContext);
+  const { id_user } = useContext(IdUserContext);
   const [problem, setProblem] = useState([]);
 
   const [station, setStation] = useState("gare:");
