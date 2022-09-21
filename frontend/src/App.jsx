@@ -16,6 +16,8 @@ import UpdateDefaults from "./pages/UpdateDefaults/UpdateDefaults";
 import Page404 from "./pages/Page404/Page404";
 import Admin from "./pages/Admin/Admin";
 import AuthAdminGuard from "./services/AuthAdminGuar/AuthAdminGuard";
+import Users from "./pages/Users/Users";
+// import UpdateUser from "./pages/UpdateUser/UpdateUser";
 import {
   ProfileContext,
   LatitudeContext,
@@ -64,6 +66,17 @@ function App() {
                     </AuthAdminGuard>
                   }
                 />
+
+                <Route
+                  path="/admin/users"
+                  element={
+                    <AuthAdminGuard>
+                      <Users />
+                    </AuthAdminGuard>
+                  }
+                />
+
+                {/* <Route path="/user/:id_user" element= {<UpdateUser />} /> */}
 
                 <Route
                   path="/defaultsUser/:id_user"

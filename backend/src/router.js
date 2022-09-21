@@ -34,6 +34,8 @@ router.get(
   "/updateDefaultsUser/:id_default",
   defaultsUserControllers.getUserDefaultById
 );
+router.get("/users", usersControllers.getUsers);
+router.delete("/users/:id_user", usersControllers.deleteUsers);
 
 router.post(
   "/profile/login",
@@ -44,9 +46,7 @@ router.post(
 // routes to protect
 router.use(verifyToken); /* authentication wall */
 
-router.get("/users", usersControllers.getUsers);
 router.get("/users/:id_user", usersControllers.getUsersById);
 router.put("/users/:id_user", usersControllers.updateUsers);
-router.delete("/users/:id_user", usersControllers.deleteUsers);
 
 module.exports = router;
