@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "./Profile.css";
 import { Footer, Header, Input, Button } from "../../components/index";
 import { postProfile } from "../../services/axios/AxiosUsers";
-import Login from "../Login/Login";
 
 const Profile = () => {
   const [cp, setCp] = useState("");
