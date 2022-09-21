@@ -14,6 +14,8 @@ import DefaultsUser from "./pages/DefaultsUser/DefaultsUser";
 import UpdateDefaultsUser from "./pages/UpdateDefaultsUser/UpdateDefaultsUser";
 import UpdateDefaults from "./pages/UpdateDefaults/UpdateDefaults";
 import Page404 from "./pages/Page404/Page404";
+import Admin from "./pages/Admin/Admin";
+import AuthAdminGuard from "./services/AuthAdminGuar/AuthAdminGuard";
 import {
   ProfileContext,
   LatitudeContext,
@@ -44,7 +46,25 @@ function App() {
                 <Route path="/profile" element={<Profile />} />
 
                 <Route path="/legal" element={<RegulationPage />} />
-                <Route path="/defaults" element={<Defaults />} />
+                {/* <Route path="/defaults" element={<Defaults />} /> */}
+
+                <Route
+                  path="/admin"
+                  element={
+                    <AuthAdminGuard>
+                      <Admin />
+                    </AuthAdminGuard>
+                  }
+                />
+                <Route
+                  path="/admin/defaults"
+                  element={
+                    <AuthAdminGuard>
+                      <Defaults />
+                    </AuthAdminGuard>
+                  }
+                />
+
                 <Route
                   path="/defaultsUser/:id_user"
                   element={<DefaultsUser />}
@@ -52,10 +72,6 @@ function App() {
                 <Route
                   path="/updateDefaultsUser/:id_user/:id_default"
                   element={<UpdateDefaultsUser />}
-                />
-                <Route
-                  path="/updateDefaults/:id_default"
-                  element={<UpdateDefaults />}
                 />
                 <Route path="*" element={<Page404 />} />
               </Routes>

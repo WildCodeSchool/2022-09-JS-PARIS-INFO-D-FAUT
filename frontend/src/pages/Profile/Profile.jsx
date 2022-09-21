@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Profile.css";
+import { InputPassword } from "../../components/Input/InputPassword";
 import { Footer, Header, Input, Button } from "../../components/index";
 import { postProfile } from "../../services/axios/AxiosUsers";
 
@@ -52,7 +53,7 @@ const Profile = () => {
             onChange={(e) => setPhoneNumber(e.target.value)}
             value={phone_number}
           />
-          <Input
+          <InputPassword
             className="inputProfil"
             forId="mot"
             type="password"
@@ -61,7 +62,7 @@ const Profile = () => {
             autoComplete="on"
             value={password}
           />
-          <Input
+          <InputPassword
             className="inputProfil"
             forId="confirmation"
             type="password"
