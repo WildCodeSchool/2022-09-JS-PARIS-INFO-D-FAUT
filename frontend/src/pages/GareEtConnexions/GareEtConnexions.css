@@ -28,7 +28,7 @@ h1 {
 }
 
 .inputGare {
-  color: rgb(60,55,50);
+  color: rgb(60, 55, 50);
   border-radius: 20px;
 }
 
@@ -42,14 +42,14 @@ h1 {
   height: 40px;
   width: 70%;
 }
-.inputFile{
+.inputFile {
   width: 90%;
   color: rgb(213, 43, 30);
   font-size: small;
   text-align: center;
 }
 
-.inputPosition{
+.inputPosition {
   text-align: center;
   color: rgb(205, 0, 55);
   font-style: oblique;

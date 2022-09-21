@@ -5,7 +5,7 @@ import "./InputPassword.css";
 import closereye from "../../assets/eye-closer.svg";
 import openeye from "../../assets/eye-open.svg";
 
-export const Password = ({
+export const InputPassword = ({
   champ,
   forId,
   onChange,
