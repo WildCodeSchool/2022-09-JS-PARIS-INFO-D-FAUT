@@ -66,7 +66,7 @@ const GareEtConnexions = () => {
           forId="field"
           type="text"
         />
-        <PictureImport />
+        <PictureImport value={picture} />
         {/* <Input
           className="inputGare"
           onChange={(e) => setPicture(e.target.value)}

@@ -1,6 +1,11 @@
 import { React, useState, Alert } from "react";
 // import Resizer from "react-image-file-resizer";
-import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import {
+  ref,
+  uploadBytesResumable,
+  getDownloadURL,
+  // uploadTask,
+} from "firebase/storage";
 import { storage } from "../../services/Firebase/firebase";
 // import Popup from "reactjs-popup";
 import "./PictureImport.css";
@@ -38,6 +43,7 @@ export const PictureImport = () => {
     // la progression peut être interrompue et reprise. Il expose également la progression des mises à jour.
     // Reçoit la référence de stockage et le fichier à uploader.
     const uploadTask = uploadBytesResumable(storageRef, file);
+
     uploadTask.on(
       "state_changed",
       (snapshot) => {
@@ -54,6 +60,15 @@ export const PictureImport = () => {
           console.warn("url", url);
         });
       }
+      // const getDownload = async (uploadTask, state) => {
+      //   const downloadUrl = getDownloadURL(uploadTask.snapshot.ref).then(
+      //     (downloadUrl) => {
+      //       console.log('File available at', downloadUrl);
+      //       localStorage.setItem('pictureUrl', downloadUrl);
+      //       return downloadUrl;
+      //     }
+      //   )
+      // }
     );
   };
 
