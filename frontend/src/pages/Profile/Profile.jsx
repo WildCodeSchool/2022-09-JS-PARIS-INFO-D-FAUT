@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Profile.css";
+import { InputPassword } from "../../components/Input/InputPassword";
 import { Footer, Header, Input, Button } from "../../components/index";
 import { postProfile } from "../../services/axios/AxiosUsers";
 import Login from "../Login/Login";
@@ -58,7 +59,7 @@ const Profile = () => {
               onChange={(e) => setPhoneNumber(e.target.value)}
               value={phoneNumber}
             />
-            <Input
+            <InputPassword
               className="inputProfil"
               forId="mot"
               type="password"
@@ -66,7 +67,7 @@ const Profile = () => {
               onChange={(e) => setPassword(e.target.value)}
               value={password}
             />
-            <Input
+            <InputPassword
               className="inputProfil"
               forId="confirmation"
               type="password"

@@ -3,6 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { ProfileContext } from "../../context/index";
 import { Header, Footer, Input, Button } from "../../components/index";
+import { InputPassword } from "../../components/Input/InputPassword";
 import "./Login.css";
 import Home from "../Home/Home";
 
@@ -55,10 +56,9 @@ const Login = () => {
                 // minlength="8"
                 // maxlength="8"
               />
-              <Input
-                className="inputUtilisateur"
+              <InputPassword
+                className="inputPassword"
                 forId="mot"
-                type="password"
                 champ="Mot de passe"
                 onChange={(e) => setPassword(e.target.value)}
                 value={password}
