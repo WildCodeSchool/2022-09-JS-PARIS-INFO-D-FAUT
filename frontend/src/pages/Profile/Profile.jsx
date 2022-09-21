@@ -56,7 +56,6 @@ const Profile = () => {
           <InputPassword
             className="inputProfil"
             forId="mot"
-            type="password"
             champ="Mot de passe"
             onChange={(e) => setPassword(e.target.value)}
             autoComplete="on"
@@ -65,7 +64,6 @@ const Profile = () => {
           <InputPassword
             className="inputProfil"
             forId="confirmation"
-            type="password"
             champ="Confirmation du mot de passe"
             onChange={(e) => setSecondPassword(e.target.value)}
             autoComplete="on"
