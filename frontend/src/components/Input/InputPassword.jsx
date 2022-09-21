@@ -1,5 +1,3 @@
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { useState } from "react";
 import "./InputPassword.css";
 import closereye from "../../assets/eye-closer.svg";
@@ -38,7 +36,7 @@ export const InputPassword = ({
           minLength={minlength}
           maxLength={maxlength}
         />
-        <span onClick={click}>
+        <span onClick={click} onKeyPress={click} role="button" tabIndex="0">
           <img
             className="eye"
             src={passwordVissible ? closereye : openeye}
