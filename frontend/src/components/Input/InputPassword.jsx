@@ -15,7 +15,7 @@ export const InputPassword = ({
   maxlength,
   className,
 }) => {
-  const [passwordVissible, setPasswordVisible] = useState(false);
+  const [passwordVisible, setPasswordVisible] = useState(false);
   const click = () => setPasswordVisible((prevState) => !prevState);
   return (
     <div className="inputPassword-container">
@@ -25,7 +25,7 @@ export const InputPassword = ({
       <label className="enterPassword">
         <input
           className="inputPassword"
-          type={passwordVissible ? "text" : "password"}
+          type={passwordVisible ? "text" : "password"}
           id={forId}
           name={champ}
           onChange={onChange}
@@ -39,7 +39,7 @@ export const InputPassword = ({
         <span onClick={click} onKeyPress={click} role="button" tabIndex="0">
           <img
             className="eye"
-            src={passwordVissible ? closereye : openeye}
+            src={passwordVisible ? closereye : openeye}
             alt=""
           />
         </span>
