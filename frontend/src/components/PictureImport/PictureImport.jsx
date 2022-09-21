@@ -1,4 +1,5 @@
 import { React, useState, Alert } from "react";
+// import Resizer from "react-image-file-resizer";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { storage } from "../../services/Firebase/firebase";
 import "./PictureImport.css";
@@ -14,10 +15,28 @@ export const PictureImport = () => {
   const handleChange = (e) => {
     setFile(e.target.files[0]);
   };
+  const noFileAlert = () =>
+    Alert.alert("Alerte !", "Choisir un fichier d'abord !");
 
   const handleUpload = () => {
+    // const resizeFile = (files) =>
+    //   new Promise((resolve) => {
+    //     Resizer.imageFileResizer(
+    //       file,
+    //       300,
+    //       300,
+    //       "JPEG",
+    //       100,
+    //       0,
+    //       (uri) => {
+    //         resolve(uri);
+    //       },
+    //       "base64"
+    //     );
+    //   });
     if (!file) {
-      Alert("Choisir un fichier d'abord !");
+      noFileAlert();
+      // Alert.alert("No file", "Choisir un fichier d'abord !");
     }
 
     const storageRef = ref(storage, `/defaults/${file.name}`);
