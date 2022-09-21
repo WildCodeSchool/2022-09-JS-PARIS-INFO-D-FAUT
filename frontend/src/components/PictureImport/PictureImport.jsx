@@ -1,6 +1,6 @@
 import { React, useState, Alert } from "react";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
-import { storage } from "../../services/Firebase/firebase";
+import { storage } from "./firebase";
 import "./PictureImport.css";
 
 export const PictureImport = () => {
@@ -29,11 +29,11 @@ export const PictureImport = () => {
     uploadTask.on(
       "state_changed",
       (snapshot) => {
-        const percent = Math.round(
+        const NewPercentages = Math.round(
           (snapshot.bytesTransferred / snapshot.totalBytes) * 100
         );
         // progression de l'update
-        setPercentages(percent);
+        setPercentages(NewPercentages);
       },
       (err) => console.warn(err),
       () => {
@@ -47,7 +47,12 @@ export const PictureImport = () => {
 
   return (
     <div className="pictureImport">
-      <input type="file" accept="image/*" onChange={handleChange} />
+      <input
+        type="file"
+        id="imageFile"
+        accept="image/*"
+        onChange={handleChange}
+      />
       <button onClick={handleUpload}>Télécharger l'image</button>
       <h3>{percentages}"% effectués"</h3>
     </div>
