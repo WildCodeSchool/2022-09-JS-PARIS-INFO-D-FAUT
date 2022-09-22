@@ -56,6 +56,7 @@ export const PictureImport = () => {
         // téléchargement de l'URL
         getDownloadURL(uploadTask.snapshot.ref).then((url) => {
           console.warn("url", url);
+          // envoi de l'URL dans la props Picture pour implémentation de la DB
           setPicture("url", url);
         });
       }
