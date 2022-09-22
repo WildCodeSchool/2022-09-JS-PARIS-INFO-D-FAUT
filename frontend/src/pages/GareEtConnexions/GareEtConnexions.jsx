@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import "./GareEtConnexions.css";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { postDefaults } from "../../services/axios/AxiosDefaults";
 import { Geolocalisation } from "../../services/Geolocalisation/Geolocalisation";
 import {
@@ -11,13 +11,15 @@ import {
   Textarea,
 } from "../../components/index";
 import {
-  ProfileContext,
+  IdUserContext,
+  CpUserContext,
   LongitudeContext,
   LatitudeContext,
 } from "../../context/index";
 
 const GareEtConnexions = () => {
-  const { id_user } = useContext(ProfileContext);
+  const { cp } = useContext(CpUserContext);
+  const { id_user } = useContext(IdUserContext);
 
   const [station, setStation] = useState("");
   const [description, setDescription] = useState("");
@@ -105,6 +107,14 @@ const GareEtConnexions = () => {
           />
         </Link> */}
       </form>
+
+      <Link to={`/defaultsUser/${cp}`}>
+        <Button
+          classButton="envoyer"
+          champButton="defaut envoyé"
+          type="bouton"
+        />
+      </Link>
 
       <Footer />
     </div>

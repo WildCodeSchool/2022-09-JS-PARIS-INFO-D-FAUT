@@ -6,10 +6,11 @@ import {
   deleteDefaultsUsers,
   getDefaultsUserById,
 } from "../../services/axios/AxiosDefaults";
-import { ProfileContext } from "../../context/index";
+import { IdUserContext, CpUserContext } from "../../context/index";
 
 const DefaultsUser = () => {
-  const { id_user } = useContext(ProfileContext);
+  const { id_user } = useContext(IdUserContext);
+  const { cp } = useContext(CpUserContext);
 
   const [problemUser, setProblemUser] = useState([]);
 
@@ -36,31 +37,25 @@ const DefaultsUser = () => {
                   latitude={problemes.latitude}
                   longitude={problemes.longitude}
                 />
-                <div className="btnCard">
+
+                <Button
+                  name="delete"
+                  classButton="delete-button"
+                  champButton="Supprimer"
+                  type="button"
+                  onClick={(e) =>
+                    deleteDefaultsUsers(problemes.id_default, setProblemUser, e)
+                  }
+                />
+
+                <Link to={`/updateDefaultsUser/${cp}/${problemes.id_default}`}>
                   <Button
-                    name="delete"
-                    classButton="delete-button"
-                    champButton="Supprimer"
+                    name="update"
+                    classButton="update-button"
+                    champButton="Mettre à jour"
                     type="button"
-                    onClick={(e) =>
-                      deleteDefaultsUsers(
-                        problemes.id_default,
-                        setProblemUser,
-                        e
-                      )
-                    }
                   />
-                  <Link
-                    to={`/updateDefaultsUser/${id_user}/${problemes.id_default}`}
-                  >
-                    <Button
-                      name="update"
-                      classButton="update-button"
-                      champButton="Mettre à jour"
-                      type="button"
-                    />
-                  </Link>
-                </div>
+                </Link>
               </div>
             ))}
           </>

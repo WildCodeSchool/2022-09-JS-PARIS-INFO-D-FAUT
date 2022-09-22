@@ -6,18 +6,18 @@ import {
   deleteDefaults,
   updateDefaults,
 } from "../../services/axios/AxiosDefaults";
-import { LatitudeContext, LongitudeContext } from "../../context/index";
+// import { LatitudeContext, LongitudeContext } from "../../context/index";
 import { Footer, Header, Button, DefaultCard } from "../../components/index";
 
 const Defaults = () => {
   const [problem, setProblem] = useState([]);
-  const { latitude } = useContext(LatitudeContext);
-  const { longitude } = useContext(LongitudeContext);
-  const [station, setStation] = useState("");
-  const [description, setDescription] = useState("");
-  const [picture, setPicture] = useState("");
+  // const { latitude } = useContext(LatitudeContext);
+  // const { longitude } = useContext(LongitudeContext);
+  // const [station, setStation] = useState("");
+  // const [description, setDescription] = useState("");
+  // const [picture, setPicture] = useState("");
 
-  const data = { station, description, picture, longitude, latitude };
+  // const data = { station, description, picture, longitude, latitude };
 
   useEffect(() => {
     getDefaults(setProblem);

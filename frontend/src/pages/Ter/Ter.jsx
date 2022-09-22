@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import "./Ter.css";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { postDefaults } from "../../services/axios/AxiosDefaults";
 import { Geolocalisation } from "../../services/Geolocalisation/Geolocalisation";
 import {
@@ -11,13 +11,15 @@ import {
   Textarea,
 } from "../../components/index";
 import {
-  ProfileContext,
+  IdUserContext,
+  CpUserContext,
   LongitudeContext,
   LatitudeContext,
 } from "../../context/index";
 
 const Ter = () => {
-  const { id_user } = useContext(ProfileContext);
+  const { id_user } = useContext(IdUserContext);
+  const { cp } = useContext(CpUserContext);
 
   const [ter_number, setTerNumber] = useState(0);
   const [description, setDescription] = useState("");
@@ -38,7 +40,6 @@ const Ter = () => {
     <div className="ter-container">
       {Geolocalisation()}
       <Header backCss="backTer" profileCss="profileTer" />
-
       <form className="ter_champ-container">
         <h1> TER </h1>
         {/* <Input
@@ -98,14 +99,13 @@ const Ter = () => {
           type="button"
         />
       </form>
-      {/* <Link to={`/defaultsUser/${id_user}`}>
+      <Link to={`/defaultsUser/${cp}`}>
         <Button
           classButton="envoyer"
           champButton="defaut envoyé"
           type="bouton"
         />
-      </Link> */}
-
+      </Link>
       <Footer />
     </div>
   );

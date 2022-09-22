@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import "./Voyageurs.css";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { postDefaults } from "../../services/axios/AxiosDefaults";
 import { Geolocalisation } from "../../services/Geolocalisation/Geolocalisation";
 import {
@@ -11,13 +11,15 @@ import {
   Textarea,
 } from "../../components/index";
 import {
-  ProfileContext,
+  IdUserContext,
+  CpUserContext,
   LongitudeContext,
   LatitudeContext,
 } from "../../context/index";
 
 const Voyageurs = () => {
-  const { id_user } = useContext(ProfileContext);
+  const { id_user } = useContext(IdUserContext);
+  const { cp_user } = useContext(CpUserContext);
 
   const [tgv_number, setTgvNumber] = useState(0);
   const [description, setDescription] = useState("");
@@ -38,7 +40,6 @@ const Voyageurs = () => {
     <div className="voyageurs-container">
       {Geolocalisation()}
       <Header backCss="backVoyageurs" profileCss="profileVoyageurs" />
-
       <form className="voyageurs_champ-container">
         <h1>GARE & CONNEXIONS</h1>
         {/* <Input
@@ -98,13 +99,13 @@ const Voyageurs = () => {
           type="button"
         />
       </form>
-      {/* <Link to={`/defaultsUser/${id_user}`}>
+      <Link to={`/defaultsUser/${cp_user}`}>
         <Button
           classButton="envoyer"
           champButton="defaut envoyé"
           type="bouton"
         />
-      </Link> */}
+      </Link>
 
       <Footer />
     </div>

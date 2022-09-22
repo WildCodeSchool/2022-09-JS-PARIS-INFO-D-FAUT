@@ -1,82 +1,46 @@
-// import React, { useContext, useEffect } from "react";
-// import "./Users.css";
-// import {
-//   getDefaults,
-//   deleteDefaults,
-//   updateDefaults,
-// } from "../../services/axios/AxiosDefaults";
-// import {
-//   DefaultsContext,
-//   PictureContext,
-//   StationContext,
-//   DescriptionContext,
-//   LatitudeContext,
-//   LongitudeContext,
-// } from "../../context/index";
-// import { Footer, Header, Button, UserCard } from "../../components/index";
+import React, { useEffect, useState } from "react";
+import "./Users.css";
+import { getUsers, deleteUser } from "../../services/axios/AxiosUsers";
 
-// const Users = () => {
-//   const { problem, setProblem } = useContext(DefaultsContext);
-//   const { latitude } = useContext(LatitudeContext);
-//   const { longitude } = useContext(LongitudeContext);
-//   const { station } = useContext(StationContext);
-//   const { description } = useContext(DescriptionContext);
-//   const { picture } = useContext(PictureContext);
+import { Footer, Header, Button, UserCard } from "../../components/index";
 
-//   const data = { station, description, picture, longitude, latitude };
+const Users = () => {
+  const [users, setUsers] = useState([]);
 
-//   useEffect(() => {
-//     getDefaults(setProblem);
-//   }, []);
+  useEffect(() => {
+    getUsers(setUsers);
+  }, [users]);
 
-//   return (
-//     <div className="users-container">
-//       <Header backCss="backUsers" profileCss="profileUsers" />
-//       <div className="users-display">
-//         {problem && (
-//           <>
-//             {problem.map((problems) => (
-//               <div className="map-container" key={problems.id_default}>
-//                 <UserCard
-//                   station={problems.station}
-//                   tgv={problems.tgv_number}
-//                   ter={problems.ter_number}
-//                   track={problems.railway_track_number}
-//                   description={problems.description}
-//                   image={problems.picture}
-//                   imgAlt="image du defaut"
-//                   latitude={problems.latitude}
-//                   longitude={problems.longitude}
-//                   id_default={problems.id_default}
-//                 />
+  return (
+    <div className="users-container">
+      <Header backCss="backUsers" profileCss="profileUsers" />
+      <div className="users-display">
+        {users && (
+          <>
+            {users.map((user) => (
+              <div className="mapUser-container" key={user.id_user}>
+                <UserCard
+                  cp={user.cp}
+                  mail={user.mail}
+                  phone_number={user.phone_number}
+                  id_user={user.id_user}
+                />
 
-//                 <Button
-//                   name="delete"
-//                   classButton="delete-button"
-//                   champButton="Supprimer"
-//                   type="button"
-//                   onClick={(e) =>
-//                     deleteDefaults(problems.id_default, setProblem, e)
-//                   }
-//                 />
+                <Button
+                  name="delete"
+                  classButton="delete-button"
+                  champButton="Supprimer"
+                  type="button"
+                  onClick={(e) => deleteUser(user.id_user, setUsers, e)}
+                />
+              </div>
+            ))}
+          </>
+        )}
+      </div>
+      <Footer />
+    </div>
+  );
+};
 
-//                 <Button
-//                   name="update"
-//                   classButton="update-button"
-//                   champButton="Mettre à jour"
-//                   type="button"
-//                   onClick={(e) =>
-//                     updateDefaults(problems.id_default, data, setProblem, e)
-//                   }
-//                 />
-//               </div>
-//             ))}
-//           </>
-//         )}
-//       </div>
-//       <Footer />
-//     </div>
-//   );
-// };
-
-// export default Users;
+export default Users;

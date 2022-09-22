@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import "./Reseau.css";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { postDefaults } from "../../services/axios/AxiosDefaults";
 import { Geolocalisation } from "../../services/Geolocalisation/Geolocalisation";
 import {
@@ -11,13 +11,15 @@ import {
   Textarea,
 } from "../../components/index";
 import {
-  ProfileContext,
+  IdUserContext,
+  CpUserContext,
   LongitudeContext,
   LatitudeContext,
 } from "../../context/index";
 
 const Reseau = () => {
-  const { id_user } = useContext(ProfileContext);
+  const { id_user } = useContext(IdUserContext);
+  const { cp } = useContext(CpUserContext);
 
   const [railway_track_number, setRailwayNumber] = useState(0);
   const [description, setDescription] = useState("");
@@ -38,7 +40,6 @@ const Reseau = () => {
     <div className="reseau-container">
       {Geolocalisation()}
       <Header backCss="backReseau" profileCss="profileReseau" />
-
       <form className="reseau_champ-container">
         <h1>RESEAU</h1>
         {/* <Input
@@ -97,13 +98,13 @@ const Reseau = () => {
           type="button"
         />
       </form>
-      {/* <Link to={`/defaultsUser/${id_user}`}>
+      <Link to={`/defaultsUser/${cp}`}>
         <Button
           classButton="envoyer"
           champButton="defaut envoyé"
           type="bouton"
         />
-      </Link> */}
+      </Link>
 
       <Footer />
     </div>

@@ -5,7 +5,8 @@ export const postProfile = async (
   setState2,
   setState3,
   setState4,
-  setState5
+  setState5,
+  setState6
 ) => {
   const response = await axios.post(`http://localhost:5000/users`, data);
   if (response.data) {
@@ -13,5 +14,50 @@ export const postProfile = async (
     setState3("");
     setState4(0);
     setState5("");
+    setState6("");
   }
+};
+
+export const getUsers = (setState) => {
+  axios
+    .get("http://localhost:5000/users")
+    .then((response) => response.data)
+
+    .then((data) => {
+      setState(data.result);
+    });
+};
+
+// export const getUsersById = (
+//   id_user,
+//   setState,
+//   setState2,
+//   setState3,
+//   setState4
+// ) => {
+//   axios
+//     .get(`http://localhost:5000/users/${id_user}`)
+//     .then((response) => response.data)
+//     .then((data) => {
+//       setState(data);
+//       setState2(data.cp);
+//       setState3(data.mail);
+//       setState4(data.phone_number);
+//     });
+// };
+
+export const deleteUser = async (id_user, setState) => {
+  const response = await axios.delete(`http://localhost:5000/users/${id_user}`);
+  if (response.data.users) {
+    setState();
+  }
+};
+
+export const updateUser = async (id_user, data, setState, setState2) => {
+  const response = await axios.put(
+    `http://localhost:5000/users/${id_user}`,
+    data
+  );
+  setState("");
+  setState2("");
 };

@@ -13,6 +13,7 @@ export const InputPassword = ({
   placeholder,
   minlength,
   maxlength,
+  autoComplete,
 }) => {
   const [passwordVisible, setPasswordVisible] = useState(false);
   const click = () => setPasswordVisible((prevState) => !prevState);
@@ -34,6 +35,7 @@ export const InputPassword = ({
           placeholder={placeholder}
           minLength={minlength}
           maxLength={maxlength}
+          autoComplete={autoComplete}
         />
         <span onClick={click} onKeyPress={click} role="button" tabIndex="0">
           <img
