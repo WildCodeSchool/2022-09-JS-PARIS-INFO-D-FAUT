@@ -14,7 +14,6 @@ export const getDefaultsUserById = (id_user, setState) => {
   axios
     .get(`http://localhost:5000/defaultsUser/${id_user}`)
     .then((response) => response.data)
-
     .then((data) => {
       setState(data);
     });

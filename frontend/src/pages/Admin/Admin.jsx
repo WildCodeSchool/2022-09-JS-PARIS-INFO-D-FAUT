@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import "./Admin.css";
 // import {
@@ -15,8 +15,11 @@ import "./Admin.css";
 //   LongitudeContext,
 // } from "../../context/index";
 import { Footer, Header, Button } from "../../components/index";
+import { IdUserContext } from "../../context/index";
 
 const Admin = () => {
+  const { id_user } = useContext(IdUserContext);
+
   return (
     <div className="admin-container">
       <Header backCss="backAdmin" profileCss="profileAdmin" />

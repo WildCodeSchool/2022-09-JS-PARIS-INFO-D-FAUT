@@ -18,7 +18,7 @@ import {
 } from "../../context/index";
 
 const GareEtConnexions = () => {
-  const { cp_user } = useContext(CpUserContext);
+  const { cp } = useContext(CpUserContext);
   const { id_user } = useContext(IdUserContext);
 
   const [station, setStation] = useState("");
@@ -101,7 +101,7 @@ const GareEtConnexions = () => {
         />
       </form>
 
-      <Link to={`/defaultsUser/${cp_user}`}>
+      <Link to={`/defaultsUser/${cp}`}>
         <Button
           classButton="envoyer"
           champButton="defaut envoyé"

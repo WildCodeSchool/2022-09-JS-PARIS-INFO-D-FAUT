@@ -10,7 +10,7 @@ import { IdUserContext, CpUserContext } from "../../context/index";
 
 const DefaultsUser = () => {
   const { id_user } = useContext(IdUserContext);
-  const { cp_user } = useContext(CpUserContext);
+  const { cp } = useContext(CpUserContext);
 
   const [problemUser, setProblemUser] = useState([]);
 
@@ -47,9 +47,7 @@ const DefaultsUser = () => {
                     deleteDefaultsUsers(problemes.id_default, setProblemUser, e)
                   }
                 />
-                <Link
-                  to={`/updateDefaultsUser/${cp_user}/${problemes.id_default}`}
-                >
+                <Link to={`/updateDefaultsUser/${cp}/${problemes.id_default}`}>
                   <Button
                     name="update"
                     classButton="update-button"

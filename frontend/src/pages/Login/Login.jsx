@@ -1,7 +1,12 @@
 import React, { useState, useContext } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { IdUserContext, CpUserContext } from "../../context/index";
+import {
+  IdUserContext,
+  CpUserContext,
+  MailContext,
+  PhoneNumberContext,
+} from "../../context/index";
 import { Header, Footer, Input, Button } from "../../components/index";
 import { InputPassword } from "../../components/Input/InputPassword";
 import "./Login.css";
@@ -9,9 +14,10 @@ import Home from "../Home/Home";
 
 const Login = () => {
   const { setId_user } = useContext(IdUserContext);
-  const { setCp_user } = useContext(CpUserContext);
+  const { cp, setCp } = useContext(CpUserContext);
+  const { setMail } = useContext(MailContext);
+  const { setPhoneNumber } = useContext(PhoneNumberContext);
 
-  const [cp, setCp] = useState("");
   const [password, setPassword] = useState("");
   const [sucess, setSucess] = useState(false);
 
@@ -29,9 +35,10 @@ const Login = () => {
     );
     if (response.data.user.id_user) {
       setId_user(response.data.user.id_user);
-      setCp_user(response.data.user.cp);
+      setCp(response.data.user.cp);
+      setMail(response.data.user.mail);
+      setPhoneNumber(response.data.user.phone_number);
     }
-    setCp("");
     setPassword("");
     setSucess(true);
   };

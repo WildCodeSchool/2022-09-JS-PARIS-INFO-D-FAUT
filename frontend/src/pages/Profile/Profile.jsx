@@ -73,7 +73,15 @@ const Profile = () => {
             classButton="envoyer"
             disabled={verifPasswords}
             onClick={(e) =>
-              postProfile(data, setCp, setMail, setPhoneNumber, setPassword, e)
+              postProfile(
+                data,
+                setCp,
+                setMail,
+                setPhoneNumber,
+                setPassword,
+                setSecondPassword,
+                e
+              )
             }
             champButton="ENVOYER"
             type="submit"

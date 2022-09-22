@@ -19,7 +19,7 @@ import {
 
 const Reseau = () => {
   const { id_user } = useContext(IdUserContext);
-  const { cp_user } = useContext(CpUserContext);
+  const { cp } = useContext(CpUserContext);
 
   const [railway_track_number, setRailwayNumber] = useState(0);
   const [description, setDescription] = useState("");
@@ -99,7 +99,7 @@ const Reseau = () => {
           type="button"
         />
       </form>
-      <Link to={`/defaultsUser/${cp_user}`}>
+      <Link to={`/defaultsUser/${cp}`}>
         <Button
           classButton="envoyer"
           champButton="defaut envoyé"

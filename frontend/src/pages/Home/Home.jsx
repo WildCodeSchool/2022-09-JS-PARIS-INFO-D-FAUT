@@ -10,17 +10,17 @@ import reseau from "../../assets/reseau.png";
 import voyageurs from "../../assets/voyageurs.png";
 
 const Home = () => {
-  const { cp_user } = useContext(CpUserContext);
+  const { cp } = useContext(CpUserContext);
 
   return (
     <div className="home-container">
       <Header backCss="backHome" profileCss="profileHome" />
       <div className="item-container">
         <div className="item-flex">
-          <Link to={`/gare-et-connexions/${cp_user}`}>
+          <Link to={`/gare-et-connexions/${cp}`}>
             <Item src={gare} alt="gare et connexions" />
           </Link>
-          <Link to={`/ter/${cp_user}`}>
+          <Link to={`/ter/${cp}`}>
             <Item src={ter} alt="ter" />
           </Link>
         </div>
@@ -33,10 +33,10 @@ const Home = () => {
           }}
         />
         <div className="item-flex">
-          <Link to={`/reseau/${cp_user}`}>
+          <Link to={`/reseau/${cp}`}>
             <Item src={reseau} alt="reseau" />
           </Link>
-          <Link to={`/voyageurs/${cp_user}`}>
+          <Link to={`/voyageurs/${cp}`}>
             <Item src={voyageurs} alt="voyageurs" />
           </Link>
         </div>

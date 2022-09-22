@@ -19,7 +19,7 @@ import {
 
 const Ter = () => {
   const { id_user } = useContext(IdUserContext);
-  const { cp_user } = useContext(CpUserContext);
+  const { cp } = useContext(CpUserContext);
 
   const [ter_number, setTerNumber] = useState(0);
   const [description, setDescription] = useState("");
@@ -100,7 +100,7 @@ const Ter = () => {
           type="button"
         />
       </form>
-      <Link to={`/defaultsUser/${cp_user}`}>
+      <Link to={`/defaultsUser/${cp}`}>
         <Button
           classButton="envoyer"
           champButton="defaut envoyé"
