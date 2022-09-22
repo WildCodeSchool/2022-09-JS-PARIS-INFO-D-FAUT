@@ -17,6 +17,7 @@ import Page404 from "./pages/Page404/Page404";
 import Admin from "./pages/Admin/Admin";
 import AuthAdminGuard from "./services/AuthAdminGuar/AuthAdminGuard";
 import UpdateUser from "./pages/UpdateUser/UpdateUser";
+import Users from "./pages/Users/Users";
 import {
   MailContext,
   PhoneNumberContext,
@@ -76,6 +77,15 @@ function App() {
                         element={
                           <AuthAdminGuard>
                             <Defaults />
+                          </AuthAdminGuard>
+                        }
+                      />
+
+                      <Route
+                        path="/admin/users"
+                        element={
+                          <AuthAdminGuard>
+                            <Users />
                           </AuthAdminGuard>
                         }
                       />
