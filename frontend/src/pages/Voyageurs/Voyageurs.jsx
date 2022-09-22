@@ -1,6 +1,5 @@
 import React, { useContext, useState } from "react";
 import "./Voyageurs.css";
-import { Link } from "react-router-dom";
 import { postDefaults } from "../../services/axios/AxiosDefaults";
 import { Geolocalisation } from "../../services/Geolocalisation/Geolocalisation";
 import {
@@ -99,13 +98,6 @@ const Voyageurs = () => {
           type="button"
         />
       </form>
-      <Link to={`/defaultsUser/${cp_user}`}>
-        <Button
-          classButton="envoyer"
-          champButton="defaut envoyé"
-          type="bouton"
-        />
-      </Link>
 
       <Footer />
     </div>
