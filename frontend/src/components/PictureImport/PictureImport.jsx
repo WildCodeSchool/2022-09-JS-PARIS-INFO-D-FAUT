@@ -1,16 +1,13 @@
-import { React, useState, Alert } from "react";
-// import Resizer from "react-image-file-resizer";
-import {
-  ref,
-  uploadBytesResumable,
-  getDownloadURL,
-  // uploadTask,
-} from "firebase/storage";
+import { React, useState, useContext, Alert } from "react";
+import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { storage } from "../../services/Firebase/firebase";
+import { PictureContext } from "../../context/PictureContext";
 // import Popup from "reactjs-popup";
 import "./PictureImport.css";
 
 export const PictureImport = () => {
+  // récupération de l'url de la photo postée.
+  const { setPicture } = useContext(PictureContext);
   // state du téléchargement
   const [file, setFile] = useState("");
 
@@ -58,17 +55,9 @@ export const PictureImport = () => {
         // téléchargement de l'URL
         getDownloadURL(uploadTask.snapshot.ref).then((url) => {
           console.warn("url", url);
+          setPicture("url", url);
         });
       }
-      // const getDownload = async (uploadTask, state) => {
-      //   const downloadUrl = getDownloadURL(uploadTask.snapshot.ref).then(
-      //     (downloadUrl) => {
-      //       console.log('File available at', downloadUrl);
-      //       localStorage.setItem('pictureUrl', downloadUrl);
-      //       return downloadUrl;
-      //     }
-      //   )
-      // }
     );
   };
 
