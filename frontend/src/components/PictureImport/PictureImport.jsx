@@ -1,9 +1,16 @@
 import { React, useState, useContext, Alert } from "react";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import Popup from "reactjs-popup";
 import { storage } from "../../services/Firebase/firebase";
 import { PictureContext } from "../../context/PictureContext";
 // import Popup from "reactjs-popup";
 import "./PictureImport.css";
+
+const popup = () => {
+  <Popup trigger={<button>Trigger</button>} position="right center">
+    <div>Choisir une photo !</div>
+  </Popup>;
+};
 
 export const PictureImport = () => {
   // récupération de l'url de la photo postée.
@@ -21,17 +28,11 @@ export const PictureImport = () => {
   // const noFileAlert = () =>
   //   Alert.alert("Alerte !", "Choisir un fichier d'abord !");
 
-  // const Popup = () => {
-  //   <Popup trigger={<button> Trigger</button>} position="right center">
-  //     <div>Popup content here !!</div>
-  //   </Popup>;
-  // };
-
   const handleUpload = (e) => {
     e.preventDefault();
 
     if (!file) {
-      // Popup
+      popup();
       // Alert("No file", "Choisir un fichier d'abord !");
     }
 
