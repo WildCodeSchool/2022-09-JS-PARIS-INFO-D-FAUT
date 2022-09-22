@@ -6,7 +6,7 @@ import { PictureContext } from "../../context/PictureContext";
 // import Popup from "reactjs-popup";
 import "./PictureImport.css";
 
-const popup = () => {
+const alertPopup = () => {
   <Popup trigger={<button>Trigger</button>} position="right center">
     <div>Choisir une photo !</div>
   </Popup>;
@@ -32,7 +32,7 @@ export const PictureImport = () => {
     e.preventDefault();
 
     if (!file) {
-      popup();
+      alertPopup();
       // Alert("No file", "Choisir un fichier d'abord !");
     }
 
