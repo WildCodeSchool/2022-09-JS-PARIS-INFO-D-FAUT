@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import "./GareEtConnexions.css";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { postDefaults } from "../../services/axios/AxiosDefaults";
 import { Geolocalisation } from "../../services/Geolocalisation/Geolocalisation";
 import {
@@ -97,15 +97,14 @@ const GareEtConnexions = () => {
           champButton="ENVOYER"
           type="button"
         />
+        {/* <Link to={`/defaultsUser/${id_user}`}>
+          <Button
+            classButton="envoyer"
+            champButton="defaut envoyé"
+            type="bouton"
+          />
+        </Link> */}
       </form>
-
-      <Link to={`/defaultsUser/${id_user}`}>
-        <Button
-          classButton="envoyer"
-          champButton="defaut envoyé"
-          type="bouton"
-        />
-      </Link>
 
       <Footer />
     </div>

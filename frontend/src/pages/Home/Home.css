@@ -11,8 +11,14 @@
   background-color: rgb(0, 17, 43);
 }
 
-.item-flex {
-  height: 46%;
+.item-flexone {
+  height: 43%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.item-flextwo {
+  height: 43%;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -30,4 +36,93 @@ p {
 .Typewriter {
   color: #d52b1e;
   text-align: center;
+  font-size: 80%;
+}
+.animation1 {
+  animation: slide-in-blurred-left 0.8s cubic-bezier(0.23, 1, 0.32, 1) 0.2s both;
+}
+
+@keyframes slide-in-blurred-left {
+  0% {
+    -webkit-transform: translateX(-1000px) scaleX(2.5) scaleY(0.2);
+    transform: translateX(-1000px) scaleX(2.5) scaleY(0.2);
+    -webkit-transform-origin: 100% 50%;
+    transform-origin: 100% 50%;
+    -webkit-filter: blur(40px);
+    filter: blur(40px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0) scaleY(1) scaleX(1);
+    transform: translateX(0) scaleY(1) scaleX(1);
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    -webkit-filter: blur(0);
+    filter: blur(0);
+    opacity: 1;
+  }
+}
+
+.animation2 {
+  animation: slide-in-blurred-right 0.8s cubic-bezier(0.23, 1, 0.32, 1) 0.2s
+    both;
+}
+
+@keyframes slide-in-blurred-right {
+  0% {
+    -webkit-transform: translateX(1000px) scaleX(2.5) scaleY(0.2);
+    transform: translateX(1000px) scaleX(2.5) scaleY(0.2);
+    -webkit-transform-origin: 0% 50%;
+    transform-origin: 0% 50%;
+    -webkit-filter: blur(40px);
+    filter: blur(40px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0) scaleY(1) scaleX(1);
+    transform: translateX(0) scaleY(1) scaleX(1);
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    -webkit-filter: blur(0);
+    filter: blur(0);
+    opacity: 1;
+  }
+}
+.btnrecap {
+  width: 180px;
+  border-radius: 20px;
+  color: rgb(213, 43, 30);
+  font-weight: bold;
+  animation: scale-in-center 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s both;
+}
+@keyframes scale-in-center {
+  0% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+.btnrecap:hover {
+  background-color: rgb(213, 43, 30);
+  color: white;
+}
+
+@media (min-width: 768px) {
+  .Typewriter {
+    font-size: 110%;
+  }
+}
+@media (min-width: 992px) {
+  .item-flexone {
+    height: 42%;
+  }
+
+  .item-flextwo {
+    height: 42%;
+  }
 }

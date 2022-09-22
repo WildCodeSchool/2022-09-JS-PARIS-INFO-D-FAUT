@@ -36,26 +36,31 @@ const DefaultsUser = () => {
                   latitude={problemes.latitude}
                   longitude={problemes.longitude}
                 />
-
-                <Button
-                  name="delete"
-                  classButton="delete-button"
-                  champButton="Supprimer"
-                  type="button"
-                  onClick={(e) =>
-                    deleteDefaultsUsers(problemes.id_default, setProblemUser, e)
-                  }
-                />
-                <Link
-                  to={`/updateDefaultsUser/${id_user}/${problemes.id_default}`}
-                >
+                <div className="btnCard">
                   <Button
-                    name="update"
-                    classButton="update-button"
-                    champButton="Mettre à jour"
+                    name="delete"
+                    classButton="delete-button"
+                    champButton="Supprimer"
                     type="button"
+                    onClick={(e) =>
+                      deleteDefaultsUsers(
+                        problemes.id_default,
+                        setProblemUser,
+                        e
+                      )
+                    }
                   />
-                </Link>
+                  <Link
+                    to={`/updateDefaultsUser/${id_user}/${problemes.id_default}`}
+                  >
+                    <Button
+                      name="update"
+                      classButton="update-button"
+                      champButton="Mettre à jour"
+                      type="button"
+                    />
+                  </Link>
+                </div>
               </div>
             ))}
           </>

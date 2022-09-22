@@ -13,7 +13,6 @@ export const InputPassword = ({
   placeholder,
   minlength,
   maxlength,
-  className,
 }) => {
   const [passwordVisible, setPasswordVisible] = useState(false);
   const click = () => setPasswordVisible((prevState) => !prevState);

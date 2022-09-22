@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import "./Ter.css";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { postDefaults } from "../../services/axios/AxiosDefaults";
 import { Geolocalisation } from "../../services/Geolocalisation/Geolocalisation";
 import {
@@ -98,13 +98,13 @@ const Ter = () => {
           type="button"
         />
       </form>
-      <Link to={`/defaultsUser/${id_user}`}>
+      {/* <Link to={`/defaultsUser/${id_user}`}>
         <Button
           classButton="envoyer"
           champButton="defaut envoyé"
           type="bouton"
         />
-      </Link>
+      </Link> */}
 
       <Footer />
     </div>

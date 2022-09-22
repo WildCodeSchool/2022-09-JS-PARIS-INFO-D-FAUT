@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import "./Home.css";
 import { Link } from "react-router-dom";
 import Typewriter from "typewriter-effect";
-import { Footer, Header, Item } from "../../components/index";
+import { Footer, Header, Item, Button } from "../../components/index";
 import { ProfileContext } from "../../context/index";
 import gare from "../../assets/gare_et_connexions.png";
 import ter from "../../assets/ter.png";
@@ -16,11 +16,11 @@ const Home = () => {
     <div className="home-container">
       <Header backCss="backHome" profileCss="profileHome" />
       <div className="item-container">
-        <div className="item-flex">
-          <Link to={`/gare-et-connexions/${id_user}`}>
+        <div className="item-flexone">
+          <Link className="animation1" to={`/gare-et-connexions/${id_user}`}>
             <Item src={gare} alt="gare et connexions" />
           </Link>
-          <Link to={`/ter/${id_user}`}>
+          <Link className="animation2" to={`/ter/${id_user}`}>
             <Item src={ter} alt="ter" />
           </Link>
         </div>
@@ -32,14 +32,21 @@ const Home = () => {
             delay: 60,
           }}
         />
-        <div className="item-flex">
-          <Link to={`/reseau/${id_user}`}>
+        <div className="item-flextwo">
+          <Link className="animation1" to={`/reseau/${id_user}`}>
             <Item src={reseau} alt="reseau" />
           </Link>
-          <Link to={`/voyageurs/${id_user}`}>
+          <Link className="animation2" to={`/voyageurs/${id_user}`}>
             <Item src={voyageurs} alt="voyageurs" />
           </Link>
         </div>
+        <Link to={`/defaultsUser/${id_user}`}>
+          <Button
+            classButton="btnrecap"
+            champButton="Vos déclaration"
+            type="bouton"
+          />
+        </Link>
       </div>
       <Footer />
     </div>
