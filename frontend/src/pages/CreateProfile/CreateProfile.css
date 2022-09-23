@@ -1,24 +1,23 @@
-.prof-container {
+.profile-container {
   width: 100vw;
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: rgb(0, 17, 43);
 }
 
-.prof-champs-container {
+.profile_champ-container {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   height: 100%;
-  align-items: center;
+  background-color: rgb(0, 17, 43);
 }
 
-h2,
-h3 {
-  color: rgb(255, 255, 255);
-  font-weight: bold;
-  font-size: 18px;
-  text-align: center;
+.backProfile {
+  display: none;
+}
+
+.inputProfil {
+  border-radius: 20px;
 }

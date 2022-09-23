@@ -6,7 +6,7 @@ import GareEtConnexions from "./pages/GareEtConnexions/GareEtConnexions";
 import Ter from "./pages/Ter/Ter";
 import Reseau from "./pages/Reseau/Reseau";
 import Voyageurs from "./pages/Voyageurs/Voyageurs";
-import Profile from "./pages/Profile/Profile";
+import CreateProfile from "./pages/CreateProfile/CreateProfile";
 import RegulationPage from "./pages/RegulationPage/RegulationPage";
 import Defaults from "./pages/Defaults/Defaults";
 import Login from "./pages/Login/Login";
@@ -18,6 +18,7 @@ import Admin from "./pages/Admin/Admin";
 import AuthAdminGuard from "./services/AuthAdminGuar/AuthAdminGuard";
 import UpdateUser from "./pages/UpdateUser/UpdateUser";
 import Users from "./pages/Users/Users";
+import Profile from "./pages/Profile/Profile";
 import {
   MailContext,
   PhoneNumberContext,
@@ -58,12 +59,15 @@ function App() {
                         path="/voyageurs/:cp_user"
                         element={<Voyageurs />}
                       />
-                      <Route path="/profile" element={<Profile />} />
+                      <Route path="/Profile/:cp_user" element={<Profile />} />
+                      <Route
+                        path="/CreateProfile"
+                        element={<CreateProfile />}
+                      />
                       <Route path="/updateUser" element={<UpdateUser />} />
 
                       <Route path="/legal" element={<RegulationPage />} />
                       {/* <Route path="/defaults" element={<Defaults />} /> */}
-
                       <Route
                         path="/admin"
                         element={

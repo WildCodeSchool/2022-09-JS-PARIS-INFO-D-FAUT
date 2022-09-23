@@ -82,7 +82,7 @@ const Login = () => {
                 />
               </form>
               <div className="trait" />
-              <Link className="linkProfile" to="/profile">
+              <Link className="linkProfile" to="/CreateProfile">
                 <Button
                   classButton="inscription"
                   champButton="S'INSCRIRE"
