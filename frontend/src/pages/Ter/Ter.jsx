@@ -66,14 +66,14 @@ const Ter = () => {
           forId="field"
           type="text"
         />
-        <Input
+        {/* <Input
           className="inputTer"
           onChange={(e) => setPicture(e.target.value)}
           value={picture}
           forId="file"
           type="file"
           champ="Joindre une photographie"
-        />
+        /> */}
         <Input
           className="inputGare"
           forId="file"
@@ -90,7 +90,6 @@ const Ter = () => {
           value={longitude}
           champ="Longitude"
         />
-
         <Button
           classButton="envoyer"
           onClick={(e) =>

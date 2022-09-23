@@ -96,14 +96,14 @@ const UpdateDefaultsUser = () => {
           forId="field"
           type="text"
         />
-        <Input
+        {/* <Input
           className="inputGare"
           onChange={(e) => setPicture(e.target.value)}
           value={picture}
           forId="file"
           type="file"
           champ="Joindre une photographie"
-        />
+        /> */}
         <Input
           className="inputGare"
           forId="file"
