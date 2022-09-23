@@ -1,33 +1,27 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "./Defaults.css";
 import {
   getDefaults,
   deleteDefaults,
   updateDefaults,
 } from "../../services/axios/AxiosDefaults";
-import {
-  DefaultsContext,
-  PictureContext,
-  StationContext,
-  DescriptionContext,
-  LatitudeContext,
-  LongitudeContext,
-} from "../../context/index";
+// import { LatitudeContext, LongitudeContext } from "../../context/index";
 import { Footer, Header, Button, DefaultCard } from "../../components/index";
 
 const Defaults = () => {
-  const { problem, setProblem } = useContext(DefaultsContext);
-  const { latitude } = useContext(LatitudeContext);
-  const { longitude } = useContext(LongitudeContext);
-  const { station } = useContext(StationContext);
-  const { description } = useContext(DescriptionContext);
-  const { picture } = useContext(PictureContext);
+  const [problem, setProblem] = useState([]);
+  // const { latitude } = useContext(LatitudeContext);
+  // const { longitude } = useContext(LongitudeContext);
+  // const [station, setStation] = useState("");
+  // const [description, setDescription] = useState("");
+  // const [picture, setPicture] = useState("");
 
-  const data = { station, description, picture, longitude, latitude };
+  // const data = { station, description, picture, longitude, latitude };
 
   useEffect(() => {
     getDefaults(setProblem);
-  }, []);
+  }, [problem]);
 
   return (
     <div className="defaults-container">
@@ -60,15 +54,14 @@ const Defaults = () => {
                   }
                 />
 
-                <Button
-                  name="update"
-                  classButton="update-button"
-                  champButton="Mettre à jour"
-                  type="button"
-                  onClick={(e) =>
-                    updateDefaults(problems.id_default, data, setProblem, e)
-                  }
-                />
+                <Link to={`/updateDefaults/${problems.id_default}`}>
+                  <Button
+                    name="update"
+                    classButton="update-button"
+                    champButton="Mettre à jour"
+                    type="button"
+                  />
+                </Link>
               </div>
             ))}
           </>

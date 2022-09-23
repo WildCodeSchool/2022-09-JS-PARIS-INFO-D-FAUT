@@ -15,16 +15,16 @@ export const DefaultCard = ({
   return (
     <div className="defaultCard-container">
       <ul>
-        <li> gare : {station} </li>
-        <li> numero tgv :{tgv} </li>
-        <li> numero ter : {ter} </li>
-        <li> numero de ligne : {track} </li>
-        <li> description :{description} </li>
+        <li> Gare : {station} </li>
+        <li> Numero tgv :{tgv} </li>
+        <li> Numero ter : {ter} </li>
+        <li> Numero de ligne : {track} </li>
+        <li> Description :{description} </li>
         <li>
           <img src={image} alt={imgAlt} />
         </li>
         <li>
-          géolocalisation : {latitude} {longitude}
+          Géolocalisation : {latitude} {longitude}
         </li>
       </ul>
     </div>

@@ -1,6 +1,5 @@
 import React, { useState, useContext } from "react";
 import "./GareEtConnexions.css";
-import { Link } from "react-router-dom";
 import { postDefaults } from "../../services/axios/AxiosDefaults";
 import { Geolocalisation } from "../../services/Geolocalisation/Geolocalisation";
 import {
@@ -11,16 +10,17 @@ import {
   Textarea,
 } from "../../components/index";
 import {
-  ProfileContext,
+  IdUserContext,
+  CpUserContext,
   LongitudeContext,
   LatitudeContext,
 } from "../../context/index";
 import { PictureImport } from "../../components/PictureImport/PictureImport";
 
 const GareEtConnexions = () => {
-  const { id_user } = useContext(ProfileContext);
+  const { cp } = useContext(CpUserContext);
+  const { id_user } = useContext(IdUserContext);
 
-  const [problem, setProblem] = useState("");
   const [station, setStation] = useState("");
   const [description, setDescription] = useState("");
   const [picture, setPicture] = useState("");
@@ -59,6 +59,7 @@ const GareEtConnexions = () => {
           type="text"
           champ="Gare concernée"
         />
+
         <Textarea
           className="textGare"
           onChange={(e) => setDescription(e.target.value)}
@@ -94,26 +95,12 @@ const GareEtConnexions = () => {
         <Button
           classButton="envoyer"
           onClick={(e) =>
-            postDefaults(
-              data,
-              setProblem,
-              setStation,
-              setDescription,
-              setPicture,
-              e
-            )
+            postDefaults(data, setStation(""), setDescription(""), e)
           }
           champButton="ENVOYER"
           type="button"
         />
       </form>
-      <Link to={`/defaultsUser/${id_user}`}>
-        <Button
-          classButton="envoyer"
-          champButton="defaut envoyé"
-          type="bouton"
-        />
-      </Link>
       <Footer />
     </div>
   );

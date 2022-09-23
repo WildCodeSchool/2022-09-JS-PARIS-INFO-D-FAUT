@@ -1,6 +1,5 @@
 import React, { useContext, useState } from "react";
 import "./Voyageurs.css";
-import { Link } from "react-router-dom";
 import { postDefaults } from "../../services/axios/AxiosDefaults";
 import { Geolocalisation } from "../../services/Geolocalisation/Geolocalisation";
 import {
@@ -11,17 +10,17 @@ import {
   Textarea,
 } from "../../components/index";
 import {
-  ProfileContext,
+  IdUserContext,
+  CpUserContext,
   LongitudeContext,
   LatitudeContext,
 } from "../../context/index";
 
 const Voyageurs = () => {
-  const { id_user } = useContext(ProfileContext);
+  const { id_user } = useContext(IdUserContext);
+  const { cp_user } = useContext(CpUserContext);
 
-  const [problem, setProblem] = useState("");
-
-  const [tgvNumber, setTgvNumber] = useState("");
+  const [tgv_number, setTgvNumber] = useState(0);
   const [description, setDescription] = useState("");
   const [picture, setPicture] = useState("");
   const { latitude, setLatitude } = useContext(LatitudeContext);
@@ -29,7 +28,7 @@ const Voyageurs = () => {
 
   const data = {
     id_user,
-    tgvNumber,
+    tgv_number,
     description,
     picture,
     longitude,
@@ -40,7 +39,6 @@ const Voyageurs = () => {
     <div className="voyageurs-container">
       {Geolocalisation()}
       <Header backCss="backVoyageurs" profileCss="profileVoyageurs" />
-
       <form className="voyageurs_champ-container">
         <h1>GARE & CONNEXIONS</h1>
         {/* <Input
@@ -54,9 +52,9 @@ const Voyageurs = () => {
         <Input
           className="inputVoyageurs"
           onChange={(e) => setTgvNumber(e.target.value)}
-          value={tgvNumber}
+          value={tgv_number}
           forId="tgv"
-          type="text"
+          type="number"
           champ="Numéro du train"
         />
         <Textarea
@@ -94,26 +92,12 @@ const Voyageurs = () => {
         <Button
           classButton="envoyer"
           onClick={(e) =>
-            postDefaults(
-              data,
-              setProblem,
-              setTgvNumber,
-              setDescription,
-              setPicture,
-              e
-            )
+            postDefaults(data, setTgvNumber(0), setDescription(""), e)
           }
           champButton="ENVOYER"
           type="button"
         />
       </form>
-      <Link to={`/defaultsUser/${id_user}`}>
-        <Button
-          classButton="envoyer"
-          champButton="defaut envoyé"
-          type="bouton"
-        />
-      </Link>
 
       <Footer />
     </div>

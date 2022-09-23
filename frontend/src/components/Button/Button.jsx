@@ -7,6 +7,7 @@ export const Button = ({
   classButton,
   champButton,
   type,
+  disabled,
   onClick,
 }) => {
   return (
@@ -14,7 +15,13 @@ export const Button = ({
       <label className="label-text" id={name} htmlFor={name}>
         {label}
       </label>
-      <button className={classButton} id={name} onClick={onClick} type={type}>
+      <button
+        className={classButton}
+        disabled={disabled}
+        id={name}
+        onClick={onClick}
+        type={type}
+      >
         {champButton}
       </button>
     </div>

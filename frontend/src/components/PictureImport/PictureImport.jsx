@@ -2,7 +2,7 @@ import { React, useState, useContext, Alert } from "react";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import Popup from "reactjs-popup";
 import { storage } from "../../services/Firebase/firebase";
-import { PictureContext } from "../../context/PictureContext";
+import { PictureContext } from "../../context/index";
 // import Popup from "reactjs-popup";
 import "./PictureImport.css";
 

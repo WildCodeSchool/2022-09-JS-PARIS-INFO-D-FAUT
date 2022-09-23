@@ -1,15 +1,23 @@
 import React, { useState, useContext } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { ProfileContext } from "../../context/index";
+import {
+  IdUserContext,
+  CpUserContext,
+  MailContext,
+  PhoneNumberContext,
+} from "../../context/index";
 import { Header, Footer, Input, Button } from "../../components/index";
+import { InputPassword } from "../../components/Input/InputPassword";
 import "./Login.css";
 import Home from "../Home/Home";
 
 const Login = () => {
-  const { setId_user } = useContext(ProfileContext);
+  const { setId_user } = useContext(IdUserContext);
+  const { cp, setCp } = useContext(CpUserContext);
+  const { setMail } = useContext(MailContext);
+  const { setPhoneNumber } = useContext(PhoneNumberContext);
 
-  const [cp, setCp] = useState("");
   const [password, setPassword] = useState("");
   const [sucess, setSucess] = useState(false);
 
@@ -27,9 +35,11 @@ const Login = () => {
     );
     if (response.data.user.id_user) {
       setId_user(response.data.user.id_user);
+      setCp(response.data.user.cp);
+      setMail(response.data.user.mail);
+      setPhoneNumber(response.data.user.phone_number);
     }
-    setCp(" ");
-    setPassword(" ");
+    setPassword("");
     setSucess(true);
   };
 
@@ -43,41 +53,43 @@ const Login = () => {
         <div className="utilisateur-container">
           <Header backCss="backLogin" profileCss="profileLogin" />
           <div className="champ-container">
-            <form className="form-container">
-              <h1>UTILISATEUR</h1>
-              <Input
-                className="inputUtilisateur"
-                forId="cp"
-                type="text"
-                champ="Numéro de CP"
-                onChange={(e) => setCp(e.target.value)}
-                value={cp}
-                // minlength="8"
-                // maxlength="8"
-              />
-              <Input
-                className="inputUtilisateur"
-                forId="mot"
-                type="password"
-                champ="Mot de passe"
-                onChange={(e) => setPassword(e.target.value)}
-                value={password}
-              />
-              <Button
-                classButton="envoyer"
-                onClick={postUser}
-                champButton="CONNEXION"
-                type="submit"
-              />
-            </form>
-            <div className="trait" />
-            <Link className="link" to="/profile">
-              <Button
-                classButton="inscription"
-                champButton="S'INSCRIRE"
-                type="submit"
-              />
-            </Link>
+            <div className="formulaire">
+              <form className="form-container">
+                <h1>UTILISATEUR</h1>
+                <Input
+                  className="inputUtilisateur"
+                  forId="cp"
+                  type="text"
+                  champ="Numéro de CP"
+                  onChange={(e) => setCp(e.target.value)}
+                  value={cp}
+                  // minlength="8"
+                  // maxlength="8"
+                />
+                <InputPassword
+                  className="inputPassword"
+                  forId="mot"
+                  champ="Mot de passe"
+                  autoComplete="on"
+                  onChange={(e) => setPassword(e.target.value)}
+                  value={password}
+                />
+                <Button
+                  classButton="envoyer"
+                  onClick={postUser}
+                  champButton="CONNEXION"
+                  type="submit"
+                />
+              </form>
+              <div className="trait" />
+              <Link className="linkProfile" to="/CreateProfile">
+                <Button
+                  classButton="inscription"
+                  champButton="S'INSCRIRE"
+                  type="submit"
+                />
+              </Link>
+            </div>
           </div>
           <Footer />
         </div>

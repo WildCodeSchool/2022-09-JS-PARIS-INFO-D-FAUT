@@ -27,12 +27,19 @@
 }
 
 .champ-container {
+  height: 100%;
+  background-color: rgb(0, 17, 43);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.formulaire {
   padding-top: 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   height: 100%;
-  background-color: rgb(0, 17, 43);
 }
 
 .form-container {
@@ -54,7 +61,7 @@
   width: 60%;
 }
 
-.link {
+.linkProfile {
   margin-top: 10px;
   height: 120px;
 }
@@ -64,4 +71,89 @@
   color: rgb(213, 43, 30);
   border-radius: 20px;
   font-weight: bold;
+}
+
+.inscription:hover {
+  width: 150px;
+  height: 40px;
+}
+
+@media (min-width: 768px) {
+  .formulaire {
+    padding-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: 70%;
+    background-color: rgba(205, 0, 55, 0.433);
+    width: 90%;
+    border-radius: 20px;
+  }
+  .trait {
+    background-color: red;
+    border-radius: 15px;
+    width: 0.5%;
+    height: 80%;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+  .form-container {
+    height: 70%;
+  }
+  .linkProfile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .inscription {
+    color: white;
+    border-radius: 20px;
+    font-weight: bold;
+    background-color: rgba(205, 0, 55);
+  }
+
+  .inscription:hover {
+    width: 150px;
+    height: 40px;
+    background-color: white;
+    color: rgba(205, 0, 55);
+  }
+}
+@media (min-width: 968px) {
+  .formulaire {
+    padding-top: 10px;
+    justify-content: space-evenly;
+    height: 80%;
+    background-color: rgba(205, 0, 55, 0.433);
+    width: 70%;
+    border-radius: 20px;
+  }
+  .trait {
+    background-color: red;
+    border-radius: 15px;
+    width: 0.5%;
+    height: 80%;
+  }
+  .form-container {
+    height: 100%;
+  }
+  .linkProfile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .inscription {
+    color: white;
+    border-radius: 20px;
+    font-weight: bold;
+    background-color: rgba(205, 0, 55);
+  }
+
+  .inscription:hover {
+    width: 150px;
+    height: 40px;
+    background-color: white;
+    color: rgba(205, 0, 55);
+  }
 }

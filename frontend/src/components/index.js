@@ -5,3 +5,6 @@ export { Input } from "./Input/Input";
 export { Item } from "./Item/Item";
 export { Textarea } from "./Textarea/Textarea";
 export { DefaultCard } from "./DefaultCard/DefaultCard";
+export { Update } from "./Update/Update";
+export { UserCard } from "./UserCard/UserCard";
+export { InputPassword } from "./Input/InputPassword";
