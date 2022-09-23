@@ -6,11 +6,11 @@ import { PictureContext } from "../../context/PictureContext";
 // import Popup from "reactjs-popup";
 import "./PictureImport.css";
 
-const alertPopup = () => {
-  <Popup trigger={<button>Trigger</button>} position="right center">
-    <div>Choisir une photo !</div>
-  </Popup>;
-};
+// const alertPopup = () => {
+//   <Popup trigger={<button>Trigger</button>} position="right center">
+//     <div>Choisir une photo !</div>
+//   </Popup>;
+// };
 
 export const PictureImport = () => {
   // récupération de l'url de la photo postée.
@@ -31,37 +31,36 @@ export const PictureImport = () => {
   const handleUpload = (e) => {
     e.preventDefault();
 
-    if (!file) {
-      alertPopup();
-      // Alert("No file", "Choisir un fichier d'abord !");
-    }
-
-    const storageRef = ref(storage, `/defaults/${file.name}`);
-
-    // la progression peut être interrompue et reprise. Il expose également la progression des mises à jour.
-    // Reçoit la référence de stockage et le fichier à uploader.
-    const uploadTask = uploadBytesResumable(storageRef, file);
-
-    uploadTask.on(
-      "state_changed",
-      (snapshot) => {
-        const NewPercentages = Math.round(
-          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-        );
-        // progression de l'update
-        setPercentages(NewPercentages);
-      },
-      (err) => console.warn(err),
-      () => {
-        // téléchargement de l'URL
-        getDownloadURL(uploadTask.snapshot.ref).then((url) => {
-          console.warn("url", url);
-          // envoi de l'URL dans la props Picture pour implémentation de la DB
-          setPicture("url", url);
-        });
-      }
-    );
+    // if (!file) {
+    //   alertPopup();
+    // Alert("No file", "Choisir un fichier d'abord !");
   };
+
+  const storageRef = ref(storage, `/defaults/${file.name}`);
+
+  // la progression peut être interrompue et reprise. Il expose également la progression des mises à jour.
+  // Reçoit la référence de stockage et le fichier à uploader.
+  const uploadTask = uploadBytesResumable(storageRef, file);
+
+  uploadTask.on(
+    "state_changed",
+    (snapshot) => {
+      const NewPercentages = Math.round(
+        (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+      );
+      // progression de l'update
+      setPercentages(NewPercentages);
+    },
+    (err) => console.warn(err),
+    () => {
+      // téléchargement de l'URL
+      getDownloadURL(uploadTask.snapshot.ref).then((url) => {
+        console.warn("url", url);
+        // envoi de l'URL dans la props Picture pour implémentation de la DB
+        setPicture("url", url);
+      });
+    }
+  );
 
   return (
     <div className="pictureImport">
