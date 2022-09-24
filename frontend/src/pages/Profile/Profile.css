@@ -18,6 +18,51 @@
   display: none;
 }
 
-.inputProfil {
-  border-radius: 20px;
+.profile-logo {
+  display: none;
+}
+
+@media (min-width: 900px) {
+  .profile_champ-container {
+    display: grid;
+    grid-template-columns: 35% 25% 35%;
+    grid-template-rows: 15% 20% 30%; 
+    align-items: center;
+  }
+  .profile-logo {
+    display: flex;
+    justify-content: center;
+  }
+  h1 {
+    grid-column: 1/4;
+    grid-row: 1;
+  }
+  .inputProfil1 {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  .inputProfil2 {
+    grid-column: 3;
+    grid-row: 2;
+  }
+  .inputProfil3 {
+    grid-column: 3;
+    grid-row: 3;
+  }
+  .inputProfil4 {
+    grid-column: 1;
+    grid-row: 3;
+  }
+  .inputProfil5 {
+    grid-column: 1;
+    grid-row: 4;
+  }
+  .profile-logo {
+    grid-column: 2/3;
+    grid-row: 3;
+  }
+  .envoyer {
+    grid-column: 3;
+    grid-row: 4;
+  }
 }
