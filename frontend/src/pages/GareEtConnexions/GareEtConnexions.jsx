@@ -83,7 +83,6 @@ const GareEtConnexions = () => {
           type="text"
         />
 
-        {/* <PictureImport value={picture} /> */}
         <Input
           className="inputGare"
           onChange={(e) => setImage(e.target.files[0])}
