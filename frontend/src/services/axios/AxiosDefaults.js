@@ -43,11 +43,19 @@ export const getUserDefaultById = (
     });
 };
 
-export const postDefaults = async (data, setState2, setState3) => {
+export const postDefaults = async (
+  data,
+  setState2,
+  setState3,
+  setState4,
+  setState5
+) => {
   const response = await axios.post(`http://localhost:5000/defaults`, data);
   if (response.data.result) {
     setState2();
     setState3();
+    setState4();
+    setState5();
   }
 };
 

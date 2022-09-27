@@ -23,6 +23,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+<<<<<<< HEAD
 
 # API
 .env
+=======
+.env
+>>>>>>> 5a10dde21e806582bd06def46bbc3ccbaf0ddf68

@@ -19,9 +19,17 @@ export const DefaultCard = ({
         <li> Numero tgv :{tgv} </li>
         <li> Numero ter : {ter} </li>
         <li> Numero de ligne : {track} </li>
-        <li> Description :{description} </li>
         <li>
-          <img src={image} alt={imgAlt} />
+          {/* <a href={description} target="_blank" rel="noreferrer">
+            voir photo
+          </a> */}
+          Description :{description}
+        </li>
+        <li>
+          {/* <img src={image} alt={imgAlt} /> */}
+          <a href={image} target="_blank" rel="noreferrer">
+            voir photo
+          </a>
         </li>
         <li>
           Géolocalisation : {latitude} {longitude}
