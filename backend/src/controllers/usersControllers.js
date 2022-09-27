@@ -30,12 +30,12 @@ const getUsersById = (req, res) => {
 };
 
 const postUsers = (req, res) => {
-  const { cp, mail, phone_number, hashedPassword } = req.body;
+  const { cp, mail, admin, phone_number, hashedPassword } = req.body;
 
   sqlDb
     .query(
-      "INSERT INTO users(cp, mail, phone_number, hashedPassword) VALUES (?, ?, ?, ?)",
-      [cp, mail, phone_number, hashedPassword]
+      "INSERT INTO users(cp, mail, admin, phone_number, hashedPassword) VALUES (?, ?, ?, ?, ?)",
+      [cp, mail, admin, phone_number, hashedPassword]
     )
     .then(([result]) => {
       res.location(`/users/${result.insertId}`).sendStatus(201);
@@ -47,12 +47,12 @@ const postUsers = (req, res) => {
 
 const updateUsers = (req, res) => {
   const id_user = parseInt(req.params.id_user);
-  const { cp, mail, phone_number, hashedPassword } = req.body;
+  const { cp, mail, admin, phone_number, hashedPassword } = req.body;
 
   sqlDb
     .query(
-      "update users set cp = ?, mail = ?, phone_number = ?, hashedPassword = ? where id_user = ?",
-      [cp, mail, phone_number, hashedPassword, id_user]
+      "update users set cp = ?, mail = ?, admin = ?, phone_number = ?, hashedPassword = ? where id_user = ?",
+      [cp, mail, admin, phone_number, hashedPassword, id_user]
     )
     .then(([result]) => {
       if (result.affectedRows === 0) {

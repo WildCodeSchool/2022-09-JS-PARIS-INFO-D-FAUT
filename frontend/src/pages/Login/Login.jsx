@@ -6,6 +6,7 @@ import {
   CpUserContext,
   MailContext,
   PhoneNumberContext,
+  AdminContext,
 } from "../../context/index";
 import { Header, Footer, Input, Button } from "../../components/index";
 import { InputPassword } from "../../components/Input/InputPassword";
@@ -17,6 +18,7 @@ const Login = () => {
   const { cp, setCp } = useContext(CpUserContext);
   const { setMail } = useContext(MailContext);
   const { setPhoneNumber } = useContext(PhoneNumberContext);
+  const { setAdmin } = useContext(AdminContext);
 
   const [password, setPassword] = useState("");
   const [sucess, setSucess] = useState(false);
@@ -38,6 +40,7 @@ const Login = () => {
       setCp(response.data.user.cp);
       setMail(response.data.user.mail);
       setPhoneNumber(response.data.user.phone_number);
+      setAdmin(response.data.user.admin);
     }
     setPassword("");
     setSucess(true);
