@@ -26,12 +26,17 @@
   .profile_champ-container {
     display: grid;
     grid-template-columns: 35% 25% 35%;
-    grid-template-rows: 15% 20% 30%; 
+    grid-template-rows: 15% 25% 25%; 
     align-items: center;
   }
   .profile-logo {
     display: flex;
     justify-content: center;
+
+  }
+  .logoProfile{
+    width: 50%;
+    border-radius: 20%;
   }
   h1 {
     grid-column: 1/4;
@@ -40,29 +45,47 @@
   .inputProfil1 {
     grid-column: 1;
     grid-row: 2;
+    animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.9s both;
   }
   .inputProfil2 {
     grid-column: 3;
     grid-row: 2;
+    animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.4s both;
   }
   .inputProfil3 {
     grid-column: 3;
     grid-row: 3;
+    animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.3s both;
   }
   .inputProfil4 {
     grid-column: 1;
     grid-row: 3;
+    animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.7s both;
   }
   .inputProfil5 {
     grid-column: 1;
     grid-row: 4;
+    animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.6s both;
   }
   .profile-logo {
     grid-column: 2/3;
     grid-row: 3;
+    animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s both;
   }
   .envoyer {
     grid-column: 3;
     grid-row: 4;
-  }
+    animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.2s both;}
+    @keyframes slide-in-left {
+      0% {
+        -webkit-transform: translateX(-1000px);
+                transform: translateX(-1000px);
+        opacity: 0;
+      }
+      100% {
+        -webkit-transform: translateX(0);
+                transform: translateX(0);
+        opacity: 1;
+      }
+    }
 }

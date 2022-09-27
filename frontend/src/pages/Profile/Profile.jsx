@@ -4,6 +4,7 @@ import { InputPassword } from "../../components/Input/InputPassword";
 import { Footer, Header, Input, Button } from "../../components/index";
 import { postProfile } from "../../services/axios/AxiosUsers";
 import logo from "../../assets/logo-essai1.png";
+import profilelogo from "../../assets/profile.gif";
 
 const Profile = () => {
   const [cp, setCp] = useState("");
@@ -63,8 +64,12 @@ const Profile = () => {
             />
           </div>
 
-          <div className="profile-logo">
+          {/* <div className="profile-logo">
             <img className="logoProfile" src={logo} alt="Logo" />
+          </div> */}
+
+          <div className="profile-logo">
+            <img className="logoProfile" src={profilelogo} alt="Logo" />
           </div>
 
           <div className="inputProfil4">
