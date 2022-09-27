@@ -1,4 +1,6 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
+import { getDownloadURL } from "firebase/storage";
+import { uploadFile } from "../../services/Firebase/firebase";
 import "./GareEtConnexions.css";
 import { postDefaults } from "../../services/axios/AxiosDefaults";
 import { Geolocalisation } from "../../services/Geolocalisation/Geolocalisation";
@@ -15,17 +17,35 @@ import {
   LongitudeContext,
   LatitudeContext,
 } from "../../context/index";
-import { PictureImport } from "../../components/PictureImport/PictureImport";
+// import { PictureImport } from "../../components/PictureImport/PictureImport";
 
 const GareEtConnexions = () => {
   const { cp } = useContext(CpUserContext);
   const { id_user } = useContext(IdUserContext);
 
   const [station, setStation] = useState("");
+  // mettre en tableau pour voir la photo en mettant l'url
   const [description, setDescription] = useState("");
-  const [picture, setPicture] = useState("");
+  // changer en varchar
+  const [picture, setPicture] = useState([]);
   const { latitude, setLatitude } = useContext(LatitudeContext);
   const { longitude, setLongitude } = useContext(LongitudeContext);
+
+  // const [imgURL, setImgURL] = useState("");
+
+  const [image, setImage] = useState(null);
+  // console.log(picture);
+
+  const handleUpload = async (e) => {
+    e.preventDefault();
+    try {
+      const result = await uploadFile(image);
+      // console.log(result);
+      setPicture(result);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   const data = {
     id_user,
@@ -59,7 +79,6 @@ const GareEtConnexions = () => {
           type="text"
           champ="Gare concernée"
         />
-
         <Textarea
           className="textGare"
           onChange={(e) => setDescription(e.target.value)}
@@ -67,15 +86,24 @@ const GareEtConnexions = () => {
           forId="field"
           type="text"
         />
-        <PictureImport value={picture} />
-        {/* <Input
+
+        {/* <PictureImport value={picture} /> */}
+        <Input
           className="inputGare"
-          onChange={(e) => setPicture(e.target.value)}
-          value={picture}
+          onChange={(e) => setImage(e.target.files[0])}
           forId="file"
           type="file"
+          accept=".png, .jpg, .jpeg, .gif"
           champ="Joindre une photographie"
-        /> */}
+        />
+        <Input type="button" onClick={handleUpload} champ="télécharger" />
+
+        <br />
+
+        <a href={picture} target="_blank" rel="noreferrer">
+          <img className="imgDefaults" src={picture} alt="image" />
+        </a>
+
         <Input
           className="inputGare"
           forId="file"
@@ -95,7 +123,14 @@ const GareEtConnexions = () => {
         <Button
           classButton="envoyer"
           onClick={(e) =>
-            postDefaults(data, setStation(""), setDescription(""), e)
+            postDefaults(
+              data,
+              setStation(""),
+              setDescription(""),
+              setPicture([]),
+              setImage(null),
+              e
+            )
           }
           champButton="ENVOYER"
           type="button"

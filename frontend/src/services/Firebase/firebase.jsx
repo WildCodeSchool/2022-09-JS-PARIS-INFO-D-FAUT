@@ -1,18 +1,29 @@
 import { initializeApp } from "firebase/app";
-import { getStorage } from "firebase/storage";
+import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { v4 } from "uuid";
 
-// init Firebase
+const APIKEY = import.meta.env.VITE_APIKEY;
+const AUTHDOMAIN = import.meta.env.VITE_AUTHDOMAIN;
+const PROJECTID = import.meta.env.VITE_PROJECTID;
+const STORAGEBUCKET = import.meta.env.VITE_STORAGEBUCKET;
+const MESSAGINGSENDERID = import.meta.env.VITE_MESSAGINGSENDERID;
+const APPID = import.meta.env.VITE_APPID;
+
 const firebaseConfig = {
-  apiKey: "AIzaSyB2wgJzItF_HnK8w9AUQTvMFC_hM44ho8o",
-  authDomain: "infodefaut-806bc.firebaseapp.com",
-  projectId: "infodefaut-806bc",
-  storageBucket: "infodefaut-806bc.appspot.com",
-  messagingSenderId: "133932224186",
-  appId: "1:133932224186:web:4a9987c2bf38a0a09ebc83",
+  apiKey: APIKEY,
+  authDomain: AUTHDOMAIN,
+  projectId: PROJECTID,
+  storageBucket: STORAGEBUCKET,
+  messagingSenderId: MESSAGINGSENDERID,
+  appId: APPID,
 };
-const app = initializeApp(firebaseConfig);
 
-// ref à la base de Storage Firebase
+const app = initializeApp(firebaseConfig);
 export const storage = getStorage(app);
 
-// export default { storage };
+export async function uploadFile(file) {
+  const storageRef = ref(storage, v4());
+  await uploadBytes(storageRef, file);
+  const url = await getDownloadURL(storageRef);
+  return url;
+}
