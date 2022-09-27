@@ -1,5 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
-import { getDownloadURL } from "firebase/storage";
+import React, { useState, useContext } from "react";
 import { uploadFile } from "../../services/Firebase/firebase";
 import "./GareEtConnexions.css";
 import { postDefaults } from "../../services/axios/AxiosDefaults";
@@ -17,7 +16,6 @@ import {
   LongitudeContext,
   LatitudeContext,
 } from "../../context/index";
-// import { PictureImport } from "../../components/PictureImport/PictureImport";
 
 const GareEtConnexions = () => {
   const { cp } = useContext(CpUserContext);
@@ -30,8 +28,6 @@ const GareEtConnexions = () => {
   const [picture, setPicture] = useState([]);
   const { latitude, setLatitude } = useContext(LatitudeContext);
   const { longitude, setLongitude } = useContext(LongitudeContext);
-
-  // const [imgURL, setImgURL] = useState("");
 
   const [image, setImage] = useState(null);
   // console.log(picture);
