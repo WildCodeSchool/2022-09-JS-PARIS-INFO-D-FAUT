@@ -14,6 +14,8 @@ export const Input = ({
   maxlength,
   className,
   autoComplete,
+  accept,
+  capture,
 }) => {
   return (
     <div className="input-container">
@@ -33,6 +35,8 @@ export const Input = ({
         minLength={minlength}
         maxLength={maxlength}
         autoComplete={autoComplete}
+        accept={accept}
+        capture={capture}
       />
     </div>
   );

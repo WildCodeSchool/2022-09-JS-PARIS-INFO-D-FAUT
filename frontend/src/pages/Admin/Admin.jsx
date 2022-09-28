@@ -1,19 +1,6 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import "./Admin.css";
-// import {
-//   getDefaults,
-//   deleteDefaults,
-//   updateDefaults,
-// } from "../../services/axios/AxiosDefaults";
-// import {
-//   DefaultsContext,
-//   PictureContext,
-//   StationContext,
-//   DescriptionContext,
-//   LatitudeContext,
-//   LongitudeContext,
-// } from "../../context/index";
 import { Footer, Header, Button } from "../../components/index";
 import { IdUserContext } from "../../context/index";
 

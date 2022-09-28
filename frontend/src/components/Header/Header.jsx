@@ -20,18 +20,22 @@ export const Header = ({ backCss, profileCss }) => {
             alt="logo utilisateur"
           />
         </Link>
+        <Link to="/admin">
+          <p>Admin</p>
+        </Link>
       </div>
       <div className="header-logo">
         <img className="logo" src={logo} alt="Logo" />
       </div>
       <div className="header-utilisateur">
         <div className="header-flex">
-          <Link to="/updateUser">
+          <Link to={`/Profile/${cp}`}>
             <img
               className={`profile ${profileCss}`}
               src={profile}
               alt="logo utilisateur"
             />
+            <p>Profil</p>
           </Link>
           <Link to="/">
             <img
@@ -39,6 +43,7 @@ export const Header = ({ backCss, profileCss }) => {
               src={cross}
               alt="logo utilisateur"
             />
+            <p>Déconnection</p>
           </Link>
         </div>
       </div>

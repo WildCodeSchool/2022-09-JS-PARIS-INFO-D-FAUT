@@ -43,7 +43,7 @@ const Home = () => {
         <Link to={`/defaultsUser/${cp}`}>
           <Button
             classButton="btnrecap"
-            champButton="Vos déclaration"
+            champButton="Vos déclarations"
             type="bouton"
           />
         </Link>

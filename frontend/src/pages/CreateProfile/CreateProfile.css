@@ -1,20 +1,23 @@
-.updateDefaultsUser-container {
+.profile-container {
   width: 100vw;
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: rgb(0, 17, 43);
 }
 
-.profileUpdateDefaultsUser {
-  display: none;
-}
-
-.gare_champ-container {
+.profile_champ-container {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   height: 100%;
-  align-items: center;
+  background-color: rgb(0, 17, 43);
+}
+
+.backProfile {
+  display: none;
+}
+
+.inputProfil {
+  border-radius: 20px;
 }

@@ -4,3 +4,5 @@ export { CpUserContext } from "./CpUserContext";
 export { IdUserContext } from "./IdUserContext";
 export { MailContext } from "./MailContext";
 export { PhoneNumberContext } from "./PhoneNumberContext";
+export { PictureContext } from "./PictureContext";
+export { AdminContext } from "./AdminContext";

@@ -2,30 +2,14 @@ const { sqlDb } = require("../../db");
 
 const getDefaults = (req, res) => {
   sqlDb
-    .query("select * from defaults")
+    .query(
+      "select users.cp, defaults.id_default, defaults.station, defaults.tgv_number, defaults.ter_number, defaults.railway_track_number, defaults.description, defaults.picture, defaults.latitude, defaults.longitude, defaults.user_id from defaults INNER JOIN users ON users.id_user=defaults.user_id"
+    )
     .then(([result]) => {
       res.status(200).json({ result });
     })
     .catch((err) => {
       res.status(500).send(`Erreur dans la requête getDefaults: ${err}`);
-    });
-};
-
-const getDefaultsById = (req, res) => {
-  const id_default = parseInt(req.params.id_default);
-  sqlDb
-    .query(`select * from defaults where id_default= ?`, [id_default])
-    .then(([d_fault]) => {
-      if (d_fault[0] != null) {
-        res.json(d_fault[0]);
-      } else {
-        res.status(404).send(`default at id ${id_default} not Found`);
-      }
-      res.status(201);
-    })
-    .catch((err) => {
-      console.error(err);
-      res.status(500).send("Error retrieving data from database");
     });
 };
 
@@ -39,12 +23,12 @@ const postDefaults = (req, res) => {
     picture,
     latitude,
     longitude,
-    id_user,
+    user_id,
   } = req.body;
 
   sqlDb
     .query(
-      "INSERT INTO defaults( station, tgv_number, ter_number, railway_track_number, description, picture, longitude, latitude, id_user) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
+      "INSERT INTO defaults( station, tgv_number, ter_number, railway_track_number, description, picture, longitude, latitude, user_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
       [
         station,
         tgv_number,
@@ -54,7 +38,7 @@ const postDefaults = (req, res) => {
         picture,
         latitude,
         longitude,
-        id_user,
+        user_id,
       ]
     )
     .then(([result]) => {
@@ -68,6 +52,7 @@ const postDefaults = (req, res) => {
 const updateDefaults = (req, res) => {
   const id_default = parseInt(req.params.id_default);
   const {
+    user_id,
     station,
     tgv_number,
     ter_number,
@@ -80,8 +65,9 @@ const updateDefaults = (req, res) => {
 
   sqlDb
     .query(
-      "update defaults set station = ?, tgv_number = ?, ter_number = ?, railway_track_number = ?, description = ?, picture = ?, longitude = ?, latitude = ? where id_default = ?",
+      "update defaults set user_id = ?, station = ?, tgv_number = ?, ter_number = ?, railway_track_number = ?, description = ?, picture = ?, longitude = ?, latitude = ? where id_default = ?",
       [
+        user_id,
         station,
         tgv_number,
         ter_number,
@@ -129,7 +115,6 @@ const deleteDefaults = (req, res) => {
 
 module.exports = {
   getDefaults,
-  getDefaultsById,
   postDefaults,
   updateDefaults,
   deleteDefaults,
