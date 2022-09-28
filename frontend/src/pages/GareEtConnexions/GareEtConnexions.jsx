@@ -20,23 +20,20 @@ import {
 const GareEtConnexions = () => {
   const { cp } = useContext(CpUserContext);
   const { id_user } = useContext(IdUserContext);
+  const user_id = id_user;
 
   const [station, setStation] = useState("");
-  // mettre en tableau pour voir la photo en mettant l'url
   const [description, setDescription] = useState("");
-  // changer en varchar
-  const [picture, setPicture] = useState([]);
+  const [picture, setPicture] = useState("");
   const { latitude, setLatitude } = useContext(LatitudeContext);
   const { longitude, setLongitude } = useContext(LongitudeContext);
 
   const [image, setImage] = useState(null);
-  // console.log(picture);
 
   const handleUpload = async (e) => {
     e.preventDefault();
     try {
       const result = await uploadFile(image);
-      // console.log(result);
       setPicture(result);
     } catch (error) {
       console.error(error);
@@ -44,7 +41,7 @@ const GareEtConnexions = () => {
   };
 
   const data = {
-    id_user,
+    user_id,
     station,
     description,
     picture,
@@ -59,14 +56,6 @@ const GareEtConnexions = () => {
 
       <form className="gare_champ-container">
         <h1>GARE & CONNEXIONS</h1>
-        {/* <Input
-          className="inputGare"
-          forId="cp"
-          type="text"
-          champ="Numéro de CP"
-          minlength={8}
-          maxlength={8}
-        /> */}
         <Input
           className="inputGare"
           onChange={(e) => setStation(e.target.value)}
@@ -122,7 +111,7 @@ const GareEtConnexions = () => {
               data,
               setStation(""),
               setDescription(""),
-              setPicture([]),
+              setPicture(""),
               setImage(null),
               e
             )

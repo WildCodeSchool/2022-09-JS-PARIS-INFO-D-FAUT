@@ -11,24 +11,6 @@ const getUsers = (req, res) => {
     });
 };
 
-const getUsersById = (req, res) => {
-  const id_user = parseInt(req.params.id_user);
-  sqlDb
-    .query(`select * from users where id_user= ?`, [id_user])
-    .then(([user]) => {
-      if (user[0] != null) {
-        res.json(user[0]);
-      } else {
-        res.status(404).send(`user at id ${id_user} not Found`);
-      }
-      res.status(201);
-    })
-    .catch((err) => {
-      console.error(err);
-      res.status(500).send("Error retrieving data from database");
-    });
-};
-
 const postUsers = (req, res) => {
   const { cp, mail, admin, phone_number, hashedPassword } = req.body;
 
@@ -110,7 +92,6 @@ const getUserByCpWithPasswordAndPassToNext = (req, res, next) => {
 
 module.exports = {
   getUsers,
-  getUsersById,
   postUsers,
   updateUsers,
   deleteUsers,

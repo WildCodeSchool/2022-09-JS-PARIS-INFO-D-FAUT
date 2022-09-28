@@ -11,10 +11,12 @@ export const DefaultCard = ({
   imgAlt,
   latitude,
   longitude,
+  cp,
 }) => {
   return (
     <div className="defaultCard-container">
       <ul>
+        <li>CP : {cp} </li>
         <li> Gare : {station} </li>
         <li> Numero tgv :{tgv} </li>
         <li> Numero ter : {ter} </li>

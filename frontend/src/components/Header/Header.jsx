@@ -21,7 +21,7 @@ export const Header = ({ backCss, profileCss }) => {
           />
         </Link>
         <Link to="/admin">
-          <p>hfhj</p>
+          <p>Admin</p>
         </Link>
       </div>
       <div className="header-logo">

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Footer, Header, DefaultCard, Button } from "../../components/index";
 import "./DefaultsUser.css";
 import {
-  deleteDefaultsUsers,
+  deleteDefaults,
   getDefaultsUserById,
 } from "../../services/axios/AxiosDefaults";
 import { IdUserContext, CpUserContext } from "../../context/index";
@@ -12,19 +12,19 @@ const DefaultsUser = () => {
   const { id_user } = useContext(IdUserContext);
   const { cp } = useContext(CpUserContext);
 
-  const [problemUser, setProblemUser] = useState([]);
+  const [problem, setProblem] = useState([]);
 
   useEffect(() => {
-    getDefaultsUserById(id_user, setProblemUser);
-  }, [problemUser]);
+    getDefaultsUserById(id_user, setProblem);
+  }, []);
 
   return (
     <div className="defaultsUser-container">
       <Header backCss="backDefaultsUser" profileCss="profileDefaultsUser" />
       <div className="fail-container">
-        {problemUser && (
+        {problem && (
           <>
-            {problemUser.map((problemes) => (
+            {problem.map((problemes) => (
               <div key={problemes.id_default}>
                 <DefaultCard
                   station={problemes.station}
@@ -36,6 +36,7 @@ const DefaultsUser = () => {
                   imgAlt="image du defaut"
                   latitude={problemes.latitude}
                   longitude={problemes.longitude}
+                  cp={problemes.cp}
                 />
 
                 <Button
@@ -44,7 +45,7 @@ const DefaultsUser = () => {
                   champButton="Supprimer"
                   type="button"
                   onClick={(e) =>
-                    deleteDefaultsUsers(problemes.id_default, setProblemUser, e)
+                    deleteDefaults(problemes.id_default, setProblem, e)
                   }
                 />
 

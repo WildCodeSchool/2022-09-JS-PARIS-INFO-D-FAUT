@@ -30,7 +30,7 @@ export const getUserDefaultById = (
   setState7
 ) => {
   axios
-    .get(`http://localhost:5000/defaults/${id_default}`)
+    .get(`http://localhost:5000/updateDefaultsUser/${id_default}`)
     .then((response) => response.data)
     .then((data) => {
       setState(data);
@@ -39,7 +39,7 @@ export const getUserDefaultById = (
       setState4(data.ter_number);
       setState5(data.tgv_number);
       setState6(data.description);
-      // setState7(data.picture);
+      setState7(data.picture);
     });
 };
 
@@ -68,15 +68,6 @@ export const deleteDefaults = async (id_default, setState) => {
   }
 };
 
-export const deleteDefaultsUsers = async (id_default, setState) => {
-  const response = await axios.delete(
-    `http://localhost:5000/defaultsUser/${id_default}`
-  );
-  if (response.data.problemUser) {
-    setState();
-  }
-};
-
 export const updateDefaults = async (
   id_default,
   data,
@@ -85,7 +76,9 @@ export const updateDefaults = async (
   setState3,
   setState4,
   setState5,
-  setState6
+  setState6,
+  setState7,
+  setState8
 ) => {
   const response = await axios.put(
     `http://localhost:5000/defaults/${id_default}`,
@@ -99,4 +92,6 @@ export const updateDefaults = async (
   setState4(0);
   setState5(0);
   setState6("description");
+  setState7("");
+  setState8(null);
 };

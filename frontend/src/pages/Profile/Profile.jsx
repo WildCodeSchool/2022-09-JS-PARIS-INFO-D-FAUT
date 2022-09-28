@@ -3,14 +3,12 @@ import "./Profile.css";
 import { useNavigate } from "react-router-dom";
 import { Footer, Header, Button } from "../../components/index";
 import {
-  IdUserContext,
   CpUserContext,
   MailContext,
   PhoneNumberContext,
 } from "../../context/index";
 
 const Profile = () => {
-  const { id_user } = useContext(IdUserContext);
   const { cp } = useContext(CpUserContext);
   const { mail } = useContext(MailContext);
   const { phone_number } = useContext(PhoneNumberContext);

@@ -22,9 +22,9 @@ CREATE TABLE defaults(
   `picture` VARCHAR(2000) NULL,
   `latitude` VARCHAR(255) NULL,
   `longitude` VARCHAR(255) NULL,
-  `id_user` INT NOT NULL,
+  `user_id` INT NOT NULL,
   CONSTRAINT fk_defaults_users
-    FOREIGN KEY (id_user)
+    FOREIGN KEY (user_id)
     REFERENCES users(id_user)
   ) ENGINE = InnoDB DEFAULT CHARSET = latin1;
 
