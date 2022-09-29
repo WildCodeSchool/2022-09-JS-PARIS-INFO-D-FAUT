@@ -1,5 +1,4 @@
 DROP TABLE IF EXISTS users;
-
 CREATE TABLE users(
   `id_user` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `cp` VARCHAR(8) UNIQUE NOT NULL,
@@ -11,7 +10,6 @@ CREATE TABLE users(
 
 
 DROP TABLE IF EXISTS defaults;
-
 CREATE TABLE defaults(
   `id_default` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `station` VARCHAR(50) NULL,
@@ -30,8 +28,7 @@ CREATE TABLE defaults(
 
 
 
--- DROP TABLE IF EXISTS token_blacklist;
-
--- CREATE TABLE token_blacklist(
---   token varchar(255) primary key NOT NULL
--- );
+DROP TABLE IF EXISTS token_blacklist;
+CREATE TABLE token_blacklist(
+  token varchar(255) primary key NOT NULL
+);

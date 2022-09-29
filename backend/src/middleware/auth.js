@@ -1,5 +1,6 @@
 const argon2 = require("argon2");
 const jwt = require("jsonwebtoken");
+const { sqlDb } = require("../../db");
 
 const hashingOptions = {
   type: argon2.argon2id,
@@ -70,8 +71,54 @@ const verifyToken = (req, res, next) => {
   }
 };
 
+const blackListToken = (req, res, next) => {
+  const authorizationHeader = req.get("Authorization");
+
+  if (!authorizationHeader == null) {
+    throw new Error("Authorization header is missing");
+  }
+
+  const [, token] = authorizationHeader.split(" ");
+  sqlDb
+    .query("INSERT INTO token_blacklist (token) VALUES(?)", [token])
+    .then(([insertedToken]) => {
+      console.warn("TOKEN ID", insertedToken.insertId);
+      res.send({ msg: "USER LOGGED OUT" });
+      next();
+    })
+    .catch((err) => {
+      console.warn("ERROR IN blackListToken", err);
+      res.sendStatus(400);
+    });
+};
+
+const isTokenBlackListed = (req, res, next) => {
+  const authorizationHeader = req.get("Authorization");
+
+  if (authorizationHeader == null) {
+    throw new Error("Authorization header is missing");
+  }
+
+  const [, token] = authorizationHeader.split(" ");
+
+  sqlDb
+    .query("SELECT * FROM token_blacklist WHERE token=?", [token])
+    .then(([tokens]) => {
+      if (tokens[0] != null) {
+        res.send({ msg: "TOKEN EXPIRED" });
+      }
+      next();
+    })
+    .catch((err) => {
+      console.warn("ERROR IN isTokenBlackListed", err);
+      res.sendStatus(400);
+    });
+};
+
 module.exports = {
   hashPassword,
   verifyPassword,
   verifyToken,
+  blackListToken,
+  isTokenBlackListed,
 };

@@ -70,7 +70,7 @@ const deleteUsers = (req, res) => {
     });
 };
 
-const getUserByCpWithPasswordAndPassToNext = (req, res, next) => {
+const login = (req, res, next) => {
   const { cp } = req.body;
 
   sqlDb
@@ -95,5 +95,5 @@ module.exports = {
   postUsers,
   updateUsers,
   deleteUsers,
-  getUserByCpWithPasswordAndPassToNext,
+  login,
 };

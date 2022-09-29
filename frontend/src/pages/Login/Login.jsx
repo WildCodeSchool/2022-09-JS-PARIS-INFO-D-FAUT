@@ -31,11 +31,11 @@ const Login = () => {
       password,
     };
 
-    const response = await axios.post(
-      `http://localhost:5000/profile/login`,
-      data
-    );
-    if (response.data.user.id_user) {
+    const response = await axios.post(`http://localhost:5000/login`, data);
+    if (response.data) {
+      const token = response.data.token;
+      localStorage.setItem("token", token);
+
       setId_user(response.data.user.id_user);
       setCp(response.data.user.cp);
       setMail(response.data.user.mail);
