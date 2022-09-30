@@ -29,6 +29,7 @@ export const Header = ({ backCss, profileCss }) => {
       bodyParameters,
       config
     );
+    localStorage.removeItem("token");
   };
 
   return (
