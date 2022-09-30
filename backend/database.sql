@@ -30,8 +30,8 @@ CREATE TABLE defaults(
 
 
 
--- DROP TABLE IF EXISTS token_blacklist;
+DROP TABLE IF EXISTS token_blacklist;
 
--- CREATE TABLE token_blacklist(
---   token varchar(255) primary key NOT NULL
--- );
+CREATE TABLE token_blacklist(
+  token varchar(255) primary key NOT NULL
+);
