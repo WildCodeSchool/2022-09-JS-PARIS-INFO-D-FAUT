@@ -7,7 +7,7 @@ import { postProfile } from "../../services/axios/AxiosUsers";
 const CreateProfile = () => {
   const [cp, setCp] = useState("");
   const [mail, setMail] = useState("");
-  const [phone_number, setPhoneNumber] = useState(0);
+  const [phone_number, setPhoneNumber] = useState("");
   const [password, setPassword] = useState("");
   const [secondPassword, setSecondPassword] = useState("");
 
