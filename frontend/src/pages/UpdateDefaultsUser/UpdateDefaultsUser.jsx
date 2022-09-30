@@ -14,16 +14,17 @@ import {
   Footer,
   Header,
 } from "../../components/index";
-import {
-  IdUserContext,
-  LongitudeContext,
-  LatitudeContext,
-} from "../../context/index";
+import { GeolocationContext, UserContext } from "../../context/index";
 
 const UpdateDefaultsUser = () => {
   const { id_default } = useParams();
-  const { id_user } = useContext(IdUserContext);
-  const user_id = id_user;
+  const { user } = useContext(UserContext);
+  const user_id = user.id_user;
+
+  const { geolocation } = useContext(GeolocationContext);
+  const latitudeDefault = geolocation.latitude;
+  const longitudeDefault = geolocation.longitude;
+
   const [problem, setProblem] = useState([]);
 
   const [station, setStation] = useState("");
@@ -33,8 +34,8 @@ const UpdateDefaultsUser = () => {
   const [tgv_number, setTgvNumber] = useState(0);
   const [description, setDescription] = useState("");
   const [picture, setPicture] = useState("");
-  const { latitude, setLatitude } = useContext(LatitudeContext);
-  const { longitude, setLongitude } = useContext(LongitudeContext);
+  const [latitude, setLatitude] = useState(latitudeDefault);
+  const [longitude, setLongitude] = useState(longitudeDefault);
 
   const [image, setImage] = useState(null);
 

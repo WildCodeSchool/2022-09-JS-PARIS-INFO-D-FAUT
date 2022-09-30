@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { uploadFile } from "../../services/Firebase/firebase";
 import "./Voyageurs.css";
 import { postDefaults } from "../../services/axios/AxiosDefaults";
-import { Geolocalisation } from "../../services/Geolocalisation/Geolocalisation";
+// import { Geolocalisation } from "../../services/Geolocalisation/Geolocalisation";
 import {
   Footer,
   Header,
@@ -11,22 +11,29 @@ import {
   Textarea,
 } from "../../components/index";
 import {
-  IdUserContext,
-  CpUserContext,
-  LongitudeContext,
-  LatitudeContext,
+  GeolocationContext,
+  UserContext,
+  // IdUserContext,
+  // CpUserContext,
+  // LongitudeContext,
+  // LatitudeContext,
 } from "../../context/index";
 
 const Voyageurs = () => {
-  const { cp } = useContext(CpUserContext);
-  const { id_user } = useContext(IdUserContext);
-  const user_id = id_user;
+  const { user } = useContext(UserContext);
+  const cp = user.cp;
+
+  const user_id = user.id_user;
+
+  const { geolocation } = useContext(GeolocationContext);
+  const latitudeDefault = geolocation.latitude;
+  const longitudeDefault = geolocation.longitude;
 
   const [tgv_number, setTgvNumber] = useState(0);
   const [description, setDescription] = useState("");
   const [picture, setPicture] = useState("");
-  const { latitude, setLatitude } = useContext(LatitudeContext);
-  const { longitude, setLongitude } = useContext(LongitudeContext);
+  const [latitude, setLatitude] = useState(latitudeDefault);
+  const [longitude, setLongitude] = useState(longitudeDefault);
 
   const [image, setImage] = useState(null);
 
@@ -51,7 +58,6 @@ const Voyageurs = () => {
 
   return (
     <div className="voyageurs-container">
-      {Geolocalisation()}
       <Header backCss="backVoyageurs" profileCss="profileVoyageurs" />
 
       <form className="voyageurs_champ-container">

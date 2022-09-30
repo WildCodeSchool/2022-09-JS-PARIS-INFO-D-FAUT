@@ -2,7 +2,6 @@ import React, { useState, useContext } from "react";
 import { uploadFile } from "../../services/Firebase/firebase";
 import "./GareEtConnexions.css";
 import { postDefaults } from "../../services/axios/AxiosDefaults";
-import { Geolocalisation } from "../../services/Geolocalisation/Geolocalisation";
 import {
   Footer,
   Header,
@@ -10,23 +9,22 @@ import {
   Button,
   Textarea,
 } from "../../components/index";
-import {
-  IdUserContext,
-  CpUserContext,
-  LongitudeContext,
-  LatitudeContext,
-} from "../../context/index";
+import { GeolocationContext, UserContext } from "../../context/index";
 
 const GareEtConnexions = () => {
-  const { cp } = useContext(CpUserContext);
-  const { id_user } = useContext(IdUserContext);
-  const user_id = id_user;
+  const { user } = useContext(UserContext);
+  const cp = user.cp;
+  const user_id = user.id_user;
+
+  const { geolocation } = useContext(GeolocationContext);
+  const latitudeDefault = geolocation.latitude;
+  const longitudeDefault = geolocation.longitude;
 
   const [station, setStation] = useState("");
   const [description, setDescription] = useState("");
   const [picture, setPicture] = useState("");
-  const { latitude, setLatitude } = useContext(LatitudeContext);
-  const { longitude, setLongitude } = useContext(LongitudeContext);
+  const [latitude, setLatitude] = useState(latitudeDefault);
+  const [longitude, setLongitude] = useState(longitudeDefault);
 
   const [image, setImage] = useState(null);
 
@@ -51,9 +49,7 @@ const GareEtConnexions = () => {
 
   return (
     <div className="gare-container">
-      {Geolocalisation()}
       <Header backCss="backGare" profileCss="profileGare" />
-
       <form className="gare_champ-container">
         <h1>GARE & CONNEXIONS</h1>
         <Input
@@ -120,6 +116,7 @@ const GareEtConnexions = () => {
           type="button"
         />
       </form>
+
       <Footer />
     </div>
   );

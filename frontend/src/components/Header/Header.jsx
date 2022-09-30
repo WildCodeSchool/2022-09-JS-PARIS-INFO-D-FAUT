@@ -6,10 +6,13 @@ import logo from "../../assets/logo-essai1.png";
 import profile from "../../assets/logo-profil.png";
 import cross from "../../assets/croix.png";
 import back from "../../assets/logo-back.png";
-import { CpUserContext } from "../../context/index";
+// import { CpUserContext } from "../../context/index";
+import { UserContext } from "../../context/index";
 
 export const Header = ({ backCss, profileCss }) => {
-  const { cp } = useContext(CpUserContext);
+  // const { cp } = useContext(CpUserContext);
+  const { user } = useContext(UserContext);
+  const cp = user.cp;
 
   const logout = async (e) => {
     e.preventDefault();

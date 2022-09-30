@@ -3,18 +3,24 @@ import "./Home.css";
 import { Link } from "react-router-dom";
 import Typewriter from "typewriter-effect";
 import { Footer, Header, Item, Button } from "../../components/index";
-import { CpUserContext } from "../../context/index";
+import { Geolocalisation } from "../../services/Geolocalisation/Geolocalisation";
+import { UserContext, GeolocationContext } from "../../context/index";
+
 import gare from "../../assets/gare_et_connexions.png";
 import ter from "../../assets/ter.png";
 import reseau from "../../assets/reseau.png";
 import voyageurs from "../../assets/voyageurs.png";
 
 const Home = () => {
-  const { cp } = useContext(CpUserContext);
+  const { user } = useContext(UserContext);
+  const cp = user.cp;
+  const { geolocation } = useContext(GeolocationContext);
 
   return (
     <div className="home-container">
+      {Geolocalisation()}
       <Header backCss="backHome" profileCss="profileHome" />
+
       <div className="item-container">
         <div className="item-flexone">
           <Link className="animation1" to={`/gare-et-connexions/${cp}`}>

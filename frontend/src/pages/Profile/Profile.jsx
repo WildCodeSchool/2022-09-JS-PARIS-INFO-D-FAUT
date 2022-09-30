@@ -2,16 +2,13 @@ import React, { useContext } from "react";
 import "./Profile.css";
 import { useNavigate } from "react-router-dom";
 import { Footer, Header, Button } from "../../components/index";
-import {
-  CpUserContext,
-  MailContext,
-  PhoneNumberContext,
-} from "../../context/index";
+import { UserContext } from "../../context/index";
 
 const Profile = () => {
-  const { cp } = useContext(CpUserContext);
-  const { mail } = useContext(MailContext);
-  const { phone_number } = useContext(PhoneNumberContext);
+  const { user } = useContext(UserContext);
+  const cp = user.cp;
+  const mail = user.mail;
+  const phone_number = user.phone_number;
 
   const navigate = useNavigate();
 

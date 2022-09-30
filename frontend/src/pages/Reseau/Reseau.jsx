@@ -2,7 +2,6 @@ import React, { useState, useContext } from "react";
 import { uploadFile } from "../../services/Firebase/firebase";
 import "./Reseau.css";
 import { postDefaults } from "../../services/axios/AxiosDefaults";
-import { Geolocalisation } from "../../services/Geolocalisation/Geolocalisation";
 import {
   Footer,
   Header,
@@ -10,23 +9,23 @@ import {
   Button,
   Textarea,
 } from "../../components/index";
-import {
-  IdUserContext,
-  CpUserContext,
-  LongitudeContext,
-  LatitudeContext,
-} from "../../context/index";
+import { GeolocationContext, UserContext } from "../../context/index";
 
 const Reseau = () => {
-  const { cp } = useContext(CpUserContext);
-  const { id_user } = useContext(IdUserContext);
-  const user_id = id_user;
+  const { user } = useContext(UserContext);
+  const cp = user.cp;
+
+  const user_id = user.id_user;
+
+  const { geolocation } = useContext(GeolocationContext);
+  const latitudeDefault = geolocation.latitude;
+  const longitudeDefault = geolocation.longitude;
 
   const [railway_track_number, setRailwayNumber] = useState(0);
   const [description, setDescription] = useState("");
   const [picture, setPicture] = useState("");
-  const { latitude, setLatitude } = useContext(LatitudeContext);
-  const { longitude, setLongitude } = useContext(LongitudeContext);
+  const [latitude, setLatitude] = useState(latitudeDefault);
+  const [longitude, setLongitude] = useState(longitudeDefault);
 
   const [image, setImage] = useState(null);
 
@@ -51,7 +50,6 @@ const Reseau = () => {
 
   return (
     <div className="reseau-container">
-      {Geolocalisation()}
       <Header backCss="backReseau" profileCss="profileReseau" />
 
       <form className="reseau_champ-container">
