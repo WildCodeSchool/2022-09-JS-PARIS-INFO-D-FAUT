@@ -50,7 +50,8 @@ const DefaultsUser = () => {
                   }
                 />
 
-                <Link to={`/updateDefaultsUser/${cp}/${problemes.id_default}`}>
+                {/* <Link to={`/updateDefaultsUser/${cp}/${problemes.id_default}`}> */}
+                <Link to={`/DefaultView/${cp}/${problemes.id_default}`}>
                   <Button
                     name="update"
                     classButton="update-button"

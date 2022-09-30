@@ -29,13 +29,13 @@ export const getDefaultsUserById = (id_user, setState) => {
 
 export const getUserDefaultById = (
   id_default,
-  setState,
-  setState2,
-  setState3,
-  setState4,
-  setState5,
-  setState6,
-  setState7
+  setState
+  // setState2,
+  // setState3,
+  // setState4,
+  // setState5,
+  // setState6,
+  // setState7
 ) => {
   const token = localStorage.getItem("token");
 
@@ -45,12 +45,12 @@ export const getUserDefaultById = (
     .then((response) => response.data)
     .then((data) => {
       setState(data);
-      setState2(data.station);
-      setState3(data.railway_track_number);
-      setState4(data.ter_number);
-      setState5(data.tgv_number);
-      setState6(data.description);
-      setState7(data.picture);
+      // setState2(data.station);
+      // setState3(data.railway_track_number);
+      // setState4(data.ter_number);
+      // setState5(data.tgv_number);
+      // setState6(data.description);
+      // setState7(data.picture);
     });
 };
 

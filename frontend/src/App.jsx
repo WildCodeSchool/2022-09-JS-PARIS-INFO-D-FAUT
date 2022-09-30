@@ -18,22 +18,22 @@ import AuthAdminGuard from "./services/AuthAdminGuar/AuthAdminGuard";
 import UpdateUser from "./pages/UpdateUser/UpdateUser";
 import Users from "./pages/Users/Users";
 import Profile from "./pages/Profile/Profile";
+import DefaultView from "./pages/DefaultView/DefaultView";
 import {
   UserContext,
   GeolocationContext,
-  PictureContext,
+  DefaultContext,
 } from "./context/index";
 
 function App() {
   const [user, setUser] = useState([]);
   const [geolocation, setGeolocation] = useState([]);
-
-  const [picture, setPicture] = useState("");
+  const [defaut, setDefaut] = useState([]);
 
   return (
     <UserContext.Provider value={{ user, setUser }}>
-      <GeolocationContext.Provider value={{ geolocation, setGeolocation }}>
-        <PictureContext.Provider value={{ picture, setPicture }}>
+      <DefaultContext.Provider value={{ defaut, setDefaut }}>
+        <GeolocationContext.Provider value={{ geolocation, setGeolocation }}>
           <Router>
             <div className="App">
               <Routes>
@@ -49,6 +49,10 @@ function App() {
                 <Route path="/Profile/:cp_user" element={<Profile />} />
                 <Route path="/CreateProfile" element={<CreateProfile />} />
                 <Route path="/updateUser" element={<UpdateUser />} />
+                <Route
+                  path="/DefaultView/:cp_user/:id_default"
+                  element={<DefaultView />}
+                />
 
                 <Route path="/legal" element={<RegulationPage />} />
 
@@ -90,8 +94,8 @@ function App() {
               </Routes>
             </div>
           </Router>
-        </PictureContext.Provider>
-      </GeolocationContext.Provider>
+        </GeolocationContext.Provider>
+      </DefaultContext.Provider>
     </UserContext.Provider>
   );
 }

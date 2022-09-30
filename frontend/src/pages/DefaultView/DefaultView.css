@@ -1,0 +1,20 @@
+.defaultView-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: rgb(0, 17, 43);
+}
+
+.defaultView-champs-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
+  align-items: center;
+}
+
+.img-items {
+  width: 30%;
+}

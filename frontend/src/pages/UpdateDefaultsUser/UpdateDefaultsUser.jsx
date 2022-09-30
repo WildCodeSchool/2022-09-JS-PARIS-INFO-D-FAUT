@@ -14,12 +14,24 @@ import {
   Footer,
   Header,
 } from "../../components/index";
-import { GeolocationContext, UserContext } from "../../context/index";
+import {
+  GeolocationContext,
+  UserContext,
+  DefaultContext,
+} from "../../context/index";
 
 const UpdateDefaultsUser = () => {
   const { id_default } = useParams();
   const { user } = useContext(UserContext);
   const user_id = user.id_user;
+
+  const { defaut } = useContext(DefaultContext);
+  const stationDefault = defaut[0].station;
+  const railwayDefault = defaut[0].railway_track_number;
+  const terDefault = defaut[0].ter_number;
+  const tgvDefault = defaut[0].tgv_number;
+  const descriptionDefault = defaut[0].description;
+  const pictureDefault = defaut[0].picture;
 
   const { geolocation } = useContext(GeolocationContext);
   const latitudeDefault = geolocation.latitude;
@@ -27,16 +39,14 @@ const UpdateDefaultsUser = () => {
 
   const [problem, setProblem] = useState([]);
 
-  const [station, setStation] = useState("");
-
-  const [railway_track_number, setRailwayNumber] = useState(0);
-  const [ter_number, setTerNumber] = useState(0);
-  const [tgv_number, setTgvNumber] = useState(0);
-  const [description, setDescription] = useState("");
-  const [picture, setPicture] = useState("");
+  const [station, setStation] = useState(stationDefault);
+  const [railway_track_number, setRailwayNumber] = useState(railwayDefault);
+  const [ter_number, setTerNumber] = useState(terDefault);
+  const [tgv_number, setTgvNumber] = useState(tgvDefault);
+  const [description, setDescription] = useState(descriptionDefault);
+  const [picture, setPicture] = useState(pictureDefault);
   const [latitude, setLatitude] = useState(latitudeDefault);
   const [longitude, setLongitude] = useState(longitudeDefault);
-
   const [image, setImage] = useState(null);
 
   const handleUpload = async (e) => {
@@ -50,16 +60,7 @@ const UpdateDefaultsUser = () => {
   };
 
   useEffect(() => {
-    getUserDefaultById(
-      id_default,
-      setProblem,
-      setStation,
-      setRailwayNumber,
-      setTerNumber,
-      setTgvNumber,
-      setDescription,
-      setPicture
-    );
+    getUserDefaultById(id_default, setProblem);
   }, []);
 
   const data = {
@@ -105,7 +106,7 @@ const UpdateDefaultsUser = () => {
           value={ter_number}
           forId="ter"
           type="number"
-          champ="Numéro de Ter"
+          champ="Numéro de TER"
         />
         <Input
           className="inputVoyageurs"
@@ -113,7 +114,7 @@ const UpdateDefaultsUser = () => {
           value={tgv_number}
           forId="tgv"
           type="number"
-          champ="Numéro du train"
+          champ="Numéro du TGV"
         />
         <Textarea
           className="textGare"
@@ -122,13 +123,14 @@ const UpdateDefaultsUser = () => {
           forId="field"
           type="text"
         />
+        <img className="img-items" src={defaut[0].picture} alt="image" />
         <Input
           className="inputGare"
           onChange={(e) => setImage(e.target.files[0])}
           forId="file"
           type="file"
           accept=".png, .jpg, .jpeg, .gif"
-          champ="Joindre une photographie"
+          champ="Modifier la photo"
         />
         <Input type="button" onClick={handleUpload} champ="télécharger" />
         <Input
