@@ -6,11 +6,12 @@ import {
   deleteDefaults,
   getDefaultsUserById,
 } from "../../services/axios/AxiosDefaults";
-import { IdUserContext, CpUserContext } from "../../context/index";
+import { UserContext } from "../../context/index";
 
 const DefaultsUser = () => {
-  const { id_user } = useContext(IdUserContext);
-  const { cp } = useContext(CpUserContext);
+  const { user } = useContext(UserContext);
+  const cp = user.cp;
+  const id_user = user.id_user;
 
   const [problem, setProblem] = useState([]);
 

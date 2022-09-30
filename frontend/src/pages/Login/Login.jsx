@@ -1,25 +1,16 @@
 import React, { useState, useContext } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import {
-  IdUserContext,
-  CpUserContext,
-  MailContext,
-  PhoneNumberContext,
-  AdminContext,
-} from "../../context/index";
+import { UserContext } from "../../context/index";
 import { Header, Footer, Input, Button } from "../../components/index";
 import { InputPassword } from "../../components/Input/InputPassword";
 import "./Login.css";
 import Home from "../Home/Home";
 
 const Login = () => {
-  const { setId_user } = useContext(IdUserContext);
-  const { cp, setCp } = useContext(CpUserContext);
-  const { setMail } = useContext(MailContext);
-  const { setPhoneNumber } = useContext(PhoneNumberContext);
-  const { setAdmin } = useContext(AdminContext);
+  const { user, setUser } = useContext(UserContext);
 
+  const [cp, setCp] = useState("");
   const [password, setPassword] = useState("");
   const [sucess, setSucess] = useState(false);
 
@@ -31,16 +22,11 @@ const Login = () => {
       password,
     };
 
-    const response = await axios.post(
-      `http://localhost:5000/profile/login`,
-      data
-    );
-    if (response.data.user.id_user) {
-      setId_user(response.data.user.id_user);
-      setCp(response.data.user.cp);
-      setMail(response.data.user.mail);
-      setPhoneNumber(response.data.user.phone_number);
-      setAdmin(response.data.user.admin);
+    const response = await axios.post(`http://localhost:5000/login`, data);
+    if (response.data) {
+      const token = response.data.token;
+      localStorage.setItem("token", token);
+      setUser(response.data.user);
     }
     setPassword("");
     setSucess(true);

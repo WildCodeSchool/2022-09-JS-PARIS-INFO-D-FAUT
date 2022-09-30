@@ -2,10 +2,11 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import "./Admin.css";
 import { Footer, Header, Button } from "../../components/index";
-import { IdUserContext } from "../../context/index";
+import { UserContext } from "../../context/index";
 
 const Admin = () => {
-  const { id_user } = useContext(IdUserContext);
+  const { user } = useContext(UserContext);
+  const id_user = user.id_user;
 
   return (
     <div className="admin-container">

@@ -5,41 +5,32 @@ const router = express.Router();
 const defaultsControllers = require("./controllers/defaultsControllers");
 const defaultsUserControllers = require("./controllers/defaultsUserControllers");
 const usersControllers = require("./controllers/usersControllers");
-const {
-  hashPassword,
-  verifyPassword,
-  verifyToken,
-} = require("./middleware/auth");
+const auth = require("./middleware/auth");
 
 // public route
-router.post("/users", hashPassword, usersControllers.postUsers);
-router.get("/defaults", defaultsControllers.getDefaults);
-router.delete("/defaults/:id_default", defaultsControllers.deleteDefaults);
+router.post("/users", auth.hashPassword, usersControllers.postUsers);
 
-router.put("/defaults/:id_default", defaultsControllers.updateDefaults);
+router.post("/login", usersControllers.login, auth.verifyPassword);
 
+// routes to protect
+router.use(auth.verifyToken, auth.isTokenBlackListed); /* authentication wall */
+router.post("/defaults", defaultsControllers.postDefaults);
 router.get(
   "/defaultsUser/:user_id",
   defaultsUserControllers.getDefaultsUserById
 );
-router.post("/defaults", defaultsControllers.postDefaults);
-
 router.get(
   "/updateDefaultsUser/:id_default",
   defaultsUserControllers.getUserDefaultById
 );
+router.put("/defaults/:id_default", defaultsControllers.updateDefaults);
+router.delete("/defaults/:id_default", defaultsControllers.deleteDefaults);
+
+router.put("/users/:id_user", auth.hashPassword, usersControllers.updateUsers);
 
 router.get("/users", usersControllers.getUsers);
 router.delete("/users/:id_user", usersControllers.deleteUsers);
-router.put("/users/:id_user", hashPassword, usersControllers.updateUsers);
+router.get("/defaults", defaultsControllers.getDefaults);
 
-router.post(
-  "/profile/login",
-  usersControllers.getUserByCpWithPasswordAndPassToNext,
-  verifyPassword
-);
-
-// routes to protect
-router.use(verifyToken); /* authentication wall */
-
+router.post("/logout", auth.blackListToken);
 module.exports = router;

@@ -1,8 +1,12 @@
 import axios from "axios";
 
 export const getDefaults = (setState) => {
+  const token = localStorage.getItem("token");
+
+  const config = { headers: { Authorization: `Bearer ${token}` } };
+
   axios
-    .get("http://localhost:5000/defaults")
+    .get("http://localhost:5000/defaults", config)
     .then((response) => response.data)
 
     .then((data) => {
@@ -11,8 +15,12 @@ export const getDefaults = (setState) => {
 };
 
 export const getDefaultsUserById = (id_user, setState) => {
+  const token = localStorage.getItem("token");
+
+  const config = { headers: { Authorization: `Bearer ${token}` } };
+
   axios
-    .get(`http://localhost:5000/defaultsUser/${id_user}`)
+    .get(`http://localhost:5000/defaultsUser/${id_user}`, config)
     .then((response) => response.data)
     .then((data) => {
       setState(data);
@@ -29,8 +37,11 @@ export const getUserDefaultById = (
   setState6,
   setState7
 ) => {
+  const token = localStorage.getItem("token");
+
+  const config = { headers: { Authorization: `Bearer ${token}` } };
   axios
-    .get(`http://localhost:5000/updateDefaultsUser/${id_default}`)
+    .get(`http://localhost:5000/updateDefaultsUser/${id_default}`, config)
     .then((response) => response.data)
     .then((data) => {
       setState(data);
@@ -50,7 +61,15 @@ export const postDefaults = async (
   setState4,
   setState5
 ) => {
-  const response = await axios.post(`http://localhost:5000/defaults`, data);
+  const token = localStorage.getItem("token");
+
+  const config = { headers: { Authorization: `Bearer ${token}` } };
+
+  const response = await axios.post(
+    `http://localhost:5000/defaults`,
+    data,
+    config
+  );
   if (response.data.result) {
     setState2();
     setState3();
@@ -60,8 +79,12 @@ export const postDefaults = async (
 };
 
 export const deleteDefaults = async (id_default, setState) => {
+  const token = localStorage.getItem("token");
+
+  const config = { headers: { Authorization: `Bearer ${token}` } };
   const response = await axios.delete(
-    `http://localhost:5000/defaults/${id_default}`
+    `http://localhost:5000/defaults/${id_default}`,
+    config
   );
   if (response.data.problem) {
     setState();
@@ -80,9 +103,13 @@ export const updateDefaults = async (
   setState7,
   setState8
 ) => {
+  const token = localStorage.getItem("token");
+
+  const config = { headers: { Authorization: `Bearer ${token}` } };
   const response = await axios.put(
     `http://localhost:5000/defaults/${id_default}`,
-    data
+    data,
+    config
   );
   if (response.data.problem) {
     setState();

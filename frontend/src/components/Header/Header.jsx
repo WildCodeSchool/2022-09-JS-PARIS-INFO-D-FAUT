@@ -1,14 +1,36 @@
 import React, { useContext } from "react";
 import "./Header.css";
+import axios from "axios";
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo-essai1.png";
 import profile from "../../assets/logo-profil.png";
 import cross from "../../assets/croix.png";
 import back from "../../assets/logo-back.png";
-import { CpUserContext } from "../../context/index";
+// import { CpUserContext } from "../../context/index";
+import { UserContext } from "../../context/index";
 
 export const Header = ({ backCss, profileCss }) => {
-  const { cp } = useContext(CpUserContext);
+  // const { cp } = useContext(CpUserContext);
+  const { user } = useContext(UserContext);
+  const cp = user.cp;
+
+  const logout = async (e) => {
+    e.preventDefault();
+    const token = localStorage.getItem("token");
+
+    const config = { headers: { Authorization: `Bearer ${token}` } };
+
+    const bodyParameters = {
+      key: "value",
+    };
+
+    const response = await axios.post(
+      `http://localhost:5000/logout`,
+      bodyParameters,
+      config
+    );
+    localStorage.removeItem("token");
+  };
 
   return (
     <div className="header-container">
@@ -43,7 +65,7 @@ export const Header = ({ backCss, profileCss }) => {
               src={cross}
               alt="logo utilisateur"
             />
-            <p>Déconnection</p>
+            <button onClick={logout}>Deconnection</button>
           </Link>
         </div>
       </div>

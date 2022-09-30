@@ -7,21 +7,20 @@ import {
   Button,
   InputPassword,
 } from "../../components/index";
-import {
-  IdUserContext,
-  CpUserContext,
-  MailContext,
-  PhoneNumberContext,
-} from "../../context/index";
+import { UserContext } from "../../context/index";
 
 import { updateUser } from "../../services/axios/AxiosUsers";
 
 const UpdateUser = () => {
-  const { id_user } = useContext(IdUserContext);
-  const { cp, setCp } = useContext(CpUserContext);
-  const { mail, setMail } = useContext(MailContext);
-  const { phone_number, setPhoneNumber } = useContext(PhoneNumberContext);
+  const { user } = useContext(UserContext);
+  const id_user = user.id_user;
+  const cpDefault = user.cp;
+  const mailDefault = user.mail;
+  const phone_numberDefault = user.phone_number;
 
+  const [cp, setCp] = useState(cpDefault);
+  const [mail, setMail] = useState(mailDefault);
+  const [phone_number, setPhoneNumber] = useState(phone_numberDefault);
   const [password, setPassword] = useState("");
   const [secondPassword, setSecondPassword] = useState("");
 
