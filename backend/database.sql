@@ -4,7 +4,7 @@ CREATE TABLE users(
   `cp` VARCHAR(8) UNIQUE NOT NULL,
   `admin` TINYINT(1) DEFAULT '0',
   `mail` VARCHAR(50) UNIQUE NOT NULL,
-  `phone_number` INT(10) ZEROFILL NULL,
+  `phone_number` VARCHAR(10) NULL,
   `hashedPassword` VARCHAR(255) NOT NULL
 ) ENGINE = InnoDB DEFAULT CHARSET = latin1;
 
