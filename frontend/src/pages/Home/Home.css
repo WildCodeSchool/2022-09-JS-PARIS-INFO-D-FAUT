@@ -11,6 +11,11 @@
   background-color: rgb(0, 17, 43);
 }
 
+.loginHome,
+.admin0Home {
+  display: none;
+}
+
 .item-flexone {
   height: 43%;
   display: flex;

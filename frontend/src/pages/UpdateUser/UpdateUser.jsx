@@ -36,7 +36,12 @@ const UpdateUser = () => {
 
   return (
     <div className="updateUser-container">
-      <Header backCss="backUpdateUser" profileCss="profileUpdateUser" />
+      <Header
+        backCss="backUpdateUser"
+        profileCss="profileUpdateUser"
+        loginCss="loginUpdateUser"
+        admin0Css="admin0UpdateUser"
+      />
 
       <form className="profile_champ-container">
         <h1>MODIFICATION</h1>

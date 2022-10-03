@@ -81,6 +81,8 @@ const UpdateDefaultsUser = () => {
       <Header
         backCss="backUpdateDefaultsUser"
         profileCss="profileUpdateDefaultsUser"
+        loginCss="loginUpdateDefaultsUser"
+        admin0Css="admin0UpdateDefaultsUser"
       />
       <form className="gare_champ-container">
         <h1>MODIFICATION</h1>

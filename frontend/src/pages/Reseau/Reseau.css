@@ -7,7 +7,9 @@
   background-color: rgb(0, 17, 43);
 }
 
-.profileReseau {
+.profileReseau,
+.loginReseau,
+.admin0Reseau {
   display: none;
 }
 

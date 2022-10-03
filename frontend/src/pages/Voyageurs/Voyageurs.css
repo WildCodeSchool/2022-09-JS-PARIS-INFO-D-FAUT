@@ -7,7 +7,9 @@
   background-color: rgb(0, 17, 43);
 }
 
-.profileVoyageurs {
+.profileVoyageurs,
+.loginVoyageurs,
+.admin0Voyageurs {
   display: none;
 }
 

@@ -13,7 +13,11 @@ const Users = () => {
 
   return (
     <div className="users-container">
-      <Header backCss="backUsers" profileCss="profileUsers" />
+      <Header
+        backCss="backUsers"
+        profileCss="profileUsers"
+        loginCss="loginUsers"
+      />
       <div className="users-display">
         {users && (
           <>

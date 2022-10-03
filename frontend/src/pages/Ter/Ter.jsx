@@ -50,7 +50,12 @@ const Ter = () => {
 
   return (
     <div className="ter-container">
-      <Header backCss="backTer" profileCss="profileTer" />
+      <Header
+        backCss="backTer"
+        profileCss="profileTer"
+        loginCss="loginTer"
+        admin0Css="admin0Ter"
+      />
 
       <form className="ter_champ-container">
         <h1> TER </h1>

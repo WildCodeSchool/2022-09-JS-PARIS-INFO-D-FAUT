@@ -24,9 +24,12 @@
   transition-duration: 0.5s;
 }
 
-.profileDefaultsUser {
+.profileDefaultsUser,
+.loginDefaultsUser,
+.login0DefaultsUser {
   display: none;
 }
+
 .btnCard {
   display: flex;
   justify-content: center;

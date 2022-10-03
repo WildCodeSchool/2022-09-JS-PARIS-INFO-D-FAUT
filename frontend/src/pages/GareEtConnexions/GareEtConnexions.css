@@ -7,7 +7,9 @@
   background-color: rgb(0, 17, 43);
 }
 
-.profileGare {
+.profileGare,
+.loginGare,
+.admin0Gare {
   display: none;
 }
 

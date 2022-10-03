@@ -10,7 +10,11 @@ const Admin = () => {
 
   return (
     <div className="admin-container">
-      <Header backCss="backAdmin" profileCss="profileAdmin" />
+      <Header
+        backCss="backAdmin"
+        profileCss="profileAdmin"
+        loginCss="loginAdmin"
+      />
       <div className="admin-display">
         <Link className="link" to="/admin/defaults">
           <Button

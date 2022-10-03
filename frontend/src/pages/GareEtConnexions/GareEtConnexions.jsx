@@ -49,7 +49,12 @@ const GareEtConnexions = () => {
 
   return (
     <div className="gare-container">
-      <Header backCss="backGare" profileCss="profileGare" />
+      <Header
+        backCss="backGare"
+        profileCss="profileGare"
+        loginCss="loginGare"
+        admin0Css="admin0Gare"
+      />
       <form className="gare_champ-container">
         <h1>GARE & CONNEXIONS</h1>
         <Input

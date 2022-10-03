@@ -6,7 +6,10 @@
   background: linear-gradient(rgb(110, 30, 120), rgb(161, 0, 107));
 }
 
-.header-back {
+.header-back-admin {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   width: 20%;
 }
 
@@ -22,6 +25,14 @@
   transform: rotate(-15deg);
 }
 
+.admin,
+.admin0 {
+  margin-top: 5px;
+  margin-left: 5px;
+  width: 35px;
+  height: 35px;
+}
+
 .header-logo {
   display: flex;
   align-items: center;
@@ -29,13 +40,23 @@
   width: 60%;
 }
 
-.header-utilisateur {
+.header-profile-logout {
   display: flex;
-  justify-content: right;
+  flex-direction: column;
+  justify-content: space-between;
   width: 20%;
 }
 
 .profile {
+  float: right;
+  margin-top: 5px;
+  margin-right: 5px;
+  width: 35px;
+  height: 35px;
+}
+
+.login {
+  float: right;
   margin-top: 5px;
   margin-right: 5px;
   width: 35px;
@@ -44,6 +65,14 @@
 
 .profile:hover {
   animation: jello-horizontal 0.9s both;
+}
+
+.logout {
+  float: right;
+  margin-top: 5px;
+  margin-right: 5px;
+  width: 35px;
+  height: 35px;
 }
 
 @keyframes jello-horizontal {

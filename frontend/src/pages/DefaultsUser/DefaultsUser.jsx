@@ -21,7 +21,12 @@ const DefaultsUser = () => {
 
   return (
     <div className="defaultsUser-container">
-      <Header backCss="backDefaultsUser" profileCss="profileDefaultsUser" />
+      <Header
+        backCss="backDefaultsUser"
+        profileCss="profileDefaultsUser"
+        loginCss="loginDefaultsUser"
+        admin0Css="login0DefaultsUser"
+      />
       <div className="fail-container">
         {problem && (
           <>

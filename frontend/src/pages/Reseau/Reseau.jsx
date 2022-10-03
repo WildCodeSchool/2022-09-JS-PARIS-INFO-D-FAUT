@@ -50,7 +50,12 @@ const Reseau = () => {
 
   return (
     <div className="reseau-container">
-      <Header backCss="backReseau" profileCss="profileReseau" />
+      <Header
+        backCss="backReseau"
+        profileCss="profileReseau"
+        loginCss="loginReseau"
+        admin0Css="admin0Reseau"
+      />
 
       <form className="reseau_champ-container">
         <h1>RESEAU</h1>

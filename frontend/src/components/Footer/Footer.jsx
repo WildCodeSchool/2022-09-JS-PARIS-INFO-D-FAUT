@@ -13,7 +13,7 @@ export const Footer = () => {
   };
 
   return (
-    <div className="footer-container">
+    <footer className="footer-container">
       <a href="https://www.transilien.com/fr/page-medias/application-3117">
         <img className="emergency" src={emergency} alt="logo 3117" />
       </a>
@@ -30,6 +30,6 @@ export const Footer = () => {
       <a href="https://www.sncf-connect.com/">
         <img className="connect" src={connect} alt="logo connect" />
       </a>
-    </div>
+    </footer>
   );
 };

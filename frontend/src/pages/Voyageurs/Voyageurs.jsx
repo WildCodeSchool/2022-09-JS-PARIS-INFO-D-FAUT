@@ -2,7 +2,6 @@ import React, { useContext, useState } from "react";
 import { uploadFile } from "../../services/Firebase/firebase";
 import "./Voyageurs.css";
 import { postDefaults } from "../../services/axios/AxiosDefaults";
-// import { Geolocalisation } from "../../services/Geolocalisation/Geolocalisation";
 import {
   Footer,
   Header,
@@ -10,14 +9,7 @@ import {
   Button,
   Textarea,
 } from "../../components/index";
-import {
-  GeolocationContext,
-  UserContext,
-  // IdUserContext,
-  // CpUserContext,
-  // LongitudeContext,
-  // LatitudeContext,
-} from "../../context/index";
+import { GeolocationContext, UserContext } from "../../context/index";
 
 const Voyageurs = () => {
   const { user } = useContext(UserContext);
@@ -58,7 +50,12 @@ const Voyageurs = () => {
 
   return (
     <div className="voyageurs-container">
-      <Header backCss="backVoyageurs" profileCss="profileVoyageurs" />
+      <Header
+        backCss="backVoyageurs"
+        profileCss="profileVoyageurs"
+        loginCss="loginVoyageurs"
+        admin0Css="admin0Voyageurs"
+      />
 
       <form className="voyageurs_champ-container">
         <h1>GARE & CONNEXIONS</h1>

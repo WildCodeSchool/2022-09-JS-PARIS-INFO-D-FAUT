@@ -48,7 +48,7 @@ function App() {
                 <Route path="/voyageurs/:cp_user" element={<Voyageurs />} />
                 <Route path="/Profile/:cp_user" element={<Profile />} />
                 <Route path="/CreateProfile" element={<CreateProfile />} />
-                <Route path="/updateUser" element={<UpdateUser />} />
+                <Route path="/updateUser/:cp_user" element={<UpdateUser />} />
                 <Route
                   path="/DefaultView/:cp_user/:id_default"
                   element={<DefaultView />}

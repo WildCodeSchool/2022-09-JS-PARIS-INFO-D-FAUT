@@ -1,18 +1,32 @@
 import React, { useContext } from "react";
 import "./Header.css";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import loginImg from "../../assets/login.png";
 import logo from "../../assets/logo-essai1.png";
 import profile from "../../assets/logo-profil.png";
-import cross from "../../assets/croix.png";
 import back from "../../assets/logo-back.png";
-// import { CpUserContext } from "../../context/index";
+import adminImg from "../../assets/admin.png";
+import logoutImg from "../../assets/logout.png";
 import { UserContext } from "../../context/index";
 
-export const Header = ({ backCss, profileCss }) => {
-  // const { cp } = useContext(CpUserContext);
+export const Header = ({
+  backCss,
+  adminCss,
+  profileCss,
+  loginCss,
+  logoutCss,
+  admin0Css,
+}) => {
   const { user } = useContext(UserContext);
   const cp = user.cp;
+  const admin = user.admin;
+
+  const navigate = useNavigate();
+
+  const nav = () => {
+    navigate("/");
+  };
 
   const logout = async (e) => {
     e.preventDefault();
@@ -29,12 +43,13 @@ export const Header = ({ backCss, profileCss }) => {
       bodyParameters,
       config
     );
+    nav();
     localStorage.removeItem("token");
   };
 
   return (
-    <div className="header-container">
-      <div className="header-back">
+    <header className="header-container">
+      <div className="header-back-admin">
         <Link to={`/items/${cp}`}>
           <img
             className={`back ${backCss}`}
@@ -43,32 +58,44 @@ export const Header = ({ backCss, profileCss }) => {
           />
         </Link>
         <Link to="/admin">
-          <p>Admin</p>
+          <img
+            className={
+              admin === 1 ? `admin ${adminCss}` : `admin0 ${admin0Css}`
+            }
+            src={adminImg}
+            alt="logo admin"
+          />
         </Link>
       </div>
       <div className="header-logo">
         <img className="logo" src={logo} alt="Logo" />
       </div>
-      <div className="header-utilisateur">
-        <div className="header-flex">
-          <Link to={`/Profile/${cp}`}>
+      <div className="header-profile-logout">
+        <Link to={`/Profile/${cp}`}>
+          <img
+            className={`profile ${profileCss}`}
+            src={profile}
+            alt="logo utilisateur"
+          />
+        </Link>
+        <Link to="/">
+          <img
+            className={`login ${loginCss}`}
+            src={loginImg}
+            alt="logo login"
+          />
+        </Link>
+        <Link to="/">
+          <div role="button" onClick={logout} onKeyPress={logout} tabIndex="0">
             <img
-              className={`profile ${profileCss}`}
-              src={profile}
-              alt="logo utilisateur"
+              className={`logout ${logoutCss}`}
+              src={logoutImg}
+              alt="logo logout"
             />
-            <p>Profil</p>
-          </Link>
-          <Link to="/">
-            <img
-              className={`profile ${profileCss}`}
-              src={cross}
-              alt="logo utilisateur"
-            />
-            <button onClick={logout}>Deconnection</button>
-          </Link>
-        </div>
+          </div>
+          {/* <button onClick={logout}>Deconnection</button> */}
+        </Link>
       </div>
-    </div>
+    </header>
   );
 };

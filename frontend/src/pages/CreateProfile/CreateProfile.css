@@ -14,7 +14,11 @@
   background-color: rgb(0, 17, 43);
 }
 
-.backProfile {
+.backProfile,
+.profileProfile,
+.adminProfile,
+.logoutProfile,
+.admin0Profile {
   display: none;
 }
 

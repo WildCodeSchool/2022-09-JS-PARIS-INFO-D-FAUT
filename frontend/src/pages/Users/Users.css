@@ -15,7 +15,8 @@
   transition-duration: 0.5s;
 }
 
-.profileUsers {
+.profileUsers,
+.loginUsers {
   display: none;
 }
 

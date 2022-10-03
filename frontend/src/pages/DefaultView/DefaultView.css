@@ -15,6 +15,10 @@
   align-items: center;
 }
 
+.admin0UpdateDefaultsUser {
+  display: none;
+}
+
 .img-items {
   width: 30%;
 }

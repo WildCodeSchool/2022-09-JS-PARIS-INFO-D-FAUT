@@ -19,7 +19,13 @@ const Home = () => {
   return (
     <div className="home-container">
       {Geolocalisation()}
-      <Header backCss="backHome" profileCss="profileHome" />
+      <Header
+        backCss="backHome"
+        profileCss="profileHome"
+        loginCss="loginHome"
+        adminCss="adminHome"
+        admin0Css="admin0Home"
+      />
 
       <div className="item-container">
         <div className="item-flexone">

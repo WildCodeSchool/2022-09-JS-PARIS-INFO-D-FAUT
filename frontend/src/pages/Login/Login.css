@@ -7,7 +7,11 @@
 }
 
 .backLogin,
-.profileLogin {
+.profileLogin,
+.logoutLogin,
+.adminLogin,
+.loginLogin,
+.admin0Login {
   display: none;
 }
 

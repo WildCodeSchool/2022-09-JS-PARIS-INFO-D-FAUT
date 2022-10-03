@@ -7,6 +7,11 @@
   background-color: rgb(0, 17, 43);
 }
 
+.loginUpdateUser,
+.admin0UpdateUser {
+  display: none;
+}
+
 /* .profile_champ-container {
   display: flex;
   flex-direction: column;

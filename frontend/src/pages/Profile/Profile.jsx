@@ -13,12 +13,12 @@ const Profile = () => {
   const navigate = useNavigate();
 
   const handleUpdate = () => {
-    navigate("/UpdateUser");
+    navigate(`/UpdateUser/${cp}`);
   };
 
   return (
     <div className="prof-container">
-      <Header />
+      <Header loginCss="loginProf" admin0Css="admin0Prof" />
       <div className="prof-champs-container">
         <h1>PROFIL :</h1>
         <h2>CP: {cp}</h2>

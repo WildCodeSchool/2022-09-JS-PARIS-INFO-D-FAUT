@@ -16,7 +16,11 @@ const Defaults = () => {
 
   return (
     <div className="defaults-container">
-      <Header backCss="backDefaults" profileCss="profileDefaults" />
+      <Header
+        backCss="backDefaults"
+        profileCss="profileDefaults"
+        loginCss="loginDefaults"
+      />
       <div className="defaults-display">
         {problem && (
           <>

@@ -15,7 +15,8 @@
   transition-duration: 0.5s;
 }
 
-.profileDefaults {
+.profileDefaults,
+.loginDefaults {
   display: none;
 }
 
