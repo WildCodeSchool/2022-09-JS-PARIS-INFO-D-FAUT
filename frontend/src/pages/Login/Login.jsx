@@ -14,6 +14,34 @@ const Login = () => {
   const [cp, setCp] = useState("");
   const [password, setPassword] = useState("");
 
+  const regexCP = (value) => {
+    return /^[0-9]{7}[a-zA-Z]{1}$/.test(value);
+  };
+
+  function cpControle() {
+    if (regexCP(cp)) {
+      return true;
+    }
+    alert("Le numéro de CP doit etre composé de 7 chiffres et une lettre");
+    return false;
+  }
+
+  const regexPassword = (value) => {
+    return /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[-.:;,+!?*$@%_])([-.:;,+!?*$@%_\w]{8,})$/.test(
+      value
+    );
+  };
+
+  function passwordControle() {
+    if (regexPassword(password)) {
+      return true;
+    }
+    alert(
+      "le mot de passe n'est pas valide, il doit contenir une Majuscule, une minuscule, un chiffre et un caractère spécial parmis : -.:;,+!?*$@%_ et doit contenir minimum 8 caractères"
+    );
+    return false;
+  }
+
   const postUser = async (e) => {
     e.preventDefault();
 
@@ -22,14 +50,16 @@ const Login = () => {
       password,
     };
 
-    const response = await axios.post(`http://localhost:5000/login`, data);
-    if (response.data) {
-      const token = response.data.token;
-      localStorage.setItem("token", token);
-      setUser(response.data.user);
+    if (cpControle(cp) && passwordControle(password)) {
+      const response = await axios.post(`http://localhost:5000/login`, data);
+      if (response.data) {
+        const token = response.data.token;
+        localStorage.setItem("token", token);
+        setUser(response.data.user);
+      }
+      setPassword("");
+      navigate(`/items/${cp}`);
     }
-    setPassword("");
-    navigate(`/items/${cp}`);
   };
 
   return (

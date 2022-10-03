@@ -27,6 +27,80 @@ const CreateProfile = () => {
 
   const verifPasswords = password !== secondPassword;
 
+  const regexCP = (value) => {
+    return /^[0-9]{7}[a-zA-Z]{1}$/.test(value);
+  };
+
+  function cpControle() {
+    if (regexCP(cp)) {
+      return true;
+    }
+    alert("Le numéro de CP doit etre composé de 7 chiffres et une lettre");
+    return false;
+  }
+
+  const regexMail = (value) => {
+    // eslint-disable-next-line no-useless-escape
+    return /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(value);
+  };
+
+  function mailControle() {
+    if (regexMail(mail)) {
+      return true;
+    }
+    alert("le mail n'est pas valide ");
+    return false;
+  }
+
+  const regexPassword = (value) => {
+    return /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[-.:;,+!?*$@%_])([-.:;,+!?*$@%_\w]{8,})$/.test(
+      value
+    );
+  };
+
+  function passwordControle() {
+    if (regexPassword(password)) {
+      return true;
+    }
+    alert(
+      "le mot de passe n'est pas valide, il doit contenir une Majuscule, une minuscule, un chiffre et un caractère spécial parmis : -.:;,+!?*$@%_ et doit contenir minimum 8 caractères"
+    );
+    return false;
+  }
+
+  const regexPhone = (value) => {
+    return /^$|^[0-9]{10}$/.test(value);
+  };
+
+  function phoneControle() {
+    if (regexPhone(phone_number)) {
+      return true;
+    }
+    alert(
+      "le numéro de téléphone n'est pas valide, il doit contenir 10 chiffres"
+    );
+    return false;
+  }
+
+  const handleSubmit = () => {
+    if (
+      cpControle(cp) &&
+      mailControle(mail) &&
+      phoneControle(phone_number) &&
+      passwordControle(password)
+    ) {
+      postProfile(
+        data,
+        setCp,
+        setMail,
+        setPhoneNumber,
+        setPassword,
+        setSecondPassword,
+        nav()
+      );
+    }
+  };
+
   return (
     <div>
       <div className="profile-container">
@@ -47,8 +121,7 @@ const CreateProfile = () => {
             champ="Numéro de CP"
             onChange={(e) => setCp(e.target.value)}
             value={cp}
-            minlength="8"
-            maxlength="8"
+            v
           />
           <Input
             className="inputProfil"
@@ -62,6 +135,7 @@ const CreateProfile = () => {
             className="inputProfil"
             forId="telephone"
             type="tel"
+            pattern="[09]{10}"
             champ="Téléphone"
             onChange={(e) => setPhoneNumber(e.target.value)}
             value={phone_number}
@@ -89,18 +163,7 @@ const CreateProfile = () => {
           <Button
             classButton="envoyer"
             disabled={verifPasswords}
-            onClick={(e) =>
-              postProfile(
-                data,
-                setCp,
-                setMail,
-                setPhoneNumber,
-                setPassword,
-                setSecondPassword,
-                nav(),
-                e
-              )
-            }
+            onClick={(e) => handleSubmit(e)}
             champButton="ENVOYER"
             type="submit"
           />
