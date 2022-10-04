@@ -35,7 +35,9 @@ const CreateProfile = () => {
     if (regexCP(cp)) {
       return true;
     }
-    alert("Le numéro de CP doit etre composé de 7 chiffres et une lettre");
+    alert(
+      "⚠️ Le numéro de CP doit etre composé de: \n 7 chiffres et une lettre"
+    );
     return false;
   };
 
@@ -47,7 +49,7 @@ const CreateProfile = () => {
     if (regexMail(mail)) {
       return true;
     }
-    alert("le mail n'est pas valide ");
+    alert("⚠️ le mail n'est pas valide ");
     return false;
   };
 
@@ -60,7 +62,7 @@ const CreateProfile = () => {
       return true;
     }
     alert(
-      "le numéro de téléphone n'est pas valide, il doit contenir 10 chiffres"
+      "⚠️ le numéro de téléphone n'est pas valide: \n il doit contenir 10 chiffres"
     );
     return false;
   };
@@ -76,9 +78,15 @@ const CreateProfile = () => {
       return true;
     }
     alert(
-      "le mot de passe n'est pas valide, il doit contenir une Majuscule, une minuscule, un chiffre et un caractère spécial parmis : -.:;,+!?*$@%_ et doit contenir minimum 8 caractères"
+      "⚠️ le mot de passe n'est pas valide, il doit contenir au minimum: \n une majuscule, \n une minuscule, \n un chiffre \n un caractère spécial parmis : -.:;,+!?*$@%_ \n et doit contenir minimum 8 caractères"
     );
     return false;
+  };
+
+  const alertSucess = () => {
+    alert(
+      "🏆 Votre profil a bien été créé ! 😀 🏆 \n Vous pouvez maintenant vous connecter"
+    );
   };
 
   const handleSubmit = () => {
@@ -95,6 +103,7 @@ const CreateProfile = () => {
         setPhoneNumber,
         setPassword,
         setSecondPassword,
+        alertSucess(),
         nav()
       );
     }

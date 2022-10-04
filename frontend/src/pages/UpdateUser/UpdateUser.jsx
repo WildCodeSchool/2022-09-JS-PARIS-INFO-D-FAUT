@@ -1,5 +1,7 @@
 import React, { useState, useContext } from "react";
+import axios from "axios";
 import "./UpdateUser.css";
+import { useNavigate } from "react-router-dom";
 import {
   Footer,
   Header,
@@ -12,6 +14,7 @@ import { UserContext } from "../../context/index";
 import { updateUser } from "../../services/axios/AxiosUsers";
 
 const UpdateUser = () => {
+  const navigate = useNavigate();
   const { user } = useContext(UserContext);
   const id_user = user.id_user;
   const cpDefault = user.cp;
@@ -42,7 +45,9 @@ const UpdateUser = () => {
     if (regexCP(cp)) {
       return true;
     }
-    alert("Le numéro de CP doit etre composé de 7 chiffres et une lettre");
+    alert(
+      "⚠️ Le numéro de CP doit etre composé de: \n 7 chiffres et une lettre"
+    );
     return false;
   };
 
@@ -54,7 +59,7 @@ const UpdateUser = () => {
     if (regexMail(mail)) {
       return true;
     }
-    alert("le mail n'est pas valide ");
+    alert("⚠️ le mail n'est pas valide ");
     return false;
   };
 
@@ -67,7 +72,7 @@ const UpdateUser = () => {
       return true;
     }
     alert(
-      "le numéro de téléphone n'est pas valide, il doit contenir 10 chiffres"
+      "⚠️ le numéro de téléphone n'est pas valide: \n il doit contenir 10 chiffres"
     );
     return false;
   };
@@ -83,9 +88,37 @@ const UpdateUser = () => {
       return true;
     }
     alert(
-      "le mot de passe n'est pas valide, il doit contenir une Majuscule, une minuscule, un chiffre et un caractère spécial parmis : -.:;,+!?*$@%_ et doit contenir minimum 8 caractères"
+      "⚠️ le mot de passe n'est pas valide, il doit contenir au minimum: \n une majuscule, \n une minuscule, \n un chiffre \n un caractère spécial parmis : -.:;,+!?*$@%_ \n et doit contenir minimum 8 caractères"
     );
     return false;
+  };
+
+  const alertSucess = () => {
+    alert(
+      "🏆 Votre profil a bien été modifié ! 😀 🏆 \n Veuillez vous reconnecter, merci."
+    );
+  };
+
+  const nav = () => {
+    navigate("/");
+  };
+
+  const logout = async () => {
+    const token = localStorage.getItem("token");
+
+    const config = { headers: { Authorization: `Bearer ${token}` } };
+
+    const bodyParameters = {
+      key: "value",
+    };
+
+    const response = await axios.post(
+      `http://localhost:5000/logout`,
+      bodyParameters,
+      config
+    );
+    nav();
+    localStorage.removeItem("token");
   };
 
   const handleSubmit = () => {
@@ -96,6 +129,8 @@ const UpdateUser = () => {
       passwordControle(password)
     ) {
       updateUser(id_user, data, setPassword, setSecondPassword);
+      alertSucess();
+      logout();
     }
   };
 
