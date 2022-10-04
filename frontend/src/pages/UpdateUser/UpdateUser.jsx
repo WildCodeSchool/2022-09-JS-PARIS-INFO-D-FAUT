@@ -38,48 +38,31 @@ const UpdateUser = () => {
     return /^[0-9]{7}[a-zA-Z]{1}$/.test(value);
   };
 
-  function cpControle() {
+  const cpControle = () => {
     if (regexCP(cp)) {
       return true;
     }
     alert("Le numéro de CP doit etre composé de 7 chiffres et une lettre");
     return false;
-  }
+  };
 
   const regexMail = (value) => {
-    // eslint-disable-next-line no-useless-escape
     return /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(value);
   };
 
-  function mailControle() {
+  const mailControle = () => {
     if (regexMail(mail)) {
       return true;
     }
     alert("le mail n'est pas valide ");
     return false;
-  }
-
-  const regexPassword = (value) => {
-    return /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[-.:;,+!?*$@%_])([-.:;,+!?*$@%_\w]{8,})$/.test(
-      value
-    );
   };
-
-  function passwordControle() {
-    if (regexPassword(password)) {
-      return true;
-    }
-    alert(
-      "le mot de passe n'est pas valide, il doit contenir une Majuscule, une minuscule, un chiffre et un caractère spécial parmis : -.:;,+!?*$@%_ et doit contenir minimum 8 caractères"
-    );
-    return false;
-  }
 
   const regexPhone = (value) => {
     return /^$|^[0-9]{10}$/.test(value);
   };
 
-  function phoneControle() {
+  const phoneControle = () => {
     if (regexPhone(phone_number)) {
       return true;
     }
@@ -87,7 +70,23 @@ const UpdateUser = () => {
       "le numéro de téléphone n'est pas valide, il doit contenir 10 chiffres"
     );
     return false;
-  }
+  };
+
+  const regexPassword = (value) => {
+    return /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[-.:;,+!?*$@%_])([-.:;,+!?*$@%_\w]{8,})$/.test(
+      value
+    );
+  };
+
+  const passwordControle = () => {
+    if (regexPassword(password)) {
+      return true;
+    }
+    alert(
+      "le mot de passe n'est pas valide, il doit contenir une Majuscule, une minuscule, un chiffre et un caractère spécial parmis : -.:;,+!?*$@%_ et doit contenir minimum 8 caractères"
+    );
+    return false;
+  };
 
   const handleSubmit = () => {
     if (
