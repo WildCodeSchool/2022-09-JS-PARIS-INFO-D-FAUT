@@ -1,4 +1,5 @@
 import React, { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { uploadFile } from "../../services/Firebase/firebase";
 import "./GareEtConnexions.css";
 import { postDefaults } from "../../services/axios/AxiosDefaults";
@@ -15,6 +16,7 @@ const GareEtConnexions = () => {
   const { user } = useContext(UserContext);
   const cp = user.cp;
   const user_id = user.id_user;
+  const navigate = useNavigate();
 
   const { geolocation } = useContext(GeolocationContext);
   const latitudeDefault = geolocation.latitude;
@@ -36,6 +38,10 @@ const GareEtConnexions = () => {
     } catch (error) {
       console.error(error);
     }
+  };
+
+  const nav = () => {
+    navigate(`/items/${cp}`);
   };
 
   const data = {
@@ -118,6 +124,7 @@ const GareEtConnexions = () => {
               setPicture(""),
               setImage(null),
               alertSucess(),
+              nav(),
               e
             )
           }

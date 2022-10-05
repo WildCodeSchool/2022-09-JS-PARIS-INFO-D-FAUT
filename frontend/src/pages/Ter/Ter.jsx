@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { uploadFile } from "../../services/Firebase/firebase";
 import "./Ter.css";
 import { postDefaults } from "../../services/axios/AxiosDefaults";
@@ -14,8 +15,8 @@ import { GeolocationContext, UserContext } from "../../context/index";
 const Ter = () => {
   const { user } = useContext(UserContext);
   const cp = user.cp;
-
   const user_id = user.id_user;
+  const navigate = useNavigate();
 
   const { geolocation } = useContext(GeolocationContext);
   const latitudeDefault = geolocation.latitude;
@@ -37,6 +38,9 @@ const Ter = () => {
     } catch (error) {
       console.error(error);
     }
+  };
+  const nav = () => {
+    navigate(`/items/${cp}`);
   };
 
   const data = {
@@ -122,6 +126,7 @@ const Ter = () => {
               setPicture(""),
               setImage(null),
               alertSucess(),
+              nav(),
               e
             )
           }
