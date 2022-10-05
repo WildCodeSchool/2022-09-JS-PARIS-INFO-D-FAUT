@@ -4,7 +4,7 @@ const getDefaultsUserById = (req, res) => {
   const user_id = parseInt(req.params.user_id);
   sqlDb
     .query(
-      `select users.cp, defaults.id_default, defaults.station, defaults.tgv_number, defaults.ter_number, defaults.railway_track_number, defaults.description, defaults.picture, defaults.latitude, defaults.longitude, defaults.user_id from defaults INNER JOIN users ON users.id_user=defaults.user_id where user_id= ? `,
+      `select users.cp, defaults.id_default, defaults.station, defaults.tgv_number, defaults.ter_number, defaults.railway_track_number, defaults.description, defaults.picture, defaults.latitude, defaults.longitude, defaults.treatment, defaults.user_id from defaults INNER JOIN users ON users.id_user=defaults.user_id where user_id= ? `,
       [user_id]
     )
     .then(([d_faultUser]) => {
@@ -26,7 +26,7 @@ const getUserDefaultById = (req, res) => {
   id_default = parseInt(req.params.id_default);
   sqlDb
     .query(
-      `select users.cp, defaults.id_default, defaults.station, defaults.tgv_number, defaults.ter_number, defaults.railway_track_number, defaults.description, defaults.picture, defaults.latitude, defaults.longitude, defaults.user_id from defaults INNER JOIN users ON users.id_user=defaults.user_id where id_default= ?`,
+      `select users.cp, defaults.id_default, defaults.station, defaults.tgv_number, defaults.ter_number, defaults.railway_track_number, defaults.description, defaults.picture, defaults.latitude, defaults.longitude, defaults.treatment, defaults.user_id from defaults INNER JOIN users ON users.id_user=defaults.user_id where id_default= ?`,
       [id_default]
     )
     .then(([d_faultUser]) => {

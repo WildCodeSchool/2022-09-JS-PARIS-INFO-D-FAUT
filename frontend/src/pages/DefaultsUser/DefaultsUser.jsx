@@ -14,7 +14,7 @@ const DefaultsUser = () => {
   const id_user = user.id_user;
 
   const [problem, setProblem] = useState([]);
-
+  // console.log(problem);
   useEffect(() => {
     getDefaultsUserById(id_user, setProblem);
   }, []);
@@ -33,6 +33,7 @@ const DefaultsUser = () => {
             {problem.map((problemes) => (
               <div key={problemes.id_default}>
                 <DefaultCard
+                  etatContainer={problemes.treatment}
                   station={problemes.station}
                   tgv={problemes.tgv_number}
                   ter={problemes.ter_number}
@@ -43,6 +44,7 @@ const DefaultsUser = () => {
                   latitude={problemes.latitude}
                   longitude={problemes.longitude}
                   cp={problemes.cp}
+                  traitement={problemes.treatment}
                 />
 
                 <Button

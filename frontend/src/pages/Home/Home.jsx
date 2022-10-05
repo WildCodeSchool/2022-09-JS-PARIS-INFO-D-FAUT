@@ -14,6 +14,7 @@ import voyageurs from "../../assets/voyageurs.png";
 const Home = () => {
   const { user } = useContext(UserContext);
   const cp = user.cp;
+  // console.log(user);
   const { geolocation } = useContext(GeolocationContext);
 
   return (

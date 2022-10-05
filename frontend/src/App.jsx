@@ -19,6 +19,8 @@ import UpdateUser from "./pages/UpdateUser/UpdateUser";
 import Users from "./pages/Users/Users";
 import Profile from "./pages/Profile/Profile";
 import DefaultView from "./pages/DefaultView/DefaultView";
+import DefaultViewAdmin from "./pages/DefaultViewAdmin/DefaultViewAdmin";
+import UpdateDefaultsAdmin from "./pages/UpdateDefaultsAdmin/UpdateDefaultsAdmin";
 import {
   UserContext,
   GeolocationContext,
@@ -72,6 +74,14 @@ function App() {
                     </AuthAdminGuard>
                   }
                 />
+                <Route
+                  path="/DefaultViewAdmin/:cp_user/:id_default"
+                  element={
+                    <AuthAdminGuard>
+                      <DefaultViewAdmin />
+                    </AuthAdminGuard>
+                  }
+                />
 
                 <Route
                   path="/admin/users"
@@ -89,6 +99,10 @@ function App() {
                 <Route
                   path="/updateDefaultsUser/:cp_user/:id_default"
                   element={<UpdateDefaultsUser />}
+                />
+                <Route
+                  path="/updateDefaultsAdmin/:cp_user/:id_default"
+                  element={<UpdateDefaultsAdmin />}
                 />
                 <Route path="*" element={<Page404 />} />
               </Routes>

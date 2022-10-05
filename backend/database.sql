@@ -20,6 +20,7 @@ CREATE TABLE defaults(
   `picture` VARCHAR(2000) NULL,
   `latitude` VARCHAR(255) NULL,
   `longitude` VARCHAR(255) NULL,
+  `treatment` VARCHAR(50) DEFAULT 'Non traité',
   `user_id` INT NOT NULL,
   CONSTRAINT fk_defaults_users
     FOREIGN KEY (user_id)

@@ -11,10 +11,22 @@ export const DefaultCard = ({
   imgAlt,
   latitude,
   longitude,
+  traitement,
+  etatContainer,
   cp,
 }) => {
+  const etat = (etatCss) => {
+    if (etatCss === "traité") {
+      return "traité-container ";
+    }
+    if (etatCss === "En cours de traitement") {
+      return "encours-container ";
+    }
+    return "nontraité-container";
+  };
+
   return (
-    <div className="defaultCard-container">
+    <div className={etat(etatContainer)}>
       <ul>
         <li>CP : {cp} </li>
         <li> Gare : {station} </li>
@@ -36,6 +48,7 @@ export const DefaultCard = ({
         <li>
           Géolocalisation : {latitude} {longitude}
         </li>
+        <li>Traitement : {traitement}</li>
       </ul>
     </div>
   );

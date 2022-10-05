@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { uploadFile } from "../../services/Firebase/firebase";
 import "./UpdateDefaultsUser.css";
 import {
@@ -21,8 +21,10 @@ import {
 } from "../../context/index";
 
 const UpdateDefaultsUser = () => {
+  const navigate = useNavigate();
   const { id_default } = useParams();
   const { user } = useContext(UserContext);
+  const cp = user.cp;
   const user_id = user.id_user;
 
   const { defaut } = useContext(DefaultContext);
@@ -32,7 +34,7 @@ const UpdateDefaultsUser = () => {
   const tgvDefault = defaut[0].tgv_number;
   const descriptionDefault = defaut[0].description;
   const pictureDefault = defaut[0].picture;
-
+  const treatment = defaut[0].treatment;
   const { geolocation } = useContext(GeolocationContext);
   const latitudeDefault = geolocation.latitude;
   const longitudeDefault = geolocation.longitude;
@@ -58,7 +60,9 @@ const UpdateDefaultsUser = () => {
       console.error(error);
     }
   };
-
+  const nav = () => {
+    navigate(`/defaultsUser/${cp}`);
+  };
   useEffect(() => {
     getUserDefaultById(id_default, setProblem);
   }, []);
@@ -73,6 +77,7 @@ const UpdateDefaultsUser = () => {
     picture,
     longitude,
     latitude,
+    treatment,
   };
 
   return (
@@ -158,13 +163,14 @@ const UpdateDefaultsUser = () => {
               id_default,
               data,
               setProblem,
-              setStation,
-              setRailwayNumber,
-              setTerNumber,
-              setTgvNumber,
-              setDescription,
-              setPicture,
-              setImage,
+              setStation("gare :"),
+              setRailwayNumber(0),
+              setTerNumber(0),
+              setTgvNumber(0),
+              setDescription("Description"),
+              setPicture(""),
+              setImage(null),
+              nav(),
               e
             )
           }

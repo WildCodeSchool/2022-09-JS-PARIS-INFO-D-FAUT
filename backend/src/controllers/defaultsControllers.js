@@ -3,7 +3,7 @@ const { sqlDb } = require("../../db");
 const getDefaults = (req, res) => {
   sqlDb
     .query(
-      "select users.cp, defaults.id_default, defaults.station, defaults.tgv_number, defaults.ter_number, defaults.railway_track_number, defaults.description, defaults.picture, defaults.latitude, defaults.longitude, defaults.user_id from defaults INNER JOIN users ON users.id_user=defaults.user_id"
+      "select users.cp, defaults.id_default, defaults.station, defaults.tgv_number, defaults.ter_number, defaults.railway_track_number, defaults.description, defaults.picture, defaults.latitude, defaults.longitude, defaults.treatment, defaults.user_id from defaults INNER JOIN users ON users.id_user=defaults.user_id"
     )
     .then(([result]) => {
       res.status(200).json({ result });
@@ -28,7 +28,7 @@ const postDefaults = (req, res) => {
 
   sqlDb
     .query(
-      "INSERT INTO defaults( station, tgv_number, ter_number, railway_track_number, description, picture, longitude, latitude, user_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
+      "INSERT INTO defaults( station, tgv_number, ter_number, railway_track_number, description, picture, longitude, latitude, user_id) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?)",
       [
         station,
         tgv_number,
@@ -61,11 +61,12 @@ const updateDefaults = (req, res) => {
     picture,
     longitude,
     latitude,
+    treatment,
   } = req.body;
 
   sqlDb
     .query(
-      "update defaults set user_id = ?, station = ?, tgv_number = ?, ter_number = ?, railway_track_number = ?, description = ?, picture = ?, longitude = ?, latitude = ? where id_default = ?",
+      "update defaults set user_id = ?, station = ?, tgv_number = ?, ter_number = ?, railway_track_number = ?, description = ?, picture = ?, longitude = ?, latitude = ?, treatment = ? where id_default = ?",
       [
         user_id,
         station,
@@ -76,6 +77,7 @@ const updateDefaults = (req, res) => {
         picture,
         longitude,
         latitude,
+        treatment,
         id_default,
       ]
     )

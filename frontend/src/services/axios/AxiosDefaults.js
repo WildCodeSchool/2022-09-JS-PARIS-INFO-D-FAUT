@@ -94,14 +94,14 @@ export const deleteDefaults = async (id_default, setState) => {
 export const updateDefaults = async (
   id_default,
   data,
-  setState,
-  setState2,
-  setState3,
-  setState4,
-  setState5,
-  setState6,
-  setState7,
-  setState8
+  setState
+  // setState2
+  // setState3,
+  // setState4,
+  // setState5,
+  // setState6,
+  // setState7,
+  // setState8
 ) => {
   const token = localStorage.getItem("token");
 
@@ -114,11 +114,11 @@ export const updateDefaults = async (
   if (response.data.problem) {
     setState();
   }
-  setState2("gare :");
-  setState3(0);
-  setState4(0);
-  setState5(0);
-  setState6("description");
-  setState7("");
-  setState8(null);
+  // setState2();
+  // setState3(0);
+  // setState4(0);
+  // setState5(0);
+  // setState6("description");
+  // setState7("");
+  // setState8(null);
 };

@@ -12,12 +12,12 @@ const getUsers = (req, res) => {
 };
 
 const postUsers = (req, res) => {
-  const { cp, mail, admin, phone_number, hashedPassword } = req.body;
+  const { cp, mail, phone_number, hashedPassword } = req.body;
 
   sqlDb
     .query(
-      "INSERT INTO users(cp, mail, admin, phone_number, hashedPassword) VALUES (?, ?, ?, ?, ?)",
-      [cp, mail, admin, phone_number, hashedPassword]
+      "INSERT INTO users(cp, mail, phone_number, hashedPassword) VALUES ( ?, ?, ?, ?)",
+      [cp, mail, phone_number, hashedPassword]
     )
     .then(([result]) => {
       res.location(`/users/${result.insertId}`).sendStatus(201);

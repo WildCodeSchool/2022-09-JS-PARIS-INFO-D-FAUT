@@ -72,7 +72,6 @@ const GareEtConnexions = () => {
           forId="field"
           type="text"
         />
-
         <Input
           className="inputGare"
           onChange={(e) => setImage(e.target.files[0])}
