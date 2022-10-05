@@ -48,6 +48,10 @@ const Voyageurs = () => {
     latitude,
   };
 
+  const alertSucess = () => {
+    alert("🏆 Votre défaut a bien été enregistré ! 😀 🏆");
+  };
+
   return (
     <div className="voyageurs-container">
       <Header
@@ -117,6 +121,7 @@ const Voyageurs = () => {
               setDescription(""),
               setPicture(""),
               setImage(null),
+              alertSucess(),
               e
             )
           }

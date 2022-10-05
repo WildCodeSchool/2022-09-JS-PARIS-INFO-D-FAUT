@@ -67,6 +67,10 @@ const UpdateDefaultsUser = () => {
     getUserDefaultById(id_default, setProblem);
   }, []);
 
+  const alertSucess = () => {
+    alert("🏆 Votre défaut a bien été modifié ! 😀 🏆");
+  };
+
   const data = {
     user_id,
     station,
@@ -170,6 +174,7 @@ const UpdateDefaultsUser = () => {
               setDescription("Description"),
               setPicture(""),
               setImage(null),
+              alertSucess(),
               nav(),
               e
             )

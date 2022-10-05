@@ -48,6 +48,10 @@ const Reseau = () => {
     latitude,
   };
 
+  const alertSucess = () => {
+    alert("🏆 Votre défaut a bien été enregistré ! 😀 🏆");
+  };
+
   return (
     <div className="reseau-container">
       <Header
@@ -116,6 +120,7 @@ const Reseau = () => {
               setDescription(""),
               setPicture(""),
               setImage(null),
+              alertSucess(),
               e
             )
           }

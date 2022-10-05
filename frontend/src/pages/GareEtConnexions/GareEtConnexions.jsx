@@ -47,6 +47,10 @@ const GareEtConnexions = () => {
     latitude,
   };
 
+  const alertSucess = () => {
+    alert("🏆 Votre défaut a bien été enregistré ! 😀 🏆");
+  };
+
   return (
     <div className="gare-container">
       <Header
@@ -113,6 +117,7 @@ const GareEtConnexions = () => {
               setDescription(""),
               setPicture(""),
               setImage(null),
+              alertSucess(),
               e
             )
           }

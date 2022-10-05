@@ -48,6 +48,10 @@ const Ter = () => {
     latitude,
   };
 
+  const alertSucess = () => {
+    alert("🏆 Votre défaut a bien été enregistré ! 😀 🏆");
+  };
+
   return (
     <div className="ter-container">
       <Header
@@ -117,6 +121,7 @@ const Ter = () => {
               setDescription(""),
               setPicture(""),
               setImage(null),
+              alertSucess(),
               e
             )
           }

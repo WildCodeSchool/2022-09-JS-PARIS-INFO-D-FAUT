@@ -50,6 +50,10 @@ const UpdateDefaultsAdmin = () => {
     treatment,
   };
 
+  const alertSucess = () => {
+    alert("🏆 L'état du traitement a bien été modifié ! 😀 🏆");
+  };
+
   return (
     <div className="updateDefaultsAdmin-container">
       {Geolocalisation()}
@@ -73,7 +77,14 @@ const UpdateDefaultsAdmin = () => {
         <Button
           classButton="envoyer"
           onClick={(e) =>
-            updateDefaults(id_default, data, setProblem, nav(), e)
+            updateDefaults(
+              id_default,
+              data,
+              setProblem,
+              alertSucess(),
+              nav(),
+              e
+            )
           }
           champButton="ENVOYER"
           type="button"
