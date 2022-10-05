@@ -14,7 +14,7 @@ const Defaults = () => {
   const cp = user.cp;
   useEffect(() => {
     getDefaults(setProblem);
-  }, []);
+  }, [problem]);
 
   return (
     <div className="defaults-container">

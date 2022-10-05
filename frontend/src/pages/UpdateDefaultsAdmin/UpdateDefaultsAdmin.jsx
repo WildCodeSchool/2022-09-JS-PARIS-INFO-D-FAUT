@@ -65,8 +65,11 @@ const UpdateDefaultsAdmin = () => {
       />
       <form className="gare_champ-container">
         <h1>MODIFICATION</h1>
-
+        <label className="labelSelect" htmlFor="labelSelect">
+          Status du defaut
+        </label>
         <select
+          id="labelSelect"
           className="selectEtat"
           onChange={(e) => setTreatment(e.target.value)}
         >

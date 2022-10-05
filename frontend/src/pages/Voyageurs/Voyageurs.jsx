@@ -56,6 +56,39 @@ const Voyageurs = () => {
     alert("🏆 Votre défaut a bien été enregistré ! 😀 🏆");
   };
 
+  const regexTgv = (value) => {
+    return /^[0-9]{3,}/.test(value);
+  };
+
+  const verifyTgvNumber = () => {
+    if (regexTgv(tgv_number)) {
+      return true;
+    }
+    alert("Veuillez indiquer le TGV concerné");
+    return false;
+  };
+  const verifyDescription = () => {
+    if (description !== "") {
+      return true;
+    }
+    alert("Veuillez décrire le défaut");
+    return false;
+  };
+
+  const handleSubmit = () => {
+    if (verifyDescription(description) && verifyTgvNumber(tgv_number)) {
+      postDefaults(
+        data,
+        setTgvNumber(0),
+        setDescription(""),
+        setPicture(""),
+        setImage(null),
+        alertSucess(),
+        nav()
+      );
+    }
+  };
+
   return (
     <div className="voyageurs-container">
       <Header
@@ -66,7 +99,7 @@ const Voyageurs = () => {
       />
 
       <form className="voyageurs_champ-container">
-        <h1>GARE & CONNEXIONS</h1>
+        <h1>TGV</h1>
         <Input
           className="inputVoyageurs"
           onChange={(e) => setTgvNumber(e.target.value)}
@@ -118,18 +151,7 @@ const Voyageurs = () => {
 
         <Button
           classButton="envoyer"
-          onClick={(e) =>
-            postDefaults(
-              data,
-              setTgvNumber(0),
-              setDescription(""),
-              setPicture(""),
-              setImage(null),
-              alertSucess(),
-              nav(),
-              e
-            )
-          }
+          onClick={(e) => handleSubmit(e)}
           champButton="ENVOYER"
           type="button"
         />

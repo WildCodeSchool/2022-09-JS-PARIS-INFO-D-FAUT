@@ -57,6 +57,36 @@ const GareEtConnexions = () => {
     alert("🏆 Votre défaut a bien été enregistré ! 😀 🏆");
   };
 
+  const verifyDescription = () => {
+    if (description !== "") {
+      return true;
+    }
+    alert("Veuillez décrire le défaut");
+    return false;
+  };
+
+  const verifyStation = () => {
+    if (station !== "") {
+      return true;
+    }
+    alert("Veuillez indiquer la gare");
+    return false;
+  };
+
+  const handleSubmit = () => {
+    if (verifyDescription(description) && verifyStation(station)) {
+      postDefaults(
+        data,
+        setStation(""),
+        setDescription(""),
+        setPicture(""),
+        setImage(null),
+        alertSucess(),
+        nav()
+      );
+    }
+  };
+
   return (
     <div className="gare-container">
       <Header
@@ -116,23 +146,11 @@ const GareEtConnexions = () => {
         />
         <Button
           classButton="envoyer"
-          onClick={(e) =>
-            postDefaults(
-              data,
-              setStation(""),
-              setDescription(""),
-              setPicture(""),
-              setImage(null),
-              alertSucess(),
-              nav(),
-              e
-            )
-          }
+          onClick={(e) => handleSubmit(e)}
           champButton="ENVOYER"
           type="button"
         />
       </form>
-
       <Footer />
     </div>
   );

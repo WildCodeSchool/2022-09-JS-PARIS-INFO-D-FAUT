@@ -56,6 +56,39 @@ const Ter = () => {
     alert("🏆 Votre défaut a bien été enregistré ! 😀 🏆");
   };
 
+  const regexTer = (value) => {
+    return /^[0-9]{3,}/.test(value);
+  };
+
+  const verifyTerNumber = () => {
+    if (regexTer(ter_number)) {
+      return true;
+    }
+    alert("Veuillez indiquer le TER concerné");
+    return false;
+  };
+  const verifyDescription = () => {
+    if (description !== "") {
+      return true;
+    }
+    alert("Veuillez décrire le défaut");
+    return false;
+  };
+
+  const handleSubmit = () => {
+    if (verifyDescription(description) && verifyTerNumber(ter_number)) {
+      postDefaults(
+        data,
+        setTerNumber(0),
+        setDescription(""),
+        setPicture(""),
+        setImage(null),
+        alertSucess(),
+        nav()
+      );
+    }
+  };
+
   return (
     <div className="ter-container">
       <Header
@@ -118,18 +151,7 @@ const Ter = () => {
         />
         <Button
           classButton="envoyer"
-          onClick={(e) =>
-            postDefaults(
-              data,
-              setTerNumber(0),
-              setDescription(""),
-              setPicture(""),
-              setImage(null),
-              alertSucess(),
-              nav(),
-              e
-            )
-          }
+          onClick={(e) => handleSubmit(e)}
           champButton="ENVOYER"
           type="button"
         />

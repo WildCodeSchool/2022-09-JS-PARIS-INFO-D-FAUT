@@ -55,6 +55,38 @@ const Reseau = () => {
   const alertSucess = () => {
     alert("🏆 Votre défaut a bien été enregistré ! 😀 🏆");
   };
+  const regexRailway = (value) => {
+    return /^[0-9]{3,}/.test(value);
+  };
+
+  const verifyRailway = () => {
+    if (regexRailway(railway_track_number)) {
+      return true;
+    }
+    alert("Veuillez indiquer le numéro de ligne concernée");
+    return false;
+  };
+  const verifyDescription = () => {
+    if (description !== "") {
+      return true;
+    }
+    alert("Veuillez décrire le défaut");
+    return false;
+  };
+
+  const handleSubmit = () => {
+    if (verifyDescription(description) && verifyRailway(railway_track_number)) {
+      postDefaults(
+        data,
+        setRailwayNumber(0),
+        setDescription(""),
+        setPicture(""),
+        setImage(null),
+        alertSucess(),
+        nav()
+      );
+    }
+  };
 
   return (
     <div className="reseau-container">
@@ -117,18 +149,7 @@ const Reseau = () => {
         />
         <Button
           classButton="envoyer"
-          onClick={(e) =>
-            postDefaults(
-              data,
-              setRailwayNumber(0),
-              setDescription(""),
-              setPicture(""),
-              setImage(null),
-              alertSucess(),
-              nav(),
-              e
-            )
-          }
+          onClick={(e) => handleSubmit(e)}
           champButton="ENVOYER"
           type="button"
         />
