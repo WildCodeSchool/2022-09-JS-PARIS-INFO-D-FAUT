@@ -1,11 +1,8 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { uploadFile } from "../../services/Firebase/firebase";
 import "./UpdateDefaultsUser.css";
-import {
-  updateDefaults,
-  getUserDefaultById,
-} from "../../services/axios/AxiosDefaults";
+import { updateDefaults } from "../../services/axios/AxiosDefaults";
 import { Geolocalisation } from "../../services/Geolocalisation/Geolocalisation";
 import {
   Input,
@@ -35,9 +32,8 @@ const UpdateDefaultsUser = () => {
   const descriptionDefault = defaut[0].description;
   const pictureDefault = defaut[0].picture;
   const treatment = defaut[0].treatment;
-  const { geolocation } = useContext(GeolocationContext);
-  const latitudeDefault = geolocation.latitude;
-  const longitudeDefault = geolocation.longitude;
+  const latitudeDefault = defaut[0].latitude;
+  const longitudeDefault = defaut[0].longitude;
 
   const [problem, setProblem] = useState([]);
 
@@ -63,9 +59,6 @@ const UpdateDefaultsUser = () => {
   const nav = () => {
     navigate(`/defaultsUser/${cp}`);
   };
-  useEffect(() => {
-    getUserDefaultById(id_default, setProblem);
-  }, []);
 
   const alertSucess = () => {
     alert("🏆 Votre défaut a bien été modifié ! 😀 🏆");
@@ -86,7 +79,6 @@ const UpdateDefaultsUser = () => {
 
   return (
     <div className="updateDefaultsUser-container">
-      {Geolocalisation()}
       <Header
         backCss="backUpdateDefaultsUser"
         profileCss="profileUpdateDefaultsUser"
@@ -96,7 +88,8 @@ const UpdateDefaultsUser = () => {
       <form className="gare_champ-container">
         <h1>MODIFICATION</h1>
         <Input
-          className="inputGare"
+          labelCss={station === null ? "stationUpdateOff" : "stationUpdateOn"}
+          className={station === null ? "stationUpdateOff" : "stationUpdateOn"}
           onChange={(e) => setStation(e.target.value)}
           value={station}
           forId="gare"
@@ -104,7 +97,12 @@ const UpdateDefaultsUser = () => {
           champ="Gare concernée"
         />
         <Input
-          className="inputReseau"
+          labelCss={
+            railway_track_number === null ? "trackUpdateOff" : "trackUpdateOn"
+          }
+          className={
+            railway_track_number === null ? "trackUpdateOff" : "trackUpdateOn"
+          }
           onChange={(e) => setRailwayNumber(e.target.value)}
           value={railway_track_number}
           forId="ligne"
@@ -112,7 +110,8 @@ const UpdateDefaultsUser = () => {
           champ="Numéro de ligne / Emprise"
         />
         <Input
-          className="inputTer"
+          labelCss={ter_number === null ? "terUpdateOff" : "terUpdateOn"}
+          className={ter_number === null ? "terUpdateOff" : "terUpdateOn"}
           onChange={(e) => setTerNumber(e.target.value)}
           value={ter_number}
           forId="ter"
@@ -120,7 +119,8 @@ const UpdateDefaultsUser = () => {
           champ="Numéro de TER"
         />
         <Input
-          className="inputVoyageurs"
+          labelCss={tgv_number === null ? "tgvUpdateOff" : "tgvUpdateOn"}
+          className={tgv_number === null ? "tgvUpdateOff" : "tgvUpdateOn"}
           onChange={(e) => setTgvNumber(e.target.value)}
           value={tgv_number}
           forId="tgv"
@@ -134,7 +134,11 @@ const UpdateDefaultsUser = () => {
           forId="field"
           type="text"
         />
-        <img className="img-items" src={defaut[0].picture} alt="image" />
+        <img
+          className={picture === "" ? "pictureUpdateOff" : "pictureUpdateOn"}
+          src={image === null ? defaut[0].picture : picture}
+          alt="image"
+        />
         <Input
           className="inputGare"
           onChange={(e) => setImage(e.target.files[0])}
@@ -144,8 +148,14 @@ const UpdateDefaultsUser = () => {
           champ="Modifier la photo"
         />
         <Input type="button" onClick={handleUpload} champ="télécharger" />
+        {/* <img className="imgUpdate" src={picture} alt="image" /> */}
         <Input
-          className="inputGare"
+          labelCss={
+            latitude === null ? "latitudeUpdateOff" : "latitudeUpdateOn"
+          }
+          className={
+            latitude === null ? "latitudeUpdateOff" : "latitudeUpdateOn"
+          }
           forId="file"
           onChange={(e) => setLatitude(e.target.value)}
           type="text"
@@ -153,7 +163,12 @@ const UpdateDefaultsUser = () => {
           champ="Latitude"
         />
         <Input
-          className="inputGare"
+          labelCss={
+            longitude === null ? "longitudeUpdateOff" : "longitudeUpdateOn"
+          }
+          className={
+            longitude === null ? "longitudeUpdateOff" : "longitudeUpdateOn"
+          }
           forId="file2"
           onChange={(e) => setLongitude(e.target.value)}
           type="text"

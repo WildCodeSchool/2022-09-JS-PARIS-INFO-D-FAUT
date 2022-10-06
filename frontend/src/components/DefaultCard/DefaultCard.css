@@ -27,7 +27,7 @@
   border: 2px solid rgb(0, 193, 48);
 }
 
-.defaultCard-container ul {
+.ul-default-card {
   width: 60%;
   height: 100%;
   border: 2px solid white;
@@ -69,3 +69,16 @@
   width: 30%;
   height: 30%;
 } */
+
+.gareDefaultCardOff,
+.tgvDefaultCardOff,
+.terDefaultCardOff,
+.trackDefaultCardOff,
+.imageDefaultCardOff,
+.geolocDefaultCardOff {
+  display: none;
+}
+
+.imgCard {
+  width: 40%;
+}

@@ -6,7 +6,7 @@ const getDefaults = (req, res) => {
       "select users.cp, defaults.id_default, defaults.station, defaults.tgv_number, defaults.ter_number, defaults.railway_track_number, defaults.description, defaults.picture, defaults.latitude, defaults.longitude, defaults.treatment, defaults.user_id from defaults INNER JOIN users ON users.id_user=defaults.user_id"
     )
     .then(([result]) => {
-      res.status(200).json({ result });
+      res.json({ result });
     })
     .catch((err) => {
       res.status(500).send(`Erreur dans la requête getDefaults: ${err}`);

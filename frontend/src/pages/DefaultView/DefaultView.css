@@ -19,6 +19,15 @@
   display: none;
 }
 
-.img-items {
+.imageViewOn {
   width: 30%;
+}
+
+.stationViewOff,
+.terViewOff,
+.tgvViewOff,
+.trackViewOff,
+.imageViewOff,
+.geolocViewOff {
+  display: none;
 }

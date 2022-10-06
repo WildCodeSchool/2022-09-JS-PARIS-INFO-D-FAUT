@@ -4,7 +4,7 @@ const getUsers = (req, res) => {
   sqlDb
     .query("select * from users")
     .then(([result]) => {
-      res.status(200).json({ result });
+      res.json({ result });
     })
     .catch((err) => {
       res.status(500).send(`Erreur dans la requête getUsers: ${err}`);

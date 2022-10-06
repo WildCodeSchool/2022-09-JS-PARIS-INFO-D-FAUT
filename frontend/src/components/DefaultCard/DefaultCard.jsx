@@ -27,26 +27,50 @@ export const DefaultCard = ({
 
   return (
     <div className={etat(etatContainer)}>
-      <ul>
+      <ul className="ul-default-card">
         <li>CP : {cp} </li>
-        <li> Gare : {station} </li>
-        <li> Numero tgv :{tgv} </li>
-        <li> Numero ter : {ter} </li>
-        <li> Numero de ligne : {track} </li>
+        <li
+          className={
+            station === null ? "gareDefaultCardOff" : "gareDefaultCardOn"
+          }
+        >
+          Gare: {station}
+        </li>
+        <li className={tgv === null ? "tgvDefaultCardOff" : "tgvDefaultCardOn"}>
+          Numéro de TGV: {tgv}
+        </li>
+        <li className={ter === null ? "terDefaultCardOff" : "terDefaultCardOn"}>
+          Numéro de TER: {ter}
+        </li>
+        <li
+          className={
+            track === null ? "trackDefaultCardOff" : "trackDefaultCardOn"
+          }
+        >
+          Numéro de ligne: {track}
+        </li>
         <li>
           {/* <a href={description} target="_blank" rel="noreferrer">
             voir photo
           </a> */}
           Description :{description}
         </li>
-        <li>
-          {/* <img src={image} alt={imgAlt} /> */}
-          <a href={image} target="_blank" rel="noreferrer">
+        <li
+          className={
+            image === "" ? "imageDefaultCardOff" : "imageDefaultCardOn"
+          }
+        >
+          <img className="imgCard" src={image} alt={imgAlt} />
+          {/* <a href={image} target="_blank" rel="noreferrer">
             voir photo
-          </a>
+          </a> */}
         </li>
-        <li>
-          Géolocalisation : {latitude} {longitude}
+        <li
+          className={
+            latitude === null ? "geolocDefaultCardOff" : "geolocDefaultCardOn"
+          }
+        >
+          Géolocalisation : {latitude}, {longitude}
         </li>
         <li>Traitement : {traitement}</li>
       </ul>

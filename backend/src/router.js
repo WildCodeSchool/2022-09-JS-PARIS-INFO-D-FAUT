@@ -23,6 +23,7 @@ router.get(
   "/updateDefaultsUser/:id_default",
   defaultsUserControllers.getUserDefaultById
 );
+
 router.put("/defaults/:id_default", defaultsControllers.updateDefaults);
 router.delete("/defaults/:id_default", defaultsControllers.deleteDefaults);
 

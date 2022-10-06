@@ -13,7 +13,7 @@ const DefaultView = () => {
   const cp = user.cp;
   useEffect(() => {
     getUserDefaultById(id_default, setDefaut);
-  }, [defaut]);
+  }, []);
 
   const navigate = useNavigate();
 
@@ -38,13 +38,52 @@ const DefaultView = () => {
               key={items.id_default}
             >
               <h1> Verification du défaut :</h1>
-              <h3>station : {items.station}</h3>
-              <h3>TER : {items.ter_number}</h3>
-              <h3>TGV : {items.tgv_number}</h3>
+              <h2
+                className={
+                  items.station === null ? "stationViewOff" : "stationViewOn"
+                }
+              >
+                Gare: {items.station}
+              </h2>
+              <h2
+                className={
+                  items.ter_number === null ? "terViewOff" : "terViewOn"
+                }
+              >
+                TER : {items.ter_number}
+              </h2>
+              <h2
+                className={
+                  items.tgv_number === null ? "tgvViewOff" : "tgvViewOn"
+                }
+              >
+                TGV : {items.tgv_number}
+              </h2>
+              <h2
+                className={
+                  items.railway_track_number === null
+                    ? "trackViewOff"
+                    : "trackViewOn"
+                }
+              >
+                Numéro de ligne : {items.railway_track_number}
+              </h2>
               <h3>Description : {items.description}</h3>
-              <img className="img-items" src={items.picture} alt="image" />
-              <h3>Latitude: {items.latitude}</h3>
-              <h3>Longitude {items.longitude}</h3>
+              <img
+                className={
+                  items.picture === "" ? "imageViewOff" : "imageViewOn"
+                }
+                src={items.picture}
+                alt="image"
+              />
+              <h3
+                className={
+                  items.latitude === null ? "geolocViewOff" : "geolocViewOn"
+                }
+              >
+                Geolocalisation : {items.latitude}, {items.longitude}
+              </h3>
+
               <h3>Traitement : {items.treatment}</h3>
               <Button
                 classButton="update-profile"

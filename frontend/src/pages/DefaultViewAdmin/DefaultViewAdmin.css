@@ -1,0 +1,12 @@
+.imageViewAdminOn {
+  width: 30%;
+}
+
+.stationViewAdminOff,
+.terViewAdminOff,
+.tgvViewAdminOff,
+.trackViewAdminOff,
+.imageViewAdminOff,
+.geolocViewAdminOff {
+  display: none;
+}

@@ -13,6 +13,7 @@ import { UserContext, DefaultContext } from "../../context/index";
 const UpdateDefaultsAdmin = () => {
   const { id_default } = useParams();
   const { user } = useContext(UserContext);
+  const cp = user.cp;
   const user_id = user.id_user;
   const navigate = useNavigate();
 
@@ -65,8 +66,43 @@ const UpdateDefaultsAdmin = () => {
       />
       <form className="gare_champ-container">
         <h1>MODIFICATION</h1>
+        <h2>{cp}</h2>
+
+        <h2
+          className={
+            station === null ? "stationViewAdminOff" : "stationViewAdminOn"
+          }
+        >
+          Gare: {station}
+        </h2>
+        <h2
+          className={ter_number === null ? "terViewAdminOff" : "terViewAdminOn"}
+        >
+          TER : {ter_number}
+        </h2>
+        <h2
+          className={tgv_number === null ? "tgvViewAdminOff" : "tgvViewAdminOn"}
+        >
+          TGV : {tgv_number}
+        </h2>
+        <h2
+          className={
+            railway_track_number === null
+              ? "trackViewAdminOff"
+              : "trackViewAdminOn"
+          }
+        >
+          Numéro de ligne : {railway_track_number}
+        </h2>
+        <h3>Description : {description}</h3>
+        <img
+          className={picture === "" ? "imageViewAdminOff" : "imageViewAdminOn"}
+          src={picture}
+          alt="image"
+        />
+
         <label className="labelSelect" htmlFor="labelSelect">
-          Status du defaut
+          Statut du defaut
         </label>
         <select
           id="labelSelect"

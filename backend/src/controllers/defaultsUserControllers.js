@@ -8,12 +8,7 @@ const getDefaultsUserById = (req, res) => {
       [user_id]
     )
     .then(([d_faultUser]) => {
-      if (d_faultUser[0] != null) {
-        res.json(d_faultUser);
-      } else {
-        res.status(404).send(`defaults User at id ${user_id} not Found`);
-      }
-      res.status(201);
+      res.json(d_faultUser);
     })
     .catch((err) => {
       console.error(err);
