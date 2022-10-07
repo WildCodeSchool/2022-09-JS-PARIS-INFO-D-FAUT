@@ -42,7 +42,7 @@ const Login = () => {
     return false;
   }
 
-  const postUser = async (e) => {
+  const postUser = (e) => {
     e.preventDefault();
 
     const data = {
@@ -51,14 +51,18 @@ const Login = () => {
     };
 
     if (cpControl(cp) && passwordControl(password)) {
-      const response = await axios.post(`http://localhost:5000/login`, data);
-      if (response.data) {
-        const token = response.data.token;
-        localStorage.setItem("token", token);
-        setUser(response.data.user);
-      }
-      setPassword("");
-      navigate(`/home/${cp}`);
+      axios
+        .post(`http://localhost:5000/login`, data)
+        .then((response) => {
+          const token = response.data.token;
+          localStorage.setItem("token", token);
+          setUser(response.data.user);
+          setPassword("");
+          navigate(`/home/${cp}`);
+        })
+        .catch((error) => {
+          alert("no login");
+        });
     }
   };
 
