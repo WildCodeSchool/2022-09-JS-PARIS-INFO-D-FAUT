@@ -124,9 +124,11 @@ const GareEtConnexions = () => {
 
         <br />
 
-        <a href={picture} target="_blank" rel="noreferrer">
-          <img className="imgDefaults" src={picture} alt="image" />
-        </a>
+        <img
+          className={picture !== "" ? "pictureGareOn" : "pictureGareOff "}
+          src={picture}
+          alt="image"
+        />
 
         <Input
           className="inputGare"

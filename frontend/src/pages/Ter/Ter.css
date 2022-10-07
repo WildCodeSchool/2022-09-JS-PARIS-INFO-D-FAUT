@@ -36,3 +36,12 @@ h1 {
 .textTer {
   border-radius: 20px;
 }
+
+.pictureTerOn {
+  width: 100px;
+  height: 100px;
+}
+
+.pictureTerOff {
+  display: none;
+}

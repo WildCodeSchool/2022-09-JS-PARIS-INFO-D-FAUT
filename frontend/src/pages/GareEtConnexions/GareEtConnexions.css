@@ -60,7 +60,7 @@ h1 {
   border-radius: 20px;
 }
 
-.imgDefaults {
+.pictureGareOn {
   width: 100px;
   height: 100px;
 }
@@ -87,6 +87,10 @@ h2 {
   display: flex;
   width: 100%;
   justify-content: space-around;
+}
+
+.pictureGareOff {
+  display: none;
 }
 
 @media (min-width: 768px) {

@@ -36,3 +36,12 @@ h1 {
 .textReseau {
   border-radius: 20px;
 }
+
+.pictureReseauOn {
+  width: 100px;
+  height: 100px;
+}
+
+.pictureReseauOff {
+  display: none;
+}

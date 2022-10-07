@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Footer, Header, DefaultCard, Button } from "../../components/index";
 import "./DefaultsUser.css";
 import {
@@ -9,11 +9,16 @@ import {
 import { UserContext } from "../../context/index";
 
 const DefaultsUser = () => {
+  const navigate = useNavigate();
   const { user } = useContext(UserContext);
   const cp = user.cp;
   const id_user = user.id_user;
 
   const [problem, setProblem] = useState([]);
+
+  const nav = () => {
+    navigate(`/items/${cp}`);
+  };
 
   useEffect(() => {
     getDefaultsUserById(id_user, setProblem);
@@ -30,7 +35,16 @@ const DefaultsUser = () => {
       <div className="fail-container">
         {problem &&
           (problem.length === 0 ? (
-            <h1> Vous n'avez pas encore posté de défaut </h1>
+            <>
+              <h1> Vous n'avez pas encore posté de défaut</h1>
+              <Button
+                name="home"
+                classButton="home-button"
+                champButton="retour à l'accueil"
+                type="button"
+                onClick={(e) => nav(e)}
+              />
+            </>
           ) : (
             <>
               {problem.map((problemes) => (

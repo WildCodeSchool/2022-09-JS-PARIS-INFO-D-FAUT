@@ -128,9 +128,11 @@ const Voyageurs = () => {
 
         <br />
 
-        <a href={picture} target="_blank" rel="noreferrer">
-          <img className="imgDefaults" src={picture} alt="image" />
-        </a>
+        <img
+          className={picture !== "" ? "pictureTgvOn" : "pictureTgvOff "}
+          src={picture}
+          alt="image"
+        />
 
         <Input
           className="inputGare"

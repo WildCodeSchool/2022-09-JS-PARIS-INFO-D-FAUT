@@ -127,9 +127,11 @@ const Reseau = () => {
 
         <br />
 
-        <a href={picture} target="_blank" rel="noreferrer">
-          <img className="imgDefaults" src={picture} alt="image" />
-        </a>
+        <img
+          className={picture !== "" ? "pictureReseauOn" : "pictureReseauOff "}
+          src={picture}
+          alt="image"
+        />
 
         <Input
           className="inputGare"

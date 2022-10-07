@@ -129,9 +129,11 @@ const Ter = () => {
 
         <br />
 
-        <a href={picture} target="_blank" rel="noreferrer">
-          <img className="imgDefaults" src={picture} alt="image" />
-        </a>
+        <img
+          className={picture !== "" ? "pictureTerOn" : "pictureTerOff "}
+          src={picture}
+          alt="image"
+        />
 
         <Input
           className="inputGare"
