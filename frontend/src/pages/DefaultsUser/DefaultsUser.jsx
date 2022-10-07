@@ -17,7 +17,7 @@ const DefaultsUser = () => {
   const [problem, setProblem] = useState([]);
 
   const nav = () => {
-    navigate(`/items/${cp}`);
+    navigate(`/home/${cp}`);
   };
 
   useEffect(() => {

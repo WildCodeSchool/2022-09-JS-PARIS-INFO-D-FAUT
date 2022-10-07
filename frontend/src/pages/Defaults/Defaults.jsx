@@ -15,7 +15,7 @@ const Defaults = () => {
   const cp = user.cp;
 
   const nav = () => {
-    navigate(`/items/${cp}`);
+    navigate(`/home/${cp}`);
   };
 
   useEffect(() => {
