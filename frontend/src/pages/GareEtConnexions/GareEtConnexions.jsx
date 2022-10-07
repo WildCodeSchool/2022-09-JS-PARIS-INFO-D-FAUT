@@ -41,7 +41,7 @@ const GareEtConnexions = () => {
   };
 
   const nav = () => {
-    navigate(`/items/${cp}`);
+    navigate(`/home/${cp}`);
   };
 
   const data = {
@@ -53,7 +53,7 @@ const GareEtConnexions = () => {
     latitude,
   };
 
-  const alertSucess = () => {
+  const alertSuccess = () => {
     alert("🏆 Votre défaut a bien été enregistré ! 😀 🏆");
   };
 
@@ -81,75 +81,75 @@ const GareEtConnexions = () => {
         setDescription(""),
         setPicture(""),
         setImage(null),
-        alertSucess(),
+        alertSuccess(),
         nav()
       );
     }
   };
 
   return (
-    <div className="gare-container">
+    <div className="station-container">
       <Header
         backCss="backGare"
         profileCss="profileGare"
         loginCss="loginGare"
-        admin0Css="admin0Gare"
+        adminOffCss="adminOffGare"
       />
-      <form className="gare_champ-container">
+      <form className="stationField-container">
         <h1>GARE & CONNEXIONS</h1>
         <Input
-          className="inputGare"
+          className="inputStation"
           onChange={(e) => setStation(e.target.value)}
           value={station}
           forId="gare"
           type="text"
-          champ="Gare concernée"
+          field="Gare concernée"
         />
         <Textarea
-          className="textGare"
+          className="textStation"
           onChange={(e) => setDescription(e.target.value)}
           value={description}
           forId="field"
           type="text"
         />
         <Input
-          className="inputGare"
+          className="inputStation"
           onChange={(e) => setImage(e.target.files[0])}
           forId="file"
           type="file"
           accept=".png, .jpg, .jpeg, .gif"
-          champ="Joindre une photographie"
+          field="Joindre une photographie"
         />
-        <Input type="button" onClick={handleUpload} champ="télécharger" />
+        <Input type="button" onClick={handleUpload} field="télécharger" />
 
         <br />
 
         <img
-          className={picture !== "" ? "pictureGareOn" : "pictureGareOff "}
+          className={picture !== "" ? "pictureStationOn" : "pictureStationOff "}
           src={picture}
           alt="image"
         />
 
         <Input
-          className="inputGare"
+          className="inputStation"
           forId="file"
           onChange={(e) => setLatitude(e.target.value)}
           type="text"
           value={latitude}
-          champ="Latitude"
+          field="Latitude"
         />
         <Input
-          className="inputGare"
-          forId="file2"
+          className="inputStation"
+          forId="fileTwo"
           onChange={(e) => setLongitude(e.target.value)}
           type="text"
           value={longitude}
-          champ="Longitude"
+          field="Longitude"
         />
         <Button
-          classButton="envoyer"
+          classButton="sendStation"
           onClick={(e) => handleSubmit(e)}
-          champButton="ENVOYER"
+          fieldButton="ENVOYER"
           type="button"
         />
       </form>

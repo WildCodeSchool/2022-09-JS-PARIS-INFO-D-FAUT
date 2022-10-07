@@ -9,11 +9,11 @@
 
 .profileVoyageurs,
 .loginVoyageurs,
-.admin0Voyageurs {
+.adminOffVoyageurs {
   display: none;
 }
 
-.voyageurs_champ-container {
+.voyageursField-container {
   display: flex;
   flex-direction: column;
   justify-content: space-around;

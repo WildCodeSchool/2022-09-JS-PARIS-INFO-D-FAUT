@@ -52,7 +52,7 @@ const Voyageurs = () => {
     latitude,
   };
 
-  const alertSucess = () => {
+  const alertSuccess = () => {
     alert("🏆 Votre défaut a bien été enregistré ! 😀 🏆");
   };
 
@@ -83,7 +83,7 @@ const Voyageurs = () => {
         setDescription(""),
         setPicture(""),
         setImage(null),
-        alertSucess(),
+        alertSuccess(),
         nav()
       );
     }
@@ -95,10 +95,10 @@ const Voyageurs = () => {
         backCss="backVoyageurs"
         profileCss="profileVoyageurs"
         loginCss="loginVoyageurs"
-        admin0Css="admin0Voyageurs"
+        adminOffCss="adminOffVoyageurs"
       />
 
-      <form className="voyageurs_champ-container">
+      <form className="voyageursField-container">
         <h1>TGV</h1>
         <Input
           className="inputVoyageurs"
@@ -106,7 +106,7 @@ const Voyageurs = () => {
           value={tgv_number}
           forId="tgv"
           type="number"
-          champ="Numéro du train"
+          field="Numéro du train"
         />
         <Textarea
           className="textVoyageurs"
@@ -117,14 +117,14 @@ const Voyageurs = () => {
         />
 
         <Input
-          className="inputGare"
+          className="inputVoyageurs"
           onChange={(e) => setImage(e.target.files[0])}
           forId="file"
           type="file"
           accept=".png, .jpg, .jpeg, .gif"
-          champ="Joindre une photographie"
+          field="Joindre une photographie"
         />
-        <Input type="button" onClick={handleUpload} champ="télécharger" />
+        <Input type="button" onClick={handleUpload} field="télécharger" />
 
         <br />
 
@@ -135,26 +135,26 @@ const Voyageurs = () => {
         />
 
         <Input
-          className="inputGare"
+          className="inputVoyageurs"
           forId="file"
           onChange={(e) => setLatitude(e.target.value)}
           type="text"
           value={latitude}
-          champ="Latitude"
+          field="Latitude"
         />
         <Input
-          className="inputGare"
+          className="inputVoyageurs"
           forId="file2"
           onChange={(e) => setLongitude(e.target.value)}
           type="text"
           value={longitude}
-          champ="Longitude"
+          field="Longitude"
         />
 
         <Button
-          classButton="envoyer"
+          classButton="sendVoyageurs"
           onClick={(e) => handleSubmit(e)}
-          champButton="ENVOYER"
+          fieldButton="ENVOYER"
           type="button"
         />
       </form>

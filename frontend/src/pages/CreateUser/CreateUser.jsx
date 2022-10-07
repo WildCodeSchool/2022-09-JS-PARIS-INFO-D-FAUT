@@ -169,7 +169,7 @@ const CreateUser = () => {
             minlength="8"
           />
           <Button
-            classButton="envoyer"
+            classButton="sendCreate"
             disabled={verifPasswords}
             onClick={(e) => handleSubmit(e)}
             fieldButton="ENVOYER"

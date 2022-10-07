@@ -12,11 +12,11 @@ import { UserContext } from "../../context/index";
 
 export const Header = ({
   backCss,
-  adminCss,
+  adminOnCss,
   profileCss,
   loginCss,
   logoutCss,
-  admin0Css,
+  adminOffCss,
 }) => {
   const { user } = useContext(UserContext);
   const cp = user.cp;
@@ -50,7 +50,7 @@ export const Header = ({
   return (
     <header className="header-container">
       <div className="header-back-admin">
-        <Link to={`/items/${cp}`}>
+        <Link to={`/home/${cp}`}>
           <img
             className={`back ${backCss}`}
             src={back}
@@ -60,7 +60,7 @@ export const Header = ({
         <Link to="/admin">
           <img
             className={
-              admin === 1 ? `admin ${adminCss}` : `admin0 ${admin0Css}`
+              admin === 1 ? `admin ${adminOnCss}` : `admin0 ${adminOffCss}`
             }
             src={adminImg}
             alt="logo admin"

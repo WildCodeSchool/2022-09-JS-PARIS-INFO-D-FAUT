@@ -9,11 +9,11 @@
 
 .profileTer,
 .loginTer,
-.admin0Ter {
+.adminOffTer {
   display: none;
 }
 
-.ter_champ-container {
+.terField-container {
   display: flex;
   flex-direction: column;
   justify-content: space-around;

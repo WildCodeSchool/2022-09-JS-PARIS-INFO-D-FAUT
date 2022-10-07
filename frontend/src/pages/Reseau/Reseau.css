@@ -9,11 +9,11 @@
 
 .profileReseau,
 .loginReseau,
-.admin0Reseau {
+.adminOffReseau {
   display: none;
 }
 
-.reseau_champ-container {
+.reseauField-container {
   display: flex;
   flex-direction: column;
   justify-content: space-around;

@@ -40,7 +40,7 @@ const Reseau = () => {
     }
   };
   const nav = () => {
-    navigate(`/items/${cp}`);
+    navigate(`/home/${cp}`);
   };
 
   const data = {
@@ -52,7 +52,7 @@ const Reseau = () => {
     latitude,
   };
 
-  const alertSucess = () => {
+  const alertSuccess = () => {
     alert("🏆 Votre défaut a bien été enregistré ! 😀 🏆");
   };
   const regexRailway = (value) => {
@@ -82,7 +82,7 @@ const Reseau = () => {
         setDescription(""),
         setPicture(""),
         setImage(null),
-        alertSucess(),
+        alertSuccess(),
         nav()
       );
     }
@@ -94,10 +94,10 @@ const Reseau = () => {
         backCss="backReseau"
         profileCss="profileReseau"
         loginCss="loginReseau"
-        admin0Css="admin0Reseau"
+        adminOffCss="adminOffReseau"
       />
 
-      <form className="reseau_champ-container">
+      <form className="reseauField-container">
         <h1>RESEAU</h1>
 
         <Input
@@ -106,7 +106,7 @@ const Reseau = () => {
           value={railway_track_number}
           forId="ligne"
           type="number"
-          champ="Numéro de ligne / Emprise"
+          field="Numéro de ligne / Emprise"
         />
         <Textarea
           className="textReseau"
@@ -116,14 +116,14 @@ const Reseau = () => {
           type="text"
         />
         <Input
-          className="inputGare"
+          className="inputReseau"
           onChange={(e) => setImage(e.target.files[0])}
           forId="file"
           type="file"
           accept=".png, .jpg, .jpeg, .gif"
-          champ="Joindre une photographie"
+          field="Joindre une photographie"
         />
-        <Input type="button" onClick={handleUpload} champ="télécharger" />
+        <Input type="button" onClick={handleUpload} field="télécharger" />
 
         <br />
 
@@ -134,25 +134,25 @@ const Reseau = () => {
         />
 
         <Input
-          className="inputGare"
+          className="inputReseau"
           forId="file"
           onChange={(e) => setLatitude(e.target.value)}
           type="text"
           value={latitude}
-          champ="Latitude"
+          field="Latitude"
         />
         <Input
-          className="inputGare"
-          forId="file2"
+          className="inputReseau"
+          forId="fileTwo"
           onChange={(e) => setLongitude(e.target.value)}
           type="text"
           value={longitude}
-          champ="Longitude"
+          field="Longitude"
         />
         <Button
-          classButton="envoyer"
+          classButton="sendReseau"
           onClick={(e) => handleSubmit(e)}
-          champButton="ENVOYER"
+          fieldButton="ENVOYER"
           type="button"
         />
       </form>

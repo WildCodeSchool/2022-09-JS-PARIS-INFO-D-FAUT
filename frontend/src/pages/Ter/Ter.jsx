@@ -52,7 +52,7 @@ const Ter = () => {
     latitude,
   };
 
-  const alertSucess = () => {
+  const alertSuccess = () => {
     alert("🏆 Votre défaut a bien été enregistré ! 😀 🏆");
   };
 
@@ -83,7 +83,7 @@ const Ter = () => {
         setDescription(""),
         setPicture(""),
         setImage(null),
-        alertSucess(),
+        alertSuccess(),
         nav()
       );
     }
@@ -95,10 +95,10 @@ const Ter = () => {
         backCss="backTer"
         profileCss="profileTer"
         loginCss="loginTer"
-        admin0Css="admin0Ter"
+        adminOffCss="adminOffTer"
       />
 
-      <form className="ter_champ-container">
+      <form className="terField-container">
         <h1> TER </h1>
 
         <Input
@@ -107,7 +107,7 @@ const Ter = () => {
           value={ter_number}
           forId="ter"
           type="number"
-          champ="Numéro de Ter"
+          field="Numéro de Ter"
         />
         <Textarea
           className="textTer"
@@ -118,14 +118,14 @@ const Ter = () => {
         />
 
         <Input
-          className="inputGare"
+          className="inputTer"
           onChange={(e) => setImage(e.target.files[0])}
           forId="file"
           type="file"
           accept=".png, .jpg, .jpeg, .gif"
-          champ="Joindre une photographie"
+          field="Joindre une photographie"
         />
-        <Input type="button" onClick={handleUpload} champ="télécharger" />
+        <Input type="button" onClick={handleUpload} field="télécharger" />
 
         <br />
 
@@ -136,25 +136,25 @@ const Ter = () => {
         />
 
         <Input
-          className="inputGare"
+          className="inputTer"
           forId="file"
           onChange={(e) => setLatitude(e.target.value)}
           type="text"
           value={latitude}
-          champ="Latitude"
+          field="Latitude"
         />
         <Input
-          className="inputGare"
-          forId="file2"
+          className="inputTer"
+          forId="fileTwo"
           onChange={(e) => setLongitude(e.target.value)}
           type="text"
           value={longitude}
-          champ="Longitude"
+          field="Longitude"
         />
         <Button
-          classButton="envoyer"
+          classButton="sendTer"
           onClick={(e) => handleSubmit(e)}
-          champButton="ENVOYER"
+          fieldButton="ENVOYER"
           type="button"
         />
       </form>
