@@ -58,7 +58,7 @@ const Login = () => {
         setUser(response.data.user);
       }
       setPassword("");
-      navigate(`/items/${cp}`);
+      navigate(`/home/${cp}`);
     }
   };
 
