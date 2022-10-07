@@ -8,7 +8,7 @@ const usersControllers = require("./controllers/usersControllers");
 const auth = require("./middleware/auth");
 
 // public route
-router.post("/users", auth.hashPassword, usersControllers.postUsers);
+router.post("/createUser", auth.hashPassword, usersControllers.postCreateUser);
 
 router.post("/login", usersControllers.login, auth.verifyPassword);
 

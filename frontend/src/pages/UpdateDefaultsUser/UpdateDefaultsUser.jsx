@@ -3,7 +3,6 @@ import { useNavigate, useParams } from "react-router-dom";
 import { uploadFile } from "../../services/Firebase/firebase";
 import "./UpdateDefaultsUser.css";
 import { updateDefaults } from "../../services/axios/AxiosDefaults";
-import { Geolocalisation } from "../../services/Geolocalisation/Geolocalisation";
 import {
   Input,
   Button,
@@ -11,11 +10,7 @@ import {
   Footer,
   Header,
 } from "../../components/index";
-import {
-  GeolocationContext,
-  UserContext,
-  DefaultContext,
-} from "../../context/index";
+import { UserContext, DefaultContext } from "../../context/index";
 
 const UpdateDefaultsUser = () => {
   const navigate = useNavigate();

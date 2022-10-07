@@ -6,7 +6,7 @@ import GareEtConnexions from "./pages/GareEtConnexions/GareEtConnexions";
 import Ter from "./pages/Ter/Ter";
 import Reseau from "./pages/Reseau/Reseau";
 import Voyageurs from "./pages/Voyageurs/Voyageurs";
-import CreateProfile from "./pages/CreateProfile/CreateProfile";
+import CreateUser from "./pages/CreateUser/CreateUser";
 import RegulationPage from "./pages/RegulationPage/RegulationPage";
 import Defaults from "./pages/Defaults/Defaults";
 import Login from "./pages/Login/Login";
@@ -40,7 +40,7 @@ function App() {
             <div className="App">
               <Routes>
                 <Route path="/" element={<Login />} />
-                <Route path="/items/:id_user" element={<Home />} />
+                <Route path="/home/:id_user" element={<Home />} />
                 <Route
                   path="/gare-et-connexions/:cp_user"
                   element={<GareEtConnexions />}
@@ -49,7 +49,7 @@ function App() {
                 <Route path="/reseau/:cp_user" element={<Reseau />} />
                 <Route path="/voyageurs/:cp_user" element={<Voyageurs />} />
                 <Route path="/Profile/:cp_user" element={<Profile />} />
-                <Route path="/CreateProfile" element={<CreateProfile />} />
+                <Route path="/createUser" element={<CreateUser />} />
                 <Route path="/updateUser/:cp_user" element={<UpdateUser />} />
                 <Route
                   path="/DefaultView/:cp_user/:id_default"

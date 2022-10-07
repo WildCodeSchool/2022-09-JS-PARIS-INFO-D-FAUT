@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const postProfile = async (
+export const postCreateUser = async (
   data,
   setState2,
   setState3,
@@ -8,7 +8,7 @@ export const postProfile = async (
   setState5,
   setState6
 ) => {
-  const response = await axios.post(`http://localhost:5000/users`, data);
+  const response = await axios.post(`http://localhost:5000/createUser`, data);
   if (response.data) {
     setState2("");
     setState3("");

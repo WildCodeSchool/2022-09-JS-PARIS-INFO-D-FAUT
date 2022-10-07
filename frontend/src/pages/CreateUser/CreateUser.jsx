@@ -1,13 +1,12 @@
 import React, { useState } from "react";
-import "./CreateProfile.css";
+import "./CreateUser.css";
 import { useNavigate } from "react-router-dom";
 import { InputPassword } from "../../components/Input/InputPassword";
 import { Footer, Header, Input, Button } from "../../components/index";
-import { postProfile } from "../../services/axios/AxiosUsers";
+import { postCreateUser } from "../../services/axios/AxiosUsers";
 
-const CreateProfile = () => {
+const CreateUser = () => {
   const [cp, setCp] = useState("");
-  // const [admin, setAdmin] = useState("");
   const [mail, setMail] = useState("");
   const [phone_number, setPhoneNumber] = useState("");
   const [password, setPassword] = useState("");
@@ -21,7 +20,6 @@ const CreateProfile = () => {
 
   const data = {
     cp,
-    // admin,
     mail,
     phone_number,
     password,
@@ -33,7 +31,7 @@ const CreateProfile = () => {
     return /^[0-9]{7}[a-zA-Z]{1}$/.test(value);
   };
 
-  const cpControle = () => {
+  const cpControl = () => {
     if (regexCP(cp)) {
       return true;
     }
@@ -47,7 +45,7 @@ const CreateProfile = () => {
     return /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(value);
   };
 
-  const mailControle = () => {
+  const mailControl = () => {
     if (regexMail(mail)) {
       return true;
     }
@@ -59,7 +57,7 @@ const CreateProfile = () => {
     return /^$|^[0-9]{10}$/.test(value);
   };
 
-  const phoneControle = () => {
+  const phoneControl = () => {
     if (regexPhone(phone_number)) {
       return true;
     }
@@ -75,17 +73,17 @@ const CreateProfile = () => {
     );
   };
 
-  const passwordControle = () => {
+  const passwordControl = () => {
     if (regexPassword(password)) {
       return true;
     }
     alert(
-      "⚠️ le mot de passe n'est pas valide, il doit contenir au minimum: \n une majuscule, \n une minuscule, \n un chiffre \n un caractère spécial parmis : -.:;,+!?*$@%_ \n et doit contenir minimum 8 caractères"
+      "⚠️ le mot de passe n'est pas valide, il doit contenir au minimum: \n une majuscule, \n une minuscule, \n un chiffre \n un caractère spécial parmi : -.:;,+!?*$@%_ \n et doit contenir minimum 8 caractères"
     );
     return false;
   };
 
-  const alertSucess = () => {
+  const alertSuccess = () => {
     alert(
       "🏆 Votre profil a bien été créé ! 😀 🏆 \n Vous pouvez maintenant vous connecter"
     );
@@ -93,19 +91,19 @@ const CreateProfile = () => {
 
   const handleSubmit = () => {
     if (
-      cpControle(cp) &&
-      mailControle(mail) &&
-      phoneControle(phone_number) &&
-      passwordControle(password)
+      cpControl(cp) &&
+      mailControl(mail) &&
+      phoneControl(phone_number) &&
+      passwordControl(password)
     ) {
-      postProfile(
+      postCreateUser(
         data,
         setCp,
         setMail,
         setPhoneNumber,
         setPassword,
         setSecondPassword,
-        alertSucess(),
+        alertSuccess(),
         nav()
       );
     }
@@ -118,53 +116,53 @@ const CreateProfile = () => {
           backCss="backProfile"
           profileCss="profileProfile"
           logoutCss="logoutProfile"
-          adminCss="adminProfile"
-          admin0Css="admin0Profile"
+          adminOnCss="adminOnProfile"
+          adminOffCss="adminOffProfile"
         />
 
-        <form className="profile_champ-container">
+        <form className="profileField-container">
           <h1>PROFIL</h1>
           <Input
-            className="inputProfil"
+            className="inputProfile"
             forId="cp"
             type="text"
-            champ="Numéro de CP"
+            field="Numéro de CP"
             onChange={(e) => setCp(e.target.value)}
             value={cp}
             v
           />
           <Input
-            className="inputProfil"
+            className="inputProfile"
             forId="mail"
             type="email"
-            champ="Adresse mail"
+            field="Adresse mail"
             onChange={(e) => setMail(e.target.value)}
             value={mail}
           />
           <Input
-            className="inputProfil"
+            className="inputProfile"
             forId="telephone"
             type="tel"
             pattern="[09]{10}"
-            champ="Téléphone"
+            field="Téléphone"
             onChange={(e) => setPhoneNumber(e.target.value)}
             value={phone_number}
             minlength="10"
             maxlength="10"
           />
           <InputPassword
-            className="inputProfil"
+            className="inputProfile"
             forId="mot"
-            champ="Mot de passe"
+            field="Mot de passe"
             onChange={(e) => setPassword(e.target.value)}
             autoComplete="on"
             value={password}
             minlength="8"
           />
           <InputPassword
-            className="inputProfil"
+            className="inputProfile"
             forId="confirmation"
-            champ="Confirmation du mot de passe"
+            field="Confirmation du mot de passe"
             onChange={(e) => setSecondPassword(e.target.value)}
             autoComplete="on"
             value={secondPassword}
@@ -174,7 +172,7 @@ const CreateProfile = () => {
             classButton="envoyer"
             disabled={verifPasswords}
             onClick={(e) => handleSubmit(e)}
-            champButton="ENVOYER"
+            fieldButton="ENVOYER"
             type="submit"
           />
         </form>
@@ -185,4 +183,4 @@ const CreateProfile = () => {
   );
 };
 
-export default CreateProfile;
+export default CreateUser;

@@ -6,7 +6,7 @@
   justify-content: space-between;
 }
 
-.profile_champ-container {
+.profileField-container {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -18,10 +18,10 @@
 .profileProfile,
 .adminProfile,
 .logoutProfile,
-.admin0Profile {
+.adminOffProfile {
   display: none;
 }
 
-.inputProfil {
+.inputProfile {
   border-radius: 20px;
 }

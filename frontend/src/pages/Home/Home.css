@@ -12,17 +12,17 @@
 }
 
 .loginHome,
-.admin0Home {
+.adminOffHome {
   display: none;
 }
 
-.item-flexone {
+.item-flexOne {
   height: 43%;
   display: flex;
   align-items: center;
   justify-content: space-around;
 }
-.item-flextwo {
+.item-flexTwo {
   height: 43%;
   display: flex;
   align-items: center;
@@ -43,7 +43,7 @@ p {
   text-align: center;
   font-size: 80%;
 }
-.animation1 {
+.animationOne {
   animation: slide-in-blurred-left 0.8s cubic-bezier(0.23, 1, 0.32, 1) 0.2s both;
 }
 
@@ -68,7 +68,7 @@ p {
   }
 }
 
-.animation2 {
+.animationTwo {
   animation: slide-in-blurred-right 0.8s cubic-bezier(0.23, 1, 0.32, 1) 0.2s
     both;
 }
@@ -123,11 +123,11 @@ p {
   }
 }
 @media (min-width: 992px) {
-  .item-flexone {
+  .item-flexOne {
     height: 42%;
   }
 
-  .item-flextwo {
+  .item-flexTwo {
     height: 42%;
   }
 }

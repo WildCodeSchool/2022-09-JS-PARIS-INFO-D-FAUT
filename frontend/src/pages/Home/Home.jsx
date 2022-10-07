@@ -3,8 +3,8 @@ import "./Home.css";
 import { Link } from "react-router-dom";
 import Typewriter from "typewriter-effect";
 import { Footer, Header, Item, Button } from "../../components/index";
-import { Geolocalisation } from "../../services/Geolocalisation/Geolocalisation";
-import { UserContext, GeolocationContext } from "../../context/index";
+import { Geolocation } from "../../services/Geolocation/Geolocation";
+import { UserContext } from "../../context/index";
 
 import gare from "../../assets/gare_et_connexions.png";
 import ter from "../../assets/ter.png";
@@ -14,26 +14,24 @@ import voyageurs from "../../assets/voyageurs.png";
 const Home = () => {
   const { user } = useContext(UserContext);
   const cp = user.cp;
-  // console.log(user);
-  const { geolocation } = useContext(GeolocationContext);
 
   return (
     <div className="home-container">
-      {Geolocalisation()}
+      {Geolocation()}
       <Header
         backCss="backHome"
         profileCss="profileHome"
         loginCss="loginHome"
-        adminCss="adminHome"
-        admin0Css="admin0Home"
+        adminOnCss="adminOnHome"
+        adminOffCss="adminOffHome"
       />
 
       <div className="item-container">
-        <div className="item-flexone">
-          <Link className="animation1" to={`/gare-et-connexions/${cp}`}>
+        <div className="item-flexOne">
+          <Link className="animationOne" to={`/gare-et-connexions/${cp}`}>
             <Item src={gare} alt="gare et connexions" />
           </Link>
-          <Link className="animation2" to={`/ter/${cp}`}>
+          <Link className="animationTwo" to={`/ter/${cp}`}>
             <Item src={ter} alt="ter" />
           </Link>
         </div>
@@ -45,18 +43,18 @@ const Home = () => {
             delay: 60,
           }}
         />
-        <div className="item-flextwo">
-          <Link className="animation1" to={`/reseau/${cp}`}>
+        <div className="item-flexTwo">
+          <Link className="animationOne" to={`/reseau/${cp}`}>
             <Item src={reseau} alt="reseau" />
           </Link>
-          <Link className="animation2" to={`/voyageurs/${cp}`}>
+          <Link className="animationTwo" to={`/voyageurs/${cp}`}>
             <Item src={voyageurs} alt="voyageurs" />
           </Link>
         </div>
         <Link to={`/defaultsUser/${cp}`}>
           <Button
             classButton="btnrecap"
-            champButton="Vos déclarations"
+            fieldButton="Vos déclarations"
             type="bouton"
           />
         </Link>

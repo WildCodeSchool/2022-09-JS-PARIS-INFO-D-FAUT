@@ -11,7 +11,7 @@ const getUsers = (req, res) => {
     });
 };
 
-const postUsers = (req, res) => {
+const postCreateUser = (req, res) => {
   const { cp, mail, phone_number, hashedPassword } = req.body;
 
   sqlDb
@@ -92,7 +92,7 @@ const login = (req, res, next) => {
 
 module.exports = {
   getUsers,
-  postUsers,
+  postCreateUser,
   updateUsers,
   deleteUsers,
   login,

@@ -18,7 +18,7 @@ const Login = () => {
     return /^[0-9]{7}[a-zA-Z]{1}$/.test(value);
   };
 
-  function cpControle() {
+  function cpControl() {
     if (regexCP(cp)) {
       return true;
     }
@@ -32,12 +32,12 @@ const Login = () => {
     );
   };
 
-  function passwordControle() {
+  function passwordControl() {
     if (regexPassword(password)) {
       return true;
     }
     alert(
-      "le mot de passe n'est pas valide, il doit contenir une Majuscule, une minuscule, un chiffre et un caractère spécial parmis : -.:;,+!?*$@%_ et doit contenir minimum 8 caractères"
+      "le mot de passe n'est pas valide, il doit contenir une Majuscule, une minuscule, un chiffre et un caractère spécial parmi : -.:;,+!?*$@%_ et doit contenir minimum 8 caractères"
     );
     return false;
   }
@@ -50,7 +50,7 @@ const Login = () => {
       password,
     };
 
-    if (cpControle(cp) && passwordControle(password)) {
+    if (cpControl(cp) && passwordControl(password)) {
       const response = await axios.post(`http://localhost:5000/login`, data);
       if (response.data) {
         const token = response.data.token;
@@ -63,24 +63,24 @@ const Login = () => {
   };
 
   return (
-    <div className="utilisateur-container">
+    <div className="login-container">
       <Header
         backCss="backLogin"
         profileCss="profileLogin"
         loginCss="loginLogin"
         logoutCss="logoutLogin"
-        adminCss="adminLogin"
-        admin0Css="admin0Login"
+        adminOnCss="adminOnLogin"
+        adminOffCss="adminOffLogin"
       />
-      <div className="champ-container">
-        <div className="formulaire">
+      <div className="field-container">
+        <div className="form">
           <form className="form-container">
             <h1>UTILISATEUR</h1>
             <Input
-              className="inputUtilisateur"
+              className="inputCp"
               forId="cp"
               type="text"
-              champ="Numéro de CP"
+              field="Numéro de CP"
               onChange={(e) => setCp(e.target.value)}
               value={cp}
               minlength="8"
@@ -89,24 +89,24 @@ const Login = () => {
             <InputPassword
               className="inputPassword"
               forId="mot"
-              champ="Mot de passe"
+              field="Mot de passe"
               autoComplete="on"
               onChange={(e) => setPassword(e.target.value)}
               value={password}
               minlength="8"
             />
             <Button
-              classButton="envoyer"
+              classButton="send"
               onClick={postUser}
-              champButton="CONNEXION"
+              fieldButton="CONNEXION"
               type="submit"
             />
           </form>
           <div className="trait" />
-          <Link className="linkProfile" to="/CreateProfile">
+          <Link className="linkProfile" to="/createUser">
             <Button
               classButton="inscription"
-              champButton="S'INSCRIRE"
+              fieldButton="S'INSCRIRE"
               type="submit"
             />
           </Link>

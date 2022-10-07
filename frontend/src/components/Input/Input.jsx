@@ -3,7 +3,7 @@ import "./Input.css";
 
 export const Input = ({
   type,
-  champ,
+  field,
   labelCss,
   forId,
   onChange,
@@ -21,13 +21,13 @@ export const Input = ({
   return (
     <div className="input-container">
       <label className={`label-text ${labelCss}`} htmlFor={forId}>
-        {champ}
+        {field}
       </label>
       <input
         className={className}
         type={type}
         id={forId}
-        name={champ}
+        name={field}
         onChange={onChange}
         defaultValue={defaultValue}
         value={value}

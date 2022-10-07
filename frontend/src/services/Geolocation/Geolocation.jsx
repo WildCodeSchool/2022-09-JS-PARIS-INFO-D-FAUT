@@ -1,7 +1,7 @@
 import { useEffect, useContext } from "react";
 import { GeolocationContext } from "../../context/index";
 
-export function Geolocalisation() {
+export function Geolocation() {
   const { setGeolocation } = useContext(GeolocationContext);
 
   useEffect(() => {

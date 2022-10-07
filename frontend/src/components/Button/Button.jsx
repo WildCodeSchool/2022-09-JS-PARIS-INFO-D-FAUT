@@ -5,7 +5,7 @@ export const Button = ({
   name,
   label,
   classButton,
-  champButton,
+  fieldButton,
   type,
   disabled,
   onClick,
@@ -22,7 +22,7 @@ export const Button = ({
         onClick={onClick}
         type={type}
       >
-        {champButton}
+        {fieldButton}
       </button>
     </div>
   );

@@ -6,7 +6,7 @@ import {
   updateDefaults,
   getUserDefaultById,
 } from "../../services/axios/AxiosDefaults";
-import { Geolocalisation } from "../../services/Geolocalisation/Geolocalisation";
+import { Geolocation } from "../../services/Geolocation/Geolocation";
 import { Button, Footer, Header } from "../../components/index";
 import { UserContext, DefaultContext } from "../../context/index";
 
@@ -57,7 +57,7 @@ const UpdateDefaultsAdmin = () => {
 
   return (
     <div className="updateDefaultsAdmin-container">
-      {Geolocalisation()}
+      {Geolocation()}
       <Header
         backCss="backUpdateDefaultsUser"
         profileCss="profileUpdateDefaultsUser"
