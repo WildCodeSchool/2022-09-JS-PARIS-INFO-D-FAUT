@@ -40,7 +40,7 @@ function App() {
             <div className="App">
               <Routes>
                 <Route path="/" element={<Login />} />
-                <Route path="/home/:id_user" element={<Home />} />
+                <Route path="/home/:cp_user" element={<Home />} />
                 <Route
                   path="/gare-et-connexions/:cp_user"
                   element={<GareEtConnexions />}

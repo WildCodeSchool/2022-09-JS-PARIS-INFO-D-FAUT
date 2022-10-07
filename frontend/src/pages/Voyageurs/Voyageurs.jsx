@@ -40,7 +40,7 @@ const Voyageurs = () => {
     }
   };
   const nav = () => {
-    navigate(`/items/${cp}`);
+    navigate(`/home/${cp}`);
   };
 
   const data = {
