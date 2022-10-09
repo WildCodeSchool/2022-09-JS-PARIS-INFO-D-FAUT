@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { InputPassword } from "../../components/Input/InputPassword";
 import { Footer, Header, Input, Button } from "../../components/index";
 import { postCreateUser } from "../../services/axios/AxiosUsers";
+import profilelogo from "../../assets/profile.gif";
 
 const CreateUser = () => {
   const [cp, setCp] = useState("");
@@ -122,59 +123,74 @@ const CreateUser = () => {
 
         <form className="profileField-container">
           <h1>PROFIL</h1>
-          <Input
-            className="inputProfile"
-            forId="cp"
-            type="text"
-            field="Numéro de CP"
-            onChange={(e) => setCp(e.target.value)}
-            value={cp}
-            v
-          />
-          <Input
-            className="inputProfile"
-            forId="mail"
-            type="email"
-            field="Adresse mail"
-            onChange={(e) => setMail(e.target.value)}
-            value={mail}
-          />
-          <Input
-            className="inputProfile"
-            forId="telephone"
-            type="tel"
-            pattern="[09]{10}"
-            field="Téléphone"
-            onChange={(e) => setPhoneNumber(e.target.value)}
-            value={phone_number}
-            minlength="10"
-            maxlength="10"
-          />
-          <InputPassword
-            className="inputProfile"
-            forId="mot"
-            field="Mot de passe"
-            onChange={(e) => setPassword(e.target.value)}
-            autoComplete="on"
-            value={password}
-            minlength="8"
-          />
-          <InputPassword
-            className="inputProfile"
-            forId="confirmation"
-            field="Confirmation du mot de passe"
-            onChange={(e) => setSecondPassword(e.target.value)}
-            autoComplete="on"
-            value={secondPassword}
-            minlength="8"
-          />
-          <Button
-            classButton="sendCreate"
-            disabled={verifPasswords}
-            onClick={(e) => handleSubmit(e)}
-            fieldButton="ENVOYER"
-            type="submit"
-          />
+          <div className="inputProfileOne">
+            <Input
+              className="inputProfile"
+              forId="cp"
+              type="text"
+              field="Numéro de CP"
+              onChange={(e) => setCp(e.target.value)}
+              value={cp}
+              v
+            />
+          </div>
+          <div className="inputProfileTwo">
+            <Input
+              className="inputProfile"
+              forId="mail"
+              type="email"
+              field="Adresse mail"
+              onChange={(e) => setMail(e.target.value)}
+              value={mail}
+            />
+          </div>
+          <div className="inputProfileThree">
+            <Input
+              className="inputProfile"
+              forId="telephone"
+              type="tel"
+              pattern="[09]{10}"
+              field="Téléphone"
+              onChange={(e) => setPhoneNumber(e.target.value)}
+              value={phone_number}
+              minlength="10"
+              maxlength="10"
+            />
+          </div>
+          <div className="profile-logo">
+            <img className="logoProfile" src={profilelogo} alt="Logo" />
+          </div>
+          <div className="inputProfileFour">
+            <InputPassword
+              className="inputProfile"
+              forId="mot"
+              field="Mot de passe"
+              onChange={(e) => setPassword(e.target.value)}
+              autoComplete="on"
+              value={password}
+              minlength="8"
+            />
+          </div>
+          <div className="inputProfileFive">
+            <InputPassword
+              className="inputProfile"
+              forId="confirmation"
+              field="Confirmation du mot de passe"
+              onChange={(e) => setSecondPassword(e.target.value)}
+              autoComplete="on"
+              value={secondPassword}
+              minlength="8"
+            />
+          </div>
+          <div className="inputProfileSix">
+            <Button
+              classButton="sendCreate"
+              disabled={verifPasswords}
+              onClick={(e) => handleSubmit(e)}
+              fieldButton="ENVOYER"
+              type="submit"
+            />
+          </div>
         </form>
 
         <Footer />
