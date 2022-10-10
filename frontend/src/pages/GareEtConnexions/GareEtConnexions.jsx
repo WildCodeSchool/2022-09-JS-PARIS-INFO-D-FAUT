@@ -128,8 +128,6 @@ const GareEtConnexions = () => {
           fieldButton="Télécharger"
         />
 
-        <br />
-
         <img
           className={picture !== "" ? "pictureStationOn" : "pictureStationOff "}
           src={picture}
@@ -137,7 +135,7 @@ const GareEtConnexions = () => {
         />
         <div className="latitudeLongitude">
           <Input
-            className="inputStation"
+            className="inputLatitudeLongitude"
             forId="file"
             onChange={(e) => setLatitude(e.target.value)}
             type="text"
@@ -145,7 +143,7 @@ const GareEtConnexions = () => {
             field="Latitude"
           />
           <Input
-            className="inputStation"
+            className="inputLatitudeLongitude"
             forId="fileTwo"
             onChange={(e) => setLongitude(e.target.value)}
             type="text"

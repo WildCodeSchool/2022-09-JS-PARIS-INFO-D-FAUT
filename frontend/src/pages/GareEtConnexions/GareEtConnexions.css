@@ -63,7 +63,7 @@ h1 {
 }
 
 .pictureStationOn {
-  width: 20%;
+  height: 20%;
 }
 
 h2 {
@@ -98,6 +98,7 @@ h2 {
   display: flex;
   width: 100%;
 }
+.inputLatitudeLongitude{text-align: center;}
 
 @media (min-width: 768px) {
   .inputStation {
