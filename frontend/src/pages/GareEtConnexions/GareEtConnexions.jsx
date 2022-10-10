@@ -135,23 +135,24 @@ const GareEtConnexions = () => {
           src={picture}
           alt="image"
         />
-
-        <Input
-          className="inputStation"
-          forId="file"
-          onChange={(e) => setLatitude(e.target.value)}
-          type="text"
-          value={latitude}
-          field="Latitude"
-        />
-        <Input
-          className="inputStation"
-          forId="fileTwo"
-          onChange={(e) => setLongitude(e.target.value)}
-          type="text"
-          value={longitude}
-          field="Longitude"
-        />
+        <div className="latitudeLongitude">
+          <Input
+            className="inputStation"
+            forId="file"
+            onChange={(e) => setLatitude(e.target.value)}
+            type="text"
+            value={latitude}
+            field="Latitude"
+          />
+          <Input
+            className="inputStation"
+            forId="fileTwo"
+            onChange={(e) => setLongitude(e.target.value)}
+            type="text"
+            value={longitude}
+            field="Longitude"
+          />
+        </div>
         <Button
           classButton="sendStation"
           onClick={(e) => handleSubmit(e)}
