@@ -7,7 +7,7 @@
   background-color: rgb(0, 17, 43);
 }
 
-.backDefaults {
+.backDefaultsAdmin {
   margin-top: 5px;
   margin-left: 5px;
   width: 35px;
@@ -15,8 +15,8 @@
   transition-duration: 0.5s;
 }
 
-.profileDefaults,
-.loginDefaults {
+.profileDefaultsAdmin,
+.loginDefaultsAdmin {
   display: none;
 }
 

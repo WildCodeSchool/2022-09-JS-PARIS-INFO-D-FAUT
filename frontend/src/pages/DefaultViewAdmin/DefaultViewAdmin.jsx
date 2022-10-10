@@ -1,5 +1,5 @@
-import React, { useEffect, useState, useContext } from "react";
-import { useNavigate, useParams, Link } from "react-router-dom";
+import React, { useEffect, useContext } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import "./DefaultViewAdmin.css";
 import { getDefaultView } from "../../services/axios/AxiosDefaults";
 import { DefaultContext, UserContext } from "../../context/index";
@@ -21,22 +21,22 @@ const DefaultViewAdmin = () => {
   };
 
   return (
-    <div className="defaultView-container">
+    <div className="defaultViewAdmin-container">
       <Header
-        backCss="backUpdateDefaultsUser"
-        profileCss="profileUpdateDefaultsUser"
-        loginCss="loginUpdateDefaultsUser"
-        admin0Css="admin0UpdateDefaultsUser"
+        backCss="backUpdateDefaultsViewAdmin"
+        profileCss="profileUpdateDefaultsViewAdmin"
+        loginCss="loginUpdateDefaultsViewAdmin"
+        adminOffCss="adminOffUpdateDefaultsViewAdmin"
       />
 
       {defaut && (
         <>
           {defaut.map((items) => (
             <div
-              className="defaultView-champs-container"
+              className="defaultViewAdmin-field-container"
               key={items.id_default}
             >
-              <h1> Verification du défaut :</h1>
+              <h1> Vérification du défaut :</h1>
               <h2
                 className={
                   items.station === null
@@ -90,12 +90,12 @@ const DefaultViewAdmin = () => {
                     : "geolocViewAdminOn"
                 }
               >
-                Geolocalisation : {items.latitude}, {items.longitude}
+                Géolocalisation : {items.latitude}, {items.longitude}
               </h3>
               <h3>Traitement : {items.treatment}</h3>
               <Button
-                classButton="update-profile"
-                champButton="CONTINUER LA MODIFICATION"
+                classButton="update-state"
+                fieldButton="CONTINUER LA MODIFICATION"
                 type="button"
                 onClick={handleUpdate}
               />

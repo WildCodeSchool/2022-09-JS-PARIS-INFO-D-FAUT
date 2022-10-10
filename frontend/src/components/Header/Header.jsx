@@ -93,7 +93,6 @@ export const Header = ({
               alt="logo logout"
             />
           </div>
-          {/* <button onClick={logout}>Deconnection</button> */}
         </Link>
       </div>
     </header>

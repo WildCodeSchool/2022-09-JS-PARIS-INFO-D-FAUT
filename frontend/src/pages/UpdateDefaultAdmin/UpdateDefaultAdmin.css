@@ -1,4 +1,4 @@
-.updateDefaultUser-container {
+.updateDefaultAdmin-container {
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -7,13 +7,13 @@
   background-color: rgb(0, 17, 43);
 }
 
-.profileUpdateDefaultUser,
-.loginUpdateDefaultUser,
-.adminOffUpdateDefaultUser {
+.profileUpdateDefaultAdmin,
+.loginUpdateDefaultAdmin,
+.adminOffUpdateDefaultAdmin {
   display: none;
 }
 
-.updateDefaultUser_field-container {
+.updateDefaultAdmin_field-container {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -21,17 +21,15 @@
   align-items: center;
 }
 
-.stationUpdateOff,
-.trackUpdateOff,
-.terUpdateOff,
-.tgvUpdateOff,
-.latitudeUpdateOff,
-.longitudeUpdateOff,
-.pictureUpdateOff {
+.stationUpdateAdminOff,
+.terUpdateAdminOff,
+.tgvUpdateAdminOff,
+.trackUpdateAdminOff,
+.imageUpdateAdminOff,
+.geolocUpdateAdminOff {
   display: none;
 }
 
-.pictureUpdateOn,
-.imgUpdate {
+.imageUpdateAdminOn {
   width: 30%;
 }

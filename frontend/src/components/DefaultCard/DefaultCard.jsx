@@ -12,26 +12,26 @@ export const DefaultCard = ({
   latitude,
   longitude,
   traitement,
-  etatContainer,
+  stateContainer,
   cp,
 }) => {
-  const etat = (etatCss) => {
-    if (etatCss === "traité") {
+  const state = (stateCss) => {
+    if (stateCss === "traité") {
       return "traité-container ";
     }
-    if (etatCss === "En cours de traitement") {
+    if (stateCss === "En cours de traitement") {
       return "encours-container ";
     }
     return "nontraité-container";
   };
 
   return (
-    <div className={etat(etatContainer)}>
+    <div className={state(stateContainer)}>
       <ul className="ul-default-card">
         <li>CP : {cp} </li>
         <li
           className={
-            station === null ? "gareDefaultCardOff" : "gareDefaultCardOn"
+            station === null ? "stationDefaultCardOff" : "stationDefaultCardOn"
           }
         >
           Gare: {station}
@@ -49,21 +49,13 @@ export const DefaultCard = ({
         >
           Numéro de ligne: {track}
         </li>
-        <li>
-          {/* <a href={description} target="_blank" rel="noreferrer">
-            voir photo
-          </a> */}
-          Description :{description}
-        </li>
+        <li>Description :{description}</li>
         <li
           className={
             image === "" ? "imageDefaultCardOff" : "imageDefaultCardOn"
           }
         >
           <img className="imgCard" src={image} alt={imgAlt} />
-          {/* <a href={image} target="_blank" rel="noreferrer">
-            voir photo
-          </a> */}
         </li>
         <li
           className={

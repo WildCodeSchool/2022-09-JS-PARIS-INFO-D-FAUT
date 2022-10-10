@@ -1,8 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import "./UpdateDefaultsAdmin.css";
+import "./UpdateDefaultAdmin.css";
 import {
-  // UpdateDefaultsAdmin
   updateDefault,
   getDefaultView,
 } from "../../services/axios/AxiosDefaults";
@@ -10,7 +9,7 @@ import { Geolocation } from "../../services/Geolocation/Geolocation";
 import { Button, Footer, Header } from "../../components/index";
 import { UserContext, DefaultContext } from "../../context/index";
 
-const UpdateDefaultsAdmin = () => {
+const UpdateDefaultAdmin = () => {
   const { id_default } = useParams();
   const { user } = useContext(UserContext);
   const cp = user.cp;
@@ -51,58 +50,64 @@ const UpdateDefaultsAdmin = () => {
     treatment,
   };
 
-  const alertSucess = () => {
+  const alertSuccess = () => {
     alert("🏆 L'état du traitement a bien été modifié ! 😀 🏆");
   };
 
   return (
-    <div className="updateDefaultsAdmin-container">
+    <div className="updateDefaultAdmin-container">
       {Geolocation()}
       <Header
-        backCss="backUpdateDefaultsUser"
-        profileCss="profileUpdateDefaultsUser"
-        loginCss="loginUpdateDefaultsUser"
-        admin0Css="admin0UpdateDefaultsUser"
+        backCss="backUpdateDefaultAdmin"
+        profileCss="profileUpdateDefaultAdmin"
+        loginCss="loginUpdateDefaultAdmin"
+        adminOffCss="adminOffUpdateDefaultAdmin"
       />
-      <form className="gare_champ-container">
+      <form className="updateDefaultAdmin_field-container">
         <h1>MODIFICATION</h1>
         <h2>{cp}</h2>
 
         <h2
           className={
-            station === null ? "stationViewAdminOff" : "stationViewAdminOn"
+            station === null ? "stationUpdateAdminOff" : "stationUpdateAdminOn"
           }
         >
           Gare: {station}
         </h2>
         <h2
-          className={ter_number === null ? "terViewAdminOff" : "terViewAdminOn"}
+          className={
+            ter_number === null ? "terUpdateAdminOff" : "terUpdateAdminOn"
+          }
         >
           TER : {ter_number}
         </h2>
         <h2
-          className={tgv_number === null ? "tgvViewAdminOff" : "tgvViewAdminOn"}
+          className={
+            tgv_number === null ? "tgvUpdateAdminOff" : "tgvUpdateAdminOn"
+          }
         >
           TGV : {tgv_number}
         </h2>
         <h2
           className={
             railway_track_number === null
-              ? "trackViewAdminOff"
-              : "trackViewAdminOn"
+              ? "trackUpdateAdminOff"
+              : "trackUpdateAdminOn"
           }
         >
           Numéro de ligne : {railway_track_number}
         </h2>
         <h3>Description : {description}</h3>
         <img
-          className={picture === "" ? "imageViewAdminOff" : "imageViewAdminOn"}
+          className={
+            picture === "" ? "imageUpdateAdminOff" : "imageUpdateAdminOn"
+          }
           src={picture}
           alt="image"
         />
 
         <label className="labelSelect" htmlFor="labelSelect">
-          Statut du defaut
+          Statut du défaut
         </label>
         <select
           id="labelSelect"
@@ -114,9 +119,16 @@ const UpdateDefaultsAdmin = () => {
           <option>traité</option>
         </select>
         <Button
-          classButton="envoyer"
+          classButton="sendUpdateAdmin"
           onClick={(e) =>
-            updateDefault(id_default, data, setProblem, alertSucess(), nav(), e)
+            updateDefault(
+              id_default,
+              data,
+              setProblem,
+              alertSuccess(),
+              nav(),
+              e
+            )
           }
           champButton="ENVOYER"
           type="button"
@@ -127,4 +139,4 @@ const UpdateDefaultsAdmin = () => {
   );
 };
 
-export default UpdateDefaultsAdmin;
+export default UpdateDefaultAdmin;

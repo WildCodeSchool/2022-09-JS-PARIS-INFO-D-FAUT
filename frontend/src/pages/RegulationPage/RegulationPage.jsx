@@ -12,7 +12,7 @@ const RegulationPage = () => {
       />
       <div className="legal-container">
         <h1>MENTIONS LEGALES</h1>
-        <div className="identite-container">
+        <div className="identity-container">
           <h2 className="identify">IDENTITÉ</h2>
           <br />
           <ul>
@@ -52,7 +52,7 @@ const RegulationPage = () => {
           </p>
         </div>
 
-        <div className="interactivite-container">
+        <div className="interactivity-container">
           <h2>INTERACTIVITÉ</h2>
           <br />
           <p>
@@ -69,7 +69,7 @@ const RegulationPage = () => {
           </p>
         </div>
 
-        <div className="propriete-container">
+        <div className="property-container">
           <h2>PROPRIÉTÉ INTELLECTUELLE</h2>
           <br />
           <p>
@@ -93,7 +93,7 @@ const RegulationPage = () => {
           </p>
         </div>
 
-        <div className="liens-container">
+        <div className="link-container">
           <h2>LIENS</h2>
           <br />
           <h3>Liens sortants</h3>
@@ -129,7 +129,7 @@ const RegulationPage = () => {
           </p>
         </div>
 
-        <div className="confidentialite-container">
+        <div className="privacy-container">
           <h2>CONFIDENTIALITÉ</h2>
           <br />
           <p>

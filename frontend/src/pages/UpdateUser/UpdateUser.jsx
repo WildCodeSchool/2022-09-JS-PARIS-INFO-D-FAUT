@@ -93,7 +93,7 @@ const UpdateUser = () => {
     return false;
   };
 
-  const alertSucess = () => {
+  const alertSuccess = () => {
     alert(
       "🏆 Votre profil a bien été modifié ! 😀 🏆 \n Veuillez vous reconnecter, merci."
     );
@@ -129,7 +129,7 @@ const UpdateUser = () => {
       passwordControle(password)
     ) {
       updateUser(id_user, data, setPassword, setSecondPassword);
-      alertSucess();
+      alertSuccess();
       logout();
     }
   };
@@ -140,58 +140,58 @@ const UpdateUser = () => {
         backCss="backUpdateUser"
         profileCss="profileUpdateUser"
         loginCss="loginUpdateUser"
-        admin0Css="admin0UpdateUser"
+        adminOffCss="adminOffUpdateUser"
       />
 
-      <form className="profile_champ-container">
+      <form className="profile_field-container">
         <h1>MODIFICATION</h1>
         <Input
-          className="inputProfil"
+          className="inputProfile"
           forId="cp"
           type="text"
-          champ="Numéro de CP"
+          field="Numéro de CP"
           onChange={(e) => setCp(e.target.value)}
           value={cp}
           // minlength="8"
           // maxlength="8"
         />
         <Input
-          className="inputProfil"
+          className="inputProfile"
           forId="mail"
           type="email"
-          champ="Adresse mail"
+          field="Adresse mail"
           onChange={(e) => setMail(e.target.value)}
           value={mail}
         />
         <Input
-          className="inputProfil"
+          className="inputProfile"
           forId="telephone"
           type="tel"
-          champ="Téléphone"
+          field="Téléphone"
           onChange={(e) => setPhoneNumber(e.target.value)}
           value={phone_number}
         />
         <InputPassword
-          className="inputProfil"
+          className="inputProfile"
           forId="mot"
-          champ="Mot de passe"
+          field="Mot de passe"
           onChange={(e) => setPassword(e.target.value)}
           autoComplete="on"
           value={password}
         />
         <InputPassword
-          className="inputProfil"
+          className="inputProfile"
           forId="confirmation"
-          champ="Confirmation du mot de passe"
+          field="Confirmation du mot de passe"
           onChange={(e) => setSecondPassword(e.target.value)}
           autoComplete="on"
           value={secondPassword}
         />
         <Button
-          classButton="envoyer"
+          classButton="sendUpdateUser"
           disabled={verifPasswords}
           onClick={(e) => handleSubmit(e)}
-          champButton="ENVOYER"
+          fieldButton="ENVOYER"
           type="button"
         />
       </form>

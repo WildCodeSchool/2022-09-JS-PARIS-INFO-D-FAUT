@@ -80,7 +80,7 @@ const UpdateDefaultUser = () => {
         loginCss="loginUpdateDefaultUser"
         adminOffCss="adminOffUpdateDefaultUser"
       />
-      <form className="gare_field-container">
+      <form className="updateDefaultUser_field-container">
         <h1>MODIFICATION</h1>
         <Input
           labelCss={station === null ? "stationUpdateOff" : "stationUpdateOn"}
@@ -176,7 +176,7 @@ const UpdateDefaultUser = () => {
           field="Longitude"
         />
         <Button
-          classButton="envoyer"
+          classButton="sendUpdateUser"
           onClick={(e) =>
             updateDefault(
               id_default,

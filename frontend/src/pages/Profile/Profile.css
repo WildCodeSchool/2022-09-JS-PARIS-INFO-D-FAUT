@@ -1,4 +1,4 @@
-.prof-container {
+.profile-container {
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -7,7 +7,7 @@
   background-color: rgb(0, 17, 43);
 }
 
-.prof-champs-container {
+.profile-field-container {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -15,8 +15,8 @@
   align-items: center;
 }
 
-.loginProf,
-.admin0Prof {
+.loginProfile,
+.adminOffProf {
   display: none;
 }
 /* 
