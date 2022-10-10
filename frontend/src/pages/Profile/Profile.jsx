@@ -22,8 +22,8 @@ const Profile = () => {
       <div className="profile-field-container">
         <h1>PROFIL :</h1>
         <h2>CP: {cp}</h2>
-        <h3>mail: {mail}</h3>
-        <h3>téléphone: {phone_number}</h3>
+        <p className="textProfile">mail: {mail}</p>
+        <p className="textProfile">téléphone: {phone_number}</p>
         <Button
           classButton="update-profile"
           fieldButton="MODIFIER"

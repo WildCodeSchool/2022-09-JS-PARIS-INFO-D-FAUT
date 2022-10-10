@@ -65,7 +65,9 @@ const DefaultView = () => {
               >
                 Numéro de ligne : {items.railway_track_number}
               </h2>
-              <h3>Description : {items.description}</h3>
+              <p className="textDefaultView">
+                Description : {items.description}
+              </p>
               <img
                 className={
                   items.picture === "" ? "imageViewOff" : "imageViewOn"
@@ -73,15 +75,15 @@ const DefaultView = () => {
                 src={items.picture}
                 alt="image"
               />
-              <h3
+              <p
                 className={
                   items.latitude === null ? "geolocViewOff" : "geolocViewOn"
                 }
               >
                 Géolocalisation : {items.latitude}, {items.longitude}
-              </h3>
+              </p>
 
-              <h3>Traitement : {items.treatment}</h3>
+              <p className="textDefaultView">Traitement : {items.treatment}</p>
               <Button
                 classButton="update-defaultView"
                 fieldButton="CONTINUER LA MODIFICATION"

@@ -67,28 +67,28 @@ const UpdateDefaultAdmin = () => {
         <h1>MODIFICATION</h1>
         <h2>{cp}</h2>
 
-        <h2
+        <h3
           className={
             station === null ? "stationUpdateAdminOff" : "stationUpdateAdminOn"
           }
         >
           Gare: {station}
-        </h2>
-        <h2
+        </h3>
+        <h3
           className={
             ter_number === null ? "terUpdateAdminOff" : "terUpdateAdminOn"
           }
         >
           TER : {ter_number}
-        </h2>
-        <h2
+        </h3>
+        <h3
           className={
             tgv_number === null ? "tgvUpdateAdminOff" : "tgvUpdateAdminOn"
           }
         >
           TGV : {tgv_number}
-        </h2>
-        <h2
+        </h3>
+        <h3
           className={
             railway_track_number === null
               ? "trackUpdateAdminOff"
@@ -96,8 +96,8 @@ const UpdateDefaultAdmin = () => {
           }
         >
           Numéro de ligne : {railway_track_number}
-        </h2>
-        <h3>Description : {description}</h3>
+        </h3>
+        <p className="textUpdateDefaultAdmin">Description : {description}</p>
         <img
           className={
             picture === "" ? "imageUpdateAdminOff" : "imageUpdateAdminOn"
@@ -105,19 +105,20 @@ const UpdateDefaultAdmin = () => {
           src={picture}
           alt="image"
         />
-
-        <label className="labelSelect" htmlFor="labelSelect">
-          Statut du défaut
-        </label>
-        <select
-          id="labelSelect"
-          className="selectEtat"
-          onChange={(e) => setTreatment(e.target.value)}
-        >
-          <option>Non traité</option>
-          <option>En cours de traitement</option>
-          <option>traité</option>
-        </select>
+        <div className="flexLabelSelect">
+          <label className="labelSelect" htmlFor="labelSelect">
+            Statut du défaut
+          </label>
+          <select
+            id="labelSelect"
+            className="selectEtat"
+            onChange={(e) => setTreatment(e.target.value)}
+          >
+            <option>Non traité</option>
+            <option>En cours de traitement</option>
+            <option>traité</option>
+          </select>
+        </div>
         <Button
           classButton="sendUpdateAdmin"
           onClick={(e) =>
@@ -130,7 +131,7 @@ const UpdateDefaultAdmin = () => {
               e
             )
           }
-          champButton="ENVOYER"
+          fieldButton="ENVOYER"
           type="button"
         />
       </form>

@@ -33,3 +33,15 @@
 .imageUpdateAdminOn {
   width: 30%;
 }
+
+h3,
+.textUpdateDefaultAdmin,
+.labelSelect {
+  color: white;
+}
+
+.flexLabelSelect {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
