@@ -7,7 +7,7 @@ const AuthAdminGuard = ({ children }) => {
   const admin = user.admin;
 
   if (admin !== 1) {
-    return <Navigate to="/items" />;
+    return <Navigate to="/" />;
   }
   return children;
 };
