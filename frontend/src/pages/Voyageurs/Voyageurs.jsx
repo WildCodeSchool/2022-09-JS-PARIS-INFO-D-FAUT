@@ -171,7 +171,7 @@ const Voyageurs = () => {
             type="button"
           />
         </div>
-        <div className="lineVoyageurs" />
+        <div className="line" />
       </form>
 
       <Footer />

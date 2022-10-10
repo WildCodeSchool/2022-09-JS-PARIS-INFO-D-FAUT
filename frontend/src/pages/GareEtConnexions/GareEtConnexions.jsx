@@ -97,36 +97,44 @@ const GareEtConnexions = () => {
       />
       <form className="stationField-container">
         <h1>GARE & CONNEXIONS</h1>
-        <Input
-          className="inputStation"
-          onChange={(e) => setStation(e.target.value)}
-          value={station}
-          forId="gare"
-          type="text"
-          field="Gare concernée"
-        />
-        <Textarea
-          className="textStation"
-          onChange={(e) => setDescription(e.target.value)}
-          value={description}
-          forId="field"
-          type="text"
-        />
-        <Input
-          className="inputStationImg"
-          onChange={(e) => setImage(e.target.files[0])}
-          forId="file"
-          type="file"
-          accept=".png, .jpg, .jpeg, .gif"
-          field="Joindre une photographie"
-        />
-        <Button
-          classButton="stationUpload"
-          type="button"
-          name="button"
-          onClick={handleUpload}
-          fieldButton="Télécharger"
-        />
+        <div className="inputStationOne">
+          <Input
+            className="inputStation"
+            onChange={(e) => setStation(e.target.value)}
+            value={station}
+            forId="gare"
+            type="text"
+            field="Gare concernée"
+          />
+        </div>
+        <div className="inputStationTwo">
+          <Textarea
+            className="textStation"
+            onChange={(e) => setDescription(e.target.value)}
+            value={description}
+            forId="field"
+            type="text"
+          />
+        </div>
+        <div className="inputStationThree">
+          <Input
+            className="inputStationImg"
+            onChange={(e) => setImage(e.target.files[0])}
+            forId="file"
+            type="file"
+            accept=".png, .jpg, .jpeg, .gif"
+            field="Joindre une photographie"
+          />
+        </div>
+        <div className="inputStationFour">
+          <Button
+            classButton="stationUpload"
+            type="button"
+            name="button"
+            onClick={handleUpload}
+            fieldButton="Télécharger"
+          />
+        </div>
         <div className="pictureDefault">
           <img
             className={
@@ -154,12 +162,15 @@ const GareEtConnexions = () => {
             field="Longitude"
           />
         </div>
-        <Button
-          classButton="sendStation"
-          onClick={(e) => handleSubmit(e)}
-          fieldButton="ENVOYER"
-          type="button"
-        />
+        <div className="inputStationFive">
+          <Button
+            classButton="sendStation"
+            onClick={(e) => handleSubmit(e)}
+            fieldButton="ENVOYER"
+            type="button"
+          />
+        </div>
+        <div className="line" />
       </form>
       <Footer />
     </div>
