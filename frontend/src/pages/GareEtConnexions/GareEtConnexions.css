@@ -34,13 +34,14 @@ h1 {
   color: white;
   border-radius: 20px;
   text-align: center;
-  width: 60%;
+  width: 80%;
 }
 
 .textStation {
   border-radius: 20px;
   padding: 5px;
   font-size: small;
+  height: 50px;
 }
 
 .inputAnomalie {
