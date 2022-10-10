@@ -100,69 +100,78 @@ const Voyageurs = () => {
 
       <form className="voyageursField-container">
         <h1>TGV</h1>
-        <Input
-          className="inputVoyageurs"
-          onChange={(e) => setTgvNumber(e.target.value)}
-          value={tgv_number}
-          forId="tgv"
-          type="number"
-          field="Numéro du train"
-        />
-        <Textarea
-          className="textVoyageurs"
-          onChange={(e) => setDescription(e.target.value)}
-          value={description}
-          forId="field"
-          type="text"
-        />
-
-        <Input
-          className="inputVoyageursImg"
-          onChange={(e) => setImage(e.target.files[0])}
-          forId="file"
-          type="file"
-          accept=".png, .jpg, .jpeg, .gif"
-          field="Joindre une photographie"
-        />
-        <Button
-          classButton="voyageursUpload"
-          type="button"
-          name="button"
-          onClick={handleUpload}
-          fieldButton="Télécharger"
-        />
-
-        <br />
-
-        <img
-          className={picture !== "" ? "pictureTgvOn" : "pictureTgvOff "}
-          src={picture}
-          alt="image"
-        />
-
-        <Input
-          className="inputVoyageurs"
-          forId="file"
-          onChange={(e) => setLatitude(e.target.value)}
-          type="text"
-          value={latitude}
-          field="Latitude"
-        />
-        <Input
-          className="inputVoyageurs"
-          forId="file2"
-          onChange={(e) => setLongitude(e.target.value)}
-          type="text"
-          value={longitude}
-          field="Longitude"
-        />
-
-        <Button
-          classButton="sendVoyageurs"
-          onClick={(e) => handleSubmit(e)}
-          fieldButton="ENVOYER"
-          type="button"
-        />
+        <div className="inputVoyageurOne">
+          <Input
+            className="inputVoyageurs"
+            onChange={(e) => setTgvNumber(e.target.value)}
+            value={tgv_number}
+            forId="tgv"
+            type="number"
+            field="Numéro du train"
+          />
+        </div>
+        <div className="inputVoyageurTwo">
+          <Textarea
+            className="textVoyageurs"
+            onChange={(e) => setDescription(e.target.value)}
+            value={description}
+            forId="field"
+            type="text"
+          />
+        </div>
+        <div className="inputVoyageurThree">
+          <Input
+            className="inputVoyageursImg"
+            onChange={(e) => setImage(e.target.files[0])}
+            forId="file"
+            type="file"
+            accept=".png, .jpg, .jpeg, .gif"
+            field="Joindre une photographie"
+          />
+        </div>
+        <div className="inputVoyageurFour">
+          <Button
+            classButton="voyageursUpload"
+            type="button"
+            name="button"
+            onClick={handleUpload}
+            fieldButton="Télécharger"
+          />
+        </div>
+        <div className="pictureDefault">
+          <img
+            className={picture !== "" ? "pictureTgvOn" : "pictureTgvOff "}
+            src={picture}
+            alt="image"
+          />
+        </div>
+        <div className="latitudeLongitude">
+          <Input
+            className="inputLatitudeLongitude"
+            forId="file"
+            onChange={(e) => setLatitude(e.target.value)}
+            type="text"
+            value={latitude}
+            field="Latitude"
+          />
+          <Input
+            className="inputLatitudeLongitude"
+            forId="file2"
+            onChange={(e) => setLongitude(e.target.value)}
+            type="text"
+            value={longitude}
+            field="Longitude"
+          />
+        </div>
+        <div className="inputVoyageurFive">
+          <Button
+            classButton="sendVoyageurs"
+            onClick={(e) => handleSubmit(e)}
+            fieldButton="ENVOYER"
+            type="button"
+          />
+        </div>
+        <div className="lineVoyageurs" />
       </form>
 
       <Footer />

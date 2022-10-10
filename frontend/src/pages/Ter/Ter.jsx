@@ -116,7 +116,6 @@ const Ter = () => {
           forId="field"
           type="text"
         />
-
         <Input
           className="inputTerImg"
           onChange={(e) => setImage(e.target.files[0])}
@@ -132,30 +131,31 @@ const Ter = () => {
           onClick={handleUpload}
           fieldButton="Télécharger"
         />
-        <br />
-
-        <img
-          className={picture !== "" ? "pictureTerOn" : "pictureTerOff "}
-          src={picture}
-          alt="image"
-        />
-
-        <Input
-          className="inputTer"
-          forId="file"
-          onChange={(e) => setLatitude(e.target.value)}
-          type="text"
-          value={latitude}
-          field="Latitude"
-        />
-        <Input
-          className="inputTer"
-          forId="fileTwo"
-          onChange={(e) => setLongitude(e.target.value)}
-          type="text"
-          value={longitude}
-          field="Longitude"
-        />
+        <div className="pictureDefault">
+          <img
+            className={picture !== "" ? "pictureTerOn" : "pictureTerOff "}
+            src={picture}
+            alt="image"
+          />
+        </div>
+        <div className="latitudeLongitude">
+          <Input
+            className="inputLatitudeLongitude"
+            forId="file"
+            onChange={(e) => setLatitude(e.target.value)}
+            type="text"
+            value={latitude}
+            field="Latitude"
+          />
+          <Input
+            className="inputLatitudeLongitude"
+            forId="fileTwo"
+            onChange={(e) => setLongitude(e.target.value)}
+            type="text"
+            value={longitude}
+            field="Longitude"
+          />
+        </div>
         <Button
           classButton="sendTer"
           onClick={(e) => handleSubmit(e)}

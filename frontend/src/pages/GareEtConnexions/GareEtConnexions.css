@@ -63,7 +63,7 @@ h1 {
 }
 
 .pictureStationOn {
-  height: 20%;
+  height: 100%;
 }
 
 h2 {
@@ -71,11 +71,6 @@ h2 {
   font-weight: bold;
   font-size: 18px;
   text-align: center;
-}
-
-.images {
-  width: 70px;
-  height: 70px;
 }
 
 .sendStation {
@@ -98,8 +93,12 @@ h2 {
   display: flex;
   width: 100%;
 }
-.inputLatitudeLongitude{text-align: center;}
-
+.inputLatitudeLongitude {
+  text-align: center;
+}
+.pictureDefault {
+  height: 15%;
+}
 @media (min-width: 768px) {
   .inputStation {
     width: 300px;

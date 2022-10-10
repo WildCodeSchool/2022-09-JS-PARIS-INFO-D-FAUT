@@ -12,6 +12,11 @@
 
 textarea {
   transition-duration: 0.1s;
+  border-radius: 20px;
+  padding: 5px;
+  font-size: small;
+  height: 50px;
+  overflow: auto;
 }
 
 textarea:hover {

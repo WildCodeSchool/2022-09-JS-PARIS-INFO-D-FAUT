@@ -131,30 +131,31 @@ const Reseau = () => {
           fieldButton="Télécharger"
         />
 
-        <br />
-
-        <img
-          className={picture !== "" ? "pictureReseauOn" : "pictureReseauOff "}
-          src={picture}
-          alt="image"
-        />
-
-        <Input
-          className="inputReseau"
-          forId="file"
-          onChange={(e) => setLatitude(e.target.value)}
-          type="text"
-          value={latitude}
-          field="Latitude"
-        />
-        <Input
-          className="inputReseau"
-          forId="fileTwo"
-          onChange={(e) => setLongitude(e.target.value)}
-          type="text"
-          value={longitude}
-          field="Longitude"
-        />
+        <div className="pictureDefault">
+          <img
+            className={picture !== "" ? "pictureReseauOn" : "pictureReseauOff "}
+            src={picture}
+            alt="image"
+          />
+        </div>
+        <div className="latitudeLongitude">
+          <Input
+            className="inputLatitudeLongitude"
+            forId="file"
+            onChange={(e) => setLatitude(e.target.value)}
+            type="text"
+            value={latitude}
+            field="Latitude"
+          />
+          <Input
+            className="inputLatitudeLongitude"
+            forId="fileTwo"
+            onChange={(e) => setLongitude(e.target.value)}
+            type="text"
+            value={longitude}
+            field="Longitude"
+          />
+        </div>
         <Button
           classButton="sendReseau"
           onClick={(e) => handleSubmit(e)}

@@ -127,12 +127,15 @@ const GareEtConnexions = () => {
           onClick={handleUpload}
           fieldButton="Télécharger"
         />
-
-        <img
-          className={picture !== "" ? "pictureStationOn" : "pictureStationOff "}
-          src={picture}
-          alt="image"
-        />
+        <div className="pictureDefault">
+          <img
+            className={
+              picture !== "" ? "pictureStationOn" : "pictureStationOff "
+            }
+            src={picture}
+            alt="image"
+          />
+        </div>
         <div className="latitudeLongitude">
           <Input
             className="inputLatitudeLongitude"
