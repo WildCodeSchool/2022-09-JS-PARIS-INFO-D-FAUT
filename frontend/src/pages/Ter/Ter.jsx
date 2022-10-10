@@ -100,37 +100,44 @@ const Ter = () => {
 
       <form className="terField-container">
         <h1> TER </h1>
-
-        <Input
-          className="inputTer"
-          onChange={(e) => setTerNumber(e.target.value)}
-          value={ter_number}
-          forId="ter"
-          type="number"
-          field="Numéro de Ter"
-        />
-        <Textarea
-          className="textTer"
-          onChange={(e) => setDescription(e.target.value)}
-          value={description}
-          forId="field"
-          type="text"
-        />
-        <Input
-          className="inputTerImg"
-          onChange={(e) => setImage(e.target.files[0])}
-          forId="file"
-          type="file"
-          accept=".png, .jpg, .jpeg, .gif"
-          field="Joindre une photographie"
-        />
-        <Button
-          classButton="terUpload"
-          type="button"
-          name="button"
-          onClick={handleUpload}
-          fieldButton="Télécharger"
-        />
+        <div className="inputTerOne">
+          <Input
+            className="inputTer"
+            onChange={(e) => setTerNumber(e.target.value)}
+            value={ter_number}
+            forId="ter"
+            type="number"
+            field="Numéro de Ter"
+          />
+        </div>
+        <div className="inputTerTwo">
+          <Textarea
+            className="textTer"
+            onChange={(e) => setDescription(e.target.value)}
+            value={description}
+            forId="field"
+            type="text"
+          />
+        </div>
+        <div className="inputTerThree">
+          <Input
+            className="inputTerImg"
+            onChange={(e) => setImage(e.target.files[0])}
+            forId="file"
+            type="file"
+            accept=".png, .jpg, .jpeg, .gif"
+            field="Joindre une photographie"
+          />
+        </div>
+        <div className="inputTerFour">
+          <Button
+            classButton="terUpload"
+            type="button"
+            name="button"
+            onClick={handleUpload}
+            fieldButton="Télécharger"
+          />
+        </div>
         <div className="pictureDefault">
           <img
             className={picture !== "" ? "pictureTerOn" : "pictureTerOff "}
@@ -156,12 +163,15 @@ const Ter = () => {
             field="Longitude"
           />
         </div>
-        <Button
-          classButton="sendTer"
-          onClick={(e) => handleSubmit(e)}
-          fieldButton="ENVOYER"
-          type="button"
-        />
+        <div className="inputTerFive">
+          <Button
+            classButton="sendTer"
+            onClick={(e) => handleSubmit(e)}
+            fieldButton="ENVOYER"
+            type="button"
+          />
+        </div>
+        <div className="line" />
       </form>
 
       <Footer />

@@ -45,3 +45,110 @@ h1 {
 .pictureTerOff {
   display: none;
 }
+
+@media (min-width: 900px) {
+  .inputVoyageursImg {
+    width: auto;
+  }
+  .textTer {
+    height: 30vh;
+    width: 400px;
+  }
+  .latitudeLongitude {
+    justify-content: space-evenly;
+  }
+  .terField-container {
+    display: grid;
+    grid-template-columns: 43% 10% 43%;
+    grid-template-rows: auto 15% 10% 30% 5% auto;
+    align-items: center;
+    justify-content: center;
+  }
+  h1 {
+    grid-column: 1/4;
+    grid-row: 1;
+    animation: scale-in-ver-bottom 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+      1.9s both;
+  }
+  .inputTerOne {
+    grid-column: 1;
+    grid-row: 2;
+    display: flex;
+    justify-content: center;
+    animation: slide-in-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.7s both;
+  }
+  .inputTerTwo {
+    grid-column: 1;
+    grid-row: 3/5;
+    align-items: center;
+    animation: slide-in-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.6s both;
+  }
+  .inputTerThree {
+    grid-column: 3;
+    grid-row: 2;
+    animation: slide-in-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s both;
+  }
+  .inputTerFour {
+    grid-column: 3;
+    grid-row: 3;
+    animation: slide-in-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s both;
+  }
+  .pictureDefault {
+    grid-column: 3;
+    grid-row: 4;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    animation: slide-in-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.6s both;
+  }
+  .latitudeLongitude {
+    grid-column: 3;
+    grid-row: 5;
+    justify-content: center;
+    animation: slide-in-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.4s both;
+  }
+
+  .inputTerFive {
+    grid-column: 2;
+    grid-row: 6;
+    animation: slide-in-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s both;
+  }
+  .lineVoyageurs {
+    grid-column: 2;
+    grid-row: 2/5;
+    background-color: rgb(213, 43, 30);
+    width: 2px;
+    height: 100%;
+    margin: auto;
+    animation: scale-in-ver-center 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+      1.2s both;
+  }
+  @keyframes scale-in-ver-bottom {
+    0% {
+      -webkit-transform: scaleY(0);
+      transform: scaleY(0);
+      -webkit-transform-origin: 0% 100%;
+      transform-origin: 0% 100%;
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: scaleY(1);
+      transform: scaleY(1);
+      -webkit-transform-origin: 0% 100%;
+      transform-origin: 0% 100%;
+      opacity: 1;
+    }
+  }
+  @keyframes scale-in-ver-center {
+    0% {
+      -webkit-transform: scaleY(0);
+      transform: scaleY(0);
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: scaleY(1);
+      transform: scaleY(1);
+      opacity: 1;
+    }
+  }
+}
