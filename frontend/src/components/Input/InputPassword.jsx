@@ -4,7 +4,7 @@ import closereye from "../../assets/eye-closer.svg";
 import openeye from "../../assets/eye-open.svg";
 
 export const InputPassword = ({
-  champ,
+  field,
   forId,
   onChange,
   defaultValue,
@@ -20,14 +20,14 @@ export const InputPassword = ({
   return (
     <div className="inputPassword-container">
       <label className="label-text" htmlFor={forId}>
-        {champ}
+        {field}
       </label>
       <label className="enterPassword">
         <input
           className="inputPassword"
           type={passwordVisible ? "text" : "password"}
           id={forId}
-          name={champ}
+          name={field}
           onChange={onChange}
           defaultValue={defaultValue}
           value={value}

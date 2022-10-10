@@ -3,7 +3,7 @@ import "./Header.css";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import loginImg from "../../assets/login.png";
-import logo from "../../assets/logo-essai1.png";
+import logo from "../../assets/logo-infoDefautSncf.png";
 import profile from "../../assets/logo-profil.png";
 import back from "../../assets/homeLogo.png";
 import adminImg from "../../assets/admin.png";
