@@ -26,9 +26,9 @@ export const DefaultCard = ({
   };
 
   return (
-    <div className={state(stateContainer)}>
-      <ul className="ul-default-card">
-        <li>CP : {cp} </li>
+    <div className="defaultCard-container">
+      <ul className={state(stateContainer)}>
+        <li>CP: {cp} </li>
         <li
           className={
             station === null ? "stationDefaultCardOff" : "stationDefaultCardOn"
@@ -49,7 +49,7 @@ export const DefaultCard = ({
         >
           Numéro de ligne: {track}
         </li>
-        <li>Description :{description}</li>
+        <li>Description: {description}</li>
         <li
           className={
             image === "" ? "imageDefaultCardOff" : "imageDefaultCardOn"
@@ -62,9 +62,9 @@ export const DefaultCard = ({
             latitude === null ? "geolocDefaultCardOff" : "geolocDefaultCardOn"
           }
         >
-          Géolocalisation : {latitude}, {longitude}
+          Géolocalisation: {latitude}, {longitude}
         </li>
-        <li>Traitement : {traitement}</li>
+        <li>Traitement: {traitement}</li>
       </ul>
     </div>
   );

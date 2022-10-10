@@ -1,51 +1,50 @@
-.nontraité-container {
+.defaultCard-container {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+}
+
+.nontraité-container {
+  width: 60%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
   margin-top: 5px;
-  border: 2px solid rgb(235, 0, 0);
+  border: 5px solid rgb(235, 0, 0);
+  background-color: rgb(215, 215, 215);
+  border-radius: 15px;
+  list-style: none;
 }
 .encours-container {
-  width: 100%;
+  width: 60%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   margin-top: 5px;
-  border: 2px solid rgb(193, 87, 0);
+  border: 5px solid rgb(193, 87, 0);
+  background-color: rgb(215, 215, 215);
+  border-radius: 15px;
+  list-style: none;
 }
 
 .traité-container {
-  width: 100%;
+  width: 60%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   margin-top: 5px;
-  border: 2px solid rgb(0, 193, 48);
-}
-
-.ul-default-card {
-  width: 60%;
-  height: 100%;
-  border: 2px solid white;
+  border: 5px solid rgb(0, 193, 48);
+  background-color: rgb(215, 215, 215);
   border-radius: 15px;
   list-style: none;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  /* background-color: rgb(255, 255, 255); */
-  background-image: linear-gradient(
-    to bottom right,
-    rgb(215, 215, 215),
-    rgb(215, 215, 215)
-  );
-  box-shadow: 1px 1px 1px black, inset 2px 3px 5px rgba(0, 0, 0, 0.3),
-    inset -2px -3px 5px rgba(17, 17, 17, 0.5);
-  border: 2px solid rgb(66, 45, 45);
 }
 
 .defaultCard-container ul li {
@@ -77,6 +76,12 @@
 .imageDefaultCardOff,
 .geolocDefaultCardOff {
   display: none;
+}
+
+.imageDefaultCardOn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .imgCard {
