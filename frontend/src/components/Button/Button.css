@@ -10,6 +10,7 @@ button {
   transition-duration: 0.5s;
   height: 4.5vh;
   width: 10rem;
+  border-radius: 20px;
 }
 button:hover {
   background-color: rgb(205, 0, 55);

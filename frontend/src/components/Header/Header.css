@@ -1,8 +1,6 @@
 .header-container {
   display: flex;
   justify-content: space-between;
-  /* background-color: rgb(110, 30, 120); */
-  /* background-color: rgb(161, 0, 107); */
   background: linear-gradient(rgb(110, 30, 120), rgb(161, 0, 107));
 }
 
@@ -22,7 +20,7 @@
 }
 
 .back:hover {
-  transform: rotate(-15deg);
+  animation: wobble-hor-bottom 1.2s both;
 }
 
 .admin,
@@ -73,6 +71,30 @@
   margin-right: 5px;
   width: 35px;
   height: 35px;
+}
+
+@keyframes wobble-hor-bottom {
+  0%,
+  100% {
+    transform: translateX(0%);
+
+    transform-origin: 50% 50%;
+  }
+  15% {
+    transform: translateX(-5px) rotate(-2.4deg);
+  }
+  30% {
+    transform: translateX(5px) rotate(2.4deg);
+  }
+  45% {
+    transform: translateX(-5px) rotate(-2.4deg);
+  }
+  60% {
+    transform: translateX(5px) rotate(2.4deg);
+  }
+  75% {
+    transform: translateX(-5px) rotate(-2.4deg);
+  }
 }
 
 @keyframes jello-horizontal {
