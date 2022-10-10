@@ -131,7 +131,6 @@ const CreateUser = () => {
               field="Numéro de CP"
               onChange={(e) => setCp(e.target.value)}
               value={cp}
-              v
             />
           </div>
           <div className="inputProfileTwo">

@@ -30,6 +30,10 @@
   width: 50%;
   border-radius: 20%;
 }
+.sendCreate{
+  color: rgb(213, 43, 30);
+  font-weight: bold;
+}
 @media (min-width: 900px) {
   .logoProfile {
     width: 50%;
