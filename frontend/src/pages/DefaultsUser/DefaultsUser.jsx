@@ -4,7 +4,7 @@ import { Footer, Header, DefaultCard, Button } from "../../components/index";
 import "./DefaultsUser.css";
 import {
   deleteDefaults,
-  getDefaultsUserById,
+  getAllDefaultsUser,
 } from "../../services/axios/AxiosDefaults";
 import { UserContext } from "../../context/index";
 
@@ -14,15 +14,15 @@ const DefaultsUser = () => {
   const cp = user.cp;
   const id_user = user.id_user;
 
-  const [problem, setProblem] = useState([]);
+  const [problems, setProblems] = useState([]);
 
   const nav = () => {
     navigate(`/home/${cp}`);
   };
 
   useEffect(() => {
-    getDefaultsUserById(id_user, setProblem);
-  }, [problem]);
+    getAllDefaultsUser(id_user, setProblems);
+  }, [problems]);
 
   return (
     <div className="defaultsUser-container">
@@ -30,61 +30,55 @@ const DefaultsUser = () => {
         backCss="backDefaultsUser"
         profileCss="profileDefaultsUser"
         loginCss="loginDefaultsUser"
-        admin0Css="login0DefaultsUser"
+        adminOffCss="loginOffDefaultsUser"
       />
-      <div className="fail-container">
-        {problem &&
-          (problem.length === 0 ? (
+      <div className="problem-container">
+        {problems &&
+          (problems.length === 0 ? (
             <>
               <h1> Vous n'avez pas encore posté de défaut</h1>
               <Button
                 name="home"
                 classButton="home-button"
-                champButton="retour à l'accueil"
+                fieldButton="retour à l'accueil"
                 type="button"
                 onClick={(e) => nav(e)}
               />
             </>
           ) : (
             <>
-              {problem.map((problemes) => (
-                <div key={problemes.id_default}>
+              {problems.map((problem) => (
+                <div key={problem.id_default}>
                   <DefaultCard
-                    etatContainer={problemes.treatment}
-                    station={problemes.station}
-                    tgv={problemes.tgv_number}
-                    ter={problemes.ter_number}
-                    track={problemes.railway_track_number}
-                    description={problemes.description}
-                    image={problemes.picture}
+                    etatContainer={problem.treatment}
+                    station={problem.station}
+                    tgv={problem.tgv_number}
+                    ter={problem.ter_number}
+                    track={problem.railway_track_number}
+                    description={problem.description}
+                    image={problem.picture}
                     imgAlt="image du defaut"
-                    latitude={problemes.latitude}
-                    longitude={problemes.longitude}
-                    cp={problemes.cp}
-                    traitement={problemes.treatment}
+                    latitude={problem.latitude}
+                    longitude={problem.longitude}
+                    cp={problem.cp}
+                    traitement={problem.treatment}
                   />
 
                   <Button
                     name="delete"
-                    classButton="delete-button"
-                    champButton="Supprimer"
+                    classButton="delete-button-defaultUser"
+                    fieldButton="Supprimer"
                     type="button"
                     onClick={(e) =>
-                      deleteDefaults(
-                        problemes.id_default,
-                        setProblem,
-                        // refreshDefaults,
-                        e
-                      )
+                      deleteDefaults(problem.id_default, setProblems, e)
                     }
                   />
 
-                  {/* <Link to={`/updateDefaultsUser/${cp}/${problemes.id_default}`}> */}
-                  <Link to={`/DefaultView/${cp}/${problemes.id_default}`}>
+                  <Link to={`/DefaultView/${cp}/${problem.id_default}`}>
                     <Button
                       name="update"
-                      classButton="update-button"
-                      champButton="Mettre à jour"
+                      classButton="update-button-defaultsUser"
+                      fieldButton="Mettre à jour"
                       type="button"
                     />
                   </Link>

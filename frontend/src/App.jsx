@@ -11,7 +11,7 @@ import RegulationPage from "./pages/RegulationPage/RegulationPage";
 import Defaults from "./pages/Defaults/Defaults";
 import Login from "./pages/Login/Login";
 import DefaultsUser from "./pages/DefaultsUser/DefaultsUser";
-import UpdateDefaultsUser from "./pages/UpdateDefaultsUser/UpdateDefaultsUser";
+import UpdateDefaultUser from "./pages/UpdateDefaultUser/UpdateDefaultUser";
 import Page404 from "./pages/Page404/Page404";
 import Admin from "./pages/Admin/Admin";
 import AuthAdminGuard from "./services/AuthAdminGuar/AuthAdminGuard";
@@ -97,8 +97,8 @@ function App() {
                   element={<DefaultsUser />}
                 />
                 <Route
-                  path="/updateDefaultsUser/:cp_user/:id_default"
-                  element={<UpdateDefaultsUser />}
+                  path="/updateDefaultUser/:cp_user/:id_default"
+                  element={<UpdateDefaultUser />}
                 />
                 <Route
                   path="/updateDefaultsAdmin/:cp_user/:id_default"

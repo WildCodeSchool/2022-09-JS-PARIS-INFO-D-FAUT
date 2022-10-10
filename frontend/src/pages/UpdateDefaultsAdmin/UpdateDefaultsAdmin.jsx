@@ -3,8 +3,8 @@ import { useParams, useNavigate } from "react-router-dom";
 import "./UpdateDefaultsAdmin.css";
 import {
   // UpdateDefaultsAdmin
-  updateDefaults,
-  getUserDefaultById,
+  updateDefault,
+  getDefaultView,
 } from "../../services/axios/AxiosDefaults";
 import { Geolocation } from "../../services/Geolocation/Geolocation";
 import { Button, Footer, Header } from "../../components/index";
@@ -35,7 +35,7 @@ const UpdateDefaultsAdmin = () => {
     navigate("/admin/defaults");
   };
   useEffect(() => {
-    getUserDefaultById(id_default, setProblem);
+    getDefaultView(id_default, setProblem);
   }, []);
 
   const data = {
@@ -116,14 +116,7 @@ const UpdateDefaultsAdmin = () => {
         <Button
           classButton="envoyer"
           onClick={(e) =>
-            updateDefaults(
-              id_default,
-              data,
-              setProblem,
-              alertSucess(),
-              nav(),
-              e
-            )
+            updateDefault(id_default, data, setProblem, alertSucess(), nav(), e)
           }
           champButton="ENVOYER"
           type="button"

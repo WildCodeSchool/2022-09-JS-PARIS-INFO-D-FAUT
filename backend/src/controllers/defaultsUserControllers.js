@@ -1,6 +1,6 @@
 const { sqlDb } = require("../../db");
 
-const getDefaultsUserById = (req, res) => {
+const getAllDefaultsUser = (req, res) => {
   const user_id = parseInt(req.params.user_id);
   sqlDb
     .query(
@@ -16,7 +16,7 @@ const getDefaultsUserById = (req, res) => {
     });
 };
 
-const getUserDefaultById = (req, res) => {
+const getDefaultView = (req, res) => {
   let { id_default } = req.body;
   id_default = parseInt(req.params.id_default);
   sqlDb
@@ -39,6 +39,6 @@ const getUserDefaultById = (req, res) => {
 };
 
 module.exports = {
-  getDefaultsUserById,
-  getUserDefaultById,
+  getAllDefaultsUser,
+  getDefaultView,
 };

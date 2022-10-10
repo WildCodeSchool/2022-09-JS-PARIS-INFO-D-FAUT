@@ -17,14 +17,14 @@ router.use(auth.verifyToken, auth.isTokenBlackListed); /* authentication wall */
 router.post("/defaults", defaultsControllers.postDefaults);
 router.get(
   "/defaultsUser/:user_id",
-  defaultsUserControllers.getDefaultsUserById
+  defaultsUserControllers.getAllDefaultsUser
 );
 router.get(
-  "/updateDefaultsUser/:id_default",
-  defaultsUserControllers.getUserDefaultById
+  "/updateDefaultUser/:id_default",
+  defaultsUserControllers.getDefaultView
 );
 
-router.put("/defaults/:id_default", defaultsControllers.updateDefaults);
+router.put("/defaults/:id_default", defaultsControllers.updateDefault);
 router.delete("/defaults/:id_default", defaultsControllers.deleteDefaults);
 
 router.put("/users/:id_user", auth.hashPassword, usersControllers.updateUsers);

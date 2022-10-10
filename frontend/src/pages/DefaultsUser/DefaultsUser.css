@@ -6,7 +6,7 @@
   justify-content: space-between;
 }
 
-.fail-container {
+.problem-container {
   height: 100%;
   width: 100%;
   display: flex;
@@ -26,7 +26,7 @@
 
 .profileDefaultsUser,
 .loginDefaultsUser,
-.login0DefaultsUser {
+.loginOffDefaultsUser {
   display: none;
 }
 
@@ -35,28 +35,28 @@
   justify-content: center;
   margin: 15px;
 }
-.delete-button {
+.delete-button-defaultUser {
   color: rgb(213, 43, 30);
   font-weight: bold;
   border-radius: 20px 0px 0px 20px;
   height: 1.5em;
   width: 8rem;
 }
-.delete-button:hover {
+.delete-button-defaultUser:hover {
   background-color: rgb(213, 43, 30);
   color: white;
   height: 1.5em;
   width: 8rem;
 }
 
-.update-button {
+.update-button-defaultsUser {
   color: rgb(213, 43, 30);
   font-weight: bold;
   border-radius: 0px 20px 20px 0px;
   height: 1.5em;
   width: 8rem;
 }
-.update-button:hover {
+.update-button-defaultsUser:hover {
   background-color: rgb(255, 182, 18);
   color: white;
   height: 1.5em;
@@ -64,7 +64,7 @@
 }
 
 @media (min-width: 768px) {
-  .fail-container {
+  .problem-container {
     height: 100%;
     width: 100%;
     display: grid;
@@ -75,27 +75,27 @@
     gap: 20px;
     padding-top: 10px;
   }
-  /* .delete-button{
+  /* .delete-button-defaultUser{
     color: rgb(213, 43, 30);
     font-weight: bold;
     border-radius: 20px 0px 0px 20px ;
     height: 1.5em;
   }
-  .delete-button:hover{
+  .delete-button-defaultUser:hover{
     background-color: rgb(213, 43, 30);
     color: white;
     height: 1.5em;
     width: 8rem;
   }
   
-  .update-button{
+  .update-button-defaultsUser{
     color: rgb(213, 43, 30);
     font-weight: bold;
     border-radius: 0px 20px 20px 0px ;
     height: 1.5em;
     
   }
-  .update-button:hover{
+  .update-button-defaultsUser:hover{
   background-color: rgb( 255,182,18);
   color: white;
   height: 1.5em;
@@ -103,7 +103,7 @@
   } */
 }
 @media (min-width: 968px) {
-  .fail-container {
+  .problem-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-auto-rows: minmax(auto, auto);

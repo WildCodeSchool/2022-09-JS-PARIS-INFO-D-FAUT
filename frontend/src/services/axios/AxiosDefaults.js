@@ -14,7 +14,7 @@ export const getDefaults = (setState) => {
     });
 };
 
-export const getDefaultsUserById = (id_user, setState) => {
+export const getAllDefaultsUser = (id_user, setState) => {
   const token = localStorage.getItem("token");
 
   const config = { headers: { Authorization: `Bearer ${token}` } };
@@ -27,7 +27,7 @@ export const getDefaultsUserById = (id_user, setState) => {
     });
 };
 
-export const getUserDefaultById = (
+export const getDefaultView = (
   id_default,
   setState
   // setState2,
@@ -41,7 +41,7 @@ export const getUserDefaultById = (
 
   const config = { headers: { Authorization: `Bearer ${token}` } };
   axios
-    .get(`http://localhost:5000/updateDefaultsUser/${id_default}`, config)
+    .get(`http://localhost:5000/updateDefaultUser/${id_default}`, config)
     .then((response) => response.data)
     .then((data) => {
       setState(data);
@@ -91,7 +91,7 @@ export const deleteDefaults = async (id_default, setState) => {
   }
 };
 
-export const updateDefaults = async (
+export const updateDefault = async (
   id_default,
   data,
   setState

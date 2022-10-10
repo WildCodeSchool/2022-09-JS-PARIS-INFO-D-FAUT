@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import { useNavigate, useParams, Link } from "react-router-dom";
 import "./DefaultViewAdmin.css";
-import { getUserDefaultById } from "../../services/axios/AxiosDefaults";
+import { getDefaultView } from "../../services/axios/AxiosDefaults";
 import { DefaultContext, UserContext } from "../../context/index";
 import { Footer, Header, Button } from "../../components/index";
 
@@ -11,7 +11,7 @@ const DefaultViewAdmin = () => {
   const { user } = useContext(UserContext);
   const cp = user.cp;
   useEffect(() => {
-    getUserDefaultById(id_default, setDefaut);
+    getDefaultView(id_default, setDefaut);
   }, []);
 
   const navigate = useNavigate();

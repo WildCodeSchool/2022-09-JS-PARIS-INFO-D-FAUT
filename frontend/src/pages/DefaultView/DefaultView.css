@@ -7,7 +7,7 @@
   background-color: rgb(0, 17, 43);
 }
 
-.defaultView-champs-container {
+.defaultView-field-container {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -15,7 +15,7 @@
   align-items: center;
 }
 
-.admin0UpdateDefaultsUser {
+.adminOffUpdateDefaultsUser {
   display: none;
 }
 
