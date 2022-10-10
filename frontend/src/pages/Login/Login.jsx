@@ -61,7 +61,9 @@ const Login = () => {
           navigate(`/home/${cp}`);
         })
         .catch((error) => {
-          alert("no login");
+          alert(
+            "⚠️ Veuillez verifier votre numéro de CP et votre mot de passe ⚠️"
+          );
         });
     }
   };
