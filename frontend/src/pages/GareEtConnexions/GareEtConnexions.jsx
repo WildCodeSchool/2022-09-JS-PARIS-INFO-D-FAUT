@@ -113,14 +113,20 @@ const GareEtConnexions = () => {
           type="text"
         />
         <Input
-          className="inputStation"
+          className="inputStationImg"
           onChange={(e) => setImage(e.target.files[0])}
           forId="file"
           type="file"
           accept=".png, .jpg, .jpeg, .gif"
           field="Joindre une photographie"
         />
-        <Input type="button" onClick={handleUpload} field="télécharger" />
+        <Button
+          classButton="stationUpload"
+          type="button"
+          name="button"
+          onClick={handleUpload}
+          fieldButton="Télécharger"
+        />
 
         <br />
 
