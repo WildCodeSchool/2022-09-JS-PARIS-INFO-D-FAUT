@@ -76,13 +76,13 @@ button.update-defaultView {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-areas: 
-    "Title Title"
-    "Items Image"
-    "Items Image"
-    "Description Image"
-    "Treatment Image"
-    "Geolocation Button"
+    grid-template-areas:
+      "Title Title"
+      "Items Image"
+      "Items Image"
+      "Description Image"
+      "Treatment Image"
+      "Geolocation Button";
   }
   #Items {
     grid-area: Items;
