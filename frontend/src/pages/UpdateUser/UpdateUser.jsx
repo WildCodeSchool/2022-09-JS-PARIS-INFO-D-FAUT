@@ -158,7 +158,7 @@ const UpdateUser = () => {
           className="inputProfile"
           forId="cp"
           type="text"
-          field="Numéro de CP"
+          field="Numéro de CP *"
           onChange={(e) => setCp(e.target.value)}
           value={cp}
         />
@@ -172,7 +172,7 @@ const UpdateUser = () => {
           className="inputProfile"
           forId="mail"
           type="email"
-          field="Adresse mail"
+          field="Adresse mail *"
           onChange={(e) => setMail(e.target.value)}
           value={mail}
         />
@@ -197,7 +197,7 @@ const UpdateUser = () => {
         <InputPassword
           className="inputProfile"
           forId="mot"
-          field="Mot de passe"
+          field="Mot de passe *"
           onChange={(e) => setPassword(e.target.value)}
           autoComplete="on"
           value={password}
@@ -210,7 +210,7 @@ const UpdateUser = () => {
         <InputPassword
           className="inputProfile"
           forId="confirmation"
-          field="Confirmation du mot de passe"
+          field="Confirmation du mot de passe *"
           onChange={(e) => setSecondPassword(e.target.value)}
           autoComplete="on"
           value={secondPassword}
