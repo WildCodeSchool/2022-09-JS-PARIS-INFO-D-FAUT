@@ -30,6 +30,10 @@ const Ter = () => {
 
   const [image, setImage] = useState(null);
 
+  const [terRegex, setTerRegex] = useState(true);
+  const [descriptionRegex, setDescriptionRegex] = useState(true);
+  const [success, setSuccess] = useState(false);
+
   const handleUpload = async (e) => {
     e.preventDefault();
     try {
@@ -39,6 +43,7 @@ const Ter = () => {
       console.error(error);
     }
   };
+
   const nav = () => {
     navigate(`/home/${cp}`);
   };
@@ -62,40 +67,45 @@ const Ter = () => {
     latitude,
   };
 
-  const alertSuccess = () => {
-    alert("🏆 Votre défaut a bien été enregistré ! 😀 🏆");
-  };
-
   const regexTer = (value) => {
     return /^[0-9]{3,}/.test(value);
   };
 
   const verifyTerNumber = () => {
     if (regexTer(ter_number)) {
+      setTerRegex(true);
       return true;
     }
-    alert("Veuillez indiquer le TER concerné");
-    return false;
-  };
-  const verifyDescription = () => {
-    if (description !== "") {
-      return true;
-    }
-    alert("Veuillez décrire le défaut");
+    setTerRegex(false);
     return false;
   };
 
+  const verifyDescription = () => {
+    if (description !== "") {
+      setDescriptionRegex(true);
+      return true;
+    }
+    setDescriptionRegex(false);
+    return false;
+  };
+
+  const alertSuccess = () => {
+    setSuccess(true);
+  };
+
+  const duration = () => {
+    setTimeout(nav, 3000);
+  };
+
   const handleSubmit = () => {
-    if (verifyDescription(description) && verifyTerNumber(ter_number)) {
-      postDefaults(
-        data,
-        setTerNumber(0),
-        setDescription(""),
-        setPicture(""),
-        setImage(null),
-        alertSuccess(),
-        nav()
-      );
+    if (verifyTerNumber(ter_number) && verifyDescription(description)) {
+      postDefaults(data);
+      setTerNumber(0);
+      setDescription("");
+      setPicture("");
+      setImage(null);
+      alertSuccess();
+      duration();
     }
   };
 
@@ -117,8 +127,11 @@ const Ter = () => {
             value={ter_number}
             forId="ter"
             type="number"
-            field="Numéro de Ter"
-          />
+            field="Numéro de Ter *"
+          />{" "}
+          <p className="fieldFalse">
+            {terRegex === false ? "Veuillez indiquer le TER concerné" : ""}
+          </p>
         </div>
         <div className="inputTerTwo">
           <Textarea
@@ -127,7 +140,10 @@ const Ter = () => {
             value={description}
             forId="field"
             type="text"
-          />
+          />{" "}
+          <p className="fieldFalse">
+            {descriptionRegex === false ? "Veuillez décrire le défaut" : ""}
+          </p>
         </div>
         <div className="inputTerThree">
           <Input
@@ -203,7 +219,12 @@ const Ter = () => {
             onClick={(e) => handleSubmit(e)}
             fieldButton="ENVOYER"
             type="button"
-          />
+          />{" "}
+          <p className="fieldFalse">
+            {success === true
+              ? "🏆 Votre défaut a bien été enregistré ! 😀 🏆"
+              : ""}
+          </p>
         </div>
         <div className="line" />
       </form>

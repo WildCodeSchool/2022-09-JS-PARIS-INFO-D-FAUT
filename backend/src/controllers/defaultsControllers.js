@@ -49,7 +49,7 @@ const postDefaults = (req, res) => {
     });
 };
 
-const updateDefaults = (req, res) => {
+const updateDefault = (req, res) => {
   const id_default = parseInt(req.params.id_default);
   const {
     user_id,
@@ -118,6 +118,6 @@ const deleteDefaults = (req, res) => {
 module.exports = {
   getDefaults,
   postDefaults,
-  updateDefaults,
+  updateDefault,
   deleteDefaults,
 };

@@ -14,7 +14,7 @@ export const getDefaults = (setState) => {
     });
 };
 
-export const getDefaultsUserById = (id_user, setState) => {
+export const getAllDefaultsUser = (id_user, setState) => {
   const token = localStorage.getItem("token");
 
   const config = { headers: { Authorization: `Bearer ${token}` } };
@@ -27,98 +27,42 @@ export const getDefaultsUserById = (id_user, setState) => {
     });
 };
 
-export const getUserDefaultById = (
-  id_default,
-  setState
-  // setState2,
-  // setState3,
-  // setState4,
-  // setState5,
-  // setState6,
-  // setState7
-) => {
+export const getDefaultView = (id_default, setState) => {
   const token = localStorage.getItem("token");
 
   const config = { headers: { Authorization: `Bearer ${token}` } };
   axios
-    .get(`http://localhost:5000/updateDefaultsUser/${id_default}`, config)
+    .get(`http://localhost:5000/updateDefaultUser/${id_default}`, config)
     .then((response) => response.data)
     .then((data) => {
       setState(data);
-      // setState2(data.station);
-      // setState3(data.railway_track_number);
-      // setState4(data.ter_number);
-      // setState5(data.tgv_number);
-      // setState6(data.description);
-      // setState7(data.picture);
     });
 };
 
-export const postDefaults = async (
-  data,
-  setState2,
-  setState3,
-  setState4,
-  setState5
-) => {
+export const postDefaults = (data) => {
   const token = localStorage.getItem("token");
 
   const config = { headers: { Authorization: `Bearer ${token}` } };
 
-  const response = await axios.post(
-    `http://localhost:5000/defaults`,
-    data,
-    config
-  );
-  if (response.data.result) {
-    setState2();
-    setState3();
-    setState4();
-    setState5();
-  }
+  axios
+    .post(`http://localhost:5000/defaults`, data, config)
+    .then((response) => response.data);
 };
 
-export const deleteDefaults = async (id_default, setState) => {
+export const deleteDefaults = (id_default) => {
   const token = localStorage.getItem("token");
 
   const config = { headers: { Authorization: `Bearer ${token}` } };
-  const response = await axios.delete(
-    `http://localhost:5000/defaults/${id_default}`,
-    config
-  );
-  if (response.data.problem) {
-    setState();
-  }
+  axios
+    .delete(`http://localhost:5000/defaults/${id_default}`, config)
+    .then((response) => response.data);
 };
 
-export const updateDefaults = async (
-  id_default,
-  data,
-  setState
-  // setState2
-  // setState3,
-  // setState4,
-  // setState5,
-  // setState6,
-  // setState7,
-  // setState8
-) => {
+export const updateDefault = (id_default, data) => {
   const token = localStorage.getItem("token");
 
   const config = { headers: { Authorization: `Bearer ${token}` } };
-  const response = await axios.put(
-    `http://localhost:5000/defaults/${id_default}`,
-    data,
-    config
-  );
-  if (response.data.problem) {
-    setState();
-  }
-  // setState2();
-  // setState3(0);
-  // setState4(0);
-  // setState5(0);
-  // setState6("description");
-  // setState7("");
-  // setState8(null);
+  axios
+    .put(`http://localhost:5000/defaults/${id_default}`, data, config)
+    .then((response) => response.data);
 };

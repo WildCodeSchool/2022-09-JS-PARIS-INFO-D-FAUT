@@ -7,13 +7,21 @@ import { postCreateUser } from "../../services/axios/AxiosUsers";
 import profilelogo from "../../assets/profile.gif";
 
 const CreateUser = () => {
+  const navigate = useNavigate();
+
   const [cp, setCp] = useState("");
   const [mail, setMail] = useState("");
   const [phone_number, setPhoneNumber] = useState("");
   const [password, setPassword] = useState("");
   const [secondPassword, setSecondPassword] = useState("");
 
-  const navigate = useNavigate();
+  const [cpRegex, setCpRegex] = useState(true);
+  const [mailRegex, setMailRegex] = useState(true);
+  const [phoneRegex, setPhoneRegex] = useState(true);
+  const [passwordRegex, setPasswordRegex] = useState(true);
+  const [success, setSuccess] = useState(false);
+
+  const verifPasswords = password !== secondPassword;
 
   const nav = () => {
     navigate("/");
@@ -26,19 +34,16 @@ const CreateUser = () => {
     password,
   };
 
-  const verifPasswords = password !== secondPassword;
-
   const regexCP = (value) => {
     return /^[0-9]{7}[a-zA-Z]{1}$/.test(value);
   };
 
   const cpControl = () => {
     if (regexCP(cp)) {
+      setCpRegex(true);
       return true;
     }
-    alert(
-      "⚠️ Le numéro de CP doit etre composé de: \n 7 chiffres et une lettre"
-    );
+    setCpRegex(false);
     return false;
   };
 
@@ -48,9 +53,10 @@ const CreateUser = () => {
 
   const mailControl = () => {
     if (regexMail(mail)) {
+      setMailRegex(true);
       return true;
     }
-    alert("⚠️ le mail n'est pas valide ");
+    setMailRegex(false);
     return false;
   };
 
@@ -60,11 +66,10 @@ const CreateUser = () => {
 
   const phoneControl = () => {
     if (regexPhone(phone_number)) {
+      setPhoneRegex(true);
       return true;
     }
-    alert(
-      "⚠️ le numéro de téléphone n'est pas valide: \n il doit contenir 10 chiffres"
-    );
+    setPhoneRegex(false);
     return false;
   };
 
@@ -76,37 +81,32 @@ const CreateUser = () => {
 
   const passwordControl = () => {
     if (regexPassword(password)) {
+      setPasswordRegex(true);
       return true;
     }
-    alert(
-      "⚠️ le mot de passe n'est pas valide, il doit contenir au minimum: \n une majuscule, \n une minuscule, \n un chiffre \n un caractère spécial parmi : -.:;,+!?*$@%_ \n et doit contenir minimum 8 caractères"
-    );
+    setPasswordRegex(false);
     return false;
   };
 
   const alertSuccess = () => {
-    alert(
-      "🏆 Votre profil a bien été créé ! 😀 🏆 \n Vous pouvez maintenant vous connecter"
-    );
+    setSuccess(true);
   };
 
-  const handleSubmit = () => {
+  const duration = () => {
+    setTimeout(nav, 4000);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
     if (
       cpControl(cp) &&
       mailControl(mail) &&
       phoneControl(phone_number) &&
       passwordControl(password)
     ) {
-      postCreateUser(
-        data,
-        setCp,
-        setMail,
-        setPhoneNumber,
-        setPassword,
-        setSecondPassword,
-        alertSuccess(),
-        nav()
-      );
+      postCreateUser(data);
+      alertSuccess();
+      duration();
     }
   };
 
@@ -128,21 +128,31 @@ const CreateUser = () => {
               className="inputProfile"
               forId="cp"
               type="text"
-              field="Numéro de CP"
+              field="Numéro de CP *"
               onChange={(e) => setCp(e.target.value)}
               value={cp}
             />
+            <p className="fieldFalse">
+              {cpRegex === false
+                ? "⚠️ Le CP doit etre composé de 7 chiffres et une lettre"
+                : ""}
+            </p>
           </div>
+
           <div className="inputProfileTwo">
             <Input
               className="inputProfile"
               forId="mail"
               type="email"
-              field="Adresse mail"
+              field="Adresse mail *"
               onChange={(e) => setMail(e.target.value)}
               value={mail}
             />
+            <p className="fieldFalse">
+              {mailRegex === false ? "⚠️ le mail n'est pas valide " : ""}
+            </p>
           </div>
+
           <div className="inputProfileThree">
             <Input
               className="inputProfile"
@@ -155,6 +165,11 @@ const CreateUser = () => {
               minlength="10"
               maxlength="10"
             />
+            <p className="fieldFalse">
+              {phoneRegex === false
+                ? "⚠️ le téléphone n'est pas valide il doit contenir 10 chiffres"
+                : ""}
+            </p>
           </div>
           <div className="profile-logo">
             <img className="logoProfile" src={profilelogo} alt="Logo" />
@@ -163,18 +178,23 @@ const CreateUser = () => {
             <InputPassword
               className="inputProfile"
               forId="mot"
-              field="Mot de passe"
+              field="Mot de passe *"
               onChange={(e) => setPassword(e.target.value)}
               autoComplete="on"
               value={password}
               minlength="8"
             />
+            <p className="fieldFalse">
+              {passwordRegex === false
+                ? "⚠️ le mot de passe doit contenir au minimum: une majuscule, une minuscule, un chiffre, un caractère spécial parmi : -.:;,+!?*$@%_ et doit contenir minimum 8 caractères"
+                : ""}
+            </p>
           </div>
           <div className="inputProfileFive">
             <InputPassword
               className="inputProfile"
               forId="confirmation"
-              field="Confirmation du mot de passe"
+              field="Confirmation du mot de passe *"
               onChange={(e) => setSecondPassword(e.target.value)}
               autoComplete="on"
               value={secondPassword}
@@ -185,10 +205,15 @@ const CreateUser = () => {
             <Button
               classButton="sendCreate"
               disabled={verifPasswords}
-              onClick={(e) => handleSubmit(e)}
+              onClick={handleSubmit}
               fieldButton="ENVOYER"
               type="submit"
             />
+            <p className="fieldFalse">
+              {success === true
+                ? "🏆 Votre profil a bien été créé ! 😀 🏆 Vous pouvez maintenant vous connecter"
+                : ""}
+            </p>
           </div>
         </form>
 

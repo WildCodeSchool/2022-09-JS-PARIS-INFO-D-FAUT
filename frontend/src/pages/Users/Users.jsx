@@ -31,11 +31,11 @@ const Users = () => {
                 />
 
                 <Button
-                  name="delete"
-                  classButton="delete-button"
-                  champButton="Supprimer"
+                  name="deleteUser"
+                  classButton="deleteUser-button"
+                  fieldButton="Supprimer"
                   type="button"
-                  onClick={(e) => deleteUser(user.id_user, setUsers, e)}
+                  onClick={(e) => deleteUser(user.id_user, e)}
                 />
               </div>
             ))}

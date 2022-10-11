@@ -8,16 +8,16 @@
 }
 
 .loginUpdateUser,
-.admin0UpdateUser {
+.adminOffUpdateUser {
   display: none;
 }
 
-/* .profile_champ-container {
+.profile_field-container {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   height: 100%;
-} */
+}
 
 h1 {
   margin-top: 5px;
@@ -27,7 +27,7 @@ h1 {
   color: rgb(213, 43, 30);
 }
 
-.envoyer {
+.sendUpdateUser {
   color: rgb(213, 43, 30);
   font-weight: bold;
   border-radius: 20px;

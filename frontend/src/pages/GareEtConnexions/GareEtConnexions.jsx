@@ -30,6 +30,10 @@ const GareEtConnexions = () => {
 
   const [image, setImage] = useState(null);
 
+  const [stationRegex, setStationRegex] = useState(true);
+  const [descriptionRegex, setDescriptionRegex] = useState(true);
+  const [success, setSuccess] = useState(false);
+
   const handleUpload = async (e) => {
     e.preventDefault();
     try {
@@ -62,37 +66,41 @@ const GareEtConnexions = () => {
     latitude,
   };
 
-  const alertSuccess = () => {
-    alert("🏆 Votre défaut a bien été enregistré ! 😀 🏆");
+  const verifyStation = () => {
+    if (station !== "") {
+      setStationRegex(true);
+      return true;
+    }
+    setStationRegex(false);
+    return false;
   };
 
   const verifyDescription = () => {
     if (description !== "") {
+      setDescriptionRegex(true);
       return true;
     }
-    alert("Veuillez décrire le défaut");
+    setDescriptionRegex(false);
     return false;
   };
 
-  const verifyStation = () => {
-    if (station !== "") {
-      return true;
-    }
-    alert("Veuillez indiquer la gare");
-    return false;
+  const alertSuccess = () => {
+    setSuccess(true);
+  };
+
+  const duration = () => {
+    setTimeout(nav, 3000);
   };
 
   const handleSubmit = () => {
-    if (verifyDescription(description) && verifyStation(station)) {
-      postDefaults(
-        data,
-        setStation(""),
-        setDescription(""),
-        setPicture(""),
-        setImage(null),
-        alertSuccess(),
-        nav()
-      );
+    if (verifyStation(station) && verifyDescription(description)) {
+      postDefaults(data);
+      setStation("");
+      setDescription("");
+      setPicture("");
+      setImage(null);
+      alertSuccess();
+      duration();
     }
   };
 
@@ -113,8 +121,11 @@ const GareEtConnexions = () => {
             value={station}
             forId="gare"
             type="text"
-            field="Gare concernée"
+            field="Gare concernée *"
           />
+          <p className="fieldFalse">
+            {stationRegex === false ? "Veuillez indiquer la gare" : ""}
+          </p>
         </div>
         <div className="inputStationTwo">
           <Textarea
@@ -124,6 +135,9 @@ const GareEtConnexions = () => {
             forId="field"
             type="text"
           />
+          <p className="fieldFalse">
+            {descriptionRegex === false ? "Veuillez décrire le défaut" : ""}
+          </p>
         </div>
         <div className="inputStationThree">
           <Input
@@ -201,7 +215,12 @@ const GareEtConnexions = () => {
             onClick={(e) => handleSubmit(e)}
             fieldButton="ENVOYER"
             type="button"
-          />
+          />{" "}
+          <p className="fieldFalse">
+            {success === true
+              ? "🏆 Votre défaut a bien été enregistré ! 😀 🏆"
+              : ""}
+          </p>
         </div>
         <div className="line" />
       </form>

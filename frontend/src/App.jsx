@@ -8,10 +8,10 @@ import Reseau from "./pages/Reseau/Reseau";
 import Voyageurs from "./pages/Voyageurs/Voyageurs";
 import CreateUser from "./pages/CreateUser/CreateUser";
 import RegulationPage from "./pages/RegulationPage/RegulationPage";
-import Defaults from "./pages/Defaults/Defaults";
+import DefaultsAdmin from "./pages/DefaultsAdmin/DefaultsAdmin";
 import Login from "./pages/Login/Login";
 import DefaultsUser from "./pages/DefaultsUser/DefaultsUser";
-import UpdateDefaultsUser from "./pages/UpdateDefaultsUser/UpdateDefaultsUser";
+import UpdateDefaultUser from "./pages/UpdateDefaultUser/UpdateDefaultUser";
 import Page404 from "./pages/Page404/Page404";
 import Admin from "./pages/Admin/Admin";
 import AuthAdminGuard from "./services/AuthAdminGuar/AuthAdminGuard";
@@ -20,7 +20,7 @@ import Users from "./pages/Users/Users";
 import Profile from "./pages/Profile/Profile";
 import DefaultView from "./pages/DefaultView/DefaultView";
 import DefaultViewAdmin from "./pages/DefaultViewAdmin/DefaultViewAdmin";
-import UpdateDefaultsAdmin from "./pages/UpdateDefaultsAdmin/UpdateDefaultsAdmin";
+import UpdateDefaultAdmin from "./pages/UpdateDefaultAdmin/UpdateDefaultAdmin";
 import {
   UserContext,
   GeolocationContext,
@@ -70,7 +70,7 @@ function App() {
                   path="/admin/defaults"
                   element={
                     <AuthAdminGuard>
-                      <Defaults />
+                      <DefaultsAdmin />
                     </AuthAdminGuard>
                   }
                 />
@@ -91,18 +91,22 @@ function App() {
                     </AuthAdminGuard>
                   }
                 />
+                <Route
+                  path="/updateDefaultsAdmin/:cp_user/:id_default"
+                  element={
+                    <AuthAdminGuard>
+                      <UpdateDefaultAdmin />
+                    </AuthAdminGuard>
+                  }
+                />
 
                 <Route
                   path="/defaultsUser/:cp_user"
                   element={<DefaultsUser />}
                 />
                 <Route
-                  path="/updateDefaultsUser/:cp_user/:id_default"
-                  element={<UpdateDefaultsUser />}
-                />
-                <Route
-                  path="/updateDefaultsAdmin/:cp_user/:id_default"
-                  element={<UpdateDefaultsAdmin />}
+                  path="/updateDefaultUser/:cp_user/:id_default"
+                  element={<UpdateDefaultUser />}
                 />
                 <Route path="*" element={<Page404 />} />
               </Routes>

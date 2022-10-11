@@ -1,42 +1,39 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Footer, Header, DefaultCard, Button } from "../../components/index";
-import "./DefaultsUser.css";
+import "./DefaultsAdmin.css";
 import {
+  getDefaults,
   deleteDefaults,
-  getAllDefaultsUser,
 } from "../../services/axios/AxiosDefaults";
 import { UserContext } from "../../context/index";
+import { Footer, Header, Button, DefaultCard } from "../../components/index";
 
-const DefaultsUser = () => {
+const DefaultsAdmin = () => {
   const navigate = useNavigate();
+  const [problems, setProblems] = useState([]);
   const { user } = useContext(UserContext);
   const cp = user.cp;
-  const id_user = user.id_user;
-
-  const [problems, setProblems] = useState([]);
 
   const nav = () => {
     navigate(`/home/${cp}`);
   };
 
   useEffect(() => {
-    getAllDefaultsUser(id_user, setProblems);
+    getDefaults(setProblems);
   }, [problems]);
 
   return (
-    <div className="defaultsUser-container">
+    <div className="defaults-container">
       <Header
-        backCss="backDefaultsUser"
-        profileCss="profileDefaultsUser"
-        loginCss="loginDefaultsUser"
-        adminOffCss="loginOffDefaultsUser"
+        backCss="backDefaultsAdmin"
+        profileCss="profileDefaultsAdmin"
+        loginCss="loginDefaultsAdmin"
       />
-      <div className="problem-container">
+      <div className="defaults-display">
         {problems &&
           (problems.length === 0 ? (
             <>
-              <h1> Vous n'avez pas encore posté de défaut</h1>
+              <h1> Pas de défaut posté à ce jour</h1>
               <Button
                 name="home"
                 classButton="home-button"
@@ -48,7 +45,7 @@ const DefaultsUser = () => {
           ) : (
             <>
               {problems.map((problem) => (
-                <div key={problem.id_default}>
+                <div className="map-container" key={problem.id_default}>
                   <DefaultCard
                     stateContainer={problem.treatment}
                     station={problem.station}
@@ -60,23 +57,25 @@ const DefaultsUser = () => {
                     imgAlt="image du defaut"
                     latitude={problem.latitude}
                     longitude={problem.longitude}
-                    cp={problem.cp}
+                    id_default={problem.id_default}
                     traitement={problem.treatment}
+                    cp={problem.cp}
                   />
 
                   <Button
                     name="delete"
-                    classButton="delete-button-defaultUser"
+                    classButton="delete-button-defaultAdmin"
                     fieldButton="Supprimer"
                     type="button"
-                    onClick={(e) => deleteDefaults(problem.id_default, e)}
+                    onClick={(e) =>
+                      deleteDefaults(problem.id_default, setProblems, e)
+                    }
                   />
-
-                  <Link to={`/DefaultView/${cp}/${problem.id_default}`}>
+                  <Link to={`/DefaultViewAdmin/${cp}/${problem.id_default}`}>
                     <Button
                       name="update"
-                      classButton="update-button-defaultsUser"
-                      fieldButton="Mettre à jour"
+                      classButton="update-button-defaultAdmin"
+                      fieldButton="Modifier l'état"
                       type="button"
                     />
                   </Link>
@@ -90,4 +89,4 @@ const DefaultsUser = () => {
   );
 };
 
-export default DefaultsUser;
+export default DefaultsAdmin;

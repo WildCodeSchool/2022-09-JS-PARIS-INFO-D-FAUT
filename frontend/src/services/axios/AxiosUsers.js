@@ -1,21 +1,9 @@
 import axios from "axios";
 
-export const postCreateUser = async (
-  data,
-  setState2,
-  setState3,
-  setState4,
-  setState5,
-  setState6
-) => {
-  const response = await axios.post(`http://localhost:5000/createUser`, data);
-  if (response.data) {
-    setState2("");
-    setState3("");
-    setState4(0);
-    setState5("");
-    setState6("");
-  }
+export const postCreateUser = (data) => {
+  axios
+    .post(`http://localhost:5000/createUser`, data)
+    .then((response) => response.data);
 };
 
 export const getUsers = (setState) => {
@@ -25,34 +13,25 @@ export const getUsers = (setState) => {
   axios
     .get("http://localhost:5000/users", config)
     .then((response) => response.data)
-
     .then((data) => {
       setState(data.result);
     });
 };
 
-export const deleteUser = async (id_user, setState) => {
+export const deleteUser = (id_user) => {
   const token = localStorage.getItem("token");
 
   const config = { headers: { Authorization: `Bearer ${token}` } };
-  const response = await axios.delete(
-    `http://localhost:5000/users/${id_user}`,
-    config
-  );
-  if (response.data.users) {
-    setState();
-  }
+  axios
+    .delete(`http://localhost:5000/users/${id_user}`, config)
+    .then((response) => response.data);
 };
 
-export const updateUser = async (id_user, data, setState, setState2) => {
+export const updateUser = (id_user, data) => {
   const token = localStorage.getItem("token");
 
   const config = { headers: { Authorization: `Bearer ${token}` } };
-  const response = await axios.put(
-    `http://localhost:5000/users/${id_user}`,
-    data,
-    config
-  );
-  setState("");
-  setState2("");
+  axios
+    .put(`http://localhost:5000/users/${id_user}`, data, config)
+    .then((response) => response.data);
 };

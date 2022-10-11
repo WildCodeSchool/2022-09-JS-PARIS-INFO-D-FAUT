@@ -1,0 +1,47 @@
+.updateDefaultAdmin-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: rgb(0, 17, 43);
+}
+
+.profileUpdateDefaultAdmin,
+.loginUpdateDefaultAdmin,
+.adminOffUpdateDefaultAdmin {
+  display: none;
+}
+
+.updateDefaultAdmin_field-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
+  align-items: center;
+}
+
+.stationUpdateAdminOff,
+.terUpdateAdminOff,
+.tgvUpdateAdminOff,
+.trackUpdateAdminOff,
+.imageUpdateAdminOff,
+.geolocUpdateAdminOff {
+  display: none;
+}
+
+.imageUpdateAdminOn {
+  width: 30%;
+}
+
+h3,
+.textUpdateDefaultAdmin,
+.labelSelect {
+  color: white;
+}
+
+.flexLabelSelect {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

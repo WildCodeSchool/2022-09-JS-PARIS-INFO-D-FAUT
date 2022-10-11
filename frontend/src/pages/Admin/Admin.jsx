@@ -6,7 +6,6 @@ import { UserContext } from "../../context/index";
 
 const Admin = () => {
   const { user } = useContext(UserContext);
-  const id_user = user.id_user;
 
   return (
     <div className="admin-container">
@@ -20,7 +19,7 @@ const Admin = () => {
           <Button
             name="defaults"
             classButton="defaults-button"
-            champButton="voir les defauts"
+            fieldButton="voir les defauts"
             type="button"
           />
         </Link>
@@ -29,7 +28,7 @@ const Admin = () => {
           <Button
             name="users"
             classButton="users-button"
-            champButton="voir les users"
+            fieldButton="voir les users"
             type="button"
           />
         </Link>

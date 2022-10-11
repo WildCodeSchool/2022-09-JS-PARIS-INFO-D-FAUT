@@ -30,6 +30,10 @@ const Voyageurs = () => {
 
   const [image, setImage] = useState(null);
 
+  const [tgvRegex, setTgvRegex] = useState(true);
+  const [descriptionRegex, setDescriptionRegex] = useState(true);
+  const [success, setSuccess] = useState(false);
+
   const handleUpload = async (e) => {
     e.preventDefault();
     try {
@@ -39,6 +43,7 @@ const Voyageurs = () => {
       console.error(error);
     }
   };
+
   const nav = () => {
     navigate(`/home/${cp}`);
   };
@@ -62,40 +67,44 @@ const Voyageurs = () => {
     latitude,
   };
 
-  const alertSuccess = () => {
-    alert("🏆 Votre défaut a bien été enregistré ! 😀 🏆");
-  };
-
   const regexTgv = (value) => {
     return /^[0-9]{3,}/.test(value);
   };
 
   const verifyTgvNumber = () => {
     if (regexTgv(tgv_number)) {
+      setTgvRegex(true);
       return true;
     }
-    alert("Veuillez indiquer le TGV concerné");
-    return false;
-  };
-  const verifyDescription = () => {
-    if (description !== "") {
-      return true;
-    }
-    alert("Veuillez décrire le défaut");
+    setTgvRegex(false);
     return false;
   };
 
+  const verifyDescription = () => {
+    if (description !== "") {
+      setDescriptionRegex(true);
+      return true;
+    }
+    setDescriptionRegex(false);
+    return false;
+  };
+
+  const alertSuccess = () => {
+    setSuccess(true);
+  };
+
+  const duration = () => {
+    setTimeout(nav, 3000);
+  };
   const handleSubmit = () => {
-    if (verifyDescription(description) && verifyTgvNumber(tgv_number)) {
-      postDefaults(
-        data,
-        setTgvNumber(0),
-        setDescription(""),
-        setPicture(""),
-        setImage(null),
-        alertSuccess(),
-        nav()
-      );
+    if (verifyTgvNumber(tgv_number) && verifyDescription(description)) {
+      postDefaults(data);
+      setTgvNumber(0);
+      setDescription("");
+      setPicture("");
+      setImage(null);
+      alertSuccess();
+      duration();
     }
   };
 
@@ -117,8 +126,11 @@ const Voyageurs = () => {
             value={tgv_number}
             forId="tgv"
             type="number"
-            field="Numéro du train"
+            field="Numéro du train *"
           />
+          <p className="fieldFalse">
+            {tgvRegex === false ? "Veuillez indiquer le TGV concerné" : ""}
+          </p>
         </div>
         <div className="inputVoyageurTwo">
           <Textarea
@@ -128,6 +140,9 @@ const Voyageurs = () => {
             forId="field"
             type="text"
           />
+          <p className="fieldFalse">
+            {descriptionRegex === false ? "Veuillez décrire le défaut" : ""}
+          </p>
         </div>
         <div className="inputVoyageurThree">
           <Input
@@ -204,6 +219,11 @@ const Voyageurs = () => {
             fieldButton="ENVOYER"
             type="button"
           />
+          <p className="fieldFalse">
+            {success === true
+              ? "🏆 Votre défaut a bien été enregistré ! 😀 🏆"
+              : ""}
+          </p>
         </div>
         <div className="line" />
       </form>
