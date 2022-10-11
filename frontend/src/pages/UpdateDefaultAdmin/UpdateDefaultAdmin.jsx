@@ -29,13 +29,25 @@ const UpdateDefaultAdmin = () => {
 
   const [problem, setProblem] = useState([]);
 
+  const [success, setSuccess] = useState(false);
+
   const [treatment, setTreatment] = useState(treatmentDefault);
+
   const nav = () => {
     navigate("/admin/defaults");
   };
+
   useEffect(() => {
     getDefaultView(id_default, setProblem);
   }, []);
+
+  const alertSuccess = () => {
+    setSuccess(true);
+  };
+
+  const duration = () => {
+    setTimeout(nav, 3000);
+  };
 
   const data = {
     user_id,
@@ -48,10 +60,6 @@ const UpdateDefaultAdmin = () => {
     longitude,
     latitude,
     treatment,
-  };
-
-  const alertSuccess = () => {
-    alert("🏆 L'état du traitement a bien été modifié ! 😀 🏆");
   };
 
   return (
@@ -127,13 +135,18 @@ const UpdateDefaultAdmin = () => {
               data,
               setProblem,
               alertSuccess(),
-              nav(),
+              duration(),
               e
             )
           }
           fieldButton="ENVOYER"
           type="button"
         />
+        <p className="fieldFalse">
+          {success === true
+            ? "🏆 L'état du traitement a bien été modifié ! 😀 🏆"
+            : ""}
+        </p>
       </form>
       <Footer />
     </div>

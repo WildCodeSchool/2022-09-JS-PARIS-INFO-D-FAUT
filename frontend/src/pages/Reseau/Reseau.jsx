@@ -30,6 +30,10 @@ const Reseau = () => {
 
   const [image, setImage] = useState(null);
 
+  const [railwayRegex, setRailwayRegex] = useState(true);
+  const [descriptionRegex, setDescriptionRegex] = useState(true);
+  const [success, setSuccess] = useState(false);
+
   const handleUpload = async (e) => {
     e.preventDefault();
     try {
@@ -39,10 +43,20 @@ const Reseau = () => {
       console.error(error);
     }
   };
+
   const nav = () => {
     navigate(`/home/${cp}`);
   };
-
+  const [zoom, setZoom] = useState(false);
+  const handleClickOpen = () => {
+    setZoom(!zoom);
+  };
+  const onKeyPressHandler = () => {
+    setZoom(false);
+  };
+  const closePopup = () => {
+    setZoom(false);
+  };
   const data = {
     user_id,
     railway_track_number,
@@ -52,39 +66,45 @@ const Reseau = () => {
     latitude,
   };
 
-  const alertSuccess = () => {
-    alert("🏆 Votre défaut a bien été enregistré ! 😀 🏆");
-  };
   const regexRailway = (value) => {
     return /^[0-9]{3,}/.test(value);
   };
 
   const verifyRailway = () => {
     if (regexRailway(railway_track_number)) {
+      setRailwayRegex(true);
       return true;
     }
-    alert("Veuillez indiquer le numéro de ligne concernée");
-    return false;
-  };
-  const verifyDescription = () => {
-    if (description !== "") {
-      return true;
-    }
-    alert("Veuillez décrire le défaut");
+    setRailwayRegex(false);
     return false;
   };
 
+  const verifyDescription = () => {
+    if (description !== "") {
+      setDescriptionRegex(true);
+      return true;
+    }
+    setDescriptionRegex(false);
+    return false;
+  };
+
+  const alertSuccess = () => {
+    setSuccess(true);
+  };
+
+  const duration = () => {
+    setTimeout(nav, 3000);
+  };
+
   const handleSubmit = () => {
-    if (verifyDescription(description) && verifyRailway(railway_track_number)) {
-      postDefaults(
-        data,
-        setRailwayNumber(0),
-        setDescription(""),
-        setPicture(""),
-        setImage(null),
-        alertSuccess(),
-        nav()
-      );
+    if (verifyRailway(railway_track_number) && verifyDescription(description)) {
+      postDefaults(data);
+      setRailwayNumber(0);
+      setDescription("");
+      setPicture("");
+      setImage(null);
+      alertSuccess();
+      duration();
     }
   };
 
@@ -99,68 +119,119 @@ const Reseau = () => {
 
       <form className="reseauField-container">
         <h1>RESEAU</h1>
-
-        <Input
-          className="inputReseau"
-          onChange={(e) => setRailwayNumber(e.target.value)}
-          value={railway_track_number}
-          forId="ligne"
-          type="number"
-          field="Numéro de ligne / Emprise"
-        />
-        <Textarea
-          className="textReseau"
-          onChange={(e) => setDescription(e.target.value)}
-          value={description}
-          forId="field"
-          type="text"
-        />
-        <Input
-          className="inputReseauImg"
-          onChange={(e) => setImage(e.target.files[0])}
-          forId="file"
-          type="file"
-          accept=".png, .jpg, .jpeg, .gif"
-          field="Joindre une photographie"
-        />
-        <Button
-          classButton="reseauUpload"
-          type="button"
-          name="button"
-          onClick={handleUpload}
-          fieldButton="Télécharger"
-        />
-
-        <br />
-
-        <img
-          className={picture !== "" ? "pictureReseauOn" : "pictureReseauOff "}
-          src={picture}
-          alt="image"
-        />
-
-        <Input
-          className="inputReseau"
-          forId="file"
-          onChange={(e) => setLatitude(e.target.value)}
-          type="text"
-          value={latitude}
-          field="Latitude"
-        />
-        <Input
-          className="inputReseau"
-          forId="fileTwo"
-          onChange={(e) => setLongitude(e.target.value)}
-          type="text"
-          value={longitude}
-          field="Longitude"
-        />
-        <Button
-          classButton="sendReseau"
-          onClick={(e) => handleSubmit(e)}
-          fieldButton="ENVOYER"
-          type="button"
-        />
+        <div className="inputReseauOne">
+          <Input
+            className="inputReseau"
+            onChange={(e) => setRailwayNumber(e.target.value)}
+            value={railway_track_number}
+            forId="ligne"
+            type="number"
+            field="Numéro de ligne / Emprise *"
+          />
+          <p className="fieldFalse">
+            {railwayRegex === false
+              ? "Veuillez indiquer le numéro de ligne concernée"
+              : ""}
+          </p>
+        </div>
+        <div className="inputReseauTwo">
+          <Textarea
+            className="textReseau"
+            onChange={(e) => setDescription(e.target.value)}
+            value={description}
+            forId="field"
+            type="text"
+          />
+          <p className="fieldFalse">
+            {descriptionRegex === false ? "Veuillez décrire le défaut" : ""}
+          </p>
+        </div>
+        <div className="inputReseauThree">
+          <Input
+            className="inputReseauImg"
+            onChange={(e) => setImage(e.target.files[0])}
+            forId="file"
+            type="file"
+            accept=".png, .jpg, .jpeg, .gif"
+            field="Joindre une photographie"
+          />
+        </div>
+        <div className="inputReseauFour">
+          <Button
+            classButton="reseauUpload"
+            type="button"
+            name="button"
+            onClick={handleUpload}
+            fieldButton="Télécharger"
+          />
+        </div>
+        <div className="pictureDefault">
+          <img
+            className={picture !== "" ? "pictureReseauOn" : "pictureReseauOff "}
+            src={picture}
+            alt="image"
+            onClick={handleClickOpen}
+            onKeyPress={onKeyPressHandler}
+            role="presentation"
+          />
+          <div>
+            {zoom ? (
+              <div className="popup">
+                <div className="popUpHeader">
+                  <h5
+                    onClick={closePopup}
+                    onKeyPress={onKeyPressHandler}
+                    role="presentation"
+                  >
+                    X
+                  </h5>
+                </div>
+                <div className="popupBody">
+                  <img
+                    className="pictureReseauPopup"
+                    src={picture}
+                    alt="image"
+                  />
+                </div>
+                <div className="popUpfooter"> </div>
+              </div>
+            ) : (
+              ""
+            )}
+          </div>
+        </div>
+        <div className="latitudeLongitude">
+          <Input
+            className="inputLatitudeLongitude"
+            forId="file"
+            onChange={(e) => setLatitude(e.target.value)}
+            type="text"
+            value={latitude}
+            field="Latitude"
+          />
+          <Input
+            className="inputLatitudeLongitude"
+            forId="fileTwo"
+            onChange={(e) => setLongitude(e.target.value)}
+            type="text"
+            value={longitude}
+            field="Longitude"
+          />
+        </div>
+        <div className="inputReseauFive">
+          <Button
+            classButton="sendReseau"
+            onClick={(e) => handleSubmit(e)}
+            fieldButton="ENVOYER"
+            type="button"
+          />
+          <p className="fieldFalse">
+            {success === true
+              ? "🏆 Votre défaut a bien été enregistré ! 😀 🏆"
+              : ""}
+          </p>
+        </div>
+        <div className="line" />
       </form>
 
       <Footer />

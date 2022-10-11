@@ -69,9 +69,7 @@ const DefaultsUser = () => {
                     classButton="delete-button-defaultUser"
                     fieldButton="Supprimer"
                     type="button"
-                    onClick={(e) =>
-                      deleteDefaults(problem.id_default, setProblems, e)
-                    }
+                    onClick={(e) => deleteDefaults(problem.id_default, e)}
                   />
 
                   <Link to={`/DefaultView/${cp}/${problem.id_default}`}>

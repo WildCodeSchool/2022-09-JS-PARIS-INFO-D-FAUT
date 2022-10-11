@@ -30,6 +30,10 @@ const Ter = () => {
 
   const [image, setImage] = useState(null);
 
+  const [terRegex, setTerRegex] = useState(true);
+  const [descriptionRegex, setDescriptionRegex] = useState(true);
+  const [success, setSuccess] = useState(false);
+
   const handleUpload = async (e) => {
     e.preventDefault();
     try {
@@ -39,8 +43,19 @@ const Ter = () => {
       console.error(error);
     }
   };
+
   const nav = () => {
     navigate(`/home/${cp}`);
+  };
+  const [zoom, setZoom] = useState(false);
+  const handleClickOpen = () => {
+    setZoom(!zoom);
+  };
+  const onKeyPressHandler = () => {
+    setZoom(false);
+  };
+  const closePopup = () => {
+    setZoom(false);
   };
 
   const data = {
@@ -52,40 +67,45 @@ const Ter = () => {
     latitude,
   };
 
-  const alertSuccess = () => {
-    alert("🏆 Votre défaut a bien été enregistré ! 😀 🏆");
-  };
-
   const regexTer = (value) => {
     return /^[0-9]{3,}/.test(value);
   };
 
   const verifyTerNumber = () => {
     if (regexTer(ter_number)) {
+      setTerRegex(true);
       return true;
     }
-    alert("Veuillez indiquer le TER concerné");
-    return false;
-  };
-  const verifyDescription = () => {
-    if (description !== "") {
-      return true;
-    }
-    alert("Veuillez décrire le défaut");
+    setTerRegex(false);
     return false;
   };
 
+  const verifyDescription = () => {
+    if (description !== "") {
+      setDescriptionRegex(true);
+      return true;
+    }
+    setDescriptionRegex(false);
+    return false;
+  };
+
+  const alertSuccess = () => {
+    setSuccess(true);
+  };
+
+  const duration = () => {
+    setTimeout(nav, 3000);
+  };
+
   const handleSubmit = () => {
-    if (verifyDescription(description) && verifyTerNumber(ter_number)) {
-      postDefaults(
-        data,
-        setTerNumber(0),
-        setDescription(""),
-        setPicture(""),
-        setImage(null),
-        alertSuccess(),
-        nav()
-      );
+    if (verifyTerNumber(ter_number) && verifyDescription(description)) {
+      postDefaults(data);
+      setTerNumber(0);
+      setDescription("");
+      setPicture("");
+      setImage(null);
+      alertSuccess();
+      duration();
     }
   };
 
@@ -100,68 +120,113 @@ const Ter = () => {
 
       <form className="terField-container">
         <h1> TER </h1>
-
-        <Input
-          className="inputTer"
-          onChange={(e) => setTerNumber(e.target.value)}
-          value={ter_number}
-          forId="ter"
-          type="number"
-          field="Numéro de Ter"
-        />
-        <Textarea
-          className="textTer"
-          onChange={(e) => setDescription(e.target.value)}
-          value={description}
-          forId="field"
-          type="text"
-        />
-
-        <Input
-          className="inputTerImg"
-          onChange={(e) => setImage(e.target.files[0])}
-          forId="file"
-          type="file"
-          accept=".png, .jpg, .jpeg, .gif"
-          field="Joindre une photographie"
-        />
-        <Button
-          classButton="terUpload"
-          type="button"
-          name="button"
-          onClick={handleUpload}
-          fieldButton="Télécharger"
-        />
-        <br />
-
-        <img
-          className={picture !== "" ? "pictureTerOn" : "pictureTerOff "}
-          src={picture}
-          alt="image"
-        />
-
-        <Input
-          className="inputTer"
-          forId="file"
-          onChange={(e) => setLatitude(e.target.value)}
-          type="text"
-          value={latitude}
-          field="Latitude"
-        />
-        <Input
-          className="inputTer"
-          forId="fileTwo"
-          onChange={(e) => setLongitude(e.target.value)}
-          type="text"
-          value={longitude}
-          field="Longitude"
-        />
-        <Button
-          classButton="sendTer"
-          onClick={(e) => handleSubmit(e)}
-          fieldButton="ENVOYER"
-          type="button"
-        />
+        <div className="inputTerOne">
+          <Input
+            className="inputTer"
+            onChange={(e) => setTerNumber(e.target.value)}
+            value={ter_number}
+            forId="ter"
+            type="number"
+            field="Numéro de Ter *"
+          />{" "}
+          <p className="fieldFalse">
+            {terRegex === false ? "Veuillez indiquer le TER concerné" : ""}
+          </p>
+        </div>
+        <div className="inputTerTwo">
+          <Textarea
+            className="textTer"
+            onChange={(e) => setDescription(e.target.value)}
+            value={description}
+            forId="field"
+            type="text"
+          />{" "}
+          <p className="fieldFalse">
+            {descriptionRegex === false ? "Veuillez décrire le défaut" : ""}
+          </p>
+        </div>
+        <div className="inputTerThree">
+          <Input
+            className="inputTerImg"
+            onChange={(e) => setImage(e.target.files[0])}
+            forId="file"
+            type="file"
+            accept=".png, .jpg, .jpeg, .gif"
+            field="Joindre une photographie"
+          />
+        </div>
+        <div className="inputTerFour">
+          <Button
+            classButton="terUpload"
+            type="button"
+            name="button"
+            onClick={handleUpload}
+            fieldButton="Télécharger"
+          />
+        </div>
+        <div className="pictureDefault">
+          <img
+            className={picture !== "" ? "pictureTerOn" : "pictureTerOff "}
+            src={picture}
+            alt="image"
+            onClick={handleClickOpen}
+            onKeyPress={onKeyPressHandler}
+            role="presentation"
+          />
+          <div>
+            {zoom ? (
+              <div className="popup">
+                <div className="popUpHeader">
+                  <h5
+                    onClick={closePopup}
+                    onKeyPress={onKeyPressHandler}
+                    role="presentation"
+                  >
+                    X
+                  </h5>
+                </div>
+                <div className="popupBody">
+                  <img className="pictureTerPopup" src={picture} alt="image" />
+                </div>
+                <div className="popUpfooter"> </div>
+              </div>
+            ) : (
+              ""
+            )}
+          </div>
+        </div>
+        <div className="latitudeLongitude">
+          <Input
+            className="inputLatitudeLongitude"
+            forId="file"
+            onChange={(e) => setLatitude(e.target.value)}
+            type="text"
+            value={latitude}
+            field="Latitude"
+          />
+          <Input
+            className="inputLatitudeLongitude"
+            forId="fileTwo"
+            onChange={(e) => setLongitude(e.target.value)}
+            type="text"
+            value={longitude}
+            field="Longitude"
+          />
+        </div>
+        <div className="inputTerFive">
+          <Button
+            classButton="sendTer"
+            onClick={(e) => handleSubmit(e)}
+            fieldButton="ENVOYER"
+            type="button"
+          />{" "}
+          <p className="fieldFalse">
+            {success === true
+              ? "🏆 Votre défaut a bien été enregistré ! 😀 🏆"
+              : ""}
+          </p>
+        </div>
+        <div className="line" />
       </form>
 
       <Footer />

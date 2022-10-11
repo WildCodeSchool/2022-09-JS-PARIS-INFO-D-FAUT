@@ -5,7 +5,7 @@ export const Textarea = ({ className, onChange, forId, value, type }) => {
   return (
     <div className="textarea-container">
       <label className="input-text" htmlFor={forId}>
-        Description de l'anomalie
+        Description de l'anomalie *
       </label>
       <textarea
         className={className}

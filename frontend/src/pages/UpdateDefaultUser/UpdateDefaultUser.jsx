@@ -42,6 +42,8 @@ const UpdateDefaultUser = () => {
   const [longitude, setLongitude] = useState(longitudeDefault);
   const [image, setImage] = useState(null);
 
+  const [success, setSuccess] = useState(false);
+
   const handleUpload = async (e) => {
     e.preventDefault();
     try {
@@ -56,7 +58,11 @@ const UpdateDefaultUser = () => {
   };
 
   const alertSuccess = () => {
-    alert("🏆 Votre défaut a bien été modifié ! 😀 🏆");
+    setSuccess(true);
+  };
+
+  const duration = () => {
+    setTimeout(nav, 3000);
   };
 
   const data = {
@@ -89,7 +95,7 @@ const UpdateDefaultUser = () => {
           value={station}
           forId="gare"
           type="text"
-          field="Gare concernée"
+          field="Gare concernée *"
         />
         <Input
           labelCss={
@@ -102,7 +108,7 @@ const UpdateDefaultUser = () => {
           value={railway_track_number}
           forId="ligne"
           type="number"
-          field="Numéro de ligne / Emprise"
+          field="Numéro de ligne / Emprise *"
         />
         <Input
           labelCss={ter_number === null ? "terUpdateOff" : "terUpdateOn"}
@@ -111,7 +117,7 @@ const UpdateDefaultUser = () => {
           value={ter_number}
           forId="ter"
           type="number"
-          field="Numéro de TER"
+          field="Numéro de TER *"
         />
         <Input
           labelCss={tgv_number === null ? "tgvUpdateOff" : "tgvUpdateOn"}
@@ -120,7 +126,7 @@ const UpdateDefaultUser = () => {
           value={tgv_number}
           forId="tgv"
           type="number"
-          field="Numéro du TGV"
+          field="Numéro du TGV *"
         />
         <Textarea
           className="textUpdateDescription"
@@ -181,7 +187,6 @@ const UpdateDefaultUser = () => {
             updateDefault(
               id_default,
               data,
-              setProblem,
               setStation("gare :"),
               setRailwayNumber(0),
               setTerNumber(0),
@@ -190,13 +195,16 @@ const UpdateDefaultUser = () => {
               setPicture(""),
               setImage(null),
               alertSuccess(),
-              nav(),
+              duration(),
               e
             )
           }
           fieldButton="ENVOYER"
           type="button"
         />
+        <p className="fieldFalse">
+          {success === true ? "🏆 Votre défaut a bien été modifié ! 😀 🏆" : ""}
+        </p>
       </form>
       <Footer />
     </div>

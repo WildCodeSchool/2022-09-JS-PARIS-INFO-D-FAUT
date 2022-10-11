@@ -18,7 +18,7 @@ export const Header = ({
   logoutCss,
   adminOffCss,
 }) => {
-  const { user } = useContext(UserContext);
+  const { user, setUser } = useContext(UserContext);
   const cp = user.cp;
   const admin = user.admin;
 
