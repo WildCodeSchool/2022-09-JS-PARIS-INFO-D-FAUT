@@ -75,32 +75,6 @@
     gap: 20px;
     padding-top: 10px;
   }
-  /* .delete-button-defaultUser{
-    color: rgb(213, 43, 30);
-    font-weight: bold;
-    border-radius: 20px 0px 0px 20px ;
-    height: 1.5em;
-  }
-  .delete-button-defaultUser:hover{
-    background-color: rgb(213, 43, 30);
-    color: white;
-    height: 1.5em;
-    width: 8rem;
-  }
-  
-  .update-button-defaultsUser{
-    color: rgb(213, 43, 30);
-    font-weight: bold;
-    border-radius: 0px 20px 20px 0px ;
-    height: 1.5em;
-    
-  }
-  .update-button-defaultsUser:hover{
-  background-color: rgb( 255,182,18);
-  color: white;
-  height: 1.5em;
-  width: 8rem;
-  } */
 }
 @media (min-width: 968px) {
   .problem-container {

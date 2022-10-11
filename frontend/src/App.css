@@ -18,3 +18,14 @@
   color: rgb(213, 43, 30);
   font-size: 12px;
 }
+@media (min-width: 900px) {
+.line {
+  grid-column: 2;
+  grid-row: 2/5;
+  background-color: rgb(213, 43, 30);
+  width: 2px;
+  height: 100%;
+  margin: auto;
+  animation: scale-in-ver-center 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+    1.2s both;
+}}

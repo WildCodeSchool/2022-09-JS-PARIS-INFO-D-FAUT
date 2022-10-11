@@ -78,7 +78,7 @@ h1 {
     width: auto;
   }
   .textVoyageurs {
-    height: 30vh;
+    height: 28vh;
     width: 400px;
   }
   .latitudeLongitude {
@@ -145,16 +145,7 @@ h1 {
     animation: scale-in-ver-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.9s
       both;
   }
-  .line {
-    grid-column: 2;
-    grid-row: 2/5;
-    background-color: rgb(213, 43, 30);
-    width: 3px;
-    height: 100%;
-    margin: auto;
-    animation: scale-in-ver-center 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)
-      1.2s both;
-  }
+
   @keyframes slide-in-fwd-center {
     0% {
       -webkit-transform: translateZ(-1400px);

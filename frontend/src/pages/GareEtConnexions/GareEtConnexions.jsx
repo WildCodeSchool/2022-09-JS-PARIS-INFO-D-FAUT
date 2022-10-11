@@ -169,28 +169,8 @@ const GareEtConnexions = () => {
             onKeyPress={onKeyPressHandler}
             role="presentation"
           />
-          <div>
-            {zoom ? (
-              <div className="popup">
-                <div className="popUpHeader">
-                  <h5
-                    onClick={closePopup}
-                    onKeyPress={onKeyPressHandler}
-                    role="presentation"
-                  >
-                    X
-                  </h5>
-                </div>
-                <div className="popupBody">
-                  <img className="pictureTerPopup" src={picture} alt="image" />
-                </div>
-                <div className="popUpfooter"> </div>
-              </div>
-            ) : (
-              ""
-            )}
-          </div>
         </div>
+
         <div className="latitudeLongitude">
           <Input
             className="inputLatitudeLongitude"
@@ -223,6 +203,31 @@ const GareEtConnexions = () => {
           </p>
         </div>
         <div className="line" />
+        <div>
+          {zoom ? (
+            <div className="popup">
+              <div className="popUpHeader">
+                <h5
+                  onClick={closePopup}
+                  onKeyPress={onKeyPressHandler}
+                  role="presentation"
+                >
+                  X
+                </h5>
+              </div>
+              <div className="popupBody">
+                <img
+                  className="pictureStationPopup"
+                  src={picture}
+                  alt="image"
+                />
+              </div>
+              <div className="popUpfooter"> </div>
+            </div>
+          ) : (
+            ""
+          )}
+        </div>
       </form>
       <Footer />
     </div>

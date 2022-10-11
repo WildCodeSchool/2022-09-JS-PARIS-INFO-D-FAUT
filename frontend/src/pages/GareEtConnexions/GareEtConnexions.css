@@ -106,11 +106,6 @@ h2 {
     width: 300px;
     height: 35px;
   }
-  .textStation {
-    width: 35rem;
-    height: 20vh;
-    font-size: medium;
-  }
 }
 .popup {
   height: 70%;
@@ -144,7 +139,7 @@ h2 {
     width: auto;
   }
   .textStation {
-    height: 30vh;
+    height: 28vh;
     width: 400px;
   }
   .latitudeLongitude {
@@ -211,16 +206,7 @@ h2 {
     animation: scale-in-ver-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.9s
       both;
   }
-  .lineVoyageurs {
-    grid-column: 2;
-    grid-row: 2/5;
-    background-color: rgb(213, 43, 30);
-    width: 2px;
-    height: 100%;
-    margin: auto;
-    animation: scale-in-ver-center 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)
-      1.2s both;
-  }
+
   @keyframes scale-in-ver-bottom {
     0% {
       -webkit-transform: scaleY(0);
