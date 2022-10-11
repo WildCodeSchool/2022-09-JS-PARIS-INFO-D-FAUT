@@ -21,6 +21,8 @@ const CreateUser = () => {
   const [passwordRegex, setPasswordRegex] = useState(true);
   const [success, setSuccess] = useState(false);
 
+  const [errorConnect, setErrorConnect] = useState(false);
+
   const verifPasswords = password !== secondPassword;
 
   const nav = () => {
@@ -92,7 +94,7 @@ const CreateUser = () => {
     setSuccess(true);
   };
 
-  const duration = () => {
+  const durationNav = () => {
     setTimeout(nav, 4000);
   };
 
@@ -104,9 +106,13 @@ const CreateUser = () => {
       phoneControl(phone_number) &&
       passwordControl(password)
     ) {
-      postCreateUser(data);
-      alertSuccess();
-      duration();
+      postCreateUser(
+        data,
+        setErrorConnect,
+        alertSuccess,
+        durationNav,
+        setErrorConnect
+      );
     }
   };
 
@@ -212,6 +218,11 @@ const CreateUser = () => {
             <p className="fieldFalse">
               {success === true
                 ? "🏆 Votre profil a bien été créé ! 😀 🏆 Vous pouvez maintenant vous connecter"
+                : ""}
+            </p>
+            <p className="fieldFalse">
+              {errorConnect === true
+                ? "Le numero de CP ou le mail existe déja"
                 : ""}
             </p>
           </div>

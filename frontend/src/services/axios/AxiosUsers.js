@@ -1,9 +1,43 @@
 import axios from "axios";
 
-export const postCreateUser = (data) => {
+export const postCreateUser = (
+  data,
+  setErrorConnectFalse,
+  alertSuccess,
+  durationNav,
+  setErrorConnect
+) => {
   axios
     .post(`http://localhost:5000/createUser`, data)
-    .then((response) => response.data);
+    .then((response) => {
+      setErrorConnectFalse(false);
+      alertSuccess();
+      durationNav();
+    })
+    .catch((error) => {
+      setErrorConnect(true);
+    });
+};
+
+export const postUser = (
+  data,
+  setErrorConnectFalse,
+  setUser,
+  durationNav,
+  setErrorConnect
+) => {
+  axios
+    .post(`http://localhost:5000/login`, data)
+    .then((response) => {
+      const token = response.data.token;
+      localStorage.setItem("token", token);
+      setErrorConnectFalse(false);
+      setUser(response.data.user);
+      durationNav();
+    })
+    .catch((error) => {
+      setErrorConnect(true);
+    });
 };
 
 export const getUsers = (setState) => {

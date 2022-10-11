@@ -5,6 +5,7 @@ import { UserContext } from "../../context/index";
 import { Header, Footer, Input, Button } from "../../components/index";
 import { InputPassword } from "../../components/Input/InputPassword";
 import "./Login.css";
+import { postUser } from "../../services/axios/AxiosUsers";
 
 const Login = () => {
   const { user, setUser } = useContext(UserContext);
@@ -46,26 +47,24 @@ const Login = () => {
     return false;
   };
 
-  const postUser = (e) => {
+  const data = {
+    cp,
+    password,
+  };
+
+  const nav = () => {
+    navigate(`/home/${cp}`);
+  };
+
+  const durationNav = () => {
+    setTimeout(nav, 1000);
+  };
+
+  const handleSubmit = (e) => {
     e.preventDefault();
-    const data = {
-      cp,
-      password,
-    };
 
     if (cpControl(cp) && passwordControl(password)) {
-      axios
-        .post(`http://localhost:5000/login`, data)
-        .then((response) => {
-          const token = response.data.token;
-          localStorage.setItem("token", token);
-          setUser(response.data.user);
-          setPassword("");
-          navigate(`/home/${cp}`);
-        })
-        .catch((error) => {
-          setErrorConnect(true);
-        });
+      postUser(data, setErrorConnect, setUser, durationNav, setErrorConnect);
     }
   };
 
@@ -124,7 +123,7 @@ const Login = () => {
 
             <Button
               classButton="send"
-              onClick={postUser}
+              onClick={handleSubmit}
               fieldButton="CONNEXION"
               type="submit"
             />
