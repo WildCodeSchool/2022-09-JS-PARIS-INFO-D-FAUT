@@ -32,11 +32,6 @@
   border-radius: 20%;
 }
 
-.fieldFalse {
-  color: rgb(213, 43, 30);
-  font-size: 12px;
-}
-
 .sendCreate {
   color: rgb(213, 43, 30);
   font-weight: bold;

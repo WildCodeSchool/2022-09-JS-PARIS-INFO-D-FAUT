@@ -15,6 +15,7 @@ import { updateUser } from "../../services/axios/AxiosUsers";
 
 const UpdateUser = () => {
   const navigate = useNavigate();
+
   const { user } = useContext(UserContext);
   const id_user = user.id_user;
   const cpDefault = user.cp;
@@ -26,6 +27,12 @@ const UpdateUser = () => {
   const [phone_number, setPhoneNumber] = useState(phone_numberDefault);
   const [password, setPassword] = useState("");
   const [secondPassword, setSecondPassword] = useState("");
+
+  const [cpRegex, setCpRegex] = useState(true);
+  const [mailRegex, setMailRegex] = useState(true);
+  const [phoneRegex, setPhoneRegex] = useState(true);
+  const [passwordRegex, setPasswordRegex] = useState(true);
+  const [success, setSuccess] = useState(false);
 
   const verifPasswords = password !== secondPassword;
 
@@ -43,11 +50,10 @@ const UpdateUser = () => {
 
   const cpControle = () => {
     if (regexCP(cp)) {
+      setCpRegex(true);
       return true;
     }
-    alert(
-      "⚠️ Le numéro de CP doit etre composé de: \n 7 chiffres et une lettre"
-    );
+    setCpRegex(false);
     return false;
   };
 
@@ -57,9 +63,10 @@ const UpdateUser = () => {
 
   const mailControle = () => {
     if (regexMail(mail)) {
+      setMailRegex(true);
       return true;
     }
-    alert("⚠️ le mail n'est pas valide ");
+    setMailRegex(false);
     return false;
   };
 
@@ -69,11 +76,10 @@ const UpdateUser = () => {
 
   const phoneControle = () => {
     if (regexPhone(phone_number)) {
+      setPhoneRegex(true);
       return true;
     }
-    alert(
-      "⚠️ le numéro de téléphone n'est pas valide: \n il doit contenir 10 chiffres"
-    );
+    setPhoneRegex(false);
     return false;
   };
 
@@ -85,18 +91,15 @@ const UpdateUser = () => {
 
   const passwordControle = () => {
     if (regexPassword(password)) {
+      setPasswordRegex(true);
       return true;
     }
-    alert(
-      "⚠️ le mot de passe n'est pas valide, il doit contenir au minimum: \n une majuscule, \n une minuscule, \n un chiffre \n un caractère spécial parmis : -.:;,+!?*$@%_ \n et doit contenir minimum 8 caractères"
-    );
+    setPasswordRegex(false);
     return false;
   };
 
   const alertSuccess = () => {
-    alert(
-      "🏆 Votre profil a bien été modifié ! 😀 🏆 \n Veuillez vous reconnecter, merci."
-    );
+    setSuccess(true);
   };
 
   const nav = () => {
@@ -121,6 +124,10 @@ const UpdateUser = () => {
     localStorage.removeItem("token");
   };
 
+  const duration = () => {
+    setTimeout(logout, 4000);
+  };
+
   const handleSubmit = () => {
     if (
       cpControle(cp) &&
@@ -132,7 +139,7 @@ const UpdateUser = () => {
       setPassword("");
       setSecondPassword("");
       alertSuccess();
-      logout();
+      duration();
     }
   };
 
@@ -155,6 +162,12 @@ const UpdateUser = () => {
           onChange={(e) => setCp(e.target.value)}
           value={cp}
         />
+        <p className="fieldFalse">
+          {cpRegex === false
+            ? "⚠️ Le CP doit etre composé de 7 chiffres et une lettre"
+            : ""}
+        </p>
+
         <Input
           className="inputProfile"
           forId="mail"
@@ -163,6 +176,10 @@ const UpdateUser = () => {
           onChange={(e) => setMail(e.target.value)}
           value={mail}
         />
+        <p className="fieldFalse">
+          {mailRegex === false ? "⚠️ le mail n'est pas valide " : ""}
+        </p>
+
         <Input
           className="inputProfile"
           forId="telephone"
@@ -171,6 +188,12 @@ const UpdateUser = () => {
           onChange={(e) => setPhoneNumber(e.target.value)}
           value={phone_number}
         />
+        <p className="fieldFalse">
+          {phoneRegex === false
+            ? "⚠️ le téléphone n'est pas valide il doit contenir 10 chiffres"
+            : ""}
+        </p>
+
         <InputPassword
           className="inputProfile"
           forId="mot"
@@ -179,6 +202,11 @@ const UpdateUser = () => {
           autoComplete="on"
           value={password}
         />
+        <p className="fieldFalse">
+          {passwordRegex === false
+            ? "⚠️ le mot de passe doit contenir au minimum: une majuscule, une minuscule, un chiffre, un caractère spécial parmi : -.:;,+!?*$@%_ et doit contenir minimum 8 caractères"
+            : ""}
+        </p>
         <InputPassword
           className="inputProfile"
           forId="confirmation"
@@ -194,6 +222,12 @@ const UpdateUser = () => {
           fieldButton="ENVOYER"
           type="button"
         />
+        <p className="fieldFalse">
+          {success === true ? "🏆 Votre profil a bien été modifié ! 😀 🏆" : ""}
+        </p>
+        <p className="fieldFalse">
+          {success === true ? "Veuillez vous reconnecter, merci." : ""}
+        </p>
       </form>
       <Footer />
     </div>

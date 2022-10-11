@@ -5,7 +5,6 @@ import { UserContext } from "../../context/index";
 import { Header, Footer, Input, Button } from "../../components/index";
 import { InputPassword } from "../../components/Input/InputPassword";
 import "./Login.css";
-// import { postUser } from "../../services/axios/AxiosUsers";
 
 const Login = () => {
   const { user, setUser } = useContext(UserContext);
@@ -15,17 +14,22 @@ const Login = () => {
   const [cp, setCp] = useState("");
   const [password, setPassword] = useState("");
 
+  const [cpRegex, setCpRegex] = useState(true);
+  const [passwordRegex, setPasswordRegex] = useState(true);
+  const [errorConnect, setErrorConnect] = useState(false);
+
   const regexCP = (value) => {
     return /^[0-9]{7}[a-zA-Z]{1}$/.test(value);
   };
 
-  function cpControl() {
+  const cpControl = () => {
     if (regexCP(cp)) {
+      setCpRegex(true);
       return true;
     }
-    alert("Le numéro de CP doit etre composé de 7 chiffres et une lettre");
+    setCpRegex(false);
     return false;
-  }
+  };
 
   const regexPassword = (value) => {
     return /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[-.:;,+!?*$@%_])([-.:;,+!?*$@%_\w]{8,})$/.test(
@@ -33,15 +37,15 @@ const Login = () => {
     );
   };
 
-  function passwordControl() {
+  const passwordControl = () => {
     if (regexPassword(password)) {
+      setPasswordRegex(true);
       return true;
     }
-    alert(
-      "le mot de passe n'est pas valide, il doit contenir une Majuscule, une minuscule, un chiffre et un caractère spécial parmi : -.:;,+!?*$@%_ et doit contenir minimum 8 caractères"
-    );
+    setPasswordRegex(false);
     return false;
-  }
+  };
+
   const postUser = (e) => {
     e.preventDefault();
     const data = {
@@ -49,10 +53,7 @@ const Login = () => {
       password,
     };
 
-    // const handleSubmit = () => {
     if (cpControl(cp) && passwordControl(password)) {
-      // postUser(data, setUser, cp);
-
       axios
         .post(`http://localhost:5000/login`, data)
         .then((response) => {
@@ -63,9 +64,7 @@ const Login = () => {
           navigate(`/home/${cp}`);
         })
         .catch((error) => {
-          alert(
-            "⚠️ Veuillez verifier votre numéro de CP et votre mot de passe ⚠️"
-          );
+          setErrorConnect(true);
         });
     }
   };
@@ -88,21 +87,41 @@ const Login = () => {
               className="inputCp"
               forId="cp"
               type="text"
-              field="Numéro de CP"
+              field="Numéro de CP *"
               onChange={(e) => setCp(e.target.value)}
               value={cp}
               minlength="8"
               maxlength="8"
             />
+            <p className="fieldFalse">
+              {cpRegex === false
+                ? "⚠️ Le CP doit etre composé de 7 chiffres et une lettre"
+                : ""}
+            </p>
             <InputPassword
               className="inputPassword"
               forId="mot"
-              field="Mot de passe"
+              field="Mot de passe *"
               autoComplete="on"
               onChange={(e) => setPassword(e.target.value)}
               value={password}
               minlength="8"
             />
+            <p className="fieldFalse">
+              {passwordRegex === false
+                ? "⚠️ le mot de passe doit contenir au minimum: une majuscule, une minuscule, un chiffre, un caractère spécial parmi : -.:;,+!?*$@%_ et doit contenir minimum 8 caractères"
+                : ""}
+            </p>
+
+            <p className="fieldFalse">
+              {errorConnect === true ? "⚠️ Connexion impossible ⚠️" : ""}
+            </p>
+            <p className="fieldFalse">
+              {errorConnect === true
+                ? "Veuillez vérifier votre numéro de CP et votre mot de passe"
+                : ""}
+            </p>
+
             <Button
               classButton="send"
               onClick={postUser}

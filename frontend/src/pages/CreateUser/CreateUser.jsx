@@ -7,6 +7,8 @@ import { postCreateUser } from "../../services/axios/AxiosUsers";
 import profilelogo from "../../assets/profile.gif";
 
 const CreateUser = () => {
+  const navigate = useNavigate();
+
   const [cp, setCp] = useState("");
   const [mail, setMail] = useState("");
   const [phone_number, setPhoneNumber] = useState("");
@@ -19,14 +21,10 @@ const CreateUser = () => {
   const [passwordRegex, setPasswordRegex] = useState(true);
   const [success, setSuccess] = useState(false);
 
-  const navigate = useNavigate();
+  const verifPasswords = password !== secondPassword;
 
   const nav = () => {
     navigate("/");
-  };
-
-  const duration = () => {
-    setTimeout(nav, 4000);
   };
 
   const data = {
@@ -35,8 +33,6 @@ const CreateUser = () => {
     phone_number,
     password,
   };
-
-  const verifPasswords = password !== secondPassword;
 
   const regexCP = (value) => {
     return /^[0-9]{7}[a-zA-Z]{1}$/.test(value);
@@ -96,6 +92,10 @@ const CreateUser = () => {
     setSuccess(true);
   };
 
+  const duration = () => {
+    setTimeout(nav, 4000);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (
@@ -138,6 +138,7 @@ const CreateUser = () => {
                 : ""}
             </p>
           </div>
+
           <div className="inputProfileTwo">
             <Input
               className="inputProfile"
@@ -151,6 +152,7 @@ const CreateUser = () => {
               {mailRegex === false ? "⚠️ le mail n'est pas valide " : ""}
             </p>
           </div>
+
           <div className="inputProfileThree">
             <Input
               className="inputProfile"
@@ -207,7 +209,7 @@ const CreateUser = () => {
               fieldButton="ENVOYER"
               type="submit"
             />
-            <p>
+            <p className="fieldFalse">
               {success === true
                 ? "🏆 Votre profil a bien été créé ! 😀 🏆 Vous pouvez maintenant vous connecter"
                 : ""}

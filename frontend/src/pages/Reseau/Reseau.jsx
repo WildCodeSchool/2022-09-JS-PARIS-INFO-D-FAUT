@@ -30,6 +30,10 @@ const Reseau = () => {
 
   const [image, setImage] = useState(null);
 
+  const [railwayRegex, setRailwayRegex] = useState(true);
+  const [descriptionRegex, setDescriptionRegex] = useState(true);
+  const [success, setSuccess] = useState(false);
+
   const handleUpload = async (e) => {
     e.preventDefault();
     try {
@@ -39,6 +43,7 @@ const Reseau = () => {
       console.error(error);
     }
   };
+
   const nav = () => {
     navigate(`/home/${cp}`);
   };
@@ -52,37 +57,45 @@ const Reseau = () => {
     latitude,
   };
 
-  const alertSuccess = () => {
-    alert("🏆 Votre défaut a bien été enregistré ! 😀 🏆");
-  };
   const regexRailway = (value) => {
     return /^[0-9]{3,}/.test(value);
   };
 
   const verifyRailway = () => {
     if (regexRailway(railway_track_number)) {
+      setRailwayRegex(true);
       return true;
     }
-    alert("Veuillez indiquer le numéro de ligne concernée");
-    return false;
-  };
-  const verifyDescription = () => {
-    if (description !== "") {
-      return true;
-    }
-    alert("Veuillez décrire le défaut");
+    setRailwayRegex(false);
     return false;
   };
 
+  const verifyDescription = () => {
+    if (description !== "") {
+      setDescriptionRegex(true);
+      return true;
+    }
+    setDescriptionRegex(false);
+    return false;
+  };
+
+  const alertSuccess = () => {
+    setSuccess(true);
+  };
+
+  const duration = () => {
+    setTimeout(nav, 3000);
+  };
+
   const handleSubmit = () => {
-    if (verifyDescription(description) && verifyRailway(railway_track_number)) {
+    if (verifyRailway(railway_track_number) && verifyDescription(description)) {
       postDefaults(data);
       setRailwayNumber(0);
       setDescription("");
       setPicture("");
       setImage(null);
       alertSuccess();
-      nav();
+      duration();
     }
   };
 
@@ -104,8 +117,14 @@ const Reseau = () => {
           value={railway_track_number}
           forId="ligne"
           type="number"
-          field="Numéro de ligne / Emprise"
+          field="Numéro de ligne / Emprise *"
         />
+        <p className="fieldFalse">
+          {railwayRegex === false
+            ? "Veuillez indiquer le numéro de ligne concernée"
+            : ""}
+        </p>
+
         <Textarea
           className="textReseau"
           onChange={(e) => setDescription(e.target.value)}
@@ -113,6 +132,10 @@ const Reseau = () => {
           forId="field"
           type="text"
         />
+        <p className="fieldFalse">
+          {descriptionRegex === false ? "Veuillez décrire le défaut" : ""}
+        </p>
+
         <Input
           className="inputReseauImg"
           onChange={(e) => setImage(e.target.files[0])}
@@ -159,6 +182,11 @@ const Reseau = () => {
           fieldButton="ENVOYER"
           type="button"
         />
+        <p className="fieldFalse">
+          {success === true
+            ? "🏆 Votre défaut a bien été enregistré ! 😀 🏆"
+            : ""}
+        </p>
       </form>
 
       <Footer />
