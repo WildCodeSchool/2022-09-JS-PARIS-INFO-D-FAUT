@@ -49,6 +49,9 @@ export const getUsers = (setState) => {
     .then((response) => response.data)
     .then((data) => {
       setState(data.result);
+    })
+    .catch((error) => {
+      console.log(error);
     });
 };
 
@@ -58,14 +61,31 @@ export const deleteUser = (id_user) => {
   const config = { headers: { Authorization: `Bearer ${token}` } };
   axios
     .delete(`http://localhost:5000/users/${id_user}`, config)
-    .then((response) => response.data);
+    .then((response) => response.data)
+    .catch((error) => {
+      console.log(error);
+    });
 };
 
-export const updateUser = (id_user, data) => {
+export const updateUser = (
+  id_user,
+  data,
+  setErrorConnectFalse,
+  alertSuccess,
+  durationNav,
+  setErrorConnect
+) => {
   const token = localStorage.getItem("token");
 
   const config = { headers: { Authorization: `Bearer ${token}` } };
   axios
     .put(`http://localhost:5000/users/${id_user}`, data, config)
-    .then((response) => response.data);
+    .then((response) => {
+      setErrorConnectFalse(false);
+      alertSuccess();
+      durationNav();
+    })
+    .catch((error) => {
+      setErrorConnect(true);
+    });
 };

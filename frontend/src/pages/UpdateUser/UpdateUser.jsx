@@ -34,6 +34,8 @@ const UpdateUser = () => {
   const [passwordRegex, setPasswordRegex] = useState(true);
   const [success, setSuccess] = useState(false);
 
+  const [errorConnect, setErrorConnect] = useState(false);
+
   const verifPasswords = password !== secondPassword;
 
   const data = {
@@ -106,6 +108,10 @@ const UpdateUser = () => {
     navigate("/");
   };
 
+  const durationNav = () => {
+    setTimeout(nav, 3000);
+  };
+
   const logout = async () => {
     const token = localStorage.getItem("token");
 
@@ -135,11 +141,14 @@ const UpdateUser = () => {
       phoneControle(phone_number) &&
       passwordControle(password)
     ) {
-      updateUser(id_user, data);
-      setPassword("");
-      setSecondPassword("");
-      alertSuccess();
-      duration();
+      updateUser(
+        id_user,
+        data,
+        setErrorConnect,
+        alertSuccess,
+        durationNav,
+        setErrorConnect
+      );
     }
   };
 
@@ -227,6 +236,11 @@ const UpdateUser = () => {
         </p>
         <p className="fieldFalse">
           {success === true ? "Veuillez vous reconnecter, merci." : ""}
+        </p>
+        <p className="fieldFalse">
+          {errorConnect === true
+            ? "⚠️ Le CP ou l'adresse mail saisie existe déjà ⚠️"
+            : ""}
         </p>
       </form>
       <Footer />
