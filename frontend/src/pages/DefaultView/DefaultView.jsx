@@ -29,72 +29,84 @@ const DefaultView = () => {
         loginCss="loginUpdateDefaultsUser"
         adminOffCss="adminOffUpdateDefaultsUser"
       />
+      <div className="defaultViewCard-container">
+        {defaut && (
+          <>
+            {defaut.map((items) => (
+              <div
+                className="defaultView-field-container"
+                key={items.id_default}
+              >
+                <h1> VOTRE DECLARATION </h1>
+                <h2
+                  className={
+                    items.station === null ? "stationViewOff" : "stationViewOn"
+                  }
+                >
+                  Gare : <br />
+                  {items.station}
+                </h2>
+                <h2
+                  className={
+                    items.ter_number === null ? "terViewOff" : "terViewOn"
+                  }
+                >
+                  TER : <br />
+                  {items.ter_number}
+                </h2>
+                <h2
+                  className={
+                    items.tgv_number === null ? "tgvViewOff" : "tgvViewOn"
+                  }
+                >
+                  TGV : <br />
+                  {items.tgv_number}
+                </h2>
+                <h2
+                  className={
+                    items.railway_track_number === null
+                      ? "trackViewOff"
+                      : "trackViewOn"
+                  }
+                >
+                  Numéro de ligne : <br />
+                  {items.railway_track_number}
+                </h2>
+                <p className="textDefaultView">
+                  Description : <br />
+                  {items.description}
+                </p>
+                <img
+                  className={
+                    items.picture === "" ? "imageViewOff" : "imageViewOn"
+                  }
+                  src={items.picture}
+                  alt="image"
+                />
+                <p
+                  className={
+                    items.latitude === null ? "geolocViewOff" : "geolocViewOn"
+                  }
+                >
+                  Géolocalisation : <br />
+                  {items.latitude}, {items.longitude}
+                </p>
 
-      {defaut && (
-        <>
-          {defaut.map((items) => (
-            <div className="defaultView-field-container" key={items.id_default}>
-              <h1> Vérification du défaut :</h1>
-              <h2
-                className={
-                  items.station === null ? "stationViewOff" : "stationViewOn"
-                }
-              >
-                Gare: {items.station}
-              </h2>
-              <h2
-                className={
-                  items.ter_number === null ? "terViewOff" : "terViewOn"
-                }
-              >
-                TER : {items.ter_number}
-              </h2>
-              <h2
-                className={
-                  items.tgv_number === null ? "tgvViewOff" : "tgvViewOn"
-                }
-              >
-                TGV : {items.tgv_number}
-              </h2>
-              <h2
-                className={
-                  items.railway_track_number === null
-                    ? "trackViewOff"
-                    : "trackViewOn"
-                }
-              >
-                Numéro de ligne : {items.railway_track_number}
-              </h2>
-              <p className="textDefaultView">
-                Description : {items.description}
-              </p>
-              <img
-                className={
-                  items.picture === "" ? "imageViewOff" : "imageViewOn"
-                }
-                src={items.picture}
-                alt="image"
-              />
-              <p
-                className={
-                  items.latitude === null ? "geolocViewOff" : "geolocViewOn"
-                }
-              >
-                Géolocalisation : {items.latitude}, {items.longitude}
-              </p>
-
-              <p className="textDefaultView">Traitement : {items.treatment}</p>
-              <Button
-                classButton="update-defaultView"
-                fieldButton="CONTINUER LA MODIFICATION"
-                type="button"
-                onClick={handleUpdate}
-              />
-            </div>
-          ))}
-        </>
-      )}
-
+                <p className="textDefaultView">
+                  Traitement : <br />
+                  {items.treatment}
+                </p>
+                <Button
+                  classButton="update-defaultView"
+                  fieldButton="CONTINUER LA MODIFICATION"
+                  type="button"
+                  onClick={handleUpdate}
+                />
+              </div>
+            ))}
+          </>
+        )}
+      </div>
       <Footer />
     </div>
   );
