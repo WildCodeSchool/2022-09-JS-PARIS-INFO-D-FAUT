@@ -39,6 +39,7 @@ const DefaultView = () => {
               >
                 <h1> VOTRE DECLARATION </h1>
                 <h2
+                  id="Items"
                   className={
                     items.station === null ? "stationViewOff" : "stationViewOn"
                   }
@@ -49,6 +50,7 @@ const DefaultView = () => {
                   {items.station}
                 </h2>
                 <h2
+                  id="Items"
                   className={
                     items.ter_number === null ? "terViewOff" : "terViewOn"
                   }
@@ -59,6 +61,7 @@ const DefaultView = () => {
                   {items.ter_number}
                 </h2>
                 <h2
+                  id="Items"
                   className={
                     items.tgv_number === null ? "tgvViewOff" : "tgvViewOn"
                   }
@@ -69,6 +72,7 @@ const DefaultView = () => {
                   {items.tgv_number}
                 </h2>
                 <h2
+                  id="Items"
                   className={
                     items.railway_track_number === null
                       ? "trackViewOff"
@@ -81,7 +85,7 @@ const DefaultView = () => {
                   {items.railway_track_number}
                 </h2>
                 <p className="textDefaultView">
-                  <span className="titles">
+                  <span id="description" className="titles">
                     Description : <br />
                   </span>
                   {items.description}
@@ -94,6 +98,7 @@ const DefaultView = () => {
                   alt="image"
                 />
                 <p
+                  id="Geolocation"
                   className={
                     items.latitude === null ? "geolocViewOff" : "geolocViewOn"
                   }
@@ -104,7 +109,7 @@ const DefaultView = () => {
                   {items.latitude}, {items.longitude}
                 </p>
 
-                <p className="textDefaultView">
+                <p id="Treatment" className="textDefaultView">
                   <span className="titles">
                     Traitement : <br />
                   </span>

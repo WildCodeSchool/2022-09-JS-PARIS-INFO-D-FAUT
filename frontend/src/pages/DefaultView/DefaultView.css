@@ -72,28 +72,50 @@ button.update-defaultView {
     width: 80%;
     background-color: white;
     border-radius: 20px;
-    display: grid;
-    grid-template-columns: 1fr 5fr 1fr 5fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 0.1fr;
     border: 0.3rem solid #cd0037;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas: 
+    "Title Title"
+    "Items Image"
+    "Items Image"
+    "Description Image"
+    "Treatment Image"
+    "Geolocation Button"
   }
+  #Items {
+    grid-area: Items;
+  }
+  #Description {
+    grid-area: Description;
+  }
+  #Geolocation {
+    grid-area: Geolocation;
+  }
+  #Treatment {
+    grid-area: Treatment;
+  }
+
   .titles {
     font-size: 4vh;
   }
   .defaultView-field-container h1 {
-    grid-column: 3;
-    grid-row: 1;
+    grid-area: Title;
+    /* grid-column: 3; */
+    /* grid-row: 1; */
     font-size: 4vh;
   }
   .defaultView-field-container h2,
   .defaultView-field-container p {
-    grid-column: 2;
+    /* grid-column: 2; */
     font-size: 2.5vh;
     text-align: justify;
   }
   .defaultView-field-container img {
-    grid-column: 4;
-    grid-row: 2;
+    grid-area: Image;
+    /* grid-column: 4; */
+    /* grid-row: 2; */
     /* width: 50%;
     height: 40%; */
   }
@@ -102,6 +124,7 @@ button.update-defaultView {
     height: 90%;
   } */
   .defaultView-field-container button {
+    grid-area: Button;
     /* grid-column: 3;
     grid-row: 4; */
     width: 200%;
