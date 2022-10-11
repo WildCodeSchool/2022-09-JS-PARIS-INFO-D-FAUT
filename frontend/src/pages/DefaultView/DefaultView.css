@@ -85,7 +85,8 @@ button.update-defaultView {
     grid-row: 1;
     font-size: 4vh;
   }
-  .defaultView-field-container h2, .defaultView-field-container p {
+  .defaultView-field-container h2,
+  .defaultView-field-container p {
     grid-column: 2;
     font-size: 2.5vh;
     text-align: justify;
