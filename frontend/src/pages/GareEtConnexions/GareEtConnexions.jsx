@@ -43,7 +43,16 @@ const GareEtConnexions = () => {
   const nav = () => {
     navigate(`/home/${cp}`);
   };
-
+  const [zoom, setZoom] = useState(false);
+  const handleClickOpen = () => {
+    setZoom(!zoom);
+  };
+  const onKeyPressHandler = () => {
+    setZoom(false);
+  };
+  const closePopup = () => {
+    setZoom(false);
+  };
   const data = {
     user_id,
     station,
@@ -142,7 +151,31 @@ const GareEtConnexions = () => {
             }
             src={picture}
             alt="image"
+            onClick={handleClickOpen}
+            onKeyPress={onKeyPressHandler}
+            role="presentation"
           />
+          <div>
+            {zoom ? (
+              <div className="popup">
+                <div className="popUpHeader">
+                  <h5
+                    onClick={closePopup}
+                    onKeyPress={onKeyPressHandler}
+                    role="presentation"
+                  >
+                    X
+                  </h5>
+                </div>
+                <div className="popupBody">
+                  <img className="pictureTerPopup" src={picture} alt="image" />
+                </div>
+                <div className="popUpfooter"> </div>
+              </div>
+            ) : (
+              ""
+            )}
+          </div>
         </div>
         <div className="latitudeLongitude">
           <Input

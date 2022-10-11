@@ -35,7 +35,7 @@
           "onKeyDown",
           "onKeyUp"
         ],
-        "allowExpressionValues": false
+        "allowExpressionValues": true
       }
     ],
 
