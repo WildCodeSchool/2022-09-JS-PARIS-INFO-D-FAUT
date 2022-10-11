@@ -20,6 +20,7 @@ const UpdateDefaultUser = () => {
   const user_id = user.id_user;
 
   const { defaut } = useContext(DefaultContext);
+
   const stationDefault = defaut[0].station;
   const railwayDefault = defaut[0].railway_track_number;
   const terDefault = defaut[0].ter_number;
@@ -92,7 +93,7 @@ const UpdateDefaultUser = () => {
           labelCss={station === null ? "stationUpdateOff" : "stationUpdateOn"}
           className={station === null ? "stationUpdateOff" : "stationUpdateOn"}
           onChange={(e) => setStation(e.target.value)}
-          value={station}
+          value={station == null ? "" : station}
           forId="gare"
           type="text"
           field="Gare concernée *"
@@ -105,7 +106,7 @@ const UpdateDefaultUser = () => {
             railway_track_number === null ? "trackUpdateOff" : "trackUpdateOn"
           }
           onChange={(e) => setRailwayNumber(e.target.value)}
-          value={railway_track_number}
+          value={railway_track_number == null ? "" : railway_track_number}
           forId="ligne"
           type="number"
           field="Numéro de ligne / Emprise *"
@@ -114,7 +115,7 @@ const UpdateDefaultUser = () => {
           labelCss={ter_number === null ? "terUpdateOff" : "terUpdateOn"}
           className={ter_number === null ? "terUpdateOff" : "terUpdateOn"}
           onChange={(e) => setTerNumber(e.target.value)}
-          value={ter_number}
+          value={ter_number == null ? "" : ter_number}
           forId="ter"
           type="number"
           field="Numéro de TER *"
@@ -123,7 +124,7 @@ const UpdateDefaultUser = () => {
           labelCss={tgv_number === null ? "tgvUpdateOff" : "tgvUpdateOn"}
           className={tgv_number === null ? "tgvUpdateOff" : "tgvUpdateOn"}
           onChange={(e) => setTgvNumber(e.target.value)}
-          value={tgv_number}
+          value={tgv_number == null ? "" : tgv_number}
           forId="tgv"
           type="number"
           field="Numéro du TGV *"
@@ -165,7 +166,7 @@ const UpdateDefaultUser = () => {
           forId="file"
           onChange={(e) => setLatitude(e.target.value)}
           type="text"
-          value={latitude}
+          value={latitude == null ? "" : latitude}
           field="Latitude"
         />
         <Input
@@ -178,7 +179,7 @@ const UpdateDefaultUser = () => {
           forId="fileTwo"
           onChange={(e) => setLongitude(e.target.value)}
           type="text"
-          value={longitude}
+          value={longitude == null ? "" : longitude}
           field="Longitude"
         />
         <Button
