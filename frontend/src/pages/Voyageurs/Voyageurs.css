@@ -16,8 +16,12 @@
 .voyageursField-container {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
   height: 100%;
+  align-items: center;
+  justify-content: center;
+  overflow: auto;
+  gap: 10px;
+  justify-content: space-around;
 }
 
 h1 {
@@ -31,17 +35,182 @@ h1 {
 .inputVoyageursImg {
   color: white;
   border-radius: 20px;
-}
-
-.textVoyageurs {
-  border-radius: 20px;
+  text-align: center;
+  width: 70%;
 }
 
 .pictureTgvOn {
-  width: 100px;
-  height: 100px;
+  height: 100%;
 }
 
 .pictureTgvOff {
   display: none;
+}
+.popup {
+  height: 70%;
+  width: 90%;
+  background-color: rgba(255, 255, 255, 0.896);
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  top: 20%;
+  right: 5%;
+  left: 5%;
+  position: absolute;
+  animation: slide-in-fwd-center 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+.popUpHeader {
+  background-color: rgb(213, 43, 30);
+  width: 100%;
+  text-align: end;
+}
+.popupBody {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.pictureTgvPopup {
+  width: 150%;
+}
+@media (min-width: 900px) {
+  .inputVoyageursImg {
+    width: auto;
+  }
+  .textVoyageurs {
+    height: 30vh;
+    width: 400px;
+  }
+  .latitudeLongitude {
+    justify-content: space-evenly;
+  }
+  .voyageursField-container {
+    display: grid;
+    grid-template-columns: 43% 10% 43%;
+    grid-template-rows: auto 15% 10% 30% 5% auto;
+    align-items: center;
+    justify-content: center;
+  }
+  h1 {
+    grid-column: 1/4;
+    grid-row: 1;
+    animation: scale-in-ver-bottom 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+      1.9s both;
+  }
+  .inputVoyageurOne {
+    grid-column: 1;
+    grid-row: 2;
+    display: flex;
+    justify-content: center;
+    animation: slide-in-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s both;
+  }
+  .inputVoyageurTwo {
+    grid-column: 1;
+    grid-row: 3/5;
+    align-items: center;
+    animation: slide-in-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.6s both;
+  }
+  .inputVoyageurThree {
+    grid-column: 3;
+    grid-row: 2;
+    animation: slide-in-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s
+      both;
+  }
+  .inputVoyageurFour {
+    grid-column: 3;
+    grid-row: 3;
+    animation: slide-in-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.6s
+      both;
+  }
+  .pictureDefault {
+    grid-column: 3;
+    grid-row: 4;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    animation: slide-in-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.6s
+      both;
+  }
+  .latitudeLongitude {
+    grid-column: 3;
+    grid-row: 5;
+    justify-content: center;
+    animation: slide-in-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.7s
+      both;
+  }
+
+  .inputVoyageurFive {
+    grid-column: 2;
+    grid-row: 6;
+    animation: scale-in-ver-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.9s
+      both;
+  }
+  .line {
+    grid-column: 2;
+    grid-row: 2/5;
+    background-color: rgb(213, 43, 30);
+    width: 3px;
+    height: 100%;
+    margin: auto;
+    animation: scale-in-ver-center 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+      1.2s both;
+  }
+  @keyframes slide-in-fwd-center {
+    0% {
+      -webkit-transform: translateZ(-1400px);
+      transform: translateZ(-1400px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes scale-in-ver-bottom {
+    0% {
+      -webkit-transform: scaleY(0);
+      transform: scaleY(0);
+      -webkit-transform-origin: 0% 100%;
+      transform-origin: 0% 100%;
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: scaleY(1);
+      transform: scaleY(1);
+      -webkit-transform-origin: 0% 100%;
+      transform-origin: 0% 100%;
+      opacity: 1;
+    }
+  }
+  @keyframes scale-in-ver-center {
+    0% {
+      -webkit-transform: scaleY(0);
+      transform: scaleY(0);
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: scaleY(1);
+      transform: scaleY(1);
+      opacity: 1;
+    }
+  }
+
+  @keyframes scale-in-ver-top {
+    0% {
+      -webkit-transform: scaleY(0);
+      transform: scaleY(0);
+      -webkit-transform-origin: 100% 0%;
+      transform-origin: 100% 0%;
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: scaleY(1);
+      transform: scaleY(1);
+      -webkit-transform-origin: 100% 0%;
+      transform-origin: 100% 0%;
+      opacity: 1;
+    }
+  }
 }

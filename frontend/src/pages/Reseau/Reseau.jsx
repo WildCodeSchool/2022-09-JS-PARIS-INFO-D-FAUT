@@ -47,7 +47,16 @@ const Reseau = () => {
   const nav = () => {
     navigate(`/home/${cp}`);
   };
-
+  const [zoom, setZoom] = useState(false);
+  const handleClickOpen = () => {
+    setZoom(!zoom);
+  };
+  const onKeyPressHandler = () => {
+    setZoom(false);
+  };
+  const closePopup = () => {
+    setZoom(false);
+  };
   const data = {
     user_id,
     railway_track_number,
@@ -110,83 +119,119 @@ const Reseau = () => {
 
       <form className="reseauField-container">
         <h1>RESEAU</h1>
-
-        <Input
-          className="inputReseau"
-          onChange={(e) => setRailwayNumber(e.target.value)}
-          value={railway_track_number}
-          forId="ligne"
-          type="number"
-          field="Numéro de ligne / Emprise *"
-        />
-        <p className="fieldFalse">
-          {railwayRegex === false
-            ? "Veuillez indiquer le numéro de ligne concernée"
-            : ""}
-        </p>
-
-        <Textarea
-          className="textReseau"
-          onChange={(e) => setDescription(e.target.value)}
-          value={description}
-          forId="field"
-          type="text"
-        />
-        <p className="fieldFalse">
-          {descriptionRegex === false ? "Veuillez décrire le défaut" : ""}
-        </p>
-
-        <Input
-          className="inputReseauImg"
-          onChange={(e) => setImage(e.target.files[0])}
-          forId="file"
-          type="file"
-          accept=".png, .jpg, .jpeg, .gif"
-          field="Joindre une photographie"
-        />
-        <Button
-          classButton="reseauUpload"
-          type="button"
-          name="button"
-          onClick={handleUpload}
-          fieldButton="Télécharger"
-        />
-
-        <br />
-
-        <img
-          className={picture !== "" ? "pictureReseauOn" : "pictureReseauOff "}
-          src={picture}
-          alt="image"
-        />
-
-        <Input
-          className="inputReseau"
-          forId="file"
-          onChange={(e) => setLatitude(e.target.value)}
-          type="text"
-          value={latitude}
-          field="Latitude"
-        />
-        <Input
-          className="inputReseau"
-          forId="fileTwo"
-          onChange={(e) => setLongitude(e.target.value)}
-          type="text"
-          value={longitude}
-          field="Longitude"
-        />
-        <Button
-          classButton="sendReseau"
-          onClick={(e) => handleSubmit(e)}
-          fieldButton="ENVOYER"
-          type="button"
-        />
-        <p className="fieldFalse">
-          {success === true
-            ? "🏆 Votre défaut a bien été enregistré ! 😀 🏆"
-            : ""}
-        </p>
+        <div className="inputReseauOne">
+          <Input
+            className="inputReseau"
+            onChange={(e) => setRailwayNumber(e.target.value)}
+            value={railway_track_number}
+            forId="ligne"
+            type="number"
+            field="Numéro de ligne / Emprise *"
+          />
+          <p className="fieldFalse">
+            {railwayRegex === false
+              ? "Veuillez indiquer le numéro de ligne concernée"
+              : ""}
+          </p>
+        </div>
+        <div className="inputReseauTwo">
+          <Textarea
+            className="textReseau"
+            onChange={(e) => setDescription(e.target.value)}
+            value={description}
+            forId="field"
+            type="text"
+          />
+          <p className="fieldFalse">
+            {descriptionRegex === false ? "Veuillez décrire le défaut" : ""}
+          </p>
+        </div>
+        <div className="inputReseauThree">
+          <Input
+            className="inputReseauImg"
+            onChange={(e) => setImage(e.target.files[0])}
+            forId="file"
+            type="file"
+            accept=".png, .jpg, .jpeg, .gif"
+            field="Joindre une photographie"
+          />
+        </div>
+        <div className="inputReseauFour">
+          <Button
+            classButton="reseauUpload"
+            type="button"
+            name="button"
+            onClick={handleUpload}
+            fieldButton="Télécharger"
+          />
+        </div>
+        <div className="pictureDefault">
+          <img
+            className={picture !== "" ? "pictureReseauOn" : "pictureReseauOff "}
+            src={picture}
+            alt="image"
+            onClick={handleClickOpen}
+            onKeyPress={onKeyPressHandler}
+            role="presentation"
+          />
+          <div>
+            {zoom ? (
+              <div className="popup">
+                <div className="popUpHeader">
+                  <h5
+                    onClick={closePopup}
+                    onKeyPress={onKeyPressHandler}
+                    role="presentation"
+                  >
+                    X
+                  </h5>
+                </div>
+                <div className="popupBody">
+                  <img
+                    className="pictureReseauPopup"
+                    src={picture}
+                    alt="image"
+                  />
+                </div>
+                <div className="popUpfooter"> </div>
+              </div>
+            ) : (
+              ""
+            )}
+          </div>
+        </div>
+        <div className="latitudeLongitude">
+          <Input
+            className="inputLatitudeLongitude"
+            forId="file"
+            onChange={(e) => setLatitude(e.target.value)}
+            type="text"
+            value={latitude}
+            field="Latitude"
+          />
+          <Input
+            className="inputLatitudeLongitude"
+            forId="fileTwo"
+            onChange={(e) => setLongitude(e.target.value)}
+            type="text"
+            value={longitude}
+            field="Longitude"
+          />
+        </div>
+        <div className="inputReseauFive">
+          <Button
+            classButton="sendReseau"
+            onClick={(e) => handleSubmit(e)}
+            fieldButton="ENVOYER"
+            type="button"
+          />
+          <p className="fieldFalse">
+            {success === true
+              ? "🏆 Votre défaut a bien été enregistré ! 😀 🏆"
+              : ""}
+          </p>
+        </div>
+        <div className="line" />
       </form>
 
       <Footer />

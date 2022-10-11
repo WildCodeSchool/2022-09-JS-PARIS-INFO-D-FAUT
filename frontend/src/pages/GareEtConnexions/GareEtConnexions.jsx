@@ -47,7 +47,16 @@ const GareEtConnexions = () => {
   const nav = () => {
     navigate(`/home/${cp}`);
   };
-
+  const [zoom, setZoom] = useState(false);
+  const handleClickOpen = () => {
+    setZoom(!zoom);
+  };
+  const onKeyPressHandler = () => {
+    setZoom(false);
+  };
+  const closePopup = () => {
+    setZoom(false);
+  };
   const data = {
     user_id,
     station,
@@ -105,80 +114,115 @@ const GareEtConnexions = () => {
       />
       <form className="stationField-container">
         <h1>GARE & CONNEXIONS</h1>
-        <Input
-          className="inputStation"
-          onChange={(e) => setStation(e.target.value)}
-          value={station}
-          forId="gare"
-          type="text"
-          field="Gare concernée *"
-        />
-        <p className="fieldFalse">
-          {stationRegex === false ? "Veuillez indiquer la gare" : ""}
-        </p>
-
-        <Textarea
-          className="textStation"
-          onChange={(e) => setDescription(e.target.value)}
-          value={description}
-          forId="field"
-          type="text"
-        />
-        <p className="fieldFalse">
-          {descriptionRegex === false ? "Veuillez décrire le défaut" : ""}
-        </p>
-
-        <Input
-          className="inputStationImg"
-          onChange={(e) => setImage(e.target.files[0])}
-          forId="file"
-          type="file"
-          accept=".png, .jpg, .jpeg, .gif"
-          field="Joindre une photographie"
-        />
-        <Button
-          classButton="stationUpload"
-          type="button"
-          name="button"
-          onClick={handleUpload}
-          fieldButton="Télécharger"
-        />
-
-        <br />
-
-        <img
-          className={picture !== "" ? "pictureStationOn" : "pictureStationOff "}
-          src={picture}
-          alt="image"
-        />
-
-        <Input
-          className="inputStation"
-          forId="file"
-          onChange={(e) => setLatitude(e.target.value)}
-          type="text"
-          value={latitude}
-          field="Latitude"
-        />
-        <Input
-          className="inputStation"
-          forId="fileTwo"
-          onChange={(e) => setLongitude(e.target.value)}
-          type="text"
-          value={longitude}
-          field="Longitude"
-        />
-        <Button
-          classButton="sendStation"
-          onClick={(e) => handleSubmit(e)}
-          fieldButton="ENVOYER"
-          type="button"
-        />
-        <p className="fieldFalse">
-          {success === true
-            ? "🏆 Votre défaut a bien été enregistré ! 😀 🏆"
-            : ""}
-        </p>
+        <div className="inputStationOne">
+          <Input
+            className="inputStation"
+            onChange={(e) => setStation(e.target.value)}
+            value={station}
+            forId="gare"
+            type="text"
+            field="Gare concernée *"
+          />
+          <p className="fieldFalse">
+            {stationRegex === false ? "Veuillez indiquer la gare" : ""}
+          </p>
+        </div>
+        <div className="inputStationTwo">
+          <Textarea
+            className="textStation"
+            onChange={(e) => setDescription(e.target.value)}
+            value={description}
+            forId="field"
+            type="text"
+          />
+          <p className="fieldFalse">
+            {descriptionRegex === false ? "Veuillez décrire le défaut" : ""}
+          </p>
+        </div>
+        <div className="inputStationThree">
+          <Input
+            className="inputStationImg"
+            onChange={(e) => setImage(e.target.files[0])}
+            forId="file"
+            type="file"
+            accept=".png, .jpg, .jpeg, .gif"
+            field="Joindre une photographie"
+          />
+        </div>
+        <div className="inputStationFour">
+          <Button
+            classButton="stationUpload"
+            type="button"
+            name="button"
+            onClick={handleUpload}
+            fieldButton="Télécharger"
+          />
+        </div>
+        <div className="pictureDefault">
+          <img
+            className={
+              picture !== "" ? "pictureStationOn" : "pictureStationOff "
+            }
+            src={picture}
+            alt="image"
+            onClick={handleClickOpen}
+            onKeyPress={onKeyPressHandler}
+            role="presentation"
+          />
+          <div>
+            {zoom ? (
+              <div className="popup">
+                <div className="popUpHeader">
+                  <h5
+                    onClick={closePopup}
+                    onKeyPress={onKeyPressHandler}
+                    role="presentation"
+                  >
+                    X
+                  </h5>
+                </div>
+                <div className="popupBody">
+                  <img className="pictureTerPopup" src={picture} alt="image" />
+                </div>
+                <div className="popUpfooter"> </div>
+              </div>
+            ) : (
+              ""
+            )}
+          </div>
+        </div>
+        <div className="latitudeLongitude">
+          <Input
+            className="inputLatitudeLongitude"
+            forId="file"
+            onChange={(e) => setLatitude(e.target.value)}
+            type="text"
+            value={latitude}
+            field="Latitude"
+          />
+          <Input
+            className="inputLatitudeLongitude"
+            forId="fileTwo"
+            onChange={(e) => setLongitude(e.target.value)}
+            type="text"
+            value={longitude}
+            field="Longitude"
+          />
+        </div>
+        <div className="inputStationFive">
+          <Button
+            classButton="sendStation"
+            onClick={(e) => handleSubmit(e)}
+            fieldButton="ENVOYER"
+            type="button"
+          />{" "}
+          <p className="fieldFalse">
+            {success === true
+              ? "🏆 Votre défaut a bien été enregistré ! 😀 🏆"
+              : ""}
+          </p>
+        </div>
+        <div className="line" />
       </form>
       <Footer />
     </div>

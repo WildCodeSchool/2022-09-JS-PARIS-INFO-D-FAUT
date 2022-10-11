@@ -47,6 +47,16 @@ const Voyageurs = () => {
   const nav = () => {
     navigate(`/home/${cp}`);
   };
+  const [zoom, setZoom] = useState(false);
+  const handleClickOpen = () => {
+    setZoom(!zoom);
+  };
+  const onKeyPressHandler = () => {
+    setZoom(false);
+  };
+  const closePopup = () => {
+    setZoom(false);
+  };
 
   const data = {
     user_id,
@@ -109,83 +119,114 @@ const Voyageurs = () => {
 
       <form className="voyageursField-container">
         <h1>TGV</h1>
-        <Input
-          className="inputVoyageurs"
-          onChange={(e) => setTgvNumber(e.target.value)}
-          value={tgv_number}
-          forId="tgv"
-          type="number"
-          field="Numéro du Tgv *"
-        />
-        <p className="fieldFalse">
-          {tgvRegex === false ? "Veuillez indiquer le TGV concerné" : ""}
-        </p>
-
-        <Textarea
-          className="textVoyageurs"
-          onChange={(e) => setDescription(e.target.value)}
-          value={description}
-          forId="field"
-          type="text"
-        />
-        <p className="fieldFalse">
-          {descriptionRegex === false ? "Veuillez décrire le défaut" : ""}
-        </p>
-
-        <Input
-          className="inputVoyageursImg"
-          onChange={(e) => setImage(e.target.files[0])}
-          forId="file"
-          type="file"
-          accept=".png, .jpg, .jpeg, .gif"
-          field="Joindre une photographie"
-        />
-        <Button
-          classButton="voyageursUpload"
-          type="button"
-          name="button"
-          onClick={handleUpload}
-          fieldButton="Télécharger"
-        />
-
-        <br />
-
-        <img
-          className={picture !== "" ? "pictureTgvOn" : "pictureTgvOff "}
-          src={picture}
-          alt="image"
-        />
-
-        <Input
-          className="inputVoyageurs"
-          forId="file"
-          onChange={(e) => setLatitude(e.target.value)}
-          type="text"
-          value={latitude}
-          field="Latitude"
-        />
-        <Input
-          className="inputVoyageurs"
-          forId="file2"
-          onChange={(e) => setLongitude(e.target.value)}
-          type="text"
-          value={longitude}
-          field="Longitude"
-        />
-
-        <Button
-          classButton="sendVoyageurs"
-          onClick={(e) => handleSubmit(e)}
-          fieldButton="ENVOYER"
-          type="button"
-        />
-        <p className="fieldFalse">
-          {success === true
-            ? "🏆 Votre défaut a bien été enregistré ! 😀 🏆"
-            : ""}
-        </p>
+        <div className="inputVoyageurOne">
+          <Input
+            className="inputVoyageurs"
+            onChange={(e) => setTgvNumber(e.target.value)}
+            value={tgv_number}
+            forId="tgv"
+            type="number"
+            field="Numéro du train *"
+          />
+          <p className="fieldFalse">
+            {tgvRegex === false ? "Veuillez indiquer le TGV concerné" : ""}
+          </p>
+        </div>
+        <div className="inputVoyageurTwo">
+          <Textarea
+            className="textVoyageurs"
+            onChange={(e) => setDescription(e.target.value)}
+            value={description}
+            forId="field"
+            type="text"
+          />
+          <p className="fieldFalse">
+            {descriptionRegex === false ? "Veuillez décrire le défaut" : ""}
+          </p>
+        </div>
+        <div className="inputVoyageurThree">
+          <Input
+            className="inputVoyageursImg"
+            onChange={(e) => setImage(e.target.files[0])}
+            forId="file"
+            type="file"
+            accept=".png, .jpg, .jpeg, .gif"
+            field="Joindre une photographie"
+          />
+        </div>
+        <div className="inputVoyageurFour">
+          <Button
+            classButton="voyageursUpload"
+            type="button"
+            name="button"
+            onClick={handleUpload}
+            fieldButton="Télécharger"
+          />
+        </div>
+        <div className="pictureDefault">
+          <img
+            className={picture !== "" ? "pictureTgvOn" : "pictureTgvOff "}
+            src={picture}
+            alt="image"
+            onClick={handleClickOpen}
+            onKeyPress={onKeyPressHandler}
+            role="presentation"
+          />
+          <div>
+            {zoom ? (
+              <div className="popup">
+                <div className="popUpHeader">
+                  <h5
+                    onClick={closePopup}
+                    onKeyPress={onKeyPressHandler}
+                    role="presentation"
+                  >
+                    X
+                  </h5>
+                </div>
+                <div className="popupBody">
+                  <img className="pictureTgvPopup" src={picture} alt="image" />
+                </div>
+                <div className="popUpfooter"> </div>
+              </div>
+            ) : (
+              ""
+            )}
+          </div>
+        </div>
+        <div className="latitudeLongitude">
+          <Input
+            className="inputLatitudeLongitude"
+            forId="file"
+            onChange={(e) => setLatitude(e.target.value)}
+            type="text"
+            value={latitude}
+            field="Latitude"
+          />
+          <Input
+            className="inputLatitudeLongitude"
+            forId="file2"
+            onChange={(e) => setLongitude(e.target.value)}
+            type="text"
+            value={longitude}
+            field="Longitude"
+          />
+        </div>
+        <div className="inputVoyageurFive">
+          <Button
+            classButton="sendVoyageurs"
+            onClick={(e) => handleSubmit(e)}
+            fieldButton="ENVOYER"
+            type="button"
+          />
+          <p className="fieldFalse">
+            {success === true
+              ? "🏆 Votre défaut a bien été enregistré ! 😀 🏆"
+              : ""}
+          </p>
+        </div>
+        <div className="line" />
       </form>
-
       <Footer />
     </div>
   );
