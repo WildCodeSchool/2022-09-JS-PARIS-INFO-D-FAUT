@@ -128,7 +128,9 @@ const UpdateUser = () => {
       phoneControle(phone_number) &&
       passwordControle(password)
     ) {
-      updateUser(id_user, data, setPassword, setSecondPassword);
+      updateUser(id_user, data);
+      setPassword("");
+      setSecondPassword("");
       alertSuccess();
       logout();
     }
@@ -152,8 +154,6 @@ const UpdateUser = () => {
           field="Numéro de CP"
           onChange={(e) => setCp(e.target.value)}
           value={cp}
-          // minlength="8"
-          // maxlength="8"
         />
         <Input
           className="inputProfile"

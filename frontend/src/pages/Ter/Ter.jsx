@@ -77,15 +77,13 @@ const Ter = () => {
 
   const handleSubmit = () => {
     if (verifyDescription(description) && verifyTerNumber(ter_number)) {
-      postDefaults(
-        data,
-        setTerNumber(0),
-        setDescription(""),
-        setPicture(""),
-        setImage(null),
-        alertSuccess(),
-        nav()
-      );
+      postDefaults(data);
+      setTerNumber(0);
+      setDescription("");
+      setPicture("");
+      setImage(null);
+      alertSuccess();
+      nav();
     }
   };
 

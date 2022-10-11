@@ -75,15 +75,13 @@ const GareEtConnexions = () => {
 
   const handleSubmit = () => {
     if (verifyDescription(description) && verifyStation(station)) {
-      postDefaults(
-        data,
-        setStation(""),
-        setDescription(""),
-        setPicture(""),
-        setImage(null),
-        alertSuccess(),
-        nav()
-      );
+      postDefaults(data);
+      setStation("");
+      setDescription("");
+      setPicture("");
+      setImage(null);
+      alertSuccess();
+      nav();
     }
   };
 

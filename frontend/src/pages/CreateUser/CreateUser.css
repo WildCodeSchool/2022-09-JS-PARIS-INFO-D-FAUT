@@ -16,7 +16,7 @@
 
 .backProfile,
 .profileProfile,
-.adminProfile,
+.adminOnProfile,
 .logoutProfile,
 .adminOffProfile {
   display: none;
@@ -25,11 +25,18 @@
 .inputProfile {
   border-radius: 20px;
 }
+
 .logoProfile {
   display: none;
   width: 50%;
   border-radius: 20%;
 }
+
+.fieldFalse {
+  color: rgb(213, 43, 30);
+  font-size: 12px;
+}
+
 .sendCreate {
   color: rgb(213, 43, 30);
   font-weight: bold;

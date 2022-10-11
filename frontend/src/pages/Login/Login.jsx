@@ -5,6 +5,7 @@ import { UserContext } from "../../context/index";
 import { Header, Footer, Input, Button } from "../../components/index";
 import { InputPassword } from "../../components/Input/InputPassword";
 import "./Login.css";
+// import { postUser } from "../../services/axios/AxiosUsers";
 
 const Login = () => {
   const { user, setUser } = useContext(UserContext);
@@ -41,16 +42,17 @@ const Login = () => {
     );
     return false;
   }
-
   const postUser = (e) => {
     e.preventDefault();
-
     const data = {
       cp,
       password,
     };
 
+    // const handleSubmit = () => {
     if (cpControl(cp) && passwordControl(password)) {
+      // postUser(data, setUser, cp);
+
       axios
         .post(`http://localhost:5000/login`, data)
         .then((response) => {

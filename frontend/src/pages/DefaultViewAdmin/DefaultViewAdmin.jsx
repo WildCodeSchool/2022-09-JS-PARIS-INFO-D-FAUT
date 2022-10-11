@@ -10,6 +10,7 @@ const DefaultViewAdmin = () => {
   const { defaut, setDefaut } = useContext(DefaultContext);
   const { user } = useContext(UserContext);
   const cp = user.cp;
+
   useEffect(() => {
     getDefaultView(id_default, setDefaut);
   }, []);

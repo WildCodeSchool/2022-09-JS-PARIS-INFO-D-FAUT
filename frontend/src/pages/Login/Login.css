@@ -9,7 +9,7 @@
 .backLogin,
 .profileLogin,
 .logoutLogin,
-.adminLogin,
+.adminOnLogin,
 .loginLogin,
 .adminOffLogin {
   display: none;

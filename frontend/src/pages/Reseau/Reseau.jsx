@@ -76,15 +76,13 @@ const Reseau = () => {
 
   const handleSubmit = () => {
     if (verifyDescription(description) && verifyRailway(railway_track_number)) {
-      postDefaults(
-        data,
-        setRailwayNumber(0),
-        setDescription(""),
-        setPicture(""),
-        setImage(null),
-        alertSuccess(),
-        nav()
-      );
+      postDefaults(data);
+      setRailwayNumber(0);
+      setDescription("");
+      setPicture("");
+      setImage(null);
+      alertSuccess();
+      nav();
     }
   };
 

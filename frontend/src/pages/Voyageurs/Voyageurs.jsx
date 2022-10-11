@@ -77,15 +77,13 @@ const Voyageurs = () => {
 
   const handleSubmit = () => {
     if (verifyDescription(description) && verifyTgvNumber(tgv_number)) {
-      postDefaults(
-        data,
-        setTgvNumber(0),
-        setDescription(""),
-        setPicture(""),
-        setImage(null),
-        alertSuccess(),
-        nav()
-      );
+      postDefaults(data);
+      setTgvNumber(0);
+      setDescription("");
+      setPicture("");
+      setImage(null);
+      alertSuccess();
+      nav();
     }
   };
 
