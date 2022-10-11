@@ -43,7 +43,7 @@ const DefaultView = () => {
                     items.station === null ? "stationViewOff" : "stationViewOn"
                   }
                 >
-                  <span>
+                  <span className="titles">
                     Gare : <br />
                   </span>
                   {items.station}
@@ -53,7 +53,7 @@ const DefaultView = () => {
                     items.ter_number === null ? "terViewOff" : "terViewOn"
                   }
                 >
-                  <span>
+                  <span className="titles">
                     TER : <br />
                   </span>
                   {items.ter_number}
@@ -63,7 +63,7 @@ const DefaultView = () => {
                     items.tgv_number === null ? "tgvViewOff" : "tgvViewOn"
                   }
                 >
-                  <span>
+                  <span className="titles">
                     TGV : <br />
                   </span>
                   {items.tgv_number}
@@ -75,13 +75,13 @@ const DefaultView = () => {
                       : "trackViewOn"
                   }
                 >
-                  <span>
+                  <span className="titles">
                     Numéro de ligne : <br />
                   </span>
                   {items.railway_track_number}
                 </h2>
                 <p className="textDefaultView">
-                  <span>
+                  <span className="titles">
                     Description : <br />
                   </span>
                   {items.description}
@@ -98,14 +98,14 @@ const DefaultView = () => {
                     items.latitude === null ? "geolocViewOff" : "geolocViewOn"
                   }
                 >
-                  <span>
+                  <span className="titles">
                     Géolocalisation : <br />
                   </span>
                   {items.latitude}, {items.longitude}
                 </p>
 
                 <p className="textDefaultView">
-                  <span>
+                  <span className="titles">
                     Traitement : <br />
                   </span>
                   {items.treatment}
