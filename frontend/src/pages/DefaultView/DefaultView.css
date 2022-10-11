@@ -25,9 +25,14 @@
 .defaultView-field-container h2 {
   color: black;
 }
+.defaultView-field-container span {
+  color: #6E1E78;
+  font-weight: bolder;
+  font-style: italic;
+}
 
 button.update-defaultView {
-  color: #cd0037;
+  color: white;
   border: 0.1rem solid black;
   background-color: #00112b;
   margin-top: 10px;

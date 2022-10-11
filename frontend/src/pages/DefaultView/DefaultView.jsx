@@ -43,7 +43,9 @@ const DefaultView = () => {
                     items.station === null ? "stationViewOff" : "stationViewOn"
                   }
                 >
-                  Gare : <br />
+                  <span>
+                    Gare : <br />
+                  </span>
                   {items.station}
                 </h2>
                 <h2
@@ -51,7 +53,9 @@ const DefaultView = () => {
                     items.ter_number === null ? "terViewOff" : "terViewOn"
                   }
                 >
-                  TER : <br />
+                  <span>
+                    TER : <br />
+                  </span>
                   {items.ter_number}
                 </h2>
                 <h2
@@ -59,7 +63,9 @@ const DefaultView = () => {
                     items.tgv_number === null ? "tgvViewOff" : "tgvViewOn"
                   }
                 >
-                  TGV : <br />
+                  <span>
+                    TGV : <br />
+                  </span>
                   {items.tgv_number}
                 </h2>
                 <h2
@@ -69,11 +75,15 @@ const DefaultView = () => {
                       : "trackViewOn"
                   }
                 >
-                  Numéro de ligne : <br />
+                  <span>
+                    Numéro de ligne : <br />
+                  </span>
                   {items.railway_track_number}
                 </h2>
                 <p className="textDefaultView">
-                  Description : <br />
+                  <span>
+                    Description : <br />
+                  </span>
                   {items.description}
                 </p>
                 <img
@@ -88,12 +98,16 @@ const DefaultView = () => {
                     items.latitude === null ? "geolocViewOff" : "geolocViewOn"
                   }
                 >
-                  Géolocalisation : <br />
+                  <span>
+                    Géolocalisation : <br />
+                  </span>
                   {items.latitude}, {items.longitude}
                 </p>
 
                 <p className="textDefaultView">
-                  Traitement : <br />
+                  <span>
+                    Traitement : <br />
+                  </span>
                   {items.treatment}
                 </p>
                 <Button
