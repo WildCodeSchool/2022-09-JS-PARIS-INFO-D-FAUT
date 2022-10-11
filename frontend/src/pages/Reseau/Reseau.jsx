@@ -99,38 +99,44 @@ const Reseau = () => {
 
       <form className="reseauField-container">
         <h1>RESEAU</h1>
-
-        <Input
-          className="inputReseau"
-          onChange={(e) => setRailwayNumber(e.target.value)}
-          value={railway_track_number}
-          forId="ligne"
-          type="number"
-          field="Numéro de ligne / Emprise"
-        />
-        <Textarea
-          className="textReseau"
-          onChange={(e) => setDescription(e.target.value)}
-          value={description}
-          forId="field"
-          type="text"
-        />
-        <Input
-          className="inputReseauImg"
-          onChange={(e) => setImage(e.target.files[0])}
-          forId="file"
-          type="file"
-          accept=".png, .jpg, .jpeg, .gif"
-          field="Joindre une photographie"
-        />
-        <Button
-          classButton="reseauUpload"
-          type="button"
-          name="button"
-          onClick={handleUpload}
-          fieldButton="Télécharger"
-        />
-
+        <div className="inputReseauOne">
+          <Input
+            className="inputReseau"
+            onChange={(e) => setRailwayNumber(e.target.value)}
+            value={railway_track_number}
+            forId="ligne"
+            type="number"
+            field="Numéro de ligne / Emprise"
+          />
+        </div>
+        <div className="inputReseauTwo">
+          <Textarea
+            className="textReseau"
+            onChange={(e) => setDescription(e.target.value)}
+            value={description}
+            forId="field"
+            type="text"
+          />
+        </div>
+        <div className="inputReseauThree">
+          <Input
+            className="inputReseauImg"
+            onChange={(e) => setImage(e.target.files[0])}
+            forId="file"
+            type="file"
+            accept=".png, .jpg, .jpeg, .gif"
+            field="Joindre une photographie"
+          />
+        </div>
+        <div className="inputReseauFour">
+          <Button
+            classButton="reseauUpload"
+            type="button"
+            name="button"
+            onClick={handleUpload}
+            fieldButton="Télécharger"
+          />
+        </div>
         <div className="pictureDefault">
           <img
             className={picture !== "" ? "pictureReseauOn" : "pictureReseauOff "}
@@ -156,12 +162,15 @@ const Reseau = () => {
             field="Longitude"
           />
         </div>
-        <Button
-          classButton="sendReseau"
-          onClick={(e) => handleSubmit(e)}
-          fieldButton="ENVOYER"
-          type="button"
-        />
+        <div className="inputReseauFive">
+          <Button
+            classButton="sendReseau"
+            onClick={(e) => handleSubmit(e)}
+            fieldButton="ENVOYER"
+            type="button"
+          />
+        </div>
+        <div className="line" />
       </form>
 
       <Footer />
