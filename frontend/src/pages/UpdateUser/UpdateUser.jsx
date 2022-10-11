@@ -239,7 +239,7 @@ const UpdateUser = () => {
         </p>
         <p className="fieldFalse">
           {errorConnect === true
-            ? "⚠️ Le CP ou l'adresse mail saisie existe déjà ⚠️"
+            ? "⚠️ Le CP ou l'adresse mail saisi existe déjà ⚠️"
             : ""}
         </p>
       </form>
