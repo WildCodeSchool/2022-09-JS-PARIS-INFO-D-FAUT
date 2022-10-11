@@ -76,7 +76,7 @@ const DefaultsUser = () => {
                     <Button
                       name="update"
                       classButton="update-button-defaultsUser"
-                      fieldButton="Mettre à jour"
+                      fieldButton="Modifier"
                       type="button"
                     />
                   </Link>
