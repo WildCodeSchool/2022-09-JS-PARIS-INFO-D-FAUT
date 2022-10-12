@@ -24,31 +24,33 @@ const Profile = () => {
         logoutCss="logoutProfile"
       />
       <div className="profile-field-container">
-        <h1 className="title">PROFIL :</h1>
-        <p className="textProfile cp">
-          <span className="titles">
-            CP: <br />
-          </span>
-          {cp}
-        </p>
-        <p className="textProfile mail">
-          <span className="titles">
-            Mail: <br />
-          </span>
-          {mail}
-        </p>
-        <p className="textProfile phone">
-          <span className="titles">
-            Téléphone: <br />
-          </span>
-          {phone_number}
-        </p>
-        <Button
-          classButton="update-profile button"
-          fieldButton="MODIFIER"
-          type="button"
-          onClick={handleUpdate}
-        />
+        <div className="profileFlex">
+          <h1 className="title">PROFIL :</h1>
+          <p className="textProfile cp">
+            <span className="titles">
+              CP: <br />
+            </span>
+            {cp}
+          </p>
+          <p className="textProfile mail">
+            <span className="titles">
+              Mail: <br />
+            </span>
+            {mail}
+          </p>
+          <p className="textProfile phone">
+            <span className="titles">
+              Téléphone: <br />
+            </span>
+            {phone_number}
+          </p>
+          <Button
+            classButton="update-profile"
+            fieldButton="MODIFIER"
+            type="button"
+            onClick={handleUpdate}
+          />
+        </div>
       </div>
       <Footer />
     </div>
