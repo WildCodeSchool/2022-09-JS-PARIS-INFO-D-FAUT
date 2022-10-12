@@ -113,7 +113,7 @@ const GareEtConnexions = () => {
         adminOffCss="adminOffGare"
       />
       <form className="stationField-container">
-        <h1>GARE & CONNEXIONS</h1>
+        <h1 className="h1Animation">GARE & CONNEXIONS</h1>
         <div className="inputStationOne">
           <Input
             className="inputStation"
@@ -216,11 +216,7 @@ const GareEtConnexions = () => {
                 </h5>
               </div>
               <div className="popupBody">
-                <img
-                  className="pictureStationPopup"
-                  src={picture}
-                  alt="image"
-                />
+                <img className="picturePopup" src={picture} alt="image" />
               </div>
               <div className="popUpfooter"> </div>
             </div>

@@ -119,7 +119,7 @@ const Ter = () => {
       />
 
       <form className="terField-container">
-        <h1> TER </h1>
+        <h1 className="h1Animation"> TER </h1>
         <div className="inputTerOne">
           <Input
             className="inputTer"

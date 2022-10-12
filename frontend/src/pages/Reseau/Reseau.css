@@ -23,7 +23,7 @@
   justify-content: space-around;
 }
 
-h1 {
+.h1Animation {
   margin-top: 5px;
   text-align: center;
   font-weight: bold;
@@ -77,9 +77,15 @@ h1 {
 .pictureReseauPopup {
   width: 150%;
 }
+.sendReseau{
+  color :rgb(205, 0, 55);
+font-weight: bold;
+}
 @media (min-width: 900px) {
-  .inputVoyageursImg {
+  .inputReseauImg {
     width: auto;
+    display: flex;
+    justify-content: center;
   }
   .textReseau {
     height: 28vh;
@@ -93,7 +99,7 @@ h1 {
     align-items: center;
     justify-content: center;
   }
-  h1 {
+  .h1Animation {
     grid-column: 1/4;
     grid-row: 1;
     animation: scale-in-ver-bottom 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)

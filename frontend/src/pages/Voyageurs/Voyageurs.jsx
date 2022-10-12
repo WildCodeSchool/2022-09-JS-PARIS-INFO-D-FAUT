@@ -118,7 +118,7 @@ const Voyageurs = () => {
       />
 
       <form className="voyageursField-container">
-        <h1>TGV</h1>
+        <h1 className="h1Animation">TGV</h1>
         <div className="inputVoyageurOne">
           <Input
             className="inputVoyageurs"

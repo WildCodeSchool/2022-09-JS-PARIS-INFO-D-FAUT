@@ -118,7 +118,7 @@ const Reseau = () => {
       />
 
       <form className="reseauField-container">
-        <h1>RESEAU</h1>
+        <h1 className="h1Animation">RESEAU</h1>
         <div className="inputReseauOne">
           <Input
             className="inputReseau"
