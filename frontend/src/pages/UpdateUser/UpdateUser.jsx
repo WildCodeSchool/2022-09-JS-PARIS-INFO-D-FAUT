@@ -237,6 +237,11 @@ const UpdateUser = () => {
             autoComplete="on"
             value={secondPassword}
           />
+          <p className="fieldFalse">
+            {verifPasswords === true
+              ? "⚠️ Les deux mots de passe doivent être identiques"
+              : ""}
+          </p>
         </div>
         <div className="inputUpdateUserSix">
           <Button
