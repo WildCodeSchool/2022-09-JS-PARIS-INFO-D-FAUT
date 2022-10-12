@@ -9,7 +9,8 @@
 
 .profileGare,
 .loginGare,
-.adminOffGare {
+.adminOffGare,
+.logoutGare {
   display: none;
 }
 
@@ -20,15 +21,7 @@
   align-items: center;
   overflow: auto;
   gap: 10px;
-  justify-content: space-around;
-}
-
-h1 {
-  margin-top: 5px;
-  text-align: center;
-  font-weight: bold;
-  font-size: 25px;
-  color: rgb(213, 43, 30);
+  justify-content: space-between;
 }
 
 .inputStationImg {
@@ -64,7 +57,7 @@ h1 {
 }
 
 .pictureStationOn {
-  height: 100%;
+  height: 80%;
 }
 
 h2 {
@@ -100,16 +93,14 @@ h2 {
 }
 .pictureDefault {
   height: 15%;
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 @media (min-width: 768px) {
   .inputStation {
     width: 300px;
     height: 35px;
-  }
-  .textStation {
-    width: 35rem;
-    height: 20vh;
-    font-size: medium;
   }
 }
 .popup {
@@ -139,12 +130,18 @@ h2 {
 .pictureStationPopup {
   width: 150%;
 }
+.sendStation {
+  color: rgb(205, 0, 55);
+  font-weight: bold;
+}
 @media (min-width: 900px) {
-  .inputVoyageursImg {
+  .inputStationImg {
     width: auto;
+    display: flex;
+    justify-content: center;
   }
   .textStation {
-    height: 30vh;
+    height: 28vh;
     width: 400px;
   }
   .latitudeLongitude {
@@ -157,7 +154,7 @@ h2 {
     align-items: center;
     justify-content: center;
   }
-  h1 {
+  .h1Animation {
     grid-column: 1/4;
     grid-row: 1;
     animation: scale-in-ver-bottom 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)
@@ -211,16 +208,7 @@ h2 {
     animation: scale-in-ver-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.9s
       both;
   }
-  .lineVoyageurs {
-    grid-column: 2;
-    grid-row: 2/5;
-    background-color: rgb(213, 43, 30);
-    width: 2px;
-    height: 100%;
-    margin: auto;
-    animation: scale-in-ver-center 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)
-      1.2s both;
-  }
+
   @keyframes scale-in-ver-bottom {
     0% {
       -webkit-transform: scaleY(0);

@@ -43,7 +43,10 @@ button.update-state {
   margin-bottom: 10px;
 }
 
-.adminOffUpdateDefaultsViewAdmin {
+.adminOffUpdateDefaultsViewAdmin,
+.profileUpdateDefaultsViewAdmin,
+.loginUpdateDefaultsViewAdmin,
+.logoutUpdateDefaultsViewAdmin {
   display: none;
 }
 

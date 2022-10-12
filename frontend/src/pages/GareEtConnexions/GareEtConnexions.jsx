@@ -89,7 +89,7 @@ const GareEtConnexions = () => {
   };
 
   const duration = () => {
-    setTimeout(nav, 3000);
+    setTimeout(nav, 2000);
   };
 
   const handleSubmit = () => {
@@ -107,13 +107,13 @@ const GareEtConnexions = () => {
   return (
     <div className="station-container">
       <Header
-        backCss="backGare"
         profileCss="profileGare"
         loginCss="loginGare"
         adminOffCss="adminOffGare"
+        logoutCss="logoutGare"
       />
       <form className="stationField-container">
-        <h1>GARE & CONNEXIONS</h1>
+        <h1 className="h1Animation">GARE & CONNEXIONS</h1>
         <div className="inputStationOne">
           <Input
             className="inputStation"
@@ -169,28 +169,8 @@ const GareEtConnexions = () => {
             onKeyPress={onKeyPressHandler}
             role="presentation"
           />
-          <div>
-            {zoom ? (
-              <div className="popup">
-                <div className="popUpHeader">
-                  <h5
-                    onClick={closePopup}
-                    onKeyPress={onKeyPressHandler}
-                    role="presentation"
-                  >
-                    X
-                  </h5>
-                </div>
-                <div className="popupBody">
-                  <img className="pictureTerPopup" src={picture} alt="image" />
-                </div>
-                <div className="popUpfooter"> </div>
-              </div>
-            ) : (
-              ""
-            )}
-          </div>
         </div>
+
         <div className="latitudeLongitude">
           <Input
             className="inputLatitudeLongitude"
@@ -223,6 +203,27 @@ const GareEtConnexions = () => {
           </p>
         </div>
         <div className="line" />
+        <div>
+          {zoom ? (
+            <div className="popup">
+              <div className="popUpHeader">
+                <h5
+                  onClick={closePopup}
+                  onKeyPress={onKeyPressHandler}
+                  role="presentation"
+                >
+                  X
+                </h5>
+              </div>
+              <div className="popupBody">
+                <img className="picturePopup" src={picture} alt="image" />
+              </div>
+              <div className="popUpfooter"> </div>
+            </div>
+          ) : (
+            ""
+          )}
+        </div>
       </form>
       <Footer />
     </div>

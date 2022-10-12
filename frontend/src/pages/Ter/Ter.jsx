@@ -22,7 +22,7 @@ const Ter = () => {
   const latitudeDefault = geolocation.latitude;
   const longitudeDefault = geolocation.longitude;
 
-  const [ter_number, setTerNumber] = useState(0);
+  const [ter_number, setTerNumber] = useState();
   const [description, setDescription] = useState("");
   const [picture, setPicture] = useState("");
   const [latitude, setLatitude] = useState(latitudeDefault);
@@ -94,7 +94,7 @@ const Ter = () => {
   };
 
   const duration = () => {
-    setTimeout(nav, 3000);
+    setTimeout(nav, 2000);
   };
 
   const handleSubmit = () => {
@@ -112,14 +112,14 @@ const Ter = () => {
   return (
     <div className="ter-container">
       <Header
-        backCss="backTer"
         profileCss="profileTer"
         loginCss="loginTer"
         adminOffCss="adminOffTer"
+        logoutCss="logoutTer"
       />
 
       <form className="terField-container">
-        <h1> TER </h1>
+        <h1 className="h1Animation"> TER </h1>
         <div className="inputTerOne">
           <Input
             className="inputTer"
@@ -173,27 +173,6 @@ const Ter = () => {
             onKeyPress={onKeyPressHandler}
             role="presentation"
           />
-          <div>
-            {zoom ? (
-              <div className="popup">
-                <div className="popUpHeader">
-                  <h5
-                    onClick={closePopup}
-                    onKeyPress={onKeyPressHandler}
-                    role="presentation"
-                  >
-                    X
-                  </h5>
-                </div>
-                <div className="popupBody">
-                  <img className="pictureTerPopup" src={picture} alt="image" />
-                </div>
-                <div className="popUpfooter"> </div>
-              </div>
-            ) : (
-              ""
-            )}
-          </div>
         </div>
         <div className="latitudeLongitude">
           <Input
@@ -227,6 +206,27 @@ const Ter = () => {
           </p>
         </div>
         <div className="line" />
+        <div>
+          {zoom ? (
+            <div className="popup">
+              <div className="popUpHeader">
+                <h5
+                  onClick={closePopup}
+                  onKeyPress={onKeyPressHandler}
+                  role="presentation"
+                >
+                  X
+                </h5>
+              </div>
+              <div className="popupBody">
+                <img className="pictureTerPopup" src={picture} alt="image" />
+              </div>
+              <div className="popUpfooter"> </div>
+            </div>
+          ) : (
+            ""
+          )}
+        </div>
       </form>
 
       <Footer />

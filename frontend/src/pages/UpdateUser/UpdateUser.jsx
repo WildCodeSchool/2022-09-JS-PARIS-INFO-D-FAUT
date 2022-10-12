@@ -12,6 +12,7 @@ import {
 import { UserContext } from "../../context/index";
 
 import { updateUser } from "../../services/axios/AxiosUsers";
+import updateDefaultlogo from "../../assets/modification.gif";
 
 const UpdateUser = () => {
   const navigate = useNavigate();
@@ -33,6 +34,8 @@ const UpdateUser = () => {
   const [phoneRegex, setPhoneRegex] = useState(true);
   const [passwordRegex, setPasswordRegex] = useState(true);
   const [success, setSuccess] = useState(false);
+
+  const [errorConnect, setErrorConnect] = useState(false);
 
   const verifPasswords = password !== secondPassword;
 
@@ -106,6 +109,10 @@ const UpdateUser = () => {
     navigate("/");
   };
 
+  const durationNav = () => {
+    setTimeout(nav, 2000);
+  };
+
   const logout = async () => {
     const token = localStorage.getItem("token");
 
@@ -135,99 +142,124 @@ const UpdateUser = () => {
       phoneControle(phone_number) &&
       passwordControle(password)
     ) {
-      updateUser(id_user, data);
-      setPassword("");
-      setSecondPassword("");
-      alertSuccess();
-      duration();
+      updateUser(
+        id_user,
+        data,
+        setErrorConnect,
+        alertSuccess,
+        durationNav,
+        setErrorConnect
+      );
     }
   };
 
   return (
     <div className="updateUser-container">
       <Header
-        backCss="backUpdateUser"
-        profileCss="profileUpdateUser"
         loginCss="loginUpdateUser"
         adminOffCss="adminOffUpdateUser"
+        logoutCss="logoutUpdateUser"
       />
 
       <form className="profile_field-container">
         <h1>MODIFICATION</h1>
-        <Input
-          className="inputProfile"
-          forId="cp"
-          type="text"
-          field="Numéro de CP *"
-          onChange={(e) => setCp(e.target.value)}
-          value={cp}
-        />
-        <p className="fieldFalse">
-          {cpRegex === false
-            ? "⚠️ Le CP doit etre composé de 7 chiffres et une lettre"
-            : ""}
-        </p>
-
-        <Input
-          className="inputProfile"
-          forId="mail"
-          type="email"
-          field="Adresse mail *"
-          onChange={(e) => setMail(e.target.value)}
-          value={mail}
-        />
-        <p className="fieldFalse">
-          {mailRegex === false ? "⚠️ le mail n'est pas valide " : ""}
-        </p>
-
-        <Input
-          className="inputProfile"
-          forId="telephone"
-          type="tel"
-          field="Téléphone"
-          onChange={(e) => setPhoneNumber(e.target.value)}
-          value={phone_number}
-        />
-        <p className="fieldFalse">
-          {phoneRegex === false
-            ? "⚠️ le téléphone n'est pas valide il doit contenir 10 chiffres"
-            : ""}
-        </p>
-
-        <InputPassword
-          className="inputProfile"
-          forId="mot"
-          field="Mot de passe *"
-          onChange={(e) => setPassword(e.target.value)}
-          autoComplete="on"
-          value={password}
-        />
-        <p className="fieldFalse">
-          {passwordRegex === false
-            ? "⚠️ le mot de passe doit contenir au minimum: une majuscule, une minuscule, un chiffre, un caractère spécial parmi : -.:;,+!?*$@%_ et doit contenir minimum 8 caractères"
-            : ""}
-        </p>
-        <InputPassword
-          className="inputProfile"
-          forId="confirmation"
-          field="Confirmation du mot de passe *"
-          onChange={(e) => setSecondPassword(e.target.value)}
-          autoComplete="on"
-          value={secondPassword}
-        />
-        <Button
-          classButton="sendUpdateUser"
-          disabled={verifPasswords}
-          onClick={(e) => handleSubmit(e)}
-          fieldButton="ENVOYER"
-          type="button"
-        />
-        <p className="fieldFalse">
-          {success === true ? "🏆 Votre profil a bien été modifié ! 😀 🏆" : ""}
-        </p>
-        <p className="fieldFalse">
-          {success === true ? "Veuillez vous reconnecter, merci." : ""}
-        </p>
+        <div className="inputUpdateUserOne">
+          <Input
+            className="inputProfile"
+            forId="cp"
+            type="text"
+            field="Numéro de CP *"
+            onChange={(e) => setCp(e.target.value)}
+            value={cp}
+          />
+          <p className="fieldFalse">
+            {cpRegex === false
+              ? "⚠️ Le CP doit etre composé de 7 chiffres et une lettre"
+              : ""}
+          </p>
+        </div>
+        <div className="inputUpdateUserTwo">
+          <Input
+            className="inputProfile"
+            forId="mail"
+            type="email"
+            field="Adresse mail *"
+            onChange={(e) => setMail(e.target.value)}
+            value={mail}
+          />
+          <p className="fieldFalse">
+            {mailRegex === false ? "⚠️ le mail n'est pas valide " : ""}
+          </p>
+        </div>
+        <div className="inputUpdateUserThree">
+          <Input
+            className="inputProfile"
+            forId="telephone"
+            type="tel"
+            field="Téléphone"
+            onChange={(e) => setPhoneNumber(e.target.value)}
+            value={phone_number}
+          />
+          <p className="fieldFalse">
+            {phoneRegex === false
+              ? "⚠️ le téléphone n'est pas valide il doit contenir 10 chiffres"
+              : ""}
+          </p>
+        </div>
+        <div className="updateProfile-logo">
+          <img
+            className="logoUpdateProfile"
+            src={updateDefaultlogo}
+            alt="Logo"
+          />
+        </div>
+        <div className="inputUpdateUserFour">
+          <InputPassword
+            className="inputProfile"
+            forId="mot"
+            field="Mot de passe *"
+            onChange={(e) => setPassword(e.target.value)}
+            autoComplete="on"
+            value={password}
+          />
+          <p className="fieldFalse">
+            {passwordRegex === false
+              ? "⚠️ le mot de passe doit contenir au minimum: une majuscule, une minuscule, un chiffre, un caractère spécial parmi : -.:;,+!?*$@%_ et doit contenir minimum 8 caractères"
+              : ""}
+          </p>
+        </div>
+        <div className="inputUpdateUserFive">
+          <InputPassword
+            className="inputProfile"
+            forId="confirmation"
+            field="Confirmation du mot de passe *"
+            onChange={(e) => setSecondPassword(e.target.value)}
+            autoComplete="on"
+            value={secondPassword}
+          />
+          <p className="fieldFalse">
+            {verifPasswords === true
+              ? "⚠️ Les deux mots de passe doivent être identiques"
+              : ""}
+          </p>
+        </div>
+        <div className="inputUpdateUserSix">
+          <Button
+            classButton="sendUpdateUser"
+            disabled={verifPasswords}
+            onClick={(e) => handleSubmit(e)}
+            fieldButton="ENVOYER"
+            type="button"
+          />
+          <p className="fieldFalse">
+            {success === true
+              ? "🏆 Votre profil a bien été modifié ! 😀 🏆"
+              : ""}
+          </p>
+          <p className="fieldFalse">
+            {success === true ? "Veuillez vous reconnecter, merci." : ""}
+          </p>
+        </div>
       </form>
       <Footer />
     </div>

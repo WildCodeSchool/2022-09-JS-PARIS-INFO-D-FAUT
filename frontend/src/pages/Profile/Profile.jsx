@@ -18,7 +18,11 @@ const Profile = () => {
 
   return (
     <div className="profile-container">
-      <Header loginCss="loginProfile" adminOffCss="adminOffProfile" />
+      <Header
+        loginCss="loginProfile"
+        adminOffCss="adminOffProfile"
+        logoutCss="logoutProfile"
+      />
       <div className="profile-field-container">
         <h1 className="title">PROFIL :</h1>
         <p className="textProfile cp">

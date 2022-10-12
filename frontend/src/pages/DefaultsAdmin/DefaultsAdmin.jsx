@@ -25,9 +25,9 @@ const DefaultsAdmin = () => {
   return (
     <div className="defaults-container">
       <Header
-        backCss="backDefaultsAdmin"
         profileCss="profileDefaultsAdmin"
         loginCss="loginDefaultsAdmin"
+        logoutCss="logoutDefaultsAdmin"
       />
       <div className="defaults-display">
         {problems &&

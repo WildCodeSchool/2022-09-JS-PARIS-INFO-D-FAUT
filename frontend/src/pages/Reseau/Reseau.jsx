@@ -22,7 +22,7 @@ const Reseau = () => {
   const latitudeDefault = geolocation.latitude;
   const longitudeDefault = geolocation.longitude;
 
-  const [railway_track_number, setRailwayNumber] = useState(0);
+  const [railway_track_number, setRailwayNumber] = useState();
   const [description, setDescription] = useState("");
   const [picture, setPicture] = useState("");
   const [latitude, setLatitude] = useState(latitudeDefault);
@@ -93,7 +93,7 @@ const Reseau = () => {
   };
 
   const duration = () => {
-    setTimeout(nav, 3000);
+    setTimeout(nav, 2000);
   };
 
   const handleSubmit = () => {
@@ -111,14 +111,14 @@ const Reseau = () => {
   return (
     <div className="reseau-container">
       <Header
-        backCss="backReseau"
         profileCss="profileReseau"
         loginCss="loginReseau"
         adminOffCss="adminOffReseau"
+        logoutCss="logoutReseau"
       />
 
       <form className="reseauField-container">
-        <h1>RESEAU</h1>
+        <h1 className="h1Animation">RESEAU</h1>
         <div className="inputReseauOne">
           <Input
             className="inputReseau"
@@ -126,7 +126,7 @@ const Reseau = () => {
             value={railway_track_number}
             forId="ligne"
             type="number"
-            field="Numéro de ligne / Emprise *"
+            field="Numéro de ligne *"
           />
           <p className="fieldFalse">
             {railwayRegex === false
@@ -174,31 +174,6 @@ const Reseau = () => {
             onKeyPress={onKeyPressHandler}
             role="presentation"
           />
-          <div>
-            {zoom ? (
-              <div className="popup">
-                <div className="popUpHeader">
-                  <h5
-                    onClick={closePopup}
-                    onKeyPress={onKeyPressHandler}
-                    role="presentation"
-                  >
-                    X
-                  </h5>
-                </div>
-                <div className="popupBody">
-                  <img
-                    className="pictureReseauPopup"
-                    src={picture}
-                    alt="image"
-                  />
-                </div>
-                <div className="popUpfooter"> </div>
-              </div>
-            ) : (
-              ""
-            )}
-          </div>
         </div>
         <div className="latitudeLongitude">
           <Input
@@ -232,6 +207,27 @@ const Reseau = () => {
           </p>
         </div>
         <div className="line" />
+        <div>
+          {zoom ? (
+            <div className="popup">
+              <div className="popUpHeader">
+                <h5
+                  onClick={closePopup}
+                  onKeyPress={onKeyPressHandler}
+                  role="presentation"
+                >
+                  X
+                </h5>
+              </div>
+              <div className="popupBody">
+                <img className="pictureReseauPopup" src={picture} alt="image" />
+              </div>
+              <div className="popUpfooter"> </div>
+            </div>
+          ) : (
+            ""
+          )}
+        </div>
       </form>
 
       <Footer />

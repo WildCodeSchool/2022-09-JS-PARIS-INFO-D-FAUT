@@ -22,7 +22,7 @@ const Voyageurs = () => {
   const latitudeDefault = geolocation.latitude;
   const longitudeDefault = geolocation.longitude;
 
-  const [tgv_number, setTgvNumber] = useState(0);
+  const [tgv_number, setTgvNumber] = useState();
   const [description, setDescription] = useState("");
   const [picture, setPicture] = useState("");
   const [latitude, setLatitude] = useState(latitudeDefault);
@@ -94,7 +94,7 @@ const Voyageurs = () => {
   };
 
   const duration = () => {
-    setTimeout(nav, 3000);
+    setTimeout(nav, 2000);
   };
   const handleSubmit = () => {
     if (verifyTgvNumber(tgv_number) && verifyDescription(description)) {
@@ -111,14 +111,14 @@ const Voyageurs = () => {
   return (
     <div className="voyageurs-container">
       <Header
-        backCss="backVoyageurs"
         profileCss="profileVoyageurs"
         loginCss="loginVoyageurs"
         adminOffCss="adminOffVoyageurs"
+        logoutCss="logoutVoyageurs"
       />
 
       <form className="voyageursField-container">
-        <h1>TGV</h1>
+        <h1 className="h1Animation">TGV</h1>
         <div className="inputVoyageurOne">
           <Input
             className="inputVoyageurs"
@@ -172,27 +172,6 @@ const Voyageurs = () => {
             onKeyPress={onKeyPressHandler}
             role="presentation"
           />
-          <div>
-            {zoom ? (
-              <div className="popup">
-                <div className="popUpHeader">
-                  <h5
-                    onClick={closePopup}
-                    onKeyPress={onKeyPressHandler}
-                    role="presentation"
-                  >
-                    X
-                  </h5>
-                </div>
-                <div className="popupBody">
-                  <img className="pictureTgvPopup" src={picture} alt="image" />
-                </div>
-                <div className="popUpfooter"> </div>
-              </div>
-            ) : (
-              ""
-            )}
-          </div>
         </div>
         <div className="latitudeLongitude">
           <Input
@@ -226,6 +205,27 @@ const Voyageurs = () => {
           </p>
         </div>
         <div className="line" />
+        <div>
+          {zoom ? (
+            <div className="popup">
+              <div className="popUpHeader">
+                <h5
+                  onClick={closePopup}
+                  onKeyPress={onKeyPressHandler}
+                  role="presentation"
+                >
+                  X
+                </h5>
+              </div>
+              <div className="popupBody">
+                <img className="pictureTgvPopup" src={picture} alt="image" />
+              </div>
+              <div className="popUpfooter"> </div>
+            </div>
+          ) : (
+            ""
+          )}
+        </div>
       </form>
       <Footer />
     </div>

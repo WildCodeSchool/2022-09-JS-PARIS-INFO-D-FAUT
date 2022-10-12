@@ -57,7 +57,7 @@ const Login = () => {
   };
 
   const durationNav = () => {
-    setTimeout(nav, 1000);
+    setTimeout(nav, 500);
   };
 
   const handleSubmit = (e) => {
@@ -128,7 +128,7 @@ const Login = () => {
               type="submit"
             />
           </form>
-          <div className="trait" />
+          <div className="lineLogin" />
           <Link className="linkProfile" to="/createUser">
             <Button
               classButton="inscription"

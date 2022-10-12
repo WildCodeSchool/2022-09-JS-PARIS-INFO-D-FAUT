@@ -6,19 +6,25 @@
   justify-content: space-between;
   background-color: rgb(0, 17, 43);
 }
-
+.inputUpdateImage {
+  color: white;
+}
 .profileUpdateDefaultUser,
 .loginUpdateDefaultUser,
-.adminOffUpdateDefaultUser {
+.adminOffUpdateDefaultUser,
+.logoutUpdateDefaultUser {
   display: none;
 }
 
 .updateDefaultUser_field-container {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
   height: 100%;
   align-items: center;
+  justify-content: center;
+  overflow: auto;
+  gap: 10px;
+  justify-content: space-around;
 }
 
 .stationUpdateOff,
@@ -34,4 +40,127 @@
 .pictureUpdateOn,
 .imgUpdate {
   width: 30%;
+}
+@media (min-width: 900px) {
+  .inputUpdateImage {
+    width: auto;
+    display: flex;
+    justify-content: center;
+  }
+  .textUpdateDescription {
+    height: 28vh;
+    width: 400px;
+  }
+  .latitudeLongitude {
+    justify-content: space-evenly;
+  }
+  .updateDefaultUser_field-container {
+    display: grid;
+    grid-template-columns: 43% 10% 43%;
+    grid-template-rows: auto 15% 10% 30% 5% auto;
+    align-items: center;
+    justify-content: center;
+  }
+  .h1Animation {
+    grid-column: 1/4;
+    grid-row: 1;
+    animation: scale-in-ver-bottom 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+      1.9s both;
+  }
+  .inputUpdateDefaultUserOne {
+    grid-column: 1;
+    grid-row: 2;
+    display: flex;
+    justify-content: center;
+    animation: slide-in-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s both;
+  }
+  .inputUpdateDefaultUserTwo {
+    grid-column: 1;
+    grid-row: 3/5;
+    align-items: center;
+    animation: slide-in-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.6s both;
+  }
+  .inputUpdateDefaultUserThree {
+    grid-column: 3;
+    grid-row: 2;
+    animation: slide-in-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s
+      both;
+  }
+  .inputUpdateDefaultUserFour {
+    grid-column: 3;
+    grid-row: 3;
+    animation: slide-in-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.6s
+      both;
+  }
+  .pictureUpdateDefaultUser {
+    grid-column: 3;
+    grid-row: 4;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    animation: slide-in-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.6s
+      both;
+  }
+  .latitudeLongitude {
+    grid-column: 3;
+    grid-row: 5;
+    justify-content: center;
+    animation: slide-in-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.7s
+      both;
+  }
+
+  .inputUpdateDefaultUserFive {
+    grid-column: 2;
+    grid-row: 6;
+    animation: scale-in-ver-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.9s
+      both;
+  }
+  .picturePopup {
+    width: 100vh;
+  }
+  @keyframes scale-in-ver-bottom {
+    0% {
+      -webkit-transform: scaleY(0);
+      transform: scaleY(0);
+      -webkit-transform-origin: 0% 100%;
+      transform-origin: 0% 100%;
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: scaleY(1);
+      transform: scaleY(1);
+      -webkit-transform-origin: 0% 100%;
+      transform-origin: 0% 100%;
+      opacity: 1;
+    }
+  }
+  @keyframes scale-in-ver-center {
+    0% {
+      -webkit-transform: scaleY(0);
+      transform: scaleY(0);
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: scaleY(1);
+      transform: scaleY(1);
+      opacity: 1;
+    }
+  }
+
+  @keyframes scale-in-ver-top {
+    0% {
+      -webkit-transform: scaleY(0);
+      transform: scaleY(0);
+      -webkit-transform-origin: 100% 0%;
+      transform-origin: 100% 0%;
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: scaleY(1);
+      transform: scaleY(1);
+      -webkit-transform-origin: 100% 0%;
+      transform-origin: 100% 0%;
+      opacity: 1;
+    }
+  }
 }

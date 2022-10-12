@@ -16,7 +16,8 @@
 }
 
 .profileUsers,
-.loginUsers {
+.loginUsers,
+.logoutUsers {
   display: none;
 }
 
