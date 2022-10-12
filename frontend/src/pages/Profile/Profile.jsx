@@ -21,9 +21,24 @@ const Profile = () => {
       <Header loginCss="loginProfile" adminOffCss="adminOffProfile" />
       <div className="profile-field-container">
         <h1>PROFIL :</h1>
-        <h2>CP: {cp}</h2>
-        <p className="textProfile">mail: {mail}</p>
-        <p className="textProfile">téléphone: {phone_number}</p>
+        <p className="textProfile">
+          <span className="titles">
+            CP: <br />
+          </span>
+          {cp}
+        </p>
+        <p className="textProfile">
+          <span className="titles">
+            Mail: <br />
+          </span>
+          {mail}
+        </p>
+        <p className="textProfile">
+          <span className="titles">
+            Téléphone: <br />
+          </span>
+          {phone_number}
+        </p>
         <Button
           classButton="update-profile"
           fieldButton="MODIFIER"
