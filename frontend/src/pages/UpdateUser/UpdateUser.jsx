@@ -155,10 +155,9 @@ const UpdateUser = () => {
   return (
     <div className="updateUser-container">
       <Header
-        backCss="backUpdateUser"
-        profileCss="profileUpdateUser"
         loginCss="loginUpdateUser"
         adminOffCss="adminOffUpdateUser"
+        logoutCss="logoutUpdateUser"
       />
 
       <form className="profile_field-container">

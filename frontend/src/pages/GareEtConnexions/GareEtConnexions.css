@@ -9,7 +9,8 @@
 
 .profileGare,
 .loginGare,
-.adminOffGare {
+.adminOffGare,
+.logoutGare {
   display: none;
 }
 

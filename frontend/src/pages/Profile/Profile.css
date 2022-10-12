@@ -16,7 +16,8 @@
 }
 
 .loginProfile,
-.adminOffProf {
+.adminOffProf,
+.logoutProfile {
   display: none;
 }
 /* 

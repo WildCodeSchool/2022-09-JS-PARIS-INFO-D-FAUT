@@ -24,10 +24,10 @@ const DefaultViewAdmin = () => {
   return (
     <div className="defaultViewAdmin-container">
       <Header
-        backCss="backUpdateDefaultsViewAdmin"
         profileCss="profileUpdateDefaultsViewAdmin"
         loginCss="loginUpdateDefaultsViewAdmin"
         adminOffCss="adminOffUpdateDefaultsViewAdmin"
+        logoutCss="logoutUpdateDefaultsViewAdmin"
       />
 
       {defaut && (

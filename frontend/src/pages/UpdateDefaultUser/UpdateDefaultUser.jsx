@@ -82,10 +82,10 @@ const UpdateDefaultUser = () => {
   return (
     <div className="updateDefaultUser-container">
       <Header
-        backCss="backUpdateDefaultUser"
         profileCss="profileUpdateDefaultUser"
         loginCss="loginUpdateDefaultUser"
         adminOffCss="adminOffUpdateDefaultUser"
+        logoutCss="logoutUpdateDefaultUser"
       />
       <form className="updateDefaultUser_field-container">
         <h1>MODIFICATION</h1>

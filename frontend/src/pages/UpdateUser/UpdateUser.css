@@ -8,7 +8,8 @@
 }
 
 .loginUpdateUser,
-.adminOffUpdateUser {
+.adminOffUpdateUser,
+.logoutUpdateUser {
   display: none;
 }
 

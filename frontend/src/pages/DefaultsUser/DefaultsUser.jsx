@@ -27,10 +27,10 @@ const DefaultsUser = () => {
   return (
     <div className="defaultsUser-container">
       <Header
-        backCss="backDefaultsUser"
         profileCss="profileDefaultsUser"
         loginCss="loginDefaultsUser"
         adminOffCss="adminOffDefaultsUser"
+        logoutCss="logoutDefaultsUser"
       />
       <div className="problem-container">
         {problems &&

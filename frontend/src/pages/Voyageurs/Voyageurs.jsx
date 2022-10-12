@@ -111,10 +111,10 @@ const Voyageurs = () => {
   return (
     <div className="voyageurs-container">
       <Header
-        backCss="backVoyageurs"
         profileCss="profileVoyageurs"
         loginCss="loginVoyageurs"
         adminOffCss="adminOffVoyageurs"
+        logoutCss="logoutVoyageurs"
       />
 
       <form className="voyageursField-container">

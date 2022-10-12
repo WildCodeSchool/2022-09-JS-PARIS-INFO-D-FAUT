@@ -107,10 +107,10 @@ const GareEtConnexions = () => {
   return (
     <div className="station-container">
       <Header
-        backCss="backGare"
         profileCss="profileGare"
         loginCss="loginGare"
         adminOffCss="adminOffGare"
+        logoutCss="logoutGare"
       />
       <form className="stationField-container">
         <h1>GARE & CONNEXIONS</h1>

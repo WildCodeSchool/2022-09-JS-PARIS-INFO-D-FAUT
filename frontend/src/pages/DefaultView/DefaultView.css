@@ -11,6 +11,7 @@
   display: flex;
   justify-content: center;
 }
+
 .defaultView-field-container {
   width: 80%;
   background-color: white;
@@ -39,7 +40,10 @@ button.update-defaultView {
   margin-bottom: 10px;
 }
 
-.adminOffUpdateDefaultsUser {
+.profileDefaultViewUser,
+.loginDefaultViewUser,
+.adminOffDefaultViewUser,
+.logoutDefaultViewUser {
   display: none;
 }
 

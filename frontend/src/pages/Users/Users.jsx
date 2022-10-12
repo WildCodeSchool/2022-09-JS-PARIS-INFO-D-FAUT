@@ -14,9 +14,9 @@ const Users = () => {
   return (
     <div className="users-container">
       <Header
-        backCss="backUsers"
         profileCss="profileUsers"
         loginCss="loginUsers"
+        logoutCss="logoutUsers"
       />
       <div className="users-display">
         {users && (

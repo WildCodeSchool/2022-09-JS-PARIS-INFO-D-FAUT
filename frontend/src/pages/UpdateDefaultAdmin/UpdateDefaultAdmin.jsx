@@ -66,10 +66,10 @@ const UpdateDefaultAdmin = () => {
     <div className="updateDefaultAdmin-container">
       {Geolocation()}
       <Header
-        backCss="backUpdateDefaultAdmin"
         profileCss="profileUpdateDefaultAdmin"
         loginCss="loginUpdateDefaultAdmin"
         adminOffCss="adminOffUpdateDefaultAdmin"
+        logoutCss="logoutUpdateDefaultAdmin"
       />
       <form className="updateDefaultAdmin_field-container">
         <h1>MODIFICATION</h1>

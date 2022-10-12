@@ -9,7 +9,8 @@
 
 .profileTer,
 .loginTer,
-.adminOffTer {
+.adminOffTer,
+.logoutTer {
   display: none;
 }
 

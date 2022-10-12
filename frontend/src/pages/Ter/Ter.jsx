@@ -112,10 +112,10 @@ const Ter = () => {
   return (
     <div className="ter-container">
       <Header
-        backCss="backTer"
         profileCss="profileTer"
         loginCss="loginTer"
         adminOffCss="adminOffTer"
+        logoutCss="logoutTer"
       />
 
       <form className="terField-container">

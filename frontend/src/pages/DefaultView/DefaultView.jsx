@@ -24,10 +24,10 @@ const DefaultView = () => {
   return (
     <div className="defaultView-container">
       <Header
-        backCss="backUpdateDefaultsUser"
-        profileCss="profileUpdateDefaultsUser"
-        loginCss="loginUpdateDefaultsUser"
-        adminOffCss="adminOffUpdateDefaultsUser"
+        profileCss="profileDefaultViewUser"
+        loginCss="loginDefaultViewUser"
+        adminOffCss="adminOffDefaultViewUser"
+        logoutCss="logoutDefaultViewUser"
       />
       <div className="defaultViewCard-container">
         {defaut && (

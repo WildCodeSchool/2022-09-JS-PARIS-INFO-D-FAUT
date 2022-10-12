@@ -50,11 +50,7 @@ export const Header = ({
     <header className="header-container">
       <div className="header-back-admin">
         <Link to={`/home/${cp}`}>
-          <img
-            className={`back ${backCss}`}
-            src={back}
-            alt="logo utilisateur"
-          />
+          <img className={`back ${backCss}`} src={back} alt="logo home" />
         </Link>
         <Link to="/admin">
           <img

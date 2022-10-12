@@ -111,10 +111,10 @@ const Reseau = () => {
   return (
     <div className="reseau-container">
       <Header
-        backCss="backReseau"
         profileCss="profileReseau"
         loginCss="loginReseau"
         adminOffCss="adminOffReseau"
+        logoutCss="logoutReseau"
       />
 
       <form className="reseauField-container">
@@ -126,7 +126,7 @@ const Reseau = () => {
             value={railway_track_number}
             forId="ligne"
             type="number"
-            field="Numéro de ligne / Emprise *"
+            field="Numéro de ligne *"
           />
           <p className="fieldFalse">
             {railwayRegex === false

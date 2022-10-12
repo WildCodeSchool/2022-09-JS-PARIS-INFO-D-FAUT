@@ -15,7 +15,10 @@
   align-items: center;
 }
 
-.adminOffUpdateDefaultsViewAdmin {
+.adminOffUpdateDefaultsViewAdmin,
+.profileUpdateDefaultsViewAdmin,
+.loginUpdateDefaultsViewAdmin,
+.logoutUpdateDefaultsViewAdmin {
   display: none;
 }
 

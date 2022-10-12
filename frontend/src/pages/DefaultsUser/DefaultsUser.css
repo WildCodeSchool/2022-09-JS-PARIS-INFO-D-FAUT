@@ -26,7 +26,8 @@
 
 .profileDefaultsUser,
 .loginDefaultsUser,
-.adminOffDefaultsUser {
+.adminOffDefaultsUser,
+.logoutDefaultsUser {
   display: none;
 }
 
