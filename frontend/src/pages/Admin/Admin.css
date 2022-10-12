@@ -31,3 +31,34 @@
   flex-direction: column;
   justify-content: space-around;
 }
+.users-button {
+  width: 15em;
+  height: 6vh;
+  background-color: #ffb612;
+  font-weight: bolder;
+  box-shadow: 1px 1px 1px rgb(161, 105, 0), inset 2px 3px 5px rgb(161, 105, 0),
+    inset -2px -3px 5px rgb(161, 105, 0);
+  transition-duration: 0.2s;
+}
+.defaults-button {
+  width: 15em;
+  height: 6vh;
+  background-color: #ffb612;
+  font-weight: bolder;
+  box-shadow: 1px 1px 1px rgb(161, 105, 0), inset 2px 3px 5px rgb(161, 105, 0),
+    inset -2px -3px 5px rgb(161, 105, 0);
+  transition-duration: 0.2s;
+}
+
+.users-button:hover {
+  background-color: #ffb612;
+  width: 15em;
+  box-shadow: none;
+  color: black;
+}
+.defaults-button:hover {
+  background-color: #ffb612;
+  width: 15em;
+  box-shadow: none;
+  color: black;
+}

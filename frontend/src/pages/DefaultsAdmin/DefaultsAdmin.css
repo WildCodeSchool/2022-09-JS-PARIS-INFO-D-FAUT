@@ -29,8 +29,18 @@
   gap: 50px;
   overflow: auto;
 }
+.delete-button-defaultAdmin {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  color: rgba(205, 0, 55);
+}
+.update-button-defaultAdmin {
+  color: rgba(205, 0, 55);
+}
 @media (min-width: 900px) {
- .defaults-display {    display: grid;
+  .defaults-display {
+    display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: minmax(auto, auto);}
+    grid-auto-rows: minmax(auto, auto);
+  }
 }

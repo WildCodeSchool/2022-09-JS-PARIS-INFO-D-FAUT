@@ -20,7 +20,8 @@
 }
 
 .back:hover {
-  animation: wobble-hor-bottom 1.2s both;
+  width: 40px;
+  height: 40px;
 }
 
 .adminOn,
@@ -71,30 +72,6 @@
   margin-right: 5px;
   width: 35px;
   height: 35px;
-}
-
-@keyframes wobble-hor-bottom {
-  0%,
-  100% {
-    transform: translateX(0%);
-
-    transform-origin: 50% 50%;
-  }
-  15% {
-    transform: translateX(-5px) rotate(-2.4deg);
-  }
-  30% {
-    transform: translateX(5px) rotate(2.4deg);
-  }
-  45% {
-    transform: translateX(-5px) rotate(-2.4deg);
-  }
-  60% {
-    transform: translateX(5px) rotate(2.4deg);
-  }
-  75% {
-    transform: translateX(-5px) rotate(-2.4deg);
-  }
 }
 
 @keyframes jello-horizontal {

@@ -50,8 +50,7 @@
 .defaultCard-container ul li {
   text-align: center;
   width: 100%;
-  margin-bottom: 5px;
-  margin-top: 3px;
+  margin: 5px;
 }
 .defaultCard-container ul:hover {
   background-image: linear-gradient(

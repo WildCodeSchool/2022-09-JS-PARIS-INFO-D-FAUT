@@ -103,32 +103,8 @@ h2 {
     height: 35px;
   }
 }
-.popup {
-  height: 70%;
-  width: 90%;
-  background-color: rgba(255, 255, 255, 0.896);
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-  align-items: center;
-  top: 20%;
-  right: 5%;
-  left: 5%;
-  position: absolute;
-  animation: slide-in-fwd-center 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-}
-.popUpHeader {
-  background-color: rgb(213, 43, 30);
-  width: 100%;
-  text-align: end;
-}
-.popupBody {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 .pictureStationPopup {
-  width: 150%;
+  width: 90%;
 }
 .sendStation {
   color: rgb(205, 0, 55);

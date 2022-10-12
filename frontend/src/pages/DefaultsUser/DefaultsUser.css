@@ -8,11 +8,11 @@
 
 .problem-container {
   height: 100%;
-  width: 100%;
+  width: 90%;
   display: flex;
   flex-direction: column;
   background-color: rgb(0, 17, 43);
-  overflow: auto;
+  overflow-y: scroll;
   gap: 20px;
 }
 
@@ -39,9 +39,10 @@
 .delete-button-defaultUser {
   color: rgb(213, 43, 30);
   font-weight: bold;
-  border-radius: 20px 0px 0px 20px;
+  border-radius: 20px;
   height: 1.5em;
   width: 8rem;
+  margin: 5px;
 }
 .delete-button-defaultUser:hover {
   background-color: rgb(213, 43, 30);
@@ -53,7 +54,7 @@
 .update-button-defaultsUser {
   color: rgb(213, 43, 30);
   font-weight: bold;
-  border-radius: 0px 20px 20px 0px;
+  border-radius: 20px;
   height: 1.5em;
   width: 8rem;
 }
@@ -75,6 +76,7 @@
     overflow: scroll;
     gap: 20px;
     padding-top: 10px;
+    padding-bottom: 10px;
   }
 }
 @media (min-width: 968px) {

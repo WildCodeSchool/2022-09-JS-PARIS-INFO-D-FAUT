@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import "./DefaultView.css";
 
@@ -11,6 +11,8 @@ const DefaultView = () => {
   const { defaut, setDefaut } = useContext(DefaultContext);
   const { user } = useContext(UserContext);
   const cp = user.cp;
+
+  const picture = defaut[0].picture;
   useEffect(() => {
     getDefaultView(id_default, setDefaut);
   }, []);
@@ -19,6 +21,16 @@ const DefaultView = () => {
 
   const handleUpdate = () => {
     navigate(`/updateDefaultUser/${cp}/${id_default}`);
+  };
+  const [zoom, setZoom] = useState(false);
+  const handleClickOpen = () => {
+    setZoom(!zoom);
+  };
+  const onKeyPressHandler = () => {
+    setZoom(false);
+  };
+  const closePopup = () => {
+    setZoom(false);
   };
 
   return (
@@ -94,6 +106,9 @@ const DefaultView = () => {
                   }
                   src={items.picture}
                   alt="image"
+                  onClick={handleClickOpen}
+                  onKeyPress={onKeyPressHandler}
+                  role="presentation"
                 />
                 <p
                   className={
@@ -123,6 +138,28 @@ const DefaultView = () => {
               </div>
             ))}
           </>
+        )}
+      </div>
+      <div>
+        {zoom ? (
+          <div className="popup">
+            <div className="popUpHeader">
+              <h5
+                className="h5PopUpHeader"
+                onClick={closePopup}
+                onKeyPress={onKeyPressHandler}
+                role="presentation"
+              >
+                ✖️
+              </h5>
+            </div>
+            <div className="popupBody">
+              <img className="picturePopup" src={picture} alt="image" />
+            </div>
+            <div className="popUpfooter"> </div>
+          </div>
+        ) : (
+          ""
         )}
       </div>
       <Footer />

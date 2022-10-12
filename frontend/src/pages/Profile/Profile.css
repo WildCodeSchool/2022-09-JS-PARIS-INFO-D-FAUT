@@ -23,13 +23,13 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  /* align-items: center;
-  text-align: center; */
   border: 0.3rem solid #cd0037;
   gap: 20px;
 }
 .profileFlex h1 {
   margin-top: 20px;
+  color: #ffb612;
+  font-style: italic;
 }
 .profileFlex p {
   color: black;
@@ -87,27 +87,37 @@
 @media screen and (min-width: 900px) {
   .profileFlex {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    grid-template-areas:
-      "title title"
-      "cp mail"
-      "phone buttonProfile";
+    grid-template-columns: 45% 10% 45%;
+    grid-template-rows: 15% 35% 35%;
+    align-items: center;
   }
   .title {
-    grid-area: title;
+    grid-column: 1/4;
+    grid-row: 1;
+  }
+  .lineProfile {
+    grid-column: 2;
+    grid-row: 2/4;
+    background-color: rgb(213, 43, 30);
+    width: 2px;
+    height: 100%;
+    margin: auto;
   }
   .cp {
-    grid-area: cp;
+    grid-column: 1;
+    grid-row: 2;
   }
   .mail {
-    grid-area: mail;
+    grid-column: 3;
+    grid-row: 2;
   }
   .phone {
-    grid-area: phone;
+    grid-column: 1;
+    grid-row: 3;
   }
   .buttonProfile {
-    grid-area: buttonProfile;
+    grid-column: 3;
+    grid-row: 3;
   }
 
   .profileFlex h1 {

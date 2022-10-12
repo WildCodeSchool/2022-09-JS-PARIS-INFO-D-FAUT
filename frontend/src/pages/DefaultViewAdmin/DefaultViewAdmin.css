@@ -41,6 +41,7 @@ button.update-state {
   background-color: #00112b;
   margin-top: 10px;
   margin-bottom: 10px;
+  height: auto;
 }
 
 .adminOffUpdateDefaultsViewAdmin,
@@ -100,6 +101,7 @@ button.update-state {
     flex-direction: unset;
     justify-content: unset;
     align-items: unset;
+    padding: 5px;
   }
 
   .Items {
@@ -133,10 +135,7 @@ button.update-state {
     width: 100%;
     height: 100%;
   }
-  /* .defaultView-field-container img:focus {
-    width: 80%;
-    height: 90%;
-  } */
+
   .defaultViewAdmin-field-container button {
     grid-area: button;
     width: 60%;

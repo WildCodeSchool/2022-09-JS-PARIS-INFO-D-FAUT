@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./DefaultCard.css";
 
 export const DefaultCard = ({
@@ -24,7 +24,16 @@ export const DefaultCard = ({
     }
     return "nontraité-container";
   };
-
+  const [zoom, setZoom] = useState(false);
+  const handleClickOpen = () => {
+    setZoom(!zoom);
+  };
+  const onKeyPressHandler = () => {
+    setZoom(false);
+  };
+  const closePopup = () => {
+    setZoom(false);
+  };
   return (
     <div className="defaultCard-container">
       <ul className={state(stateContainer)}>
@@ -55,7 +64,14 @@ export const DefaultCard = ({
             image === "" ? "imageDefaultCardOff" : "imageDefaultCardOn"
           }
         >
-          <img className="imgCard" src={image} alt={imgAlt} />
+          <img
+            className="imgCard"
+            src={image}
+            alt={imgAlt}
+            onClick={handleClickOpen}
+            onKeyPress={onKeyPressHandler}
+            role="presentation"
+          />
         </li>
         <li
           className={
@@ -66,6 +82,28 @@ export const DefaultCard = ({
         </li>
         <li>Traitement: {traitement}</li>
       </ul>
+      <div>
+        {zoom ? (
+          <div className="popup">
+            <div className="popUpHeader">
+              <h5
+                className="h5PopUpHeader"
+                onClick={closePopup}
+                onKeyPress={onKeyPressHandler}
+                role="presentation"
+              >
+                ✖️
+              </h5>
+            </div>
+            <div className="popupBody">
+              <img className="picturePopup" src={image} alt="image" />
+            </div>
+            <div className="popUpfooter"> </div>
+          </div>
+        ) : (
+          ""
+        )}
+      </div>
     </div>
   );
 };

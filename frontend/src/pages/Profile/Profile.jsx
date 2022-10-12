@@ -44,12 +44,15 @@ const Profile = () => {
             </span>
             {phone_number}
           </p>
-          <Button
-            classButton="update-profile"
-            fieldButton="MODIFIER"
-            type="button"
-            onClick={handleUpdate}
-          />
+          <div className="lineProfile" />
+          <div className="buttonProfile">
+            <Button
+              classButton="update-profile"
+              fieldButton="MODIFIER"
+              type="button"
+              onClick={handleUpdate}
+            />
+          </div>
         </div>
       </div>
       <Footer />

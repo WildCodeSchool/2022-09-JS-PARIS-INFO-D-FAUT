@@ -248,11 +248,12 @@ const UpdateDefaultUser = () => {
             <div className="popup">
               <div className="popUpHeader">
                 <h5
+                  className="h5PopUpHeader"
                   onClick={closePopup}
                   onKeyPress={onKeyPressHandler}
                   role="presentation"
                 >
-                  X
+                  ✖️
                 </h5>
               </div>
               <div className="popupBody">
