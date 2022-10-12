@@ -3,31 +3,31 @@ import { useParams, useNavigate } from "react-router-dom";
 import "./UpdateDefaultAdmin.css";
 import {
   updateDefault,
-  getDefaultView,
+  // getDefaultView,
 } from "../../services/axios/AxiosDefaults";
 import { Geolocation } from "../../services/Geolocation/Geolocation";
 import { Button, Footer, Header } from "../../components/index";
 import { UserContext, DefaultContext } from "../../context/index";
 
 const UpdateDefaultAdmin = () => {
+  const navigate = useNavigate();
+
   const { id_default } = useParams();
   const { user } = useContext(UserContext);
   const cp = user.cp;
   const user_id = user.id_user;
-  const navigate = useNavigate();
 
   const { defaut } = useContext(DefaultContext);
+
   const station = defaut[0].station;
   const railway_track_number = defaut[0].railway_track_number;
   const ter_number = defaut[0].ter_number;
   const tgv_number = defaut[0].tgv_number;
   const description = defaut[0].description;
   const picture = defaut[0].picture;
+  const treatmentDefault = defaut[0].treatment;
   const latitude = defaut[0].latitude;
   const longitude = defaut[0].longitude;
-  const treatmentDefault = defaut[0].treatment;
-
-  const [problem, setProblem] = useState([]);
 
   const [success, setSuccess] = useState(false);
 
@@ -36,10 +36,6 @@ const UpdateDefaultAdmin = () => {
   const nav = () => {
     navigate("/admin/defaults");
   };
-
-  useEffect(() => {
-    getDefaultView(id_default, setProblem);
-  }, []);
 
   const alertSuccess = () => {
     setSuccess(true);
@@ -130,14 +126,7 @@ const UpdateDefaultAdmin = () => {
         <Button
           classButton="sendUpdateAdmin"
           onClick={(e) =>
-            updateDefault(
-              id_default,
-              data,
-              setProblem,
-              alertSuccess(),
-              duration(),
-              e
-            )
+            updateDefault(id_default, data, alertSuccess(), duration(), e)
           }
           fieldButton="ENVOYER"
           type="button"

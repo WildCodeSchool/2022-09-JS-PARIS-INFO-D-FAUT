@@ -206,6 +206,11 @@ const CreateUser = () => {
               value={secondPassword}
               minlength="8"
             />
+            <p className="fieldFalse">
+              {verifPasswords === true
+                ? "⚠️ Les deux mots de passe doivent être identiques"
+                : ""}
+            </p>
           </div>
           <div className="inputProfileSix">
             <Button

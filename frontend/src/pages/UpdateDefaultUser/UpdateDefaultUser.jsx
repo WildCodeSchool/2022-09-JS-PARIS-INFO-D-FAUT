@@ -14,6 +14,7 @@ import { UserContext, DefaultContext } from "../../context/index";
 
 const UpdateDefaultUser = () => {
   const navigate = useNavigate();
+
   const { id_default } = useParams();
   const { user } = useContext(UserContext);
   const cp = user.cp;
@@ -30,8 +31,6 @@ const UpdateDefaultUser = () => {
   const treatment = defaut[0].treatment;
   const latitudeDefault = defaut[0].latitude;
   const longitudeDefault = defaut[0].longitude;
-
-  const [problem, setProblem] = useState([]);
 
   const [station, setStation] = useState(stationDefault);
   const [railway_track_number, setRailwayNumber] = useState(railwayDefault);
@@ -54,6 +53,7 @@ const UpdateDefaultUser = () => {
       console.error(error);
     }
   };
+
   const nav = () => {
     navigate(`/defaultsUser/${cp}`);
   };
