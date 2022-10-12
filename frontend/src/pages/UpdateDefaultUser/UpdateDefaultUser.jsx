@@ -63,7 +63,7 @@ const UpdateDefaultUser = () => {
   };
 
   const duration = () => {
-    setTimeout(nav, 3000);
+    setTimeout(nav, 2000);
   };
 
   const data = {
@@ -188,11 +188,6 @@ const UpdateDefaultUser = () => {
             updateDefault(
               id_default,
               data,
-              setStation("gare :"),
-              setRailwayNumber(0),
-              setTerNumber(0),
-              setTgvNumber(0),
-              setDescription("Description"),
               setPicture(""),
               setImage(null),
               alertSuccess(),

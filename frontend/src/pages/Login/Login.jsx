@@ -57,7 +57,7 @@ const Login = () => {
   };
 
   const durationNav = () => {
-    setTimeout(nav, 1000);
+    setTimeout(nav, 500);
   };
 
   const handleSubmit = (e) => {

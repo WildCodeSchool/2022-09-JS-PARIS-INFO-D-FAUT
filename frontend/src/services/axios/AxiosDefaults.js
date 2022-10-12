@@ -13,7 +13,7 @@ export const getDefaults = (setState) => {
       setState(data.result);
     })
     .catch((error) => {
-      console.log(error);
+      console.warn(error);
     });
 };
 
@@ -29,7 +29,7 @@ export const getAllDefaultsUser = (id_user, setState) => {
       setState(data);
     })
     .catch((error) => {
-      console.log(error);
+      console.warn(error);
     });
 };
 
@@ -44,7 +44,7 @@ export const getDefaultView = (id_default, setState) => {
       setState(data);
     })
     .catch((error) => {
-      console.log(error);
+      console.warn(error);
     });
 };
 
@@ -57,7 +57,7 @@ export const postDefaults = (data) => {
     .post(`http://localhost:5000/defaults`, data, config)
     .then((response) => response.data)
     .catch((error) => {
-      console.log(error);
+      console.warn(error);
     });
 };
 
@@ -69,7 +69,7 @@ export const deleteDefaults = (id_default) => {
     .delete(`http://localhost:5000/defaults/${id_default}`, config)
     .then((response) => response.data)
     .catch((error) => {
-      console.log(error);
+      console.warn(error);
     });
 };
 
@@ -81,6 +81,6 @@ export const updateDefault = (id_default, data) => {
     .put(`http://localhost:5000/defaults/${id_default}`, data, config)
     .then((response) => response.data)
     .catch((error) => {
-      console.log(error);
+      console.warn(error);
     });
 };

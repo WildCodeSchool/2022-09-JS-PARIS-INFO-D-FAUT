@@ -51,7 +51,7 @@ export const getUsers = (setState) => {
       setState(data.result);
     })
     .catch((error) => {
-      console.log(error);
+      console.warn(error);
     });
 };
 
@@ -63,7 +63,7 @@ export const deleteUser = (id_user) => {
     .delete(`http://localhost:5000/users/${id_user}`, config)
     .then((response) => response.data)
     .catch((error) => {
-      console.log(error);
+      console.warn(error);
     });
 };
 

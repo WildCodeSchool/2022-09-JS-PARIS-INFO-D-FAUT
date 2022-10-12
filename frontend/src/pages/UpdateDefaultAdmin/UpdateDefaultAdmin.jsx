@@ -46,7 +46,7 @@ const UpdateDefaultAdmin = () => {
   };
 
   const duration = () => {
-    setTimeout(nav, 3000);
+    setTimeout(nav, 2000);
   };
 
   const data = {

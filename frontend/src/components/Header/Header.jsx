@@ -28,7 +28,7 @@ export const Header = ({
     navigate("/");
   };
 
-  const logout = async (e) => {
+  const logout = (e) => {
     e.preventDefault();
     const token = localStorage.getItem("token");
 
@@ -38,13 +38,12 @@ export const Header = ({
       key: "value",
     };
 
-    const response = await axios.post(
-      `http://localhost:5000/logout`,
-      bodyParameters,
-      config
-    );
-    nav();
-    localStorage.removeItem("token");
+    axios
+      .post(`http://localhost:5000/logout`, bodyParameters, config)
+      .then((response) => {
+        localStorage.removeItem("token");
+        nav();
+      });
   };
 
   return (
@@ -60,7 +59,7 @@ export const Header = ({
         <Link to="/admin">
           <img
             className={
-              admin === 1 ? `admin ${adminOnCss}` : `admin0 ${adminOffCss}`
+              admin === 1 ? `adminOn ${adminOnCss}` : `adminOff ${adminOffCss}`
             }
             src={adminImg}
             alt="logo admin"
@@ -85,15 +84,15 @@ export const Header = ({
             alt="logo login"
           />
         </Link>
-        <Link to="/">
-          <div role="button" onClick={logout} onKeyPress={logout} tabIndex="0">
-            <img
-              className={`logout ${logoutCss}`}
-              src={logoutImg}
-              alt="logo logout"
-            />
-          </div>
-        </Link>
+        {/* <Link to="/"> */}
+        <div role="button" onClick={logout} onKeyPress={logout} tabIndex="0">
+          <img
+            className={`logout ${logoutCss}`}
+            src={logoutImg}
+            alt="logo logout"
+          />
+        </div>
+        {/* </Link> */}
       </div>
     </header>
   );

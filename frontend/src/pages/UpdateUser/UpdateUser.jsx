@@ -109,7 +109,7 @@ const UpdateUser = () => {
   };
 
   const durationNav = () => {
-    setTimeout(nav, 3000);
+    setTimeout(nav, 2000);
   };
 
   const logout = async () => {

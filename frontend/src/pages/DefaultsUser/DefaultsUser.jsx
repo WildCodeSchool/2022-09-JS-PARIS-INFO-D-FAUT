@@ -30,7 +30,7 @@ const DefaultsUser = () => {
         backCss="backDefaultsUser"
         profileCss="profileDefaultsUser"
         loginCss="loginDefaultsUser"
-        adminOffCss="loginOffDefaultsUser"
+        adminOffCss="adminOffDefaultsUser"
       />
       <div className="problem-container">
         {problems &&

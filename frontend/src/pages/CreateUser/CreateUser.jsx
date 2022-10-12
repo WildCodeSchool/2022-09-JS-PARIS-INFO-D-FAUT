@@ -95,7 +95,7 @@ const CreateUser = () => {
   };
 
   const durationNav = () => {
-    setTimeout(nav, 4000);
+    setTimeout(nav, 2000);
   };
 
   const handleSubmit = (e) => {
