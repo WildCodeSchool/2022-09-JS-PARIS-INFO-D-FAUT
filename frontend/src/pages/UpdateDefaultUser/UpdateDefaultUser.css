@@ -6,7 +6,9 @@
   justify-content: space-between;
   background-color: rgb(0, 17, 43);
 }
-.inputUpdateImage{color: white;}
+.inputUpdateImage {
+  color: white;
+}
 .profileUpdateDefaultUser,
 .loginUpdateDefaultUser,
 .adminOffUpdateDefaultUser {
@@ -21,7 +23,8 @@
   justify-content: center;
   overflow: auto;
   gap: 10px;
-  justify-content: space-around;}
+  justify-content: space-around;
+}
 
 .stationUpdateOff,
 .trackUpdateOff,
@@ -50,7 +53,7 @@
   .latitudeLongitude {
     justify-content: space-evenly;
   }
-  .updateDefaultUser_field-container{
+  .updateDefaultUser_field-container {
     display: grid;
     grid-template-columns: 43% 10% 43%;
     grid-template-rows: auto 15% 10% 30% 5% auto;
@@ -111,7 +114,7 @@
     animation: scale-in-ver-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.9s
       both;
   }
-  .picturePopup{
+  .picturePopup {
     width: 100vh;
   }
   @keyframes scale-in-ver-bottom {

@@ -23,14 +23,6 @@
   justify-content: space-around;
 }
 
-h1 {
-  margin-top: 5px;
-  text-align: center;
-  font-weight: bold;
-  font-size: 25px;
-  color: rgb(213, 43, 30);
-}
-
 .inputTerImg {
   color: white;
   border-radius: 20px;
@@ -79,9 +71,9 @@ h1 {
 .pictureTerPopup {
   width: 150%;
 }
-.sendTer{
-  color :rgb(205, 0, 55);
-font-weight: bold;
+.sendTer {
+  color: rgb(205, 0, 55);
+  font-weight: bold;
 }
 @media (min-width: 900px) {
   .inputTerImg {

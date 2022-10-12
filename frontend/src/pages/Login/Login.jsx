@@ -128,7 +128,7 @@ const Login = () => {
               type="submit"
             />
           </form>
-          <div className="trait" />
+          <div className="lineLogin" />
           <Link className="linkProfile" to="/createUser">
             <Button
               classButton="inscription"

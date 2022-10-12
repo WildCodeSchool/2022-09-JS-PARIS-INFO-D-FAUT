@@ -24,14 +24,6 @@
   justify-content: space-around;
 }
 
-h1 {
-  margin-top: 5px;
-  text-align: center;
-  font-weight: bold;
-  font-size: 25px;
-  color: rgb(213, 43, 30);
-}
-
 .inputVoyageursImg {
   color: white;
   border-radius: 20px;
@@ -73,9 +65,9 @@ h1 {
 .pictureTgvPopup {
   width: 150%;
 }
-.sendVoyageurs{
-  color :rgb(205, 0, 55);
-font-weight: bold;
+.sendVoyageurs {
+  color: rgb(205, 0, 55);
+  font-weight: bold;
 }
 @media (min-width: 900px) {
   .inputVoyageursImg {

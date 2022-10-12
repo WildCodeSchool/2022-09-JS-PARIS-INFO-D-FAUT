@@ -23,14 +23,6 @@
   justify-content: space-between;
 }
 
-.h1Animation {
-  margin-top: 5px;
-  text-align: center;
-  font-weight: bold;
-  font-size: 25px;
-  color: rgb(213, 43, 30);
-}
-
 .inputStationImg {
   color: white;
   border-radius: 20px;
@@ -137,9 +129,9 @@ h2 {
 .pictureStationPopup {
   width: 150%;
 }
-.sendStation{
-  color :rgb(205, 0, 55);
-font-weight: bold;
+.sendStation {
+  color: rgb(205, 0, 55);
+  font-weight: bold;
 }
 @media (min-width: 900px) {
   .inputStationImg {
