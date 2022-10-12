@@ -29,82 +29,107 @@ const DefaultViewAdmin = () => {
         loginCss="loginUpdateDefaultsViewAdmin"
         adminOffCss="adminOffUpdateDefaultsViewAdmin"
       />
-
-      {defaut && (
-        <>
-          {defaut.map((items) => (
-            <div
-              className="defaultViewAdmin-field-container"
-              key={items.id_default}
-            >
-              <h1> Vérification du défaut :</h1>
-              <h2
-                className={
-                  items.station === null
-                    ? "stationViewAdminOff"
-                    : "stationViewAdminOn"
-                }
+      <div className="defaultViewAdminCard-container">
+        {defaut && (
+          <>
+            {defaut.map((items) => (
+              <div
+                className="defaultViewAdmin-field-container"
+                key={items.id_default}
               >
-                Gare: {items.station}
-              </h2>
-              <h2
-                className={
-                  items.ter_number === null
-                    ? "terViewAdminOff"
-                    : "terViewAdminOn"
-                }
-              >
-                TER : {items.ter_number}
-              </h2>
-              <h2
-                className={
-                  items.tgv_number === null
-                    ? "tgvViewAdminOff"
-                    : "tgvViewAdminOn"
-                }
-              >
-                TGV : {items.tgv_number}
-              </h2>
-              <h2
-                className={
-                  items.railway_track_number === null
-                    ? "trackViewAdminOff"
-                    : "trackViewAdminOn"
-                }
-              >
-                Numéro de ligne : {items.railway_track_number}
-              </h2>
-              <h3>Description : {items.description}</h3>
-              <img
-                className={
-                  items.picture === ""
-                    ? "imageViewAdminOff"
-                    : "imageViewAdminOn"
-                }
-                src={items.picture}
-                alt="image"
-              />
-              <h3
-                className={
-                  items.latitude === null
-                    ? "geolocViewAdminOff"
-                    : "geolocViewAdminOn"
-                }
-              >
-                Géolocalisation : {items.latitude}, {items.longitude}
-              </h3>
-              <h3>Traitement : {items.treatment}</h3>
-              <Button
-                classButton="update-state"
-                fieldButton="CONTINUER LA MODIFICATION"
-                type="button"
-                onClick={handleUpdate}
-              />
-            </div>
-          ))}
-        </>
-      )}
-
+                <h1> Vérification du défaut :</h1>
+                <h2
+                  className={
+                    items.station === null
+                      ? "stationViewAdminOff"
+                      : "stationViewAdminOn items"
+                  }
+                >
+                  <span className="titles">
+                    Gare: <br />
+                  </span>
+                  {items.station}
+                </h2>
+                <h2
+                  className={
+                    items.ter_number === null
+                      ? "terViewAdminOff"
+                      : "terViewAdminOn items"
+                  }
+                >
+                  <span className="titles">
+                    TER : <br />
+                  </span>
+                  {items.ter_number}
+                </h2>
+                <h2
+                  className={
+                    items.tgv_number === null
+                      ? "tgvViewAdminOff"
+                      : "tgvViewAdminOn items"
+                  }
+                >
+                  <span className="titles">
+                    TGV : <br />
+                  </span>
+                  {items.tgv_number}
+                </h2>
+                <h2
+                  className={
+                    items.railway_track_number === null
+                      ? "trackViewAdminOff"
+                      : "trackViewAdminOn items"
+                  }
+                >
+                  <span className="titles">
+                    Numéro de ligne : <br />
+                  </span>
+                  {items.railway_track_number}
+                </h2>
+                <p className="textDefaultViewAdmin">
+                  <span className="titles Description">
+                    Description : <br />
+                  </span>
+                  {items.description}
+                </p>
+                <img
+                  className={
+                    items.picture === ""
+                      ? "imageViewAdminOff"
+                      : "imageViewAdminOn"
+                  }
+                  src={items.picture}
+                  alt="image"
+                />
+                <p
+                  className={
+                    items.latitude === null
+                      ? "geolocViewAdminOff"
+                      : "geolocViewAdminOn geolocation"
+                  }
+                >
+                  <span className="titles">
+                    Géolocalisation : <br />
+                  </span>
+                  {items.latitude}, {items.longitude}
+                </p>
+                <p className="textDefaultViewAdmin treatment">
+                  <span className="titles">
+                    Traitement : <br />
+                  </span>
+                  {items.treatment}
+                </p>
+                <Button
+                  classButton="update-state"
+                  fieldButton="CONTINUER LA MODIFICATION"
+                  type="button"
+                  onClick={handleUpdate}
+                />
+              </div>
+            ))}
+          </>
+        )}
+      </div>
       <Footer />
     </div>
   );

@@ -81,36 +81,36 @@ button.update-defaultView {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 0.1fr;
     grid-template-areas:
-      "Title Title"
-      "Items Image"
-      "Items Image"
-      "Description Image"
-      "Treatment Image"
-      "Geolocation Button";
+      "title title"
+      "items image"
+      "items image"
+      "description image"
+      "treatment image"
+      "geolocation Button";
     gap: 30px;
     flex-direction: unset;
     justify-content: unset;
     align-items: unset;
   }
 
-  #Items {
-    grid-area: Items;
+  .Items {
+    grid-area: items;
   }
-  #Description {
-    grid-area: Description;
+  .Description {
+    grid-area: description;
   }
-  #Geolocation {
-    grid-area: Geolocation;
+  .Geolocation {
+    grid-area: geolocation;
   }
-  #Treatment {
-    grid-area: Treatment;
+  .Treatment {
+    grid-area: treatment;
   }
 
   .titles {
     font-size: 4vh;
   }
   .defaultView-field-container h1 {
-    grid-area: Title;
+    grid-area: title;
     font-size: 4.5vh;
     animation: none;
   }
@@ -120,7 +120,7 @@ button.update-defaultView {
     text-align: justify;
   }
   .defaultView-field-container img {
-    grid-area: Image;
+    grid-area: image;
     width: 100%;
     height: 100%;
   }
@@ -129,7 +129,7 @@ button.update-defaultView {
     height: 90%;
   } */
   .defaultView-field-container button {
-    grid-area: Button;
+    grid-area: button;
     width: 60%;
   }
 }

@@ -39,9 +39,10 @@ const DefaultView = () => {
               >
                 <h1> VOTRE DECLARATION </h1>
                 <h2
-                  id="Items"
                   className={
-                    items.station === null ? "stationViewOff" : "stationViewOn"
+                    items.station === null
+                      ? "stationViewOff"
+                      : "stationViewOn items"
                   }
                 >
                   <span className="titles">
@@ -50,9 +51,8 @@ const DefaultView = () => {
                   {items.station}
                 </h2>
                 <h2
-                  id="Items"
                   className={
-                    items.ter_number === null ? "terViewOff" : "terViewOn"
+                    items.ter_number === null ? "terViewOff" : "terViewOn items"
                   }
                 >
                   <span className="titles">
@@ -61,9 +61,8 @@ const DefaultView = () => {
                   {items.ter_number}
                 </h2>
                 <h2
-                  id="Items"
                   className={
-                    items.tgv_number === null ? "tgvViewOff" : "tgvViewOn"
+                    items.tgv_number === null ? "tgvViewOff" : "tgvViewOn items"
                   }
                 >
                   <span className="titles">
@@ -72,11 +71,10 @@ const DefaultView = () => {
                   {items.tgv_number}
                 </h2>
                 <h2
-                  id="Items"
                   className={
                     items.railway_track_number === null
                       ? "trackViewOff"
-                      : "trackViewOn"
+                      : "trackViewOn items"
                   }
                 >
                   <span className="titles">
@@ -85,7 +83,7 @@ const DefaultView = () => {
                   {items.railway_track_number}
                 </h2>
                 <p className="textDefaultView">
-                  <span id="description" className="titles">
+                  <span className="titles Description">
                     Description : <br />
                   </span>
                   {items.description}
@@ -98,9 +96,10 @@ const DefaultView = () => {
                   alt="image"
                 />
                 <p
-                  id="Geolocation"
                   className={
-                    items.latitude === null ? "geolocViewOff" : "geolocViewOn"
+                    items.latitude === null
+                      ? "geolocViewOff"
+                      : "geolocViewOn geolocation"
                   }
                 >
                   <span className="titles">
@@ -109,7 +108,7 @@ const DefaultView = () => {
                   {items.latitude}, {items.longitude}
                 </p>
 
-                <p id="Treatment" className="textDefaultView">
+                <p className="textDefaultView treatment">
                   <span className="titles">
                     Traitement : <br />
                   </span>
