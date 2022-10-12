@@ -93,16 +93,16 @@ button.update-defaultView {
     align-items: unset;
   }
 
-  .Items {
+  .items {
     grid-area: items;
   }
-  .Description {
+  .description {
     grid-area: description;
   }
-  .Geolocation {
+  .geolocation {
     grid-area: geolocation;
   }
-  .Treatment {
+  .treatment {
     grid-area: treatment;
   }
 

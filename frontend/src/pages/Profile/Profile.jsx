@@ -20,27 +20,27 @@ const Profile = () => {
     <div className="profile-container">
       <Header loginCss="loginProfile" adminOffCss="adminOffProfile" />
       <div className="profile-field-container">
-        <h1>PROFIL :</h1>
-        <p className="textProfile">
+        <h1 className="title">PROFIL :</h1>
+        <p className="textProfile cp">
           <span className="titles">
             CP: <br />
           </span>
           {cp}
         </p>
-        <p className="textProfile">
+        <p className="textProfile mail">
           <span className="titles">
             Mail: <br />
           </span>
           {mail}
         </p>
-        <p className="textProfile">
+        <p className="textProfile phone">
           <span className="titles">
             Téléphone: <br />
           </span>
           {phone_number}
         </p>
         <Button
-          classButton="update-profile"
+          classButton="update-profile button"
           fieldButton="MODIFIER"
           type="button"
           onClick={handleUpdate}
