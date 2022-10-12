@@ -23,8 +23,8 @@
   animation: wobble-hor-bottom 1.2s both;
 }
 
-.admin,
-.admin0 {
+.adminOn,
+.adminOff {
   margin-top: 5px;
   margin-left: 5px;
   width: 35px;

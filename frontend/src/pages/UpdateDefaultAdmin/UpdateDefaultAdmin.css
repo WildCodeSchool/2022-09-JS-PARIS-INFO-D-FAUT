@@ -9,7 +9,8 @@
 
 .profileUpdateDefaultAdmin,
 .loginUpdateDefaultAdmin,
-.adminOffUpdateDefaultAdmin {
+.adminOffUpdateDefaultAdmin,
+.logoutUpdateDefaultAdmin {
   display: none;
 }
 

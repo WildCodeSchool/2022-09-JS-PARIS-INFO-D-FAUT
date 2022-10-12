@@ -35,6 +35,8 @@ const UpdateUser = () => {
   const [passwordRegex, setPasswordRegex] = useState(true);
   const [success, setSuccess] = useState(false);
 
+  const [errorConnect, setErrorConnect] = useState(false);
+
   const verifPasswords = password !== secondPassword;
 
   const data = {
@@ -107,6 +109,10 @@ const UpdateUser = () => {
     navigate("/");
   };
 
+  const durationNav = () => {
+    setTimeout(nav, 2000);
+  };
+
   const logout = async () => {
     const token = localStorage.getItem("token");
 
@@ -136,21 +142,23 @@ const UpdateUser = () => {
       phoneControle(phone_number) &&
       passwordControle(password)
     ) {
-      updateUser(id_user, data);
-      setPassword("");
-      setSecondPassword("");
-      alertSuccess();
-      duration();
+      updateUser(
+        id_user,
+        data,
+        setErrorConnect,
+        alertSuccess,
+        durationNav,
+        setErrorConnect
+      );
     }
   };
 
   return (
     <div className="updateUser-container">
       <Header
-        backCss="backUpdateUser"
-        profileCss="profileUpdateUser"
         loginCss="loginUpdateUser"
         adminOffCss="adminOffUpdateUser"
+        logoutCss="logoutUpdateUser"
       />
 
       <form className="profile_field-container">

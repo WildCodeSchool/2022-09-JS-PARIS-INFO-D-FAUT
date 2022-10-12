@@ -14,12 +14,14 @@ import { UserContext, DefaultContext } from "../../context/index";
 
 const UpdateDefaultUser = () => {
   const navigate = useNavigate();
+
   const { id_default } = useParams();
   const { user } = useContext(UserContext);
   const cp = user.cp;
   const user_id = user.id_user;
 
   const { defaut } = useContext(DefaultContext);
+
   const stationDefault = defaut[0].station;
   const railwayDefault = defaut[0].railway_track_number;
   const terDefault = defaut[0].ter_number;
@@ -29,8 +31,6 @@ const UpdateDefaultUser = () => {
   const treatment = defaut[0].treatment;
   const latitudeDefault = defaut[0].latitude;
   const longitudeDefault = defaut[0].longitude;
-
-  const [problem, setProblem] = useState([]);
 
   const [station, setStation] = useState(stationDefault);
   const [railway_track_number, setRailwayNumber] = useState(railwayDefault);
@@ -53,6 +53,7 @@ const UpdateDefaultUser = () => {
       console.error(error);
     }
   };
+
   const nav = () => {
     navigate(`/defaultsUser/${cp}`);
   };
@@ -71,7 +72,7 @@ const UpdateDefaultUser = () => {
   };
 
   const duration = () => {
-    setTimeout(nav, 3000);
+    setTimeout(nav, 2000);
   };
 
   const data = {
@@ -90,10 +91,10 @@ const UpdateDefaultUser = () => {
   return (
     <div className="updateDefaultUser-container">
       <Header
-        backCss="backUpdateDefaultUser"
         profileCss="profileUpdateDefaultUser"
         loginCss="loginUpdateDefaultUser"
         adminOffCss="adminOffUpdateDefaultUser"
+        logoutCss="logoutUpdateDefaultUser"
       />
       <form className="updateDefaultUser_field-container">
         <h1 className="h1Animation">MODIFICATION</h1>

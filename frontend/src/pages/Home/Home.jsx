@@ -19,7 +19,6 @@ const Home = () => {
     <div className="home-container">
       {Geolocation()}
       <Header
-        backCss="backHome"
         profileCss="profileHome"
         loginCss="loginHome"
         adminOnCss="adminOnHome"

@@ -22,7 +22,7 @@ const Voyageurs = () => {
   const latitudeDefault = geolocation.latitude;
   const longitudeDefault = geolocation.longitude;
 
-  const [tgv_number, setTgvNumber] = useState(0);
+  const [tgv_number, setTgvNumber] = useState();
   const [description, setDescription] = useState("");
   const [picture, setPicture] = useState("");
   const [latitude, setLatitude] = useState(latitudeDefault);
@@ -94,7 +94,7 @@ const Voyageurs = () => {
   };
 
   const duration = () => {
-    setTimeout(nav, 3000);
+    setTimeout(nav, 2000);
   };
   const handleSubmit = () => {
     if (verifyTgvNumber(tgv_number) && verifyDescription(description)) {
@@ -111,10 +111,10 @@ const Voyageurs = () => {
   return (
     <div className="voyageurs-container">
       <Header
-        backCss="backVoyageurs"
         profileCss="profileVoyageurs"
         loginCss="loginVoyageurs"
         adminOffCss="adminOffVoyageurs"
+        logoutCss="logoutVoyageurs"
       />
 
       <form className="voyageursField-container">

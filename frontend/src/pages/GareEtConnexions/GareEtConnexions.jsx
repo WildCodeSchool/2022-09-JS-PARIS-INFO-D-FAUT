@@ -89,7 +89,7 @@ const GareEtConnexions = () => {
   };
 
   const duration = () => {
-    setTimeout(nav, 3000);
+    setTimeout(nav, 2000);
   };
 
   const handleSubmit = () => {
@@ -107,10 +107,10 @@ const GareEtConnexions = () => {
   return (
     <div className="station-container">
       <Header
-        backCss="backGare"
         profileCss="profileGare"
         loginCss="loginGare"
         adminOffCss="adminOffGare"
+        logoutCss="logoutGare"
       />
       <form className="stationField-container">
         <h1 className="h1Animation">GARE & CONNEXIONS</h1>

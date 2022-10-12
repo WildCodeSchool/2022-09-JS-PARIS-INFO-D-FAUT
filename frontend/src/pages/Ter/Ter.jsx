@@ -22,7 +22,7 @@ const Ter = () => {
   const latitudeDefault = geolocation.latitude;
   const longitudeDefault = geolocation.longitude;
 
-  const [ter_number, setTerNumber] = useState(0);
+  const [ter_number, setTerNumber] = useState();
   const [description, setDescription] = useState("");
   const [picture, setPicture] = useState("");
   const [latitude, setLatitude] = useState(latitudeDefault);
@@ -94,7 +94,7 @@ const Ter = () => {
   };
 
   const duration = () => {
-    setTimeout(nav, 3000);
+    setTimeout(nav, 2000);
   };
 
   const handleSubmit = () => {
@@ -112,10 +112,10 @@ const Ter = () => {
   return (
     <div className="ter-container">
       <Header
-        backCss="backTer"
         profileCss="profileTer"
         loginCss="loginTer"
         adminOffCss="adminOffTer"
+        logoutCss="logoutTer"
       />
 
       <form className="terField-container">

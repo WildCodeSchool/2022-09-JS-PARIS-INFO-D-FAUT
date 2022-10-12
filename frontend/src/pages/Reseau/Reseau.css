@@ -9,7 +9,8 @@
 
 .profileReseau,
 .loginReseau,
-.adminOffReseau {
+.adminOffReseau,
+.logoutReseau {
   display: none;
 }
 

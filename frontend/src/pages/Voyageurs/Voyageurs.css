@@ -9,7 +9,8 @@
 
 .profileVoyageurs,
 .loginVoyageurs,
-.adminOffVoyageurs {
+.adminOffVoyageurs,
+.logoutVoyageurs {
   display: none;
 }
 

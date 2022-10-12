@@ -11,6 +11,9 @@ export const getDefaults = (setState) => {
 
     .then((data) => {
       setState(data.result);
+    })
+    .catch((error) => {
+      console.warn(error);
     });
 };
 
@@ -24,6 +27,9 @@ export const getAllDefaultsUser = (id_user, setState) => {
     .then((response) => response.data)
     .then((data) => {
       setState(data);
+    })
+    .catch((error) => {
+      console.warn(error);
     });
 };
 
@@ -36,6 +42,9 @@ export const getDefaultView = (id_default, setState) => {
     .then((response) => response.data)
     .then((data) => {
       setState(data);
+    })
+    .catch((error) => {
+      console.warn(error);
     });
 };
 
@@ -46,7 +55,10 @@ export const postDefaults = (data) => {
 
   axios
     .post(`http://localhost:5000/defaults`, data, config)
-    .then((response) => response.data);
+    .then((response) => response.data)
+    .catch((error) => {
+      console.warn(error);
+    });
 };
 
 export const deleteDefaults = (id_default) => {
@@ -55,7 +67,10 @@ export const deleteDefaults = (id_default) => {
   const config = { headers: { Authorization: `Bearer ${token}` } };
   axios
     .delete(`http://localhost:5000/defaults/${id_default}`, config)
-    .then((response) => response.data);
+    .then((response) => response.data)
+    .catch((error) => {
+      console.warn(error);
+    });
 };
 
 export const updateDefault = (id_default, data) => {
@@ -64,5 +79,8 @@ export const updateDefault = (id_default, data) => {
   const config = { headers: { Authorization: `Bearer ${token}` } };
   axios
     .put(`http://localhost:5000/defaults/${id_default}`, data, config)
-    .then((response) => response.data);
+    .then((response) => response.data)
+    .catch((error) => {
+      console.warn(error);
+    });
 };

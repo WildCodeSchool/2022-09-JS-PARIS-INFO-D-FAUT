@@ -22,7 +22,7 @@ const Reseau = () => {
   const latitudeDefault = geolocation.latitude;
   const longitudeDefault = geolocation.longitude;
 
-  const [railway_track_number, setRailwayNumber] = useState(0);
+  const [railway_track_number, setRailwayNumber] = useState();
   const [description, setDescription] = useState("");
   const [picture, setPicture] = useState("");
   const [latitude, setLatitude] = useState(latitudeDefault);
@@ -93,7 +93,7 @@ const Reseau = () => {
   };
 
   const duration = () => {
-    setTimeout(nav, 3000);
+    setTimeout(nav, 2000);
   };
 
   const handleSubmit = () => {
@@ -111,10 +111,10 @@ const Reseau = () => {
   return (
     <div className="reseau-container">
       <Header
-        backCss="backReseau"
         profileCss="profileReseau"
         loginCss="loginReseau"
         adminOffCss="adminOffReseau"
+        logoutCss="logoutReseau"
       />
 
       <form className="reseauField-container">
@@ -126,7 +126,7 @@ const Reseau = () => {
             value={railway_track_number}
             forId="ligne"
             type="number"
-            field="Numéro de ligne / Emprise *"
+            field="Numéro de ligne *"
           />
           <p className="fieldFalse">
             {railwayRegex === false

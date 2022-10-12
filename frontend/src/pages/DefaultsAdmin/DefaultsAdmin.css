@@ -16,7 +16,8 @@
 }
 
 .profileDefaultsAdmin,
-.loginDefaultsAdmin {
+.loginDefaultsAdmin,
+.logoutDefaultsAdmin {
   display: none;
 }
 
