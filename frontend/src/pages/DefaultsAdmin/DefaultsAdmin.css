@@ -29,3 +29,8 @@
   gap: 50px;
   overflow: auto;
 }
+@media (min-width: 900px) {
+ .defaults-display {    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: minmax(auto, auto);}
+}
