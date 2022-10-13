@@ -123,7 +123,7 @@ const UpdateDefaultUser = () => {
             value={railway_track_number}
             forId="ligne"
             type="number"
-            field="Numéro de ligne / Emprise *"
+            field="Numéro de ligne *"
           />
         </div>
         <div className="inputUpdateDefaultUserOne">

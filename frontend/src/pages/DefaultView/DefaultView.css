@@ -41,6 +41,7 @@ button.update-defaultView {
   background-color: #00112b;
   margin-top: 10px;
   margin-bottom: 10px;
+  height: auto;
 }
 
 .profileDefaultViewUser,
@@ -129,10 +130,7 @@ button.update-defaultView {
     width: 100%;
     height: 100%;
   }
-  /* .defaultView-field-container img:focus {
-    width: 80%;
-    height: 90%;
-  } */
+
   .defaultView-field-container button {
     grid-area: button;
     width: 60%;
