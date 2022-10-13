@@ -233,7 +233,7 @@ const CreateUser = () => {
           </div>
         </form>
 
-        <Footer />
+        <Footer legalCss="legalOffProfile" />
       </div>
     </div>
   );

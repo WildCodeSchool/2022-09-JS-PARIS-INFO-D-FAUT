@@ -5,7 +5,7 @@ import emergency from "../../assets/logo-emergency.png";
 import connect from "../../assets/logo-connect.png";
 import legal from "../../assets/logo-legal.png";
 
-export const Footer = () => {
+export const Footer = ({ legalCss }) => {
   const navigate = useNavigate();
 
   const handleClick = () => {
@@ -24,7 +24,7 @@ export const Footer = () => {
         onKeyPress={handleClick}
         tabIndex="0"
       >
-        <img className="legal" src={legal} alt="mention legal" />
+        <img className={`legal ${legalCss}`} src={legal} alt="mention legal" />
       </div>
 
       <a href="https://www.sncf-connect.com/">

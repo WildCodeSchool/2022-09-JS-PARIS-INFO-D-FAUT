@@ -1,12 +1,20 @@
+.regulation-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .legal-container {
   background-color: #00112b;
   color: #ffff;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  overflow-y: scroll;
   width: 100%;
-  height: 400%;
+  height: 100%;
 }
 
 .profileRegulation,

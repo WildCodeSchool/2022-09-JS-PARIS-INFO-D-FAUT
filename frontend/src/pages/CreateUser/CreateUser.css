@@ -18,7 +18,8 @@
 .profileProfile,
 .adminOnProfile,
 .logoutProfile,
-.adminOffProfile {
+.adminOffProfile,
+.legalOffProfile {
   display: none;
 }
 
