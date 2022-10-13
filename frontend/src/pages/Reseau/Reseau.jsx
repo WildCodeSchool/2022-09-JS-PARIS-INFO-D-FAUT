@@ -22,7 +22,7 @@ const Reseau = () => {
   const latitudeDefault = geolocation.latitude;
   const longitudeDefault = geolocation.longitude;
 
-  const [railway_track_number, setRailwayNumber] = useState();
+  const [railway_track_number, setRailwayNumber] = useState("");
   const [description, setDescription] = useState("");
   const [picture, setPicture] = useState("");
   const [latitude, setLatitude] = useState(latitudeDefault);
@@ -93,15 +93,12 @@ const Reseau = () => {
   };
 
   const duration = () => {
-    setTimeout(nav, 2000);
+    setTimeout(nav, 1000);
   };
 
   const handleSubmit = () => {
     if (verifyRailway(railway_track_number) && verifyDescription(description)) {
       postDefaults(data);
-      setRailwayNumber(0);
-      setDescription("");
-      setPicture("");
       setImage(null);
       alertSuccess();
       duration();

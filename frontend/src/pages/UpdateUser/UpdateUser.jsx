@@ -109,10 +109,6 @@ const UpdateUser = () => {
     navigate("/");
   };
 
-  const durationNav = () => {
-    setTimeout(nav, 2000);
-  };
-
   const logout = async () => {
     const token = localStorage.getItem("token");
 
@@ -131,8 +127,8 @@ const UpdateUser = () => {
     localStorage.removeItem("token");
   };
 
-  const duration = () => {
-    setTimeout(logout, 4000);
+  const durationNav = () => {
+    setTimeout(logout, 1000);
   };
 
   const handleSubmit = () => {

@@ -89,15 +89,12 @@ const GareEtConnexions = () => {
   };
 
   const duration = () => {
-    setTimeout(nav, 2000);
+    setTimeout(nav, 1000);
   };
 
   const handleSubmit = () => {
     if (verifyStation(station) && verifyDescription(description)) {
       postDefaults(data);
-      setStation("");
-      setDescription("");
-      setPicture("");
       setImage(null);
       alertSuccess();
       duration();

@@ -222,8 +222,11 @@ const CreateUser = () => {
             />
             <p className="fieldFalse">
               {success === true
-                ? "🏆 Votre profil a bien été créé ! 😀 🏆 Vous pouvez maintenant vous connecter"
+                ? "🏆 Votre profil a bien été créé ! 😀 🏆"
                 : ""}
+            </p>
+            <p className="fieldFalse">
+              {success === true ? "Vous pouvez maintenant vous connecter" : ""}
             </p>
             <p className="fieldFalse">
               {errorConnect === true
