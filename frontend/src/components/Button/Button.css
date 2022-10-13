@@ -8,15 +8,15 @@ button {
   cursor: pointer;
   font-size: small;
   transition-duration: 0.5s;
-  height: 4.5vh;
-  width: 10rem;
+  width: 10em;
   border-radius: 20px;
+  padding: 5px;
 }
+
 button:hover {
   background-color: rgb(205, 0, 55);
   color: white;
-  height: 6vh;
-  width: 12rem;
+  width: 12em;
 }
 
 .label-text {

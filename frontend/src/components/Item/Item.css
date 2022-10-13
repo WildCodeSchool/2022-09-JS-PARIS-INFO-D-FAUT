@@ -17,6 +17,7 @@
     height: 230px;
   }
 }
+
 @media (min-width: 968px) {
   .item {
     height: 22vh;

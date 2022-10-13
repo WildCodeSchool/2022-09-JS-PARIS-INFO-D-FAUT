@@ -32,7 +32,7 @@ const DefaultsAdmin = () => {
       <div className="defaults-display">
         {problems &&
           (problems.length === 0 ? (
-            <>
+            <div className="defaultAdminEmpty">
               <h1> Pas de défaut posté à ce jour</h1>
               <Button
                 name="home"
@@ -41,7 +41,7 @@ const DefaultsAdmin = () => {
                 type="button"
                 onClick={(e) => nav(e)}
               />
-            </>
+            </div>
           ) : (
             <>
               {problems.map((problem) => (

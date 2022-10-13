@@ -35,13 +35,12 @@
   font-size: 2.5vh;
 }
 
-button.update-defaultView {
+.update-defaultView {
   color: white;
   border: 0.1rem solid black;
   background-color: #00112b;
   margin-top: 10px;
   margin-bottom: 10px;
-  height: auto;
 }
 
 .profileDefaultViewUser,
@@ -84,15 +83,10 @@ button.update-defaultView {
     border-radius: 20px;
     border: 0.3rem solid #cd0037;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 0.1fr;
-    grid-template-areas:
-      "title title"
-      "items image"
-      "items image"
-      "description image"
-      "treatment image"
-      "geolocation Button";
+    display: grid;
+    grid-template-columns: 45% 10% 45%;
+    grid-template-rows: 15% 35% 35%;
+    align-items: center;
     gap: 30px;
     flex-direction: unset;
     justify-content: unset;

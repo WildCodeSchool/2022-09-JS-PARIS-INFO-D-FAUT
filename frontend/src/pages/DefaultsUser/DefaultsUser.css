@@ -36,6 +36,7 @@
   justify-content: center;
   margin: 15px;
 }
+
 .delete-button-defaultUser {
   color: rgb(213, 43, 30);
   font-weight: bold;
@@ -44,6 +45,7 @@
   width: 8rem;
   margin: 5px;
 }
+
 .delete-button-defaultUser:hover {
   background-color: rgb(213, 43, 30);
   color: white;
@@ -58,6 +60,7 @@
   height: 1.5em;
   width: 8rem;
 }
+
 .update-button-defaultsUser:hover {
   background-color: rgb(255, 182, 18);
   color: white;
@@ -73,16 +76,27 @@
     grid-template-columns: repeat(2, 1fr);
     grid-auto-rows: minmax(auto, auto);
     background-color: rgb(0, 17, 43);
-    overflow: scroll;
-    gap: 20px;
+    overflow-y: scroll;
+    gap: 22px;
     padding-top: 10px;
     padding-bottom: 10px;
   }
 }
+
 @media (min-width: 968px) {
   .problem-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: minmax(auto, auto);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .defaultUserEmpty{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 22px;
   }
 }

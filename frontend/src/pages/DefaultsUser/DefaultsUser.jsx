@@ -35,7 +35,7 @@ const DefaultsUser = () => {
       <div className="problem-container">
         {problems &&
           (problems.length === 0 ? (
-            <>
+            <div className="defaultUserEmpty">
               <h1> Vous n'avez pas encore posté de défaut</h1>
               <Button
                 name="home"
@@ -44,7 +44,7 @@ const DefaultsUser = () => {
                 type="button"
                 onClick={(e) => nav(e)}
               />
-            </>
+            </div>
           ) : (
             <>
               {problems.map((problem) => (
