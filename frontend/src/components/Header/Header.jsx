@@ -80,7 +80,6 @@ export const Header = ({
             alt="logo login"
           />
         </Link>
-        {/* <Link to="/"> */}
         <div role="button" onClick={logout} onKeyPress={logout} tabIndex="0">
           <img
             className={`logout ${logoutCss}`}
@@ -88,7 +87,6 @@ export const Header = ({
             alt="logo logout"
           />
         </div>
-        {/* </Link> */}
       </div>
     </header>
   );

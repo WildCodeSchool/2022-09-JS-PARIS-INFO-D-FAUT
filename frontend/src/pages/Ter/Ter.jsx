@@ -22,7 +22,7 @@ const Ter = () => {
   const latitudeDefault = geolocation.latitude;
   const longitudeDefault = geolocation.longitude;
 
-  const [ter_number, setTerNumber] = useState();
+  const [ter_number, setTerNumber] = useState("");
   const [description, setDescription] = useState("");
   const [picture, setPicture] = useState("");
   const [latitude, setLatitude] = useState(latitudeDefault);
@@ -94,15 +94,12 @@ const Ter = () => {
   };
 
   const duration = () => {
-    setTimeout(nav, 2000);
+    setTimeout(nav, 1000);
   };
 
   const handleSubmit = () => {
     if (verifyTerNumber(ter_number) && verifyDescription(description)) {
       postDefaults(data);
-      setTerNumber(0);
-      setDescription("");
-      setPicture("");
       setImage(null);
       alertSuccess();
       duration();
@@ -128,7 +125,7 @@ const Ter = () => {
             forId="ter"
             type="number"
             field="Numéro de Ter *"
-          />{" "}
+          />
           <p className="fieldFalse">
             {terRegex === false ? "Veuillez indiquer le TER concerné" : ""}
           </p>
@@ -140,7 +137,7 @@ const Ter = () => {
             value={description}
             forId="field"
             type="text"
-          />{" "}
+          />
           <p className="fieldFalse">
             {descriptionRegex === false ? "Veuillez décrire le défaut" : ""}
           </p>
@@ -198,7 +195,7 @@ const Ter = () => {
             onClick={(e) => handleSubmit(e)}
             fieldButton="ENVOYER"
             type="button"
-          />{" "}
+          />
           <p className="fieldFalse">
             {success === true
               ? "🏆 Votre défaut a bien été enregistré ! 😀 🏆"

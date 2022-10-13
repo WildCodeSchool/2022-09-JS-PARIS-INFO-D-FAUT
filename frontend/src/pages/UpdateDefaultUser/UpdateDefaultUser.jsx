@@ -72,7 +72,7 @@ const UpdateDefaultUser = () => {
   };
 
   const duration = () => {
-    setTimeout(nav, 2000);
+    setTimeout(nav, 1000);
   };
 
   const data = {
@@ -105,7 +105,7 @@ const UpdateDefaultUser = () => {
               station === null ? "stationUpdateOff" : "stationUpdateOn"
             }
             onChange={(e) => setStation(e.target.value)}
-            value={station}
+            value={station === null ? "" : station}
             forId="gare"
             type="text"
             field="Gare concernée *"
@@ -120,7 +120,7 @@ const UpdateDefaultUser = () => {
               railway_track_number === null ? "trackUpdateOff" : "trackUpdateOn"
             }
             onChange={(e) => setRailwayNumber(e.target.value)}
-            value={railway_track_number}
+            value={railway_track_number === null ? "" : railway_track_number}
             forId="ligne"
             type="number"
             field="Numéro de ligne *"
@@ -131,7 +131,7 @@ const UpdateDefaultUser = () => {
             labelCss={ter_number === null ? "terUpdateOff" : "terUpdateOn"}
             className={ter_number === null ? "terUpdateOff" : "terUpdateOn"}
             onChange={(e) => setTerNumber(e.target.value)}
-            value={ter_number}
+            value={ter_number === null ? "" : ter_number}
             forId="ter"
             type="number"
             field="Numéro de TER *"
@@ -142,7 +142,7 @@ const UpdateDefaultUser = () => {
             labelCss={tgv_number === null ? "tgvUpdateOff" : "tgvUpdateOn"}
             className={tgv_number === null ? "tgvUpdateOff" : "tgvUpdateOn"}
             onChange={(e) => setTgvNumber(e.target.value)}
-            value={tgv_number}
+            value={tgv_number === null ? "" : tgv_number}
             forId="tgv"
             type="number"
             field="Numéro du TGV *"
@@ -221,12 +221,6 @@ const UpdateDefaultUser = () => {
               updateDefault(
                 id_default,
                 data,
-                setStation("gare :"),
-                setRailwayNumber(0),
-                setTerNumber(0),
-                setTgvNumber(0),
-                setDescription("Description"),
-                setPicture(""),
                 setImage(null),
                 alertSuccess(),
                 duration(),

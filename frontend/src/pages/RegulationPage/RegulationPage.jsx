@@ -4,7 +4,7 @@ import "./RegulationPage.css";
 
 const RegulationPage = () => {
   return (
-    <div>
+    <div className="regulation-container">
       <Header
         backCss="backRegulation"
         profileCss="profileRegulation"

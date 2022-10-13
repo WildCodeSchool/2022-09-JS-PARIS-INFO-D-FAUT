@@ -138,7 +138,7 @@ const Login = () => {
           </Link>
         </div>
       </div>
-      <Footer />
+      <Footer legalCss="legalOffLogin" />
     </div>
   );
 };
