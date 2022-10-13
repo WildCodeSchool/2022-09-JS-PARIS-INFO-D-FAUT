@@ -16,15 +16,17 @@
 }
 
 .defaultView-field-container {
+  overflow-y: scroll;
   width: 80%;
   height: 90%;
   background-color: white;
   border-radius: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   border: 0.3rem solid rgb(213, 43, 30);
+  padding-bottom: 10px;
 }
 
 .titlesView {
@@ -37,8 +39,10 @@
 .imgGrid {
   display: flex;
   justify-content: center;
-  width: 40%;
-  height: 35%;
+}
+
+.imageViewOn {
+  width: 50%;
 }
 
 .update-defaultView {

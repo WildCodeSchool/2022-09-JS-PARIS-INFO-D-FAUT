@@ -50,7 +50,6 @@
 
 .defaultCard-container ul li {
   text-align: center;
-  width: 100%;
   margin: 5px;
 }
 
@@ -71,6 +70,10 @@
 .imageDefaultCardOff,
 .geolocDefaultCardOff {
   display: none;
+}
+
+.descriptionDefaultCard {
+  width: 90%;
 }
 
 .imageDefaultCardOn {

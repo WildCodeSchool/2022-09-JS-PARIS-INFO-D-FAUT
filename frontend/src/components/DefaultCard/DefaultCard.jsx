@@ -58,7 +58,7 @@ export const DefaultCard = ({
         >
           Numéro de ligne: {track}
         </li>
-        <li>Description: {description}</li>
+        <li className="descriptionDefaultCard">Description: {description}</li>
         <li
           className={
             image === "" ? "imageDefaultCardOff" : "imageDefaultCardOn"

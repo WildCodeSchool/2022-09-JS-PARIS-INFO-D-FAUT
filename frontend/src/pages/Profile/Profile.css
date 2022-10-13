@@ -24,7 +24,6 @@
   flex-direction: column;
   justify-content: space-around;
   border: 0.3rem solid #cd0037;
-  gap: 20px;
 }
 .profileFlex h1 {
   margin-top: 20px;
