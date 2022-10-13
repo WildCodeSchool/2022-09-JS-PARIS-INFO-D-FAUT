@@ -38,35 +38,39 @@ const DefaultView = () => {
                 className="defaultView-field-container"
                 key={items.id_default}
               >
-                <h1> VOTRE DECLARATION </h1>
+                <h1 className="titleDefaultView"> VOTRE DECLARATION </h1>
                 <h2
                   className={
                     items.station === null
                       ? "stationViewOff"
-                      : "stationViewOn items"
+                      : "stationViewOn itemsView"
                   }
                 >
-                  <span className="titles">
+                  <span className="titlesView">
                     Gare : <br />
                   </span>
                   {items.station}
                 </h2>
                 <h2
                   className={
-                    items.ter_number === null ? "terViewOff" : "terViewOn items"
+                    items.ter_number === null
+                      ? "terViewOff"
+                      : "terViewOn itemsView"
                   }
                 >
-                  <span className="titles">
+                  <span className="titlesView">
                     TER : <br />
                   </span>
                   {items.ter_number}
                 </h2>
                 <h2
                   className={
-                    items.tgv_number === null ? "tgvViewOff" : "tgvViewOn items"
+                    items.tgv_number === null
+                      ? "tgvViewOff"
+                      : "tgvViewOn itemsView"
                   }
                 >
-                  <span className="titles">
+                  <span className="titlesView">
                     TGV : <br />
                   </span>
                   {items.tgv_number}
@@ -75,52 +79,56 @@ const DefaultView = () => {
                   className={
                     items.railway_track_number === null
                       ? "trackViewOff"
-                      : "trackViewOn items"
+                      : "trackViewOn itemsView"
                   }
                 >
-                  <span className="titles">
+                  <span className="titlesView">
                     Numéro de ligne : <br />
                   </span>
                   {items.railway_track_number}
                 </h2>
-                <p className="textDefaultView">
-                  <span className="titles Description">
+                <p className="textDefaultView descriptionView">
+                  <span className="titlesView">
                     Description : <br />
                   </span>
                   {items.description}
                 </p>
-                <img
-                  className={
-                    items.picture === "" ? "imageViewOff" : "imageViewOn"
-                  }
-                  src={items.picture}
-                  alt="image"
-                />
+                <div className="imgGrid">
+                  <img
+                    className={
+                      items.picture === "" ? "imageViewOff" : "imageViewOn"
+                    }
+                    src={items.picture}
+                    alt="image"
+                  />
+                </div>
                 <p
                   className={
                     items.latitude === null
                       ? "geolocViewOff"
-                      : "geolocViewOn geolocation"
+                      : "geolocViewOn geolocationView"
                   }
                 >
-                  <span className="titles">
+                  <span className="titlesView">
                     Géolocalisation : <br />
                   </span>
                   {items.latitude}, {items.longitude}
                 </p>
 
-                <p className="textDefaultView treatment">
-                  <span className="titles">
+                <p className="textDefaultView treatmentView">
+                  <span className="titlesView">
                     Traitement : <br />
                   </span>
                   {items.treatment}
                 </p>
-                <Button
-                  classButton="update-defaultView"
-                  fieldButton="CONTINUER LA MODIFICATION"
-                  type="button"
-                  onClick={handleUpdate}
-                />
+                <div className="buttonGrid">
+                  <Button
+                    classButton="update-defaultView"
+                    fieldButton="CONTINUER LA MODIFICATION"
+                    type="button"
+                    onClick={handleUpdate}
+                  />
+                </div>
               </div>
             ))}
           </>

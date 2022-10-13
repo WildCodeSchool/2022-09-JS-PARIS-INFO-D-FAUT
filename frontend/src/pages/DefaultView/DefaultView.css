@@ -8,50 +8,49 @@
 }
 
 .defaultViewCard-container {
+  width: 100%;
+  height: 100%;
   display: flex;
+  align-items: center;
   justify-content: center;
 }
 
 .defaultView-field-container {
   width: 80%;
+  height: 90%;
   background-color: white;
   border-radius: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-  border: 0.3rem solid #cd0037;
-  gap: 20px;
+  border: 0.3rem solid rgb(213, 43, 30);
 }
-.defaultView-field-container h2 {
-  color: black;
-}
-.defaultView-field-container span {
+
+.titlesView {
   color: #6e1e78;
   font-weight: bolder;
   font-style: italic;
-}
-.titles {
   font-size: 2.5vh;
+}
+
+.imgGrid {
+  display: flex;
+  justify-content: center;
+  width: 40%;
+  height: 35%;
 }
 
 .update-defaultView {
   color: white;
-  border: 0.1rem solid black;
   background-color: #00112b;
-  margin-top: 10px;
-  margin-bottom: 10px;
 }
 
+.adminOffDefaultViewUser,
 .profileDefaultViewUser,
 .loginDefaultViewUser,
-.adminOffDefaultViewUser,
 .logoutDefaultViewUser {
   display: none;
-}
-
-.imageViewOn {
-  width: 30%;
 }
 
 .stationViewOff,
@@ -64,72 +63,60 @@
 }
 
 .textDefaultView,
+.itemsView,
 .geolocViewOn {
+  width: 95%;
   color: rgb(0, 17, 43);
   font-size: 15px;
   font-weight: bold;
-  width: 80%;
 }
 
-@media screen and (min-width: 767px) {
-  .defaultView-field-container {
-    gap: 10px;
-  }
-}
 @media screen and (min-width: 900px) {
   .defaultView-field-container {
-    width: 80%;
-    background-color: white;
-    border-radius: 20px;
-    border: 0.3rem solid #cd0037;
     display: grid;
-    display: grid;
-    grid-template-columns: 45% 10% 45%;
-    grid-template-rows: 15% 35% 35%;
-    align-items: center;
-    gap: 30px;
-    flex-direction: unset;
-    justify-content: unset;
-    align-items: unset;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 20% 20% 30%;
   }
 
-  .items {
-    grid-area: items;
-  }
-  .description {
-    grid-area: description;
-  }
-  .geolocation {
-    grid-area: geolocation;
-  }
-  .treatment {
-    grid-area: treatment;
+  .titleDefaultView {
+    grid-column: 1/3;
+    grid-row: 1;
   }
 
-  .titles {
-    font-size: 4vh;
+  .itemsView {
+    grid-column: 1/2;
+    grid-row: 2;
   }
-  .defaultView-field-container h1 {
-    grid-area: title;
-    font-size: 4.5vh;
-    animation: none;
+
+  .descriptionView {
+    grid-column: 1;
+    grid-row: 3;
   }
-  .defaultView-field-container h2,
-  .defaultView-field-container p {
-    font-size: 2.5vh;
-    text-align: justify;
+
+  .geolocationView {
+    grid-column: 1;
+    grid-row: 4;
   }
-  .defaultView-field-container img {
-    grid-area: image;
+
+  .treatmentView {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .buttonGrid {
+    grid-column: 2;
+    grid-row: 4;
+  }
+
+  .imgGrid {
+    grid-column: 2;
+    grid-row: 3;
     width: 100%;
     height: 100%;
   }
 
-  .defaultView-field-container button {
-    grid-area: button;
-    width: 60%;
+  .imageViewOn {
+    max-width: 100%;
+    max-height: 100%;
   }
-}
-.defaultViewCard-container {
-  height: 70%;
 }

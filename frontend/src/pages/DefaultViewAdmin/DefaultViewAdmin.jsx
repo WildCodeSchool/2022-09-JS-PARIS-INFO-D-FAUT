@@ -24,10 +24,10 @@ const DefaultViewAdmin = () => {
   return (
     <div className="defaultViewAdmin-container">
       <Header
-        profileCss="profileUpdateDefaultsViewAdmin"
-        loginCss="loginUpdateDefaultsViewAdmin"
-        adminOffCss="adminOffUpdateDefaultsViewAdmin"
-        logoutCss="logoutUpdateDefaultsViewAdmin"
+        profileCss="profileDefaultsViewAdmin"
+        loginCss="loginDefaultsViewAdmin"
+        adminOffCss="adminOffDefaultsViewAdmin"
+        logoutCss="logoutDefaultsViewAdmin"
       />
       <div className="defaultViewAdminCard-container">
         {defaut && (
@@ -37,15 +37,17 @@ const DefaultViewAdmin = () => {
                 className="defaultViewAdmin-field-container"
                 key={items.id_default}
               >
-                <h1> Vérification du défaut :</h1>
+                <h1 className="titleDefaultViewAdmin">
+                  Vérification du défaut :
+                </h1>
                 <h2
                   className={
                     items.station === null
                       ? "stationViewAdminOff"
-                      : "stationViewAdminOn items"
+                      : "stationViewAdminOn itemsAdmin"
                   }
                 >
-                  <span className="titles">
+                  <span className="titlesAdmin">
                     Gare: <br />
                   </span>
                   {items.station}
@@ -54,10 +56,10 @@ const DefaultViewAdmin = () => {
                   className={
                     items.ter_number === null
                       ? "terViewAdminOff"
-                      : "terViewAdminOn items"
+                      : "terViewAdminOn itemsAdmin"
                   }
                 >
-                  <span className="titles">
+                  <span className="titlesAdmin">
                     TER : <br />
                   </span>
                   {items.ter_number}
@@ -66,10 +68,10 @@ const DefaultViewAdmin = () => {
                   className={
                     items.tgv_number === null
                       ? "tgvViewAdminOff"
-                      : "tgvViewAdminOn items"
+                      : "tgvViewAdminOn itemsAdmin"
                   }
                 >
-                  <span className="titles">
+                  <span className="titlesAdmin">
                     TGV : <br />
                   </span>
                   {items.tgv_number}
@@ -78,53 +80,57 @@ const DefaultViewAdmin = () => {
                   className={
                     items.railway_track_number === null
                       ? "trackViewAdminOff"
-                      : "trackViewAdminOn items"
+                      : "trackViewAdminOn itemsAdmin"
                   }
                 >
-                  <span className="titles">
+                  <span className="titlesAdmin">
                     Numéro de ligne : <br />
                   </span>
                   {items.railway_track_number}
                 </h2>
-                <p className="textDefaultViewAdmin">
-                  <span className="titles Description">
+                <p className="textDefaultViewAdmin descriptionGridAdmin">
+                  <span className="titlesAdmin">
                     Description : <br />
                   </span>
                   {items.description}
                 </p>
-                <img
-                  className={
-                    items.picture === ""
-                      ? "imageViewAdminOff"
-                      : "imageViewAdminOn"
-                  }
-                  src={items.picture}
-                  alt="image"
-                />
+                <div className="imgGridAdmin">
+                  <img
+                    className={
+                      items.picture === ""
+                        ? "imageViewAdminOff"
+                        : "imageViewAdminOn"
+                    }
+                    src={items.picture}
+                    alt="image"
+                  />
+                </div>
                 <p
                   className={
                     items.latitude === null
                       ? "geolocViewAdminOff"
-                      : "geolocViewAdminOn geolocation"
+                      : "geolocViewAdminOn geolocationGridAdmin "
                   }
                 >
-                  <span className="titles">
+                  <span className="titlesAdmin">
                     Géolocalisation : <br />
                   </span>
                   {items.latitude}, {items.longitude}
                 </p>
-                <p className="textDefaultViewAdmin treatment">
-                  <span className="titles">
+                <p className="textDefaultViewAdmin treatmentGridAdmin">
+                  <span className="titlesAdmin">
                     Traitement : <br />
                   </span>
                   {items.treatment}
                 </p>
-                <Button
-                  classButton="update-state"
-                  fieldButton="CONTINUER LA MODIFICATION"
-                  type="button"
-                  onClick={handleUpdate}
-                />
+                <div className="buttonGridAdmin">
+                  <Button
+                    classButton="update-stateAdmin"
+                    fieldButton="CONTINUER LA MODIFICATION"
+                    type="button"
+                    onClick={handleUpdate}
+                  />
+                </div>
               </div>
             ))}
           </>

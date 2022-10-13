@@ -16,7 +16,7 @@ export const Button = ({
         {label}
       </label>
       <button
-        className={classButton}
+        className={`buttonComponent ${classButton}`}
         disabled={disabled}
         id={name}
         onClick={onClick}

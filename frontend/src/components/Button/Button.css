@@ -4,7 +4,7 @@
   align-items: center;
 }
 
-button {
+.buttonComponent {
   cursor: pointer;
   font-size: small;
   transition-duration: 0.5s;
@@ -13,7 +13,7 @@ button {
   padding: 5px;
 }
 
-button:hover {
+.buttonComponent:hover {
   background-color: rgb(205, 0, 55);
   color: white;
   width: 12em;

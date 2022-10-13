@@ -8,54 +8,49 @@
 }
 
 .defaultViewAdminCard-container {
+  width: 100%;
+  height: 100%;
   display: flex;
+  align-items: center;
   justify-content: center;
 }
 
 .defaultViewAdmin-field-container {
   width: 80%;
+  height: 90%;
   background-color: white;
   border-radius: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-  border: 0.3rem solid #cd0037;
-  gap: 20px;
+  border: 0.3rem solid rgb(213, 43, 30);
 }
 
-.defaultViewAdmin-field-container h2 {
-  color: black;
-}
-
-.defaultViewAdmin-field-container span {
+.titlesAdmin {
   color: #6e1e78;
   font-weight: bolder;
   font-style: italic;
-}
-
-.titles {
   font-size: 2.5vh;
 }
 
-.update-state {
+.imgGridAdmin {
+  display: flex;
+  justify-content: center;
+  width: 40%;
+  height: 35%;
+}
+
+.update-stateAdmin {
   color: white;
-  border: 0.1rem solid black;
   background-color: #00112b;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  height: auto;
 }
 
-.adminOffUpdateDefaultsViewAdmin,
-.profileUpdateDefaultsViewAdmin,
-.loginUpdateDefaultsViewAdmin,
-.logoutUpdateDefaultsViewAdmin {
+.adminOffDefaultsViewAdmin,
+.profileDefaultsViewAdmin,
+.loginDefaultsViewAdmin,
+.logoutDefaultsViewAdmin {
   display: none;
-}
-
-.imageViewAdminOn {
-  width: 30%;
 }
 
 .stationViewAdminOff,
@@ -68,86 +63,59 @@
 }
 
 .textDefaultViewAdmin,
-.stationViewAdminOn,
-.terViewAdminOn,
-.tgvViewAdminOn,
-.trackViewAdminOn,
-.imageViewAdminOn,
+.itemsAdmin,
 .geolocViewAdminOn {
   color: rgb(0, 17, 43);
   font-size: 15px;
   font-weight: bold;
 }
 
-@media screen and (min-width: 767px) {
-  .defaultViewAdmin-field-container {
-    gap: 10px;
-  }
-}
-
 @media screen and (min-width: 900px) {
   .defaultViewAdmin-field-container {
-    width: 80%;
-    background-color: white;
-    border-radius: 20px;
-    border: 0.3rem solid #cd0037;
     display: grid;
-    grid-template-columns: 45% 10% 45%;
-    grid-template-rows: 15% 35% 35%;
-    align-items: center;
-    gap: 30px;
-    flex-direction: unset;
-    justify-content: unset;
-    align-items: unset;
-    padding: 5px;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 20% 20% 30%;
   }
 
-  .Items {
-    grid-column: 1/4;
-    grid-row: 1;
-  }
-  .Description {
-    grid-column: 1/4;
-    grid-row: 1;
-  }
-  .Geolocation {
-    grid-column: 1/4;
-    grid-row: 1;
-  }
-  .Treatment {
-    grid-column: 1/4;
+  .titleDefaultViewAdmin {
+    grid-column: 1/3;
     grid-row: 1;
   }
 
-  .titles {
-    font-size: 4vh;
-    grid-column: 1/4;
-    grid-row: 1;
+  .itemsAdmin {
+    grid-column: 1/2;
+    grid-row: 2;
   }
-  .defaultViewAdmin-field-container h1 {
-    grid-column: 1/4;
-    grid-row: 1;
-    font-size: 4.5vh;
-    animation: none;
+
+  .descriptionGridAdmin {
+    grid-column: 1;
+    grid-row: 3;
   }
-  .defaultViewAdmin-field-container h2,
-  .defaultViewAdmin-field-container p {
-    font-size: 2.5vh;
-    text-align: justify;
+
+  .geolocationGridAdmin {
+    grid-column: 1;
+    grid-row: 4;
   }
-  .defaultViewAdmin-field-container img {
-    grid-column: 1/4;
-    grid-row: 1;
+
+  .treatmentGridAdmin {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .buttonGridAdmin {
+    grid-column: 2;
+    grid-row: 4;
+  }
+
+  .imgGridAdmin {
+    grid-column: 2;
+    grid-row: 3;
     width: 100%;
     height: 100%;
   }
 
-  .defaultViewAdmin-field-container button {
-    grid-column: 1/4;
-    grid-row: 1;
-    width: 60%;
+  .imageViewAdminOn {
+    max-width: 100%;
+    max-height: 100%;
   }
-}
-.defaultViewAdminCard-container {
-  height: 70%;
 }

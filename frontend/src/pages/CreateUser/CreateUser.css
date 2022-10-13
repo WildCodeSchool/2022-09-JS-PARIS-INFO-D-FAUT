@@ -48,7 +48,6 @@
   .profileField-container {
     display: grid;
     grid-template-columns: 35% 25% 35%;
-    grid-template-rows: 15% 20% 30%;
     grid-template-rows: 15% 25% 25%;
     align-items: center;
   }
