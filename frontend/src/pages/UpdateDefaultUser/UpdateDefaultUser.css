@@ -23,7 +23,7 @@
   align-items: center;
   justify-content: center;
   overflow: auto;
-  gap: 10px;
+  gap: 15px;
   justify-content: space-around;
 }
 
@@ -41,19 +41,23 @@
 .imgUpdate {
   width: 30%;
 }
+
 @media (min-width: 900px) {
   .inputUpdateImage {
     width: auto;
     display: flex;
     justify-content: center;
   }
+
   .textUpdateDescription {
     height: 28vh;
     width: 400px;
   }
+
   .latitudeLongitude {
     justify-content: space-evenly;
   }
+
   .updateDefaultUser_field-container {
     display: grid;
     grid-template-columns: 43% 10% 43%;
@@ -61,12 +65,14 @@
     align-items: center;
     justify-content: center;
   }
+
   .h1Animation {
     grid-column: 1/4;
     grid-row: 1;
     animation: scale-in-ver-bottom 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)
       1.9s both;
   }
+
   .inputUpdateDefaultUserOne {
     grid-column: 1;
     grid-row: 2;
@@ -74,24 +80,28 @@
     justify-content: center;
     animation: slide-in-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s both;
   }
+
   .inputUpdateDefaultUserTwo {
     grid-column: 1;
     grid-row: 3/5;
     align-items: center;
     animation: slide-in-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.6s both;
   }
+
   .inputUpdateDefaultUserThree {
     grid-column: 3;
     grid-row: 2;
     animation: slide-in-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s
       both;
   }
+
   .inputUpdateDefaultUserFour {
     grid-column: 3;
     grid-row: 3;
     animation: slide-in-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.6s
       both;
   }
+
   .pictureUpdateDefaultUser {
     grid-column: 3;
     grid-row: 4;
@@ -101,6 +111,7 @@
     animation: slide-in-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.6s
       both;
   }
+
   .latitudeLongitude {
     grid-column: 3;
     grid-row: 5;
@@ -132,6 +143,7 @@
       opacity: 1;
     }
   }
+
   @keyframes scale-in-ver-center {
     0% {
       -webkit-transform: scaleY(0);

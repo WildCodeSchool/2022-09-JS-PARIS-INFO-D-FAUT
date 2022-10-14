@@ -7,7 +7,7 @@
 }
 
 .userCard-container ul {
-  width: 80%;
+  width: 60%;
   height: 100%;
   border: 2px solid white;
   border-radius: 15px;
@@ -22,7 +22,17 @@
 }
 
 .userCard-container ul li {
-  color: black;
   margin: 5px;
   text-align: center;
+}
+
+.cpUserCard {
+  color: rgb(213, 43, 30);
+  font-weight: bold;
+}
+
+.spanUserCard {
+  color: #6e1e78;
+  font-weight: bold;
+  font-style: italic;
 }

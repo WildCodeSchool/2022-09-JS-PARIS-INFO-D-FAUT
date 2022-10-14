@@ -37,28 +37,32 @@ export const DefaultCard = ({
   return (
     <div className="defaultCard-container">
       <ul className={state(stateContainer)}>
-        <li>CP: {cp} </li>
+        <li className="cpDefaultCard">CP: {cp} </li>
         <li
           className={
             station === null ? "stationDefaultCardOff" : "stationDefaultCardOn"
           }
         >
-          Gare: {station}
+          <span className="spanDefaultCard">Gare:</span> <br /> {station}
         </li>
         <li className={tgv === null ? "tgvDefaultCardOff" : "tgvDefaultCardOn"}>
-          Numéro de TGV: {tgv}
+          <span className="spanDefaultCard">Numéro de TGV:</span> <br /> {tgv}
         </li>
         <li className={ter === null ? "terDefaultCardOff" : "terDefaultCardOn"}>
-          Numéro de TER: {ter}
+          <span className="spanDefaultCard">Numéro de TER:</span> <br /> {ter}
         </li>
         <li
           className={
             track === null ? "trackDefaultCardOff" : "trackDefaultCardOn"
           }
         >
-          Numéro de ligne: {track}
+          <span className="spanDefaultCard">Numéro de ligne:</span> <br />{" "}
+          {track}
         </li>
-        <li className="descriptionDefaultCard">Description: {description}</li>
+        <li className="descriptionDefaultCard">
+          <span className="spanDefaultCard">Description:</span> <br />
+          {description}
+        </li>
         <li
           className={
             image === "" ? "imageDefaultCardOff" : "imageDefaultCardOn"
@@ -78,9 +82,13 @@ export const DefaultCard = ({
             latitude === null ? "geolocDefaultCardOff" : "geolocDefaultCardOn"
           }
         >
-          Géolocalisation: {latitude}, {longitude}
+          <span className="spanDefaultCard">Géolocalisation:</span> <br />
+          {latitude}, {longitude}
         </li>
-        <li>Traitement: {traitement}</li>
+        <li>
+          <span className="spanDefaultCard">Traitement:</span> <br />
+          {traitement}
+        </li>
       </ul>
       <div>
         {zoom ? (

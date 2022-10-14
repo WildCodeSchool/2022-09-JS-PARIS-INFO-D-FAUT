@@ -1,10 +1,16 @@
-.defaults-container {
+.defaultsAdmin-container {
   width: 100vw;
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   background-color: rgb(0, 17, 43);
+}
+
+.profileDefaultsAdmin,
+.loginDefaultsAdmin,
+.logoutDefaultsAdmin {
+  display: none;
 }
 
 .backDefaultsAdmin {
@@ -15,45 +21,64 @@
   transition-duration: 0.5s;
 }
 
-.profileDefaultsAdmin,
-.loginDefaultsAdmin,
-.logoutDefaultsAdmin {
-  display: none;
-}
-
-.defaults-display {
+.defaults-displayOn,
+.defaults-displayOff {
+  width: 100%;
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  gap: 50px;
-  overflow: auto;
+  overflow-y: scroll;
+  gap: 22px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
-.delete-button-defaultAdmin {
-  margin-top: 5px;
-  margin-bottom: 5px;
-  color: rgba(205, 0, 55);
+.defaultAdminEmpty {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
 }
 
-.update-button-defaultAdmin {
-  color: rgba(205, 0, 55);
+.delete-button-defaultsAdmin {
+  color: rgb(213, 43, 30);
+  font-weight: bold;
+  border-radius: 20px;
+  height: 1.5em;
+  width: 8rem;
+  margin: 5px;
 }
 
-@media (min-width: 900px) {
-  .defaults-display {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-  }
+.delete-button-defaultsAdmin:hover {
+  background-color: rgb(213, 43, 30);
+  color: white;
+  height: 1.5em;
+  width: 10rem;
+}
 
-  .defaultAdminEmpty {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 22px;
+.update-button-defaultsAdmin {
+  color: rgb(213, 43, 30);
+  font-weight: bold;
+  border-radius: 20px;
+  height: 1.5em;
+  width: 8rem;
+  margin: 5px;
+}
+
+.update-button-defaultsAdmin:hover {
+  background-color: rgb(255, 182, 18);
+  color: white;
+  height: 1.5em;
+  width: 10rem;
+}
+
+@media (min-width: 768px) {
+  .defaults-displayOn {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: minmax(auto, auto);
   }
 }

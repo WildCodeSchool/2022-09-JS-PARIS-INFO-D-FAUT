@@ -16,8 +16,7 @@
 }
 
 .defaultViewAdmin-field-container {
-  overflow-y: scroll;
-  width: 80%;
+  width: 90%;
   height: 90%;
   background-color: white;
   border-radius: 20px;
@@ -34,6 +33,11 @@
   font-weight: bolder;
   font-style: italic;
   font-size: 2.5vh;
+}
+
+.descriptionGridAdmin {
+  height: 30%;
+  overflow-y: scroll;
 }
 
 .imgGridAdmin {
@@ -94,6 +98,7 @@
   .descriptionGridAdmin {
     grid-column: 1;
     grid-row: 3;
+    height: 100%;
   }
 
   .geolocationGridAdmin {

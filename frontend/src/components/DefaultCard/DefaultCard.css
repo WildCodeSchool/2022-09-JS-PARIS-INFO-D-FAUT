@@ -7,7 +7,7 @@
 }
 
 .nontraité-container {
-  width: 60%;
+  width: 70%;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -18,6 +18,7 @@
   background-color: rgb(215, 215, 215);
   border-radius: 15px;
   list-style: none;
+  gap: 5px;
 }
 
 .encours-container {
@@ -72,8 +73,20 @@
   display: none;
 }
 
+.cpDefaultCard {
+  color: rgb(213, 43, 30);
+  font-weight: bold;
+}
+
+.spanDefaultCard {
+  color: #6e1e78;
+  font-weight: bold;
+  font-style: italic;
+}
+
 .descriptionDefaultCard {
   width: 90%;
+  /* overflow-y: scroll; */
 }
 
 .imageDefaultCardOn {
