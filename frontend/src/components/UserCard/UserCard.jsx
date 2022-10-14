@@ -12,7 +12,11 @@ export const UserCard = ({ id_user, cp, mail, phone_number }) => {
         <li>
           <span className="spanUserCard">adresse mail:</span> {mail}{" "}
         </li>
-        <li>
+        <li
+          className={
+            phone_number === "" ? "phoneUserCardOff" : "phoneUserCardOn"
+          }
+        >
           <span className="spanUserCard">numéro de téléphone:</span>{" "}
           {phone_number}
         </li>

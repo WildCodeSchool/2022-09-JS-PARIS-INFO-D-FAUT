@@ -19,6 +19,7 @@
   background-color: white;
   border: 0.3rem solid #cd0037;
   gap: 20px;
+  padding-bottom: 5px;
 }
 
 .userCard-container ul li {
@@ -35,4 +36,8 @@
   color: #6e1e78;
   font-weight: bold;
   font-style: italic;
+}
+
+.phoneUserCardOff {
+  display: none;
 }
