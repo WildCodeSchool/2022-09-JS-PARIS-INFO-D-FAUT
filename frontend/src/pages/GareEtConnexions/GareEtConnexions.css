@@ -79,7 +79,8 @@ h2 {
   justify-content: space-around;
 }
 
-.pictureStationOff {
+.pictureStationOff,
+.loadingStationOff {
   display: none;
 }
 
@@ -88,41 +89,34 @@ h2 {
   width: 100%;
   justify-content: center;
 }
+
 .inputLatitudeLongitude {
   text-align: center;
 }
-.pictureDefault {
+
+.pictureDefaultStation {
   height: 15%;
   display: flex;
   justify-content: center;
   width: 100%;
 }
-@media (min-width: 768px) {
-  .inputStation {
-    width: 300px;
-    height: 35px;
-  }
-}
-.pictureStationPopup {
-  width: 90%;
-}
-.sendStation {
-  color: rgb(205, 0, 55);
-  font-weight: bold;
-}
+
 @media (min-width: 900px) {
   .inputStationImg {
     width: auto;
     display: flex;
     justify-content: center;
   }
+
   .textStation {
     height: 28vh;
     width: 400px;
   }
+
   .latitudeLongitude {
     justify-content: space-evenly;
   }
+
   .stationField-container {
     display: grid;
     grid-template-columns: 43% 10% 43%;
@@ -130,12 +124,14 @@ h2 {
     align-items: center;
     justify-content: center;
   }
+
   .h1Animation {
     grid-column: 1/4;
     grid-row: 1;
     animation: scale-in-ver-bottom 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)
       1.9s both;
   }
+
   .inputStationOne {
     grid-column: 1;
     grid-row: 2;
@@ -143,25 +139,29 @@ h2 {
     justify-content: center;
     animation: slide-in-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s both;
   }
+
   .inputStationTwo {
     grid-column: 1;
     grid-row: 3/5;
     align-items: center;
     animation: slide-in-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.6s both;
   }
+
   .inputStationThree {
     grid-column: 3;
     grid-row: 2;
     animation: slide-in-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s
       both;
   }
+
   .inputStationFour {
     grid-column: 3;
     grid-row: 3;
     animation: slide-in-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.6s
       both;
   }
-  .pictureDefault {
+
+  .pictureDefaultStation {
     grid-column: 3;
     grid-row: 4;
     height: 80%;
@@ -170,6 +170,7 @@ h2 {
     animation: slide-in-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.6s
       both;
   }
+
   .latitudeLongitude {
     grid-column: 3;
     grid-row: 5;
@@ -179,7 +180,7 @@ h2 {
   }
 
   .inputStationFive {
-    grid-column: 2;
+    grid-column: 1/4;
     grid-row: 6;
     animation: scale-in-ver-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.9s
       both;

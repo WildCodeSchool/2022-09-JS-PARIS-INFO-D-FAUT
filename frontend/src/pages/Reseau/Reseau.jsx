@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { uploadFile } from "../../services/Firebase/firebase";
 import "./Reseau.css";
 import { postDefaults } from "../../services/axios/AxiosDefaults";
+import loading from "../../assets/chargement-en-cours.gif";
 import {
   Footer,
   Header,
@@ -33,12 +34,15 @@ const Reseau = () => {
   const [railwayRegex, setRailwayRegex] = useState(true);
   const [descriptionRegex, setDescriptionRegex] = useState(true);
   const [success, setSuccess] = useState(false);
+  const [load, setLoad] = useState(false);
 
   const handleUpload = async (e) => {
     e.preventDefault();
     try {
+      setLoad(true);
       const result = await uploadFile(image);
       setPicture(result);
+      setLoad(false);
     } catch (error) {
       console.error(error);
     }
@@ -162,7 +166,12 @@ const Reseau = () => {
             fieldButton="Télécharger"
           />
         </div>
-        <div className="pictureDefault">
+        <div className="pictureDefaultReseau">
+          <img
+            className={load === true ? "loadingReseauOn" : "loadingReseauOff"}
+            src={loading}
+            alt="chargement"
+          />
           <img
             className={picture !== "" ? "pictureReseauOn" : "pictureReseauOff "}
             src={picture}

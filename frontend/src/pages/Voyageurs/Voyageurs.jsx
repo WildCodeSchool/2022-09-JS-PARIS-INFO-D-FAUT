@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { uploadFile } from "../../services/Firebase/firebase";
 import "./Voyageurs.css";
 import { postDefaults } from "../../services/axios/AxiosDefaults";
+import loading from "../../assets/chargement-en-cours.gif";
 import {
   Footer,
   Header,
@@ -33,12 +34,15 @@ const Voyageurs = () => {
   const [tgvRegex, setTgvRegex] = useState(true);
   const [descriptionRegex, setDescriptionRegex] = useState(true);
   const [success, setSuccess] = useState(false);
+  const [load, setLoad] = useState(false);
 
   const handleUpload = async (e) => {
     e.preventDefault();
     try {
+      setLoad(true);
       const result = await uploadFile(image);
       setPicture(result);
+      setLoad(false);
     } catch (error) {
       console.error(error);
     }
@@ -160,7 +164,12 @@ const Voyageurs = () => {
             fieldButton="Télécharger"
           />
         </div>
-        <div className="pictureDefault">
+        <div className="pictureDefaultTgv">
+          <img
+            className={load === true ? "loadingTgvOn" : "loadingTgvOff"}
+            src={loading}
+            alt="chargement"
+          />
           <img
             className={picture !== "" ? "pictureTgvOn" : "pictureTgvOff "}
             src={picture}

@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { uploadFile } from "../../services/Firebase/firebase";
 import "./UpdateDefaultUser.css";
 import { updateDefault } from "../../services/axios/AxiosDefaults";
+import loading from "../../assets/chargement-en-cours.gif";
 import {
   Input,
   Button,
@@ -43,12 +44,15 @@ const UpdateDefaultUser = () => {
   const [image, setImage] = useState(null);
 
   const [success, setSuccess] = useState(false);
+  const [load, setLoad] = useState(false);
 
   const handleUpload = async (e) => {
     e.preventDefault();
     try {
+      setLoad(true);
       const result = await uploadFile(image);
       setPicture(result);
+      setLoad(false);
     } catch (error) {
       console.error(error);
     }
@@ -157,7 +161,12 @@ const UpdateDefaultUser = () => {
             type="text"
           />
         </div>
-        <div className="pictureDefault">
+        <div className="pictureUpdateDefaultUser">
+          <img
+            className={load === true ? "loadingUpdateOn" : "loadingUpdateOff"}
+            src={loading}
+            alt="chargement"
+          />
           <img
             className={picture === "" ? "pictureUpdateOff" : "pictureUpdateOn"}
             src={image === null ? defaut[0].picture : picture}

@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { uploadFile } from "../../services/Firebase/firebase";
 import "./GareEtConnexions.css";
 import { postDefaults } from "../../services/axios/AxiosDefaults";
+import loading from "../../assets/chargement-en-cours.gif";
 import {
   Footer,
   Header,
@@ -33,12 +34,15 @@ const GareEtConnexions = () => {
   const [stationRegex, setStationRegex] = useState(true);
   const [descriptionRegex, setDescriptionRegex] = useState(true);
   const [success, setSuccess] = useState(false);
+  const [load, setLoad] = useState(false);
 
   const handleUpload = async (e) => {
     e.preventDefault();
     try {
+      setLoad(true);
       const result = await uploadFile(image);
       setPicture(result);
+      setLoad(false);
     } catch (error) {
       console.error(error);
     }
@@ -155,7 +159,12 @@ const GareEtConnexions = () => {
             fieldButton="Télécharger"
           />
         </div>
-        <div className="pictureDefault">
+        <div className="pictureDefaultStation">
+          <img
+            className={load === true ? "loadingStationOn" : "loadingStationOff"}
+            src={loading}
+            alt="chargement"
+          />
           <img
             className={
               picture !== "" ? "pictureStationOn" : "pictureStationOff "
@@ -192,7 +201,7 @@ const GareEtConnexions = () => {
             onClick={(e) => handleSubmit(e)}
             fieldButton="ENVOYER"
             type="button"
-          />{" "}
+          />
           <p className="fieldFalse">
             {success === true
               ? "🏆 Votre défaut a bien été enregistré ! 😀 🏆"

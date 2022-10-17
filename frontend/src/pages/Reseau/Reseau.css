@@ -35,27 +35,38 @@
   border-radius: 20px;
 }
 
+.pictureDefaultReseau {
+  height: 15%;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
 .pictureReseauOn {
   height: 100%;
 }
 
-.pictureReseauOff {
+.pictureReseauOff,
+.loadingReseauOff {
   display: none;
 }
 
 .pictureReseauPopup {
   width: 90%;
 }
+
 .sendReseau {
   color: rgb(205, 0, 55);
   font-weight: bold;
 }
+
 @media (min-width: 900px) {
   .inputReseauImg {
     width: auto;
     display: flex;
     justify-content: center;
   }
+
   .textReseau {
     height: 28vh;
     width: 400px;
@@ -68,12 +79,14 @@
     align-items: center;
     justify-content: center;
   }
+
   .h1Animation {
     grid-column: 1/4;
     grid-row: 1;
     animation: scale-in-ver-bottom 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)
       1.9s both;
   }
+
   .inputReseauOne {
     grid-column: 1;
     grid-row: 2;
@@ -81,25 +94,29 @@
     justify-content: center;
     animation: slide-in-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s both;
   }
+
   .inputReseauTwo {
     grid-column: 1;
     grid-row: 3/5;
     align-items: center;
     animation: slide-in-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.6s both;
   }
+
   .inputReseauThree {
     grid-column: 3;
     grid-row: 2;
     animation: slide-in-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s
       both;
   }
+
   .inputReseauFour {
     grid-column: 3;
     grid-row: 3;
     animation: slide-in-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.6s
       both;
   }
-  .pictureDefault {
+
+  .pictureDefaultReseau {
     grid-column: 3;
     grid-row: 4;
     height: 80%;
@@ -108,6 +125,7 @@
     animation: slide-in-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.6s
       both;
   }
+
   .latitudeLongitude {
     justify-content: space-evenly;
     grid-column: 3;
@@ -118,11 +136,12 @@
   }
 
   .inputReseauFive {
-    grid-column: 2;
+    grid-column: 1/4;
     grid-row: 6;
     animation: scale-in-ver-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.9s
       both;
   }
+
   .lineVoyageurs {
     grid-column: 2;
     grid-row: 2/5;
@@ -133,6 +152,7 @@
     animation: scale-in-ver-center 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)
       1.2s both;
   }
+
   @keyframes scale-in-ver-bottom {
     0% {
       -webkit-transform: scaleY(0);
@@ -149,6 +169,7 @@
       opacity: 1;
     }
   }
+
   @keyframes scale-in-ver-center {
     0% {
       -webkit-transform: scaleY(0);
@@ -162,6 +183,7 @@
     }
   }
 }
+
 @keyframes scale-in-ver-top {
   0% {
     -webkit-transform: scaleY(0);
@@ -178,6 +200,7 @@
     opacity: 1;
   }
 }
+
 @keyframes slide-in-right {
   0% {
     -webkit-transform: translateX(1000px);
