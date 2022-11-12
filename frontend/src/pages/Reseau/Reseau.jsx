@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { uploadFile } from "../../services/Firebase/firebase";
 import "./Reseau.css";
-import { postDefaults } from "../../services/axios/AxiosDefaults";
+import { postDefaults, postEmail } from "../../services/axios/AxiosDefaults";
 import loading from "../../assets/chargement-en-cours.gif";
 import {
   Footer,
@@ -103,6 +103,7 @@ const Reseau = () => {
   const handleSubmit = () => {
     if (verifyRailway(railway_track_number) && verifyDescription(description)) {
       postDefaults(data);
+      postEmail();
       setImage(null);
       alertSuccess();
       duration();

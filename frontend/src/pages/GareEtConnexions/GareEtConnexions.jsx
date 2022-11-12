@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { uploadFile } from "../../services/Firebase/firebase";
 import "./GareEtConnexions.css";
-import { postDefaults } from "../../services/axios/AxiosDefaults";
+import { postDefaults, postEmail } from "../../services/axios/AxiosDefaults";
 import loading from "../../assets/chargement-en-cours.gif";
 import {
   Footer,
@@ -51,16 +51,20 @@ const GareEtConnexions = () => {
   const nav = () => {
     navigate(`/home/${cp}`);
   };
+
   const [zoom, setZoom] = useState(false);
   const handleClickOpen = () => {
     setZoom(!zoom);
   };
+
   const onKeyPressHandler = () => {
     setZoom(false);
   };
+
   const closePopup = () => {
     setZoom(false);
   };
+
   const data = {
     user_id,
     station,
@@ -99,6 +103,7 @@ const GareEtConnexions = () => {
   const handleSubmit = () => {
     if (verifyStation(station) && verifyDescription(description)) {
       postDefaults(data);
+      postEmail();
       setImage(null);
       alertSuccess();
       duration();

@@ -84,3 +84,14 @@ export const updateDefault = (id_default, data) => {
       console.warn(error);
     });
 };
+
+export const postEmail = () => {
+  const token = localStorage.getItem("token");
+  const config = { headers: { Authorization: `Bearer ${token}` } };
+  axios
+    .post(`http://localhost:5000/remit`, {}, config)
+    .then((response) => response.data)
+    .catch((error) => {
+      console.warn(error);
+    });
+};
