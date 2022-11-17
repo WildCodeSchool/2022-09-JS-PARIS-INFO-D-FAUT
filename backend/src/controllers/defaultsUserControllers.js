@@ -1,4 +1,4 @@
-const { sqlDb } = require("../../db");
+const { sqlDb } = require("../models/db");
 
 const getAllDefaultsUser = (req, res) => {
   const user_id = parseInt(req.params.user_id);

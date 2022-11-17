@@ -1,4 +1,4 @@
-const { sqlDb } = require("../../db");
+const { sqlDb } = require("../models/db");
 
 const getDefaults = (req, res) => {
   sqlDb

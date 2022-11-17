@@ -255,6 +255,11 @@ const UpdateUser = () => {
           <p className="fieldFalse">
             {success === true ? "Veuillez vous reconnecter, merci." : ""}
           </p>
+          <p className="fieldFalse">
+            {errorConnect === true
+              ? "Le numero de CP ou le mail existe déja"
+              : ""}
+          </p>
         </div>
       </form>
       <Footer />
