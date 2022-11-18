@@ -2,11 +2,11 @@ const express = require("express");
 
 const router = express.Router();
 
-const defaultsControllers = require("./controllers/defaultsControllers");
-const defaultsUserControllers = require("./controllers/defaultsUserControllers");
-const usersControllers = require("./controllers/usersControllers");
-const mailControllers = require("./controllers/mailControllers");
-const auth = require("./middleware/auth");
+const defaultsControllers = require("../controllers/defaultsControllers");
+const defaultsUserControllers = require("../controllers/defaultsUserControllers");
+const usersControllers = require("../controllers/usersControllers");
+const mailControllers = require("../controllers/mailControllers");
+const auth = require("../middleware/auth");
 
 // public route
 router.post("/createUser", auth.hashPassword, usersControllers.postCreateUser);
