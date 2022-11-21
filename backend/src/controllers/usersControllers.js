@@ -29,12 +29,12 @@ const postCreateUser = (req, res) => {
 
 const updateUsers = (req, res) => {
   const id_user = parseInt(req.params.id_user);
-  const { cp, mail, admin, phone_number, hashedPassword } = req.body;
+  const { cp, mail, phone_number, hashedPassword } = req.body;
 
   sqlDb
     .query(
-      "update users set cp = ?, mail = ?, admin = ?, phone_number = ?, hashedPassword = ? where id_user = ?",
-      [cp, mail, admin, phone_number, hashedPassword, id_user]
+      "update users set cp = ?, mail = ?, phone_number = ?, hashedPassword = ? where id_user = ?",
+      [cp, mail, phone_number, hashedPassword, id_user]
     )
     .then(([result]) => {
       if (result.affectedRows === 0) {
