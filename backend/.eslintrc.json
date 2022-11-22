@@ -9,6 +9,7 @@
     "sourceType": "module"
   },
   "rules": {
+    "no-useless-escape": "off",
     "import/no-extraneous-dependencies": [0],
     "prefer-destructuring": [0],
     "import/no-unresolved": [0],

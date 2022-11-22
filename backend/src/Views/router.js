@@ -7,9 +7,15 @@ const defaultsUserControllers = require("../controllers/defaultsUserControllers"
 const usersControllers = require("../controllers/usersControllers");
 const mailControllers = require("../controllers/mailControllers");
 const auth = require("../middleware/auth");
+const validators = require("../middleware/validators");
 
 // public route
-router.post("/createUser", auth.hashPassword, usersControllers.postCreateUser);
+router.post(
+  "/createUser",
+  validators.validateUser,
+  auth.hashPassword,
+  usersControllers.postCreateUser
+);
 
 router.post("/login", usersControllers.login, auth.verifyPassword);
 
@@ -29,7 +35,12 @@ router.get(
 router.put("/defaults/:id_default", defaultsControllers.updateDefault);
 router.delete("/defaults/:id_default", defaultsControllers.deleteDefaults);
 
-router.put("/users/:id_user", auth.hashPassword, usersControllers.updateUsers);
+router.put(
+  "/users/:id_user",
+  validators.validateUser,
+  auth.hashPassword,
+  usersControllers.updateUsers
+);
 
 router.get("/users", usersControllers.getUsers);
 router.delete("/users/:id_user", usersControllers.deleteUsers);
