@@ -17,8 +17,8 @@ async function email(req, res) {
 
   try {
     await transporter.sendMail({
-      from: "info défaut <marion.chateau@sncf.fr>",
-      to: "marion.chateau@sncf.fr",
+      from: "info défaut <mchateau3003@gmail.com>",
+      to: "mchateau3003@gmail.com",
       subject: "Un nouveau défaut",
       text: "Info défaut",
       html: `<b>Un nouveau défaut à été posté</b>`,
